@@ -14,16 +14,18 @@ typedef struct {
 } Step;
 
 int main() {
-	/*// Simulation parameters
-	size_t N  = 10;
+	// Simulation parameters
+	size_t N  = 1000;
 	size_t Na = 1000;
 	size_t Nc = 1500;
 	double Fc = 0.997;
 	double kB= 15.0;
 
+	size_t size = sizeof(size_t)*8;
+
 	// Bitsets
-	Bitset Nbit(N);
-	size_t n = Nbit.getSize();
+	Bitset Nbit(size, N);
+	size_t n = Nbit.getRelevant();
 
 	vector<Step> steps;
 	Step step = {0, 0, 0, 0};
@@ -55,13 +57,13 @@ int main() {
 	size_t complianceNew = 0;
 	size_t complianceTarget = Nbit.quadraticCompliance(Nbit);
 
-	Bitset A;
-	Bitset B;
-	Bitset Anew;
-	Bitset Bnew;
-	Bitset prod(n, true);
+	Bitset A(size);
+	Bitset B(size);
+	Bitset Anew(size);
+	Bitset Bnew(size);
+	Bitset prod(size, n);
 
-	mt19937_64 gen;
+	mt19937 gen;
 	uniform_int_distribution<short> choiceDist(0, 1);
 	uniform_real_distribution<double> acceptDist(0.0, 1.0);
 
@@ -83,20 +85,19 @@ int main() {
 		}
 		if(steps[i].a1 != a1_cur) {
 			a1_cur = steps[i].a1;
-			A.makeRandom(a1_cur, gen);
+			A.makeRandom(a_cur, a1_cur, gen);
 			Anew = A;
 		}
 		if(steps[i].b1 != b1_cur) {
 			b1_cur = steps[i].b1;
-			B.makeRandom(b1_cur, gen);
+			B.makeRandom(b_cur, b1_cur, gen);
 			Anew = A;
 		}
 
-		prod = Bitset(A.toSizeT()*B.toSizeT());
+		prod = Bitset(size, A.toSizeT()*B.toSizeT());
 		compliance = prod.quadraticCompliance(Nbit);
 
 		if(compliance == complianceTarget) {
-			cout << Nbit << " " << prod << endl;
 			cout << A.toSizeT() << " " << B.toSizeT() << endl;
 			return EXIT_SUCCESS;
 		}
@@ -120,7 +121,7 @@ int main() {
 					cout << A.toSizeT() << " " << B.toSizeT() << endl;
 					return EXIT_SUCCESS;
 				}
-				prod = Bitset(Anumber*Bnumber);
+				prod = Bitset(size, Anumber*Bnumber);
 				complianceNew = prod.quadraticCompliance(Nbit);
 				if(complianceNew > compliance) {
 					A = Anew;
@@ -142,5 +143,5 @@ int main() {
 		}
 	}
 
-	return 0;*/
+	return 0;
 }

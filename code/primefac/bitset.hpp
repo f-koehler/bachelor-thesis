@@ -9,7 +9,7 @@
 namespace primefac
 {
 
-	typedef std::mt19937_64 Prng;
+	typedef std::mt19937 Prng;
 	
 	class Bitset
 	{
@@ -39,6 +39,10 @@ namespace primefac
 			std::size_t toSizeT() const;
 			std::size_t linearCompliance(const Bitset& bits) const;
 			std::size_t quadraticCompliance(const Bitset& bits) const;
+			std::size_t maxLinearCompliance() const;
+			std::size_t maxQuadraticCompliance() const;
+
+			double estimateKb() const;
 
 			bool& operator[](std::size_t index);
 			const bool& operator[](std::size_t index) const;

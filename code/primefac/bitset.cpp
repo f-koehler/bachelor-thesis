@@ -192,26 +192,6 @@ namespace primefac {
 	}
 	std::size_t Bitset::linearCompliance(const Bitset& bits) const
 	{
-		/*std::size_t len = bits.setSize;
-		if(setSize < len) {
-			len = setSize;
-		}
-
-		if(len == 1) {
-			return (std::size_t)(set[0] == bits.set[0]);
-		}
-
-		std::size_t comp = 0;
-		for(std::size_t i = len-1; i >= 1; i--) {
-			if(set[i] == bits.set[i]) {
-				comp += i+1;
-			}
-		}
-		if(set[0] == bits.set[0]) {
-			comp += 1;
-		}
-		return comp;*/
-
 		size_t comp = 0;
 		size_t len = (relevant < bits.relevant) ? relevant : bits.relevant;
 		for(size_t i = 0; i < len; i++) {
@@ -224,26 +204,6 @@ namespace primefac {
 	}
 	std::size_t Bitset::quadraticCompliance(const Bitset& bits) const
 	{
-		/*std::size_t len = bits.setSize;
-		if(setSize < len) {
-			len = setSize;
-		}
-
-		if(len == 1) {
-			return (std::size_t)(set[0] == bits.set[0]);
-		}
-
-		std::size_t comp = 0;
-		for(std::size_t i = len-1; i >= 1; i--) {
-			if(set[i] == bits.set[i]) {
-				comp += (i+1)*(i+1);
-			}
-		}
-		if(set[0] == bits.set[0]) {
-			comp += 1;
-		}
-		return comp;*/
-		
 		size_t comp = 0;
 		size_t len = (relevant < bits.relevant) ? relevant : bits.relevant;
 		for(size_t i = 0; i < len; i++) {
@@ -253,6 +213,19 @@ namespace primefac {
 		}
 
 		return comp;
+	}
+	std::size_t Bitset::maxLinearCompliance() const
+	{
+		return linearCompliance(*this);
+	}
+	std::size_t Bitset::maxQuadraticCompliance() const
+	{
+		return quadraticCompliance(*this);
+	}
+
+	double Bitset::estimateKb() const
+	{
+		// TODO
 	}
 
 	bool& Bitset::operator[](std::size_t index)
