@@ -10,7 +10,7 @@ namespace primefac {
 		if(val) {
 			relevant = setSize;
 		} else {
-			relevant = 0;
+			relevant = 1;
 		}
 
 		if(relevant <= 2) {
@@ -35,7 +35,7 @@ namespace primefac {
 			i++;
 		}
 
-		relevant = --i;
+		relevant = i;
 
 		if(relevant <= 2) {
 			indexDistribution = std::uniform_int_distribution<std::size_t>(0, 0);
@@ -85,16 +85,23 @@ namespace primefac {
 		}
 	}
 	
-	void Bitset::makeRandom(std::size_t numOnes, Prng& gen)
+	void Bitset::makeRandom(std::size_t numRelevant, std::size_t numOnes, Prng& gen)
 	{
+		relevant = numRelevant;
 		std::size_t i = 0;
 		for(i = 0; i < numOnes-1; i++) {
 			set[i] = true;
 		}
-		for(i = numOnes-1; i < relevant-1; i++) {
-			set[i] = false;
+		for(i = numOnes-1; i < numRelevant-1; i++) {
+			set[i] =false;
 		}
-		set[relevant-1] = true;
+		set[numRelevant-1] = true;
+
+		if(relevant <= 2) {
+			indexDistribution = std::uniform_int_distribution<std::size_t>(0, 0);
+		} else {
+			indexDistribution = std::uniform_int_distribution<std::size_t>(0, relevant-2);
+		}
 
 		for(i = 0; i < setSize-1; i++) {
 			swapBits(indexDistribution(gen), indexDistribution(gen));
@@ -163,6 +170,10 @@ namespace primefac {
 	{
 		return setSize;
 	}
+	std::size_t Bitset::getRelevant() const
+	{
+		return relevant;
+	}
 	std::size_t Bitset::toSizeT() const
 	{
 		if(setSize > sizeof(std::size_t)*8) {
@@ -202,7 +213,7 @@ namespace primefac {
 		return comp;*/
 
 		size_t comp = 0;
-		size_t len = (setSize < bits.setSize) ? setSize : bits.setSize;
+		size_t len = (relevant < bits.relevant) ? relevant : bits.relevant;
 		for(size_t i = 0; i < len; i++) {
 			if(set[i] == bits.set[i]) {
 				comp += i+1;
@@ -234,7 +245,7 @@ namespace primefac {
 		return comp;*/
 		
 		size_t comp = 0;
-		size_t len = (setSize < bits.setSize) ? setSize : bits.setSize;
+		size_t len = (relevant < bits.relevant) ? relevant : bits.relevant;
 		for(size_t i = 0; i < len; i++) {
 			if(set[i] == bits.set[i]) {
 				comp += (i+1)*(i+1);

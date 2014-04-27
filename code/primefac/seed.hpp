@@ -1,5 +1,5 @@
-#ifndef SEED_H_
-#define SEED_H_
+#ifndef SEED_HPP_
+#define SEED_HPP_
 
 #include <fstream>
 #include <random>
