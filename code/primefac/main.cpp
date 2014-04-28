@@ -92,7 +92,7 @@ int main() {
 			Anew = A;
 		}
 
-		prod = Bitset(size, A.toSizeT()*B.toSizeT());
+		A.multiply(B, prod);
 		compliance = prod.quadraticCompliance(Nbit);
 
 		if(compliance == complianceTarget) {
