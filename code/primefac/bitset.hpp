@@ -5,6 +5,7 @@
 #include <sstream>
 #include <vector>
 #include <random>
+#include <cstring>
 
 namespace primefac
 {
@@ -31,6 +32,7 @@ namespace primefac
 			void swapBits(std::size_t i, std::size_t j);
 			void reverseSequence(std::size_t start, std::size_t end);
 			void slideSequence(std::size_t start, std::size_t end);
+			void multiply(const Bitset& a, Bitset& result) const;
 
 			void randomOperation(Prng& gen);
 
@@ -42,12 +44,11 @@ namespace primefac
 			std::size_t maxLinearCompliance() const;
 			std::size_t maxQuadraticCompliance() const;
 
-			double estimateKb() const;
-
 			bool& operator[](std::size_t index);
 			const bool& operator[](std::size_t index) const;
 			Bitset& operator=(const Bitset& bits);
-			Bitset& operator<<(size_t n);
+			bool operator==(const Bitset& bits) const;
+			bool operator!=(const Bitset& bits) const;
 
 			friend std::ostream& operator<<(std::ostream& out, const Bitset& bits);
 	};

@@ -19,7 +19,7 @@ int main() {
 	size_t Na = 1000;
 	size_t Nc = 1500;
 	double Fc = 0.997;
-	double kB= 15.0;
+	double kB = 10.0;
 
 	size_t size = sizeof(size_t)*8;
 

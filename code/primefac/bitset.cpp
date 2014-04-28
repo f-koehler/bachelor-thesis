@@ -139,6 +139,45 @@ namespace primefac {
 		}
 		set[end] = tmp;
 	}
+	void Bitset::multiply(const Bitset& a, Bitset& result) const
+	{
+		memset((void*)result.set, 0, result.setSize*sizeof(bool));
+
+		bool overhead = false;
+		std::size_t pos = 0;
+		for(std::size_t i = 0; i < relevant; i++) {
+			for(std::size_t j = 0; j < a.relevant; j++) {
+				pos = i+j;	
+				if(set[i] && a.set[j]) {
+					if(result.set[pos]) {
+						result.set[pos] = false;
+						overhead = true;
+					} else {
+						result.set[pos] = true;
+						overhead = false;
+					}
+				}
+
+				while(overhead) {
+					pos++;
+
+					if(!result.set[pos]) {
+						result.set[pos] = true;
+						overhead = false;
+					} else {
+						result.set[pos] = false;
+					}
+				}
+			}
+		}
+
+		pos = relevant + a.relevant;
+		if(result.set[pos]) {
+			result.relevant = pos+1;
+		} else {
+			result.relevant = pos;
+		}
+	}
 	
 	void Bitset::randomOperation(Prng& gen)
 	{
@@ -223,11 +262,6 @@ namespace primefac {
 		return quadraticCompliance(*this);
 	}
 
-	double Bitset::estimateKb() const
-	{
-		// TODO
-	}
-
 	bool& Bitset::operator[](std::size_t index)
 	{
 		return set[index];
@@ -251,6 +285,34 @@ namespace primefac {
 		indexDistribution = bits.indexDistribution;
 
 		return *this;
+	}
+	bool Bitset::operator==(const Bitset& bits) const
+	{
+		if(relevant != bits.relevant) {
+			return false;
+		}
+
+		for(std::size_t i = 0; i < relevant; i++) {
+			if(set[i] != bits.set[i]) {
+				return false;
+			}
+		}
+
+		return true;
+	}
+	bool Bitset::operator!=(const Bitset& bits) const
+	{
+		if(relevant != bits.relevant) {
+			return true;
+		}
+		
+		for(std::size_t i = 0; i < relevant; i++) {
+			if(set[i] != bits.set[i]) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	std::ostream& operator<<(std::ostream& out, const Bitset& bits)

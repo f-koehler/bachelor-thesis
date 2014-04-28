@@ -18,6 +18,8 @@ namespace primefac
 			} Configuration;
 
 		private:
+			std::size_t threadId;
+
 			Configuration cfg;
 
 			std::size_t n;
