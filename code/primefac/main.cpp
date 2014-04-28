@@ -112,7 +112,7 @@ int main() {
 
 				Anew.multiply(Bnew, prod);
 
-				if(Nbit == prod) {
+				if(compliance == complianceTarget) {
 					cout << Nbit << " " << prod << endl;
 					cout << A.toSizeT() << " " << B.toSizeT() << endl;
 					return EXIT_SUCCESS;
