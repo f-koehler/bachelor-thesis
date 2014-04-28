@@ -95,7 +95,7 @@ int main() {
 		A.multiply(B, prod);
 		compliance = prod.quadraticCompliance(Nbit);
 
-		if(compliance == complianceTarget) {
+		if(A.toSizeT()*B.toSizeT() == N) {
 			cout << A.toSizeT() << " " << B.toSizeT() << endl;
 			return EXIT_SUCCESS;
 		}
@@ -112,9 +112,9 @@ int main() {
 
 				Anew.multiply(Bnew, prod);
 
-				if(compliance == complianceTarget) {
+				if(A.toSizeT()*B.toSizeT() == N) {
 					cout << Nbit << " " << prod << endl;
-					cout << A.toSizeT() << " " << B.toSizeT() << endl;
+					cout << Anew.toSizeT() << " " << Bnew.toSizeT() << endl;
 					return EXIT_SUCCESS;
 				}
 				complianceNew = prod.quadraticCompliance(Nbit);
