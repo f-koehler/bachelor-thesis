@@ -15,11 +15,11 @@ typedef struct {
 
 int main() {
 	// Simulation parameters
-	size_t N  = 1000;
-	size_t Na = 1000;
+	size_t N  = 100;
+	size_t Na = 100;
 	size_t Nc = 1500;
 	double Fc = 0.997;
-	double kB = 10.0;
+	double kB = 15.0;
 
 	size_t size = sizeof(size_t)*8;
 
@@ -67,8 +67,6 @@ int main() {
 	uniform_int_distribution<short> choiceDist(0, 1);
 	uniform_real_distribution<double> acceptDist(0.0, 1.0);
 
-	size_t Anumber = 0;
-	size_t Bnumber = 0;
 	size_t prodNumber = 0;
 
 	for(size_t i = 0; i < stepCount; i++) {
@@ -112,16 +110,13 @@ int main() {
 					Bnew.randomOperation(gen);
 				}
 
-				Anumber = Anew.toSizeT();
-				Bnumber = Bnew.toSizeT();
-				prodNumber = Anumber*Bnumber;
+				Anew.multiply(Bnew, prod);
 
-				if(prodNumber == N) {
+				if(Nbit == prod) {
 					cout << Nbit << " " << prod << endl;
 					cout << A.toSizeT() << " " << B.toSizeT() << endl;
 					return EXIT_SUCCESS;
 				}
-				prod = Bitset(size, Anumber*Bnumber);
 				complianceNew = prod.quadraticCompliance(Nbit);
 				if(complianceNew > compliance) {
 					A = Anew;
