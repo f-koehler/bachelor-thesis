@@ -8,17 +8,17 @@ using namespace std;
 
 int main() {
 	// Simulation parameters
-	size_t N  = 99999989237606677;;
-	size_t Na = 250;
+	size_t N  = 10;
+	size_t Na = 10000;
 	size_t Nc = 1450000;
 	double Fc = 0.997;
-	double kB = 63365;
-	size_t a = 29;
-	size_t b = 29;
-	size_t a1 = 12;
-	size_t b1 = 16;
+	double kB = 15;
+	size_t a = 2;
+	size_t b = 3;
+	size_t a1 = 1;
+	size_t b1 = 2;
 
-	size_t size = 59;
+	size_t size = 16;
 
 	// Bitsets
 	Bitset Nbit(size, N);
@@ -47,7 +47,7 @@ int main() {
 	T = 1.0;
 
 	for(size_t i = 0; i < Na; i++) {
-		cout << (double)i/(double)Na << "%" << endl;
+		cout << (double)i/(double)Na *100.0 << "%" << endl;
 		for(size_t j = 0; j < Nc; j++) {
 			if(choiceDist(gen)) {
 				Anew.randomOperation(gen);
