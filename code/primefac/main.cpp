@@ -15,8 +15,8 @@ typedef struct {
 
 int main() {
 	// Simulation parameters
-	size_t N  = 100;
-	size_t Na = 100;
+	size_t N  = 1000;
+	size_t Na = 1000;
 	size_t Nc = 1500;
 	double Fc = 0.997;
 	double kB = 15.0;
@@ -67,8 +67,6 @@ int main() {
 	uniform_int_distribution<short> choiceDist(0, 1);
 	uniform_real_distribution<double> acceptDist(0.0, 1.0);
 
-	size_t prodNumber = 0;
-
 	for(size_t i = 0; i < stepCount; i++) {
 		cout << steps[i].a << " " << steps[i].b << endl;
 		if(steps[i].a != a_cur) {
@@ -95,7 +93,8 @@ int main() {
 		A.multiply(B, prod);
 		compliance = prod.quadraticCompliance(Nbit);
 
-		if(A.toSizeT()*B.toSizeT() == N) {
+		if(prod == Nbit) {
+			cout << Nbit << " " << prod << endl;
 			cout << A.toSizeT() << " " << B.toSizeT() << endl;
 			return EXIT_SUCCESS;
 		}
@@ -112,7 +111,7 @@ int main() {
 
 				Anew.multiply(Bnew, prod);
 
-				if(A.toSizeT()*B.toSizeT() == N) {
+				if(prod == Nbit) {
 					cout << Nbit << " " << prod << endl;
 					cout << Anew.toSizeT() << " " << Bnew.toSizeT() << endl;
 					return EXIT_SUCCESS;
