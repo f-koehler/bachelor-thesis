@@ -8,3 +8,8 @@ add_executable(
 	primefac
 	main.cpp bitset.hpp bitset.cpp seed.hpp seed.cpp workerthread.hpp
 )
+
+add_executable(
+	semiprime
+	semiprime.cpp bitset.hpp bitset.cpp seed.hpp seed.cpp workerthread.hpp
+)
