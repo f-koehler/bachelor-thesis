@@ -171,12 +171,14 @@ namespace primefac {
 			}
 		}
 
-		pos = relevant + a.relevant;
-		if(result.set[pos]) {
-			result.relevant = pos+1;
-		} else {
-			result.relevant = pos;
+		std::size_t newRel = relevant+a.relevant;
+		if(!result.set[newRel-1]) {
+			newRel--;
 		}
+		if(!result.set[newRel-1]) {
+			newRel--;
+		}
+		result.relevant = newRel;
 	}
 	
 	void Bitset::randomOperation(Prng& gen)
