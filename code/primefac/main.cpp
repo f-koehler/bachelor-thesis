@@ -117,7 +117,7 @@ int main(int argc, char** argv)
 				for(size_t b1 = 1; b1 <= b; b1++) {
 
 					numSearched += 1.0;
-					cout << "a=" << a << " a1=" << a1 << " b=" << b1 << " b1=" << b1 << ":\t" << numSearched/searchSize << "%" << endl;
+					cout << "a=" << a << " a1=" << a1 << " b=" << b << " b1=" << b1 << ":\t" << numSearched/searchSize << "%" << endl;
 
 					B.makeRandom(b, b1, gen);
 					Bnew = B;

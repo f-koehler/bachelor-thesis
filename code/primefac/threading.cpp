@@ -54,7 +54,7 @@ namespace primefac
 
 				for(std::size_t b = n-a; b <= n-a+1; b++) {
 					for(std::size_t b1 = 1; b1 <= b; b1++) {
-						std::cout << "Thread " << config.threadId << ": "<< "a=" << a << " a1=" << a1 << " b=" << b1 << " b1=" << b1 << std::endl;
+						std::cout << "Thread " << config.threadId << ": "<< "a=" << a << " a1=" << a1 << " b=" << b << " b1=" << b1 << std::endl;
 
 						B.makeRandom(b, b1, gen);
 						Bnew = B;
