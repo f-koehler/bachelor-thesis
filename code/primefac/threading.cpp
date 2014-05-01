@@ -2,25 +2,29 @@
 
 namespace primefac
 {
-	PrimefacConfiguration* createPrimefacConfigurations(
-			std::size_t number, std::size_t numConfiguration,
+	std::vector<PrimefacConfiguration> createPrimefacConfigurations(
+			std::size_t number, std::size_t numConfigurations,
 			std::size_t numAnnealingSteps, double coolingFactor, 
 			double kB, std::size_t numThreads)
 	{
-		PrimefacConfiguration* config = new PrimefacConfiguration[numThreads];
+		std::vector<PrimefacConfiguration> config;
+		PrimefacConfiguration current;
+		current.number = number;
+		current.numConfigurations = numConfigurations;
+		current.numAnnealingSteps = numAnnealingSteps;
+		current.coolingFactor = coolingFactor;
+		current.kB = kB;
+		current.numThreads = numThreads;
+
 		for(std::size_t i = 0; i < numThreads; i++) {
-			config->number = number;
-			config->numConfigurations = numConfiguration;
-			config->numAnnealingSteps = numAnnealingSteps;
-			config->coolingFactor = coolingFactor;
-			config->kB = kB;
-			config->numThreads = numThreads;
-			config->threadId = i;
+			current.threadId = i;
+			config.push_back(current);
 		}
 		return config;
 	}
 	void primefacThreadFunc(const PrimefacConfiguration& config)
 	{
+		std::cout << "Thread " << config.threadId << std::endl;
 		std::size_t bitsetSize = sizeof(std::size_t)*8;
 
 		std::mt19937 gen;
@@ -42,13 +46,14 @@ namespace primefac
 		double T = 1.0;
 
 		for(std::size_t a = n/2+config.threadId; a <= n; a += config.numThreads) {
-			std::cout << "Thread " << config.threadId << ": a=" << a << std::endl;
 			for(std::size_t a1 = 1; a1 <= a; a1++) {
 				A.makeRandom(a, a1, gen);
 				Anew = A;
 
 				for(std::size_t b = n-a; b <= n-a+1; b++) {
 					for(std::size_t b1 = 1; b1 <= b; b1++) {
+						std::cout << "Thread " << config.threadId << ": "<< "a=" << a << " a1=" << a1 << " b= " << b1 << " b1=" << b1 << std::endl;
+
 						B.makeRandom(b, b1, gen);
 						Bnew = B;
 

@@ -4,6 +4,7 @@
 #include "bitset.hpp"
 #include <iostream>
 #include <thread>
+#include <vector>
 #include <cmath>
 
 namespace primefac
@@ -19,8 +20,8 @@ namespace primefac
 		std::size_t numThreads;
 	} PrimefacConfiguration;
 
-	PrimefacConfiguration* createPrimefacConfigurations(
-			std::size_t number, std::size_t numConfiguration,
+	std::vector<PrimefacConfiguration> createPrimefacConfigurations(
+			std::size_t number, std::size_t numConfigurations,
 			std::size_t numAnnealingSteps, double coolingFactor,
 			double kB, std::size_t numThreads);
 	void primefacThreadFunc(const PrimefacConfiguration& config);

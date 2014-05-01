@@ -77,7 +77,7 @@ int main(int argc, char** argv)
 	cout << "Fc = " << Fc << endl;
 	cout << endl;
 
-	PrimefacConfiguration* config = createPrimefacConfigurations(N, Nc, Na, Fc, kB, 8);
+	vector<PrimefacConfiguration> config = createPrimefacConfigurations(N, Nc, Na, Fc, kB, 8);
 
 	vector<thread> threads;
 	for(size_t i = 0; i < 8; i++) {
