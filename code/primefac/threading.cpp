@@ -24,6 +24,7 @@ namespace primefac
 	}
 
 	std::atomic_bool finished(false);
+	std::atomic_size_t searched(0);
 	void primefacThreadFunc(const PrimefacConfiguration& config)
 	{
 		std::size_t bitsetSize = sizeof(std::size_t)*8;
@@ -48,8 +49,31 @@ namespace primefac
 		double T = 1.0;
 		size_t bStart = 0;
 
+		// thread 0 needs to know the number of a, a1, etc values
+		double searchSize = 0.0;
+		if(config.threadId == 0) {
+			for(size_t a = n/2; a <= n; a++) {
+				for(size_t a1 = 1; a1 <= a; a1++) {
+
+					bStart = n-a;
+					if(bStart <= 1) {
+						bStart = 2;
+					}
+
+					for(size_t b = bStart; b <= n-a+1; b++) {
+						for(size_t b1 = 1; b1 <= n; b1++) {
+							searchSize += 1.0;
+						}
+					}
+				}
+			}
+			searchSize /= 100.0;
+		}
+
 		for(std::size_t a = n/2+config.threadId; a <= n; a += config.numThreads) {
 			for(std::size_t a1 = 1; a1 <= a; a1++) {
+
+
 				A.makeRandom(a, a1, gen);
 				Anew = A;
 
@@ -60,6 +84,11 @@ namespace primefac
 
 				for(std::size_t b = bStart; b <= n-a+1; b++) {
 					for(std::size_t b1 = 1; b1 <= b; b1++) {
+						if(config.threadId == 0) {
+							std::cout << "Thread 0:\ta=" << a << " a1=" << a1 << " b=" << b << " b1=" << b1 << "\t" << (double)searched / searchSize << std::endl;
+						}
+
+						searched++;
 
 						B.makeRandom(b, b1, gen);
 						Bnew = B;
