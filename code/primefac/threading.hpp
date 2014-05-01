@@ -25,6 +25,7 @@ namespace primefac
 			std::size_t number, std::size_t numConfigurations,
 			std::size_t numAnnealingSteps, double coolingFactor,
 			double kB, std::size_t numThreads);
+
 	void primefacThreadFunc(const PrimefacConfiguration& config);
 }
 

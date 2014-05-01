@@ -20,7 +20,7 @@ int main(int argc, char** argv)
 	size_t Nc = 1500;
 	double Fc = 0.997;
 	double kB = 15.0;
-	size_t numThreads = 1;
+	size_t numThreads = 8;
 
 	// parse command line arguments
 	for(int arg = 1; arg < argc; arg++) {

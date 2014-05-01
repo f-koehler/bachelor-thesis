@@ -23,11 +23,11 @@ namespace primefac
 		return config;
 	}
 
+	std::atomic_bool finished(false);
 	void primefacThreadFunc(const PrimefacConfiguration& config)
 	{
 		std::size_t bitsetSize = sizeof(std::size_t)*8;
 
-		static std::atomic_bool finished(false);
 
 		std::mt19937 gen;
 		std::uniform_int_distribution<std::size_t> choiceDist(0, 1);
@@ -46,15 +46,20 @@ namespace primefac
 		std::size_t compliance = 0;
 		std::size_t newCompliance = 0;
 		double T = 1.0;
+		size_t bStart = 0;
 
 		for(std::size_t a = n/2+config.threadId; a <= n; a += config.numThreads) {
 			for(std::size_t a1 = 1; a1 <= a; a1++) {
 				A.makeRandom(a, a1, gen);
 				Anew = A;
 
-				for(std::size_t b = n-a; b <= n-a+1; b++) {
+				bStart = n-a;
+				if(bStart <= 1) {
+					bStart = 2;
+				}
+
+				for(std::size_t b = bStart; b <= n-a+1; b++) {
 					for(std::size_t b1 = 1; b1 <= b; b1++) {
-						std::cout << "Thread " << config.threadId << ": "<< "a=" << a << " a1=" << a1 << " b=" << b << " b1=" << b1 << std::endl;
 
 						B.makeRandom(b, b1, gen);
 						Bnew = B;

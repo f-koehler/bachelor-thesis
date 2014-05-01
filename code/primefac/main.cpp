@@ -91,12 +91,19 @@ int main(int argc, char** argv)
 	uniform_int_distribution<short> choiceDist(0, 1);
 	uniform_real_distribution<double> acceptDist(0.0, 1.0);
 	double numSearched = 0.0;
+	size_t bStart = 0;
 
 	// count the a, a1, b, b1 values
 	double searchSize = 0.0;
 	for(size_t a = n/2; a <= n; a++) {
 		for(size_t a1 = 1; a1 <= a; a1++) {
-			for(size_t b = n-a; b <= n-a+1; b++) {
+
+			bStart = n-a;
+			if(bStart <= 1) {
+				bStart = 2;
+			}
+
+			for(size_t b = bStart; b <= n-a+1; b++) {
 				for(size_t b1 = 1; b1 <= n; b1++) {
 					searchSize += 1.0;
 				}
@@ -113,7 +120,12 @@ int main(int argc, char** argv)
 			A.makeRandom(a, a1, gen);
 			Anew = A;
 
-			for(size_t b = n-a; b <= n-a+1; b++) {
+			bStart = n-a;
+			if(bStart <= 1) {
+				bStart = 2;
+			}
+
+			for(size_t b = bStart; b <= n-a+1; b++) {
 				for(size_t b1 = 1; b1 <= b; b1++) {
 
 					numSearched += 1.0;
