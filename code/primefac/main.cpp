@@ -75,7 +75,7 @@ int main(int argc, char** argv)
 	cout << "Nc = " << Nc << endl;
 	cout << "Fc = " << Fc << endl;
 	cout << endl;
-	
+
 	// working variables
 	Bitset Nbit(size, N);
 	size_t n = Nbit.getRelevant();
@@ -90,7 +90,23 @@ int main(int argc, char** argv)
 	mt19937 gen;
 	uniform_int_distribution<short> choiceDist(0, 1);
 	uniform_real_distribution<double> acceptDist(0.0, 1.0);
+	double numSearched = 0.0;
 
+	// count the a, a1, b, b1 values
+	double searchSize = 0.0;
+	for(size_t a = n/2; a <= n; a++) {
+		for(size_t a1 = 1; a1 <= a; a1++) {
+			for(size_t b = n-a; b <= n-a+1; b++) {
+				for(size_t b1 = 1; b1 <= n; b1++) {
+					searchSize += 1.0;
+				}
+			}
+		}
+	}
+	searchSize /= 100.0;
+
+
+	// run
 	for(size_t a = n/2; a <= n; a++) {
 		for(size_t a1 = 1; a1 <= a; a1++) {
 
@@ -100,7 +116,8 @@ int main(int argc, char** argv)
 			for(size_t b = n-a; b <= n-a+1; b++) {
 				for(size_t b1 = 1; b1 <= b; b1++) {
 
-					cout << "a=" << a << " a1=" << a1 << " b= " << b1 << " b1=" << b1 << endl;
+					numSearched += 1.0;
+					cout << "a=" << a << " a1=" << a1 << " b= " << b1 << " b1=" << b1 << ":\t" << numSearched/searchSize << "%" << endl;
 
 					B.makeRandom(b, b1, gen);
 					Bnew = B;
