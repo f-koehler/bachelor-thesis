@@ -13,31 +13,14 @@ void usage();
 
 int main(int argc, char** argv)
 {
-	// Simulation parameters
+	// standard simulation parameters
 	size_t N  = 100;
 	size_t Na = 1000;
 	size_t Nc = 1500;
 	double Fc = 0.997;
 	double kB = 15.0;
 
-	size_t size = sizeof(size_t)*8;
-
-	Bitset Nbit(size, N);
-	size_t n = Nbit.getRelevant();
-
-	double T = 1.0;
-	size_t compliance = 0;
-	size_t complianceNew = 0;
-
-	Bitset A(size);
-	Bitset B(size);
-	Bitset Anew(size);
-	Bitset Bnew(size);
-	Bitset prod(size);
-
-	mt19937 gen;
-	uniform_int_distribution<short> choiceDist(0, 1);
-	uniform_real_distribution<double> acceptDist(0.0, 1.0);
+	size_t size = sizeof(size_t)*8;	
 
 	// parse command line arguments
 	for(int arg = 1; arg < argc; arg++) {
@@ -78,8 +61,35 @@ int main(int argc, char** argv)
 			}
 			arg++;
 			stringstream(argv[arg]) >> Fc;
+		} else if(tmp == string("--help")) {
+			usage();
+			return EXIT_FAILURE;
 		}
 	}
+
+	// print the parameters of the simulation to be done
+	cout << "Parameters:" << endl;
+	cout << "N  = " << N  << endl;
+	cout << "k  = " << kB << endl;
+	cout << "Na = " << Na << endl;
+	cout << "Nc = " << Nc << endl;
+	cout << "Fc = " << Fc << endl;
+	cout << endl;
+	
+	// working variables
+	Bitset Nbit(size, N);
+	size_t n = Nbit.getRelevant();
+	double T = 1.0;
+	size_t compliance = 0;
+	size_t complianceNew = 0;
+	Bitset A(size);
+	Bitset B(size);
+	Bitset Anew(size);
+	Bitset Bnew(size);
+	Bitset prod(size);
+	mt19937 gen;
+	uniform_int_distribution<short> choiceDist(0, 1);
+	uniform_real_distribution<double> acceptDist(0.0, 1.0);
 
 	for(size_t a = n/2; a <= n; a++) {
 		for(size_t a1 = 1; a1 <= a; a1++) {
@@ -156,6 +166,7 @@ void usage()
 	cout << "  primefac [options]" << endl;
 	cout << endl;
 	cout << "Options:" << endl;
+	cout << "  --help\tPrint this message" << endl;
 	cout << "  -N [value]\tThe number to factor, must be larger than 1 and smaller than " << ULONG_MAX << endl;
 	cout << "  -k [value]\tValue for the Boltzmann constant" << endl;
 	cout << "  -Na [value]\tNumber of annealing steps"  << endl;
