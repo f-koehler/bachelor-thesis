@@ -6,10 +6,15 @@ set(CMAKE_CXX_FLAGS "-Wall -Wextra -pedantic -std=c++11 -march=native -O2")
 
 add_executable(
 	primefac
-	main.cpp bitset.hpp bitset.cpp seed.hpp seed.cpp workerthread.hpp
+	main.cpp bitset.hpp bitset.cpp seed.hpp seed.cpp
 )
 
 add_executable(
 	semiprime
-	semiprime.cpp bitset.hpp bitset.cpp seed.hpp seed.cpp workerthread.hpp
+	semiprime.cpp bitset.hpp bitset.cpp seed.hpp seed.cpp
+)
+
+add_executable(
+	primefac_mt
+	main_mt.cpp bitset.hpp bitset.cpp seed.hpp seed.cpp threading.hpp threading.cpp
 )
