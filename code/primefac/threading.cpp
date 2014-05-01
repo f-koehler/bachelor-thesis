@@ -22,10 +22,12 @@ namespace primefac
 		}
 		return config;
 	}
+
 	void primefacThreadFunc(const PrimefacConfiguration& config)
 	{
-		std::cout << "Thread " << config.threadId << std::endl;
 		std::size_t bitsetSize = sizeof(std::size_t)*8;
+
+		static std::atomic_bool finished(false);
 
 		std::mt19937 gen;
 		std::uniform_int_distribution<std::size_t> choiceDist(0, 1);
@@ -52,7 +54,7 @@ namespace primefac
 
 				for(std::size_t b = n-a; b <= n-a+1; b++) {
 					for(std::size_t b1 = 1; b1 <= b; b1++) {
-						std::cout << "Thread " << config.threadId << ": "<< "a=" << a << " a1=" << a1 << " b= " << b1 << " b1=" << b1 << std::endl;
+						std::cout << "Thread " << config.threadId << ": "<< "a=" << a << " a1=" << a1 << " b=" << b1 << " b1=" << b1 << std::endl;
 
 						B.makeRandom(b, b1, gen);
 						Bnew = B;
@@ -61,12 +63,16 @@ namespace primefac
 						compliance = N.quadraticCompliance(prod);
 
 						if(N == prod) {
+							finished = true;
 							std::cout << Anew << "\t" << Bnew << std::endl;
 							std::cout << Anew.toSizeT() << "\t" << Bnew.toSizeT() << std::endl;
 							return;
 						}
 
 						for(std::size_t i = 0; i < config.numAnnealingSteps; i++) {
+							if(finished) {
+								return;
+							}
 							for(std::size_t j = 0; j < config.numConfigurations; j++) {
 								if(choiceDist(gen)) {
 									Anew.randomOperation(gen);
@@ -77,6 +83,7 @@ namespace primefac
 								Anew.multiply(Bnew, prod);
 
 								if(N == prod) {
+									finished = true;
 									std::cout << Anew << "\t" << Bnew << std::endl;
 									std::cout << Anew.toSizeT() << "\t" << Bnew.toSizeT() << std::endl;
 									return;

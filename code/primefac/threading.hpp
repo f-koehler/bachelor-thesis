@@ -4,6 +4,7 @@
 #include "bitset.hpp"
 #include <iostream>
 #include <thread>
+#include <atomic>
 #include <vector>
 #include <cmath>
 

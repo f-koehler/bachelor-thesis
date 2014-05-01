@@ -20,6 +20,7 @@ int main(int argc, char** argv)
 	size_t Nc = 1500;
 	double Fc = 0.997;
 	double kB = 15.0;
+	size_t numThreads = 8;
 
 	size_t size = sizeof(size_t)*8;	
 
@@ -75,15 +76,16 @@ int main(int argc, char** argv)
 	cout << "Na = " << Na << endl;
 	cout << "Nc = " << Nc << endl;
 	cout << "Fc = " << Fc << endl;
+	cout << "threads = " << numThreads << endl;
 	cout << endl;
 
-	vector<PrimefacConfiguration> config = createPrimefacConfigurations(N, Nc, Na, Fc, kB, 8);
+	vector<PrimefacConfiguration> config = createPrimefacConfigurations(N, Nc, Na, Fc, kB, numThreads);
 
 	vector<thread> threads;
-	for(size_t i = 0; i < 8; i++) {
+	for(size_t i = 0; i < numThreads; i++) {
 		threads.push_back(thread(primefacThreadFunc, config[i]));
 	}
-	for(size_t i = 0; i < 8; i++) {
+	for(size_t i = 0; i < numThreads; i++) {
 		threads[i].join();
 	}
 
