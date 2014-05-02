@@ -30,17 +30,17 @@ add_library(
 
 add_executable(
 	primefac
-	main.cpp bitset
+	primefac.cpp bitset
+)
+
+add_executable(
+	primefac_mt
+	primefac_mt.cpp bitset threading
 )
 
 add_executable(
 	semiprime
 	semiprime.cpp bitset
-)
-
-add_executable(
-	primefac_mt
-	main_mt.cpp bitset threading
 )
 
 add_executable(
