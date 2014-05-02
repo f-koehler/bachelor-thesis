@@ -22,6 +22,28 @@ namespace primefac
 		}
 		return config;
 	}
+	
+	std::vector<SemiprimeConfiguration> createSemiprimeConfigurations(
+			std::size_t prime1, std::size_t prime2,
+			std::size_t numConfigurations, std::size_t numAnnealingSteps,
+			double coolingFactor, double kB, std::size_t numThreads)
+	{
+		std::vector<SemiprimeConfiguration> config;
+		SemiprimeConfiguration current;
+		current.prime1 = prime1;
+		current.prime2 = prime2;
+		current.numConfigurations = numConfigurations;
+		current.numAnnealingSteps = numAnnealingSteps;
+		current.coolingFactor = coolingFactor;
+		current.kB = kB;
+		current.numThreads = numThreads;
+
+		for(std::size_t i = 0; i < numThreads; i++) {
+			current.threadId = i;
+			config.push_back(current);
+		}
+		return config;
+	}
 
 	std::atomic_bool finished(false);
 	std::atomic_size_t searched(0);
@@ -145,4 +167,7 @@ namespace primefac
 			}
 		}
 	}
+
+	void semiprimeThreadFunc(const SemiprimeConfiguration& config)
+	{}
 }
