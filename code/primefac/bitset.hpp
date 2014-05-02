@@ -1,6 +1,7 @@
 #ifndef BITSET_HPP_
 #define BITSET_HPP_
 
+#include "config.hpp"
 #include <ostream>
 #include <sstream>
 #include <vector>

@@ -1,3 +1,4 @@
+#include "config.hpp"
 #include <iostream>
 #include <chrono>
 #include <random>

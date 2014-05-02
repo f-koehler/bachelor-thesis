@@ -1,6 +1,7 @@
 #ifndef SEED_HPP_
 #define SEED_HPP_
 
+#include "config.hpp"
 #include <fstream>
 #include <random>
 

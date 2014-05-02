@@ -1,3 +1,4 @@
+#include "config.hpp"
 #include "sieve.hpp"
 #include <fstream>
 using namespace std;

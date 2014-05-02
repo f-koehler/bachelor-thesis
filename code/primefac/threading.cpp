@@ -111,9 +111,11 @@ namespace primefac
 
 				for(std::size_t b = bStart; b <= n-a+1; b++) {
 					for(std::size_t b1 = 1; b1 <= b; b1++) {
+#ifndef PRIMEFAC_NO_PROGRESS
 						if(config.threadId == 0) {
 							std::cout << "Thread 0:\ta=" << a << " a1=" << a1 << " b=" << b << " b1=" << b1 << "\t" << (double)searched / searchSize << "%" << std::endl;
 						}
+#endif
 
 						searched++;
 
@@ -217,9 +219,11 @@ namespace primefac
 		double T = 1.0;
 
 		for(std::size_t i = 0; i < config.numConfigurations; i++) {
+#ifndef PRIMEFAC_NO_PROGRESS
 			if(config.threadId == 0) {
 				std::cout << (double)searched / searchSize << "%" << std::endl;
 			}
+#endif
 			if(finished) {
 				return;
 			}

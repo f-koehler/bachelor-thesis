@@ -1,3 +1,4 @@
+#include "config.hpp"
 #include "bitset.hpp"
 #include "seed.hpp"
 #include <iostream>

@@ -1,6 +1,7 @@
 #ifndef SIEVE_H_
 #define SIEVE_H_
 
+#include "config.hpp"
 #include <vector>
 #include <cmath>
 #include <cstring>

@@ -7,55 +7,55 @@ set(CMAKE_CXX_FLAGS "-Wall -Wextra -pedantic -std=c++11 -g -pthread")
 add_library(
 	bitset
 	OBJECT
-	bitset.cpp bitset.hpp
+	bitset.cpp bitset.hpp config.hpp
 )
 
 add_library(
 	seed
 	OBJECT
-	seed.cpp seed.hpp
+	seed.cpp seed.hpp config.hpp
 )
 
 add_library(
 	threading
 	OBJECT
-	threading.cpp threading.hpp
+	threading.cpp threading.hpp config.hpp
 )
 
 add_library(
 	sieve
 	OBJECT
-	sieve.cpp sieve.hpp
+	sieve.cpp sieve.hpp config.hpp
 )
 
 add_executable(
 	primefac
-	primefac.cpp bitset
+	primefac.cpp config.hpp bitset
 )
 
 add_executable(
 	primefac_mt
-	primefac_mt.cpp bitset threading seed
+	primefac_mt.cpp config.hpp bitset threading seed
 )
 
 add_executable(
 	semiprime
-	semiprime.cpp bitset
+	semiprime.cpp config.hpp bitset
 )
 
 add_executable(
 	semiprime_mt
-	semiprime_mt.cpp bitset threading seed
+	semiprime_mt.cpp config.hpp bitset threading seed
 )
 
 add_executable(
 	primelist
-	primelist.cpp sieve
+	primelist.cpp config.hpp sieve
 )
 
 add_executable(
 	prngbench
-	prngbench.cpp
+	prngbench.cpp config.hpp
 )
 
 add_custom_command(
