@@ -263,6 +263,16 @@ namespace primefac {
 	{
 		return quadraticCompliance(*this);
 	}
+	std::size_t Bitset::numOnes() const
+	{
+		std::size_t num = 0;
+		for(std::size_t i = 0; i < relevant; i++) {
+			if(set[i]) {
+				num++;
+			}
+		}
+		return num;
+	}
 
 	bool& Bitset::operator[](std::size_t index)
 	{

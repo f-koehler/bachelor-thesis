@@ -85,7 +85,7 @@ namespace primefac
 				for(std::size_t b = bStart; b <= n-a+1; b++) {
 					for(std::size_t b1 = 1; b1 <= b; b1++) {
 						if(config.threadId == 0) {
-							std::cout << "Thread 0:\ta=" << a << " a1=" << a1 << " b=" << b << " b1=" << b1 << "\t" << (double)searched / searchSize << std::endl;
+							std::cout << "Thread 0:\ta=" << a << " a1=" << a1 << " b=" << b << " b1=" << b1 << "\t" << (double)searched / searchSize << "%" << std::endl;
 						}
 
 						searched++;

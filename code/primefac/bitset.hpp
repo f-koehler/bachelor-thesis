@@ -43,6 +43,7 @@ namespace primefac
 			std::size_t quadraticCompliance(const Bitset& bits) const;
 			std::size_t maxLinearCompliance() const;
 			std::size_t maxQuadraticCompliance() const;
+			std::size_t numOnes() const;
 
 			bool& operator[](std::size_t index);
 			const bool& operator[](std::size_t index) const;
