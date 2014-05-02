@@ -35,12 +35,17 @@ add_executable(
 
 add_executable(
 	primefac_mt
-	primefac_mt.cpp bitset threading
+	primefac_mt.cpp bitset threading seed
 )
 
 add_executable(
 	semiprime
 	semiprime.cpp bitset
+)
+
+add_executable(
+	semiprime_mt
+	semiprime_mt.cpp bitset threading seed
 )
 
 add_executable(

@@ -2,6 +2,9 @@
 
 namespace primefac
 {
+	std::atomic_bool finished(false);
+	std::atomic_size_t searched(0);
+
 	std::vector<PrimefacConfiguration> createPrimefacConfigurations(
 			std::size_t number, std::size_t numConfigurations,
 			std::size_t numAnnealingSteps, double coolingFactor, 
@@ -32,7 +35,7 @@ namespace primefac
 		SemiprimeConfiguration current;
 		current.prime1 = prime1;
 		current.prime2 = prime2;
-		current.numConfigurations = numConfigurations;
+		current.numConfigurations = numConfigurations/numThreads;
 		current.numAnnealingSteps = numAnnealingSteps;
 		current.coolingFactor = coolingFactor;
 		current.kB = kB;
@@ -42,11 +45,12 @@ namespace primefac
 			current.threadId = i;
 			config.push_back(current);
 		}
+		for(size_t i = 0; i < numConfigurations%numThreads; i++) {
+			config[i].numConfigurations++;
+		}
 		return config;
 	}
 
-	std::atomic_bool finished(false);
-	std::atomic_size_t searched(0);
 	void primefacThreadFunc(const PrimefacConfiguration& config)
 	{
 		std::size_t bitsetSize = sizeof(std::size_t)*8;
@@ -55,7 +59,8 @@ namespace primefac
 		std::mt19937 gen;
 		std::uniform_int_distribution<std::size_t> choiceDist(0, 1);
 		std::uniform_real_distribution<double> acceptDist(0.0, 1.0);
-		gen.seed(42);
+
+		gen.seed(readSeed());
 
 		Bitset N(bitsetSize, config.number); 
 		Bitset A(bitsetSize);
@@ -169,5 +174,83 @@ namespace primefac
 	}
 
 	void semiprimeThreadFunc(const SemiprimeConfiguration& config)
-	{}
+	{
+		std::size_t bitsetSize = 8*sizeof(std::size_t);
+
+		Bitset A(bitsetSize);
+		Bitset B(bitsetSize);
+		Bitset Anew(bitsetSize);
+		Bitset Bnew(bitsetSize);
+		Bitset prod(bitsetSize);
+		std::mt19937 gen;
+		std::uniform_int_distribution<std::size_t> choiceDist(0, 1);
+		std::uniform_real_distribution<double> acceptDist(0.0, 1.0);
+
+		gen.seed(readSeed());
+
+		std::size_t N = config.prime1*config.prime2;
+		Bitset Nbit(bitsetSize, N);
+		Bitset N1bit(bitsetSize, config.prime1);
+		Bitset N2bit(bitsetSize, config.prime2);
+		std::size_t a = N1bit.getRelevant();
+		std::size_t b = N2bit.getRelevant();
+		std::size_t a1 = N1bit.numOnes();
+		std::size_t b1 = N2bit.numOnes();
+		std::size_t compliance = 0;
+		std::size_t complianceNew = 0;
+		double searchSize = (double)(config.numConfigurations*config.numAnnealingSteps*config.numThreads) / 100.0;
+	
+		A.makeRandom(a, a1, gen);
+		B.makeRandom(b, b1, gen);
+		Anew = A;
+		Bnew = B;
+
+		Anew.multiply(Bnew, prod);
+		compliance = prod.linearCompliance(Nbit);
+
+		if(prod == Nbit) {
+			std::cout << Anew.toSizeT() << " " << Bnew.toSizeT() << std::endl;
+			finished = true;
+			return;
+		}
+
+		double T = 1.0;
+
+		for(std::size_t i = 0; i < config.numConfigurations; i++) {
+			if(config.threadId == 0) {
+				std::cout << (double)searched / searchSize << "%" << std::endl;
+			}
+			for(std::size_t j = 0; j < config.numAnnealingSteps; j++) {
+				if(choiceDist(gen)) {
+					Anew.randomOperation(gen);
+				} else {
+					Bnew.randomOperation(gen);
+				}
+
+				Anew.multiply(Bnew, prod);
+				if(prod == Nbit) {
+					std::cout << Anew.toSizeT() << " " << Bnew.toSizeT() << std::endl;
+					finished = true;
+					return;
+				}
+
+				complianceNew = prod.quadraticCompliance(Nbit);
+				if(complianceNew > compliance) {
+					A = Anew;
+					B = Bnew;
+					compliance = complianceNew;
+				} else if(acceptDist(gen) < exp(((double)(compliance-complianceNew))/(config.kB*T))) {
+					A = Anew;
+					B = Bnew;
+					compliance = complianceNew;
+				} else {
+					Anew = A;
+					Bnew = B;
+				}
+
+				searched++;
+			}
+			T *= config.coolingFactor;
+		}
+	}
 }

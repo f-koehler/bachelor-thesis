@@ -2,6 +2,7 @@
 #define THREADING_HPP_
 
 #include "bitset.hpp"
+#include "seed.hpp"
 #include <iostream>
 #include <thread>
 #include <atomic>
