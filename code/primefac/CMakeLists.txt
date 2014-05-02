@@ -52,3 +52,9 @@ add_executable(
 	primelist
 	primelist.cpp sieve
 )
+
+add_custom_command(
+	OUTPUT ram-primes.sh
+	COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_SOURCE_DIR}/ram-primes.sh ${CMAKE_CURRENT_BINARY_DIR}/ram-primes.sh
+	DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/ram-primes.sh
+)

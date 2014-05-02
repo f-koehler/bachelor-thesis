@@ -78,13 +78,12 @@ int main(int argc, char** argv)
 	cout << endl;
 
 	vector<PrimefacConfiguration> config = createPrimefacConfigurations(N, Nc, Na, Fc, kB, numThreads);
-
 	vector<thread> threads;
-	for(size_t i = 0; i < numThreads; i++) {
-		threads.push_back(thread(primefacThreadFunc, config[i]));
+	for(vector<PrimefacConfiguration>::iterator i = config.begin(); i != config.end(); i++) {
+		threads.push_back(thread(primefacThreadFunc, *i));
 	}
-	for(size_t i = 0; i < numThreads; i++) {
-		threads[i].join();
+	for(vector<thread>::iterator i = threads.begin(); i != threads.end(); i++) {
+		i->join();
 	}
 
 	return 0;

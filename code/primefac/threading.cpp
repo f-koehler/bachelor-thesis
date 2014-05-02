@@ -220,6 +220,9 @@ namespace primefac
 			if(config.threadId == 0) {
 				std::cout << (double)searched / searchSize << "%" << std::endl;
 			}
+			if(finished) {
+				return;
+			}
 			for(std::size_t j = 0; j < config.numAnnealingSteps; j++) {
 				if(choiceDist(gen)) {
 					Anew.randomOperation(gen);
