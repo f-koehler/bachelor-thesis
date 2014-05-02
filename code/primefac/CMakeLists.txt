@@ -22,6 +22,12 @@ add_library(
 	threading.cpp threading.hpp
 )
 
+add_library(
+	sieve
+	OBJECT
+	sieve.cpp sieve.hpp
+)
+
 add_executable(
 	primefac
 	main.cpp bitset
@@ -35,4 +41,9 @@ add_executable(
 add_executable(
 	primefac_mt
 	main_mt.cpp bitset threading
+)
+
+add_executable(
+	primelist
+	primelist.cpp sieve
 )
