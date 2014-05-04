@@ -143,7 +143,6 @@ int main(int argc, char** argv)
 					compliance = prod.quadraticCompliance(Nbit);
 
 					if(prod == Nbit) {
-						cout << Nbit << " " << prod << endl;
 						cout << Anew.toSizeT() << " " << Bnew.toSizeT() << endl;
 						return EXIT_SUCCESS;
 					}
@@ -161,7 +160,6 @@ int main(int argc, char** argv)
 							Anew.multiply(Bnew, prod);
 
 							if(prod == Nbit) {
-								cout << Nbit << " " << prod << endl;
 								cout << Anew.toSizeT() << " " << Bnew.toSizeT() << endl;
 								return EXIT_SUCCESS;
 							}

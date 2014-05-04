@@ -2,9 +2,6 @@
 
 namespace primefac
 {
-	std::atomic_bool finished(false);
-	std::atomic_size_t searched(0);
-
 	std::vector<PrimefacConfiguration> createPrimefacConfigurations(
 			std::size_t number, std::size_t numConfigurations,
 			std::size_t numAnnealingSteps, double coolingFactor, 
@@ -53,6 +50,9 @@ namespace primefac
 
 	void primefacThreadFunc(const PrimefacConfiguration& config)
 	{
+		static std::atomic_bool finished(false);
+		static std::atomic_size_t searched(0);
+
 		std::size_t bitsetSize = sizeof(std::size_t)*8;
 
 
@@ -177,6 +177,9 @@ namespace primefac
 
 	void semiprimeThreadFunc(const SemiprimeConfiguration& config)
 	{
+		static std::atomic_bool finished(false);
+		static std::atomic_size_t searched(0);
+
 		std::size_t bitsetSize = 8*sizeof(std::size_t);
 
 		Bitset A(bitsetSize);

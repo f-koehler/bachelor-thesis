@@ -61,6 +61,13 @@ int main(int argc, char** argv)
 			}
 			arg++;
 			stringstream(argv[arg]) >> Fc;
+		} else if(tmp == string("-t")) {
+			if(argc == argc-1) {
+				usage();
+				return EXIT_FAILURE;
+			}
+			arg++;
+			stringstream(argv[arg]) >> numThreads;
 		} else if(tmp == string("--help")) {
 			usage();
 			return EXIT_FAILURE;
@@ -101,10 +108,11 @@ void usage()
 	cout << "  primefac [options]" << endl;
 	cout << endl;
 	cout << "Options:" << endl;
-	cout << "  --help\tPrint this message" << endl;
-	cout << "  -N [value]\tThe number to factor, must be larger than 1 and smaller than " << ULONG_MAX << endl;
-	cout << "  -k [value]\tValue for the Boltzmann constant" << endl;
-	cout << "  -Na [value]\tNumber of annealing steps"  << endl;
-	cout << "  -Nc [value]\tNumber of conifgurations per annealing step" << endl;
-	cout << "  -Fc [value]\tCooling factor per annealing step" << endl;
+	cout << "  --help       Print this message" << endl;
+	cout << "  -N [value]   The number to factor, must be larger than 1 and smaller than " << ULONG_MAX << endl;
+	cout << "  -k [value]   Value for the Boltzmann constant" << endl;
+	cout << "  -Na [value]  Number of annealing steps"  << endl;
+	cout << "  -Nc [value]  Number of conifgurations per annealing step" << endl;
+	cout << "  -Fc [value]  Cooling factor per annealing step" << endl;
+	cout << "  -t [value]   Number of threads" << endl;
 }
