@@ -9,6 +9,8 @@
 #include <algorithm>
 #include <cstring>
 
+#include <iostream>
+
 namespace primefac
 {
 

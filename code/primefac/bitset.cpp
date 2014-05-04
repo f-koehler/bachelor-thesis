@@ -133,7 +133,7 @@ namespace primefac {
 			start = end;
 			end = tmp;
 		}
-		bool tmp = set[0];
+		bool tmp = set[start];
 		for(std::size_t i = start; i < end; i++) {
 			set[i] = set[i+1];
 		}
@@ -198,13 +198,13 @@ namespace primefac {
 				break;
 			default:
 				// sparse permutation
-				/*std::uniform_int_distribution<std::size_t> numDist(0, setSize-1);
+				std::uniform_int_distribution<std::size_t> numDist(0, setSize-1);
 				std::size_t count = numDist(gen);
 
 				for(std::size_t i = 0; i < count; i++) {
 					swapBits(indexDistribution(gen), indexDistribution(gen));
-				}*/
-				std::vector<bool> values;
+				}
+				/*std::vector<bool> values;
 				std::vector<std::size_t> positions;
 				std::uniform_int_distribution<std::size_t> numDist(0, relevant-1);
 				std::size_t num = numDist(gen);
@@ -228,7 +228,7 @@ namespace primefac {
 
 				for(std::size_t i = 0; i < num; i++) {
 					set[positions[i]] = values[i];
-				}
+				}*/
 		}
 	}
 

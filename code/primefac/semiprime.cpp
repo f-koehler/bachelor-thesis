@@ -144,6 +144,8 @@ int main(int argc, char** argv)
 
 			Anew.multiply(Bnew, prod);
 
+			//cout << Anew << " " << Bnew << " " << prod << " " << Nbit << endl;
+
 			if(prod == Nbit) {
 				cout << Anew.toSizeT() << " " << Bnew.toSizeT() << endl;
 				return EXIT_SUCCESS;
