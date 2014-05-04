@@ -198,11 +198,36 @@ namespace primefac {
 				break;
 			default:
 				// sparse permutation
-				std::uniform_int_distribution<std::size_t> numDist(0, setSize-1);
+				/*std::uniform_int_distribution<std::size_t> numDist(0, setSize-1);
 				std::size_t count = numDist(gen);
 
 				for(std::size_t i = 0; i < count; i++) {
 					swapBits(indexDistribution(gen), indexDistribution(gen));
+				}*/
+				std::vector<bool> values;
+				std::vector<std::size_t> positions;
+				std::uniform_int_distribution<std::size_t> numDist(0, relevant-1);
+				std::size_t num = numDist(gen);
+
+				for(std::size_t i = 0; i < num; i++) {
+					size_t chosen = 0;
+					do {
+						chosen = indexDistribution(gen);
+					} while(std::find(values.begin(), values.end(), chosen) != values.end());
+					positions.push_back(chosen);
+					values.push_back(set[chosen]);
+				}
+
+				for(std::size_t i = 0; i < num; i++) {
+					std::uniform_int_distribution<std::size_t> swapDist(i, num-1);
+					std::size_t r = swapDist(gen);
+					std::size_t tmp = positions[i];
+					positions[i] = positions[r];
+					positions[r] = tmp;
+				}
+
+				for(std::size_t i = 0; i < num; i++) {
+					set[positions[i]] = values[i];
 				}
 		}
 	}

@@ -3,6 +3,6 @@
 
 #include <random>
 
-//#define PRIMEFAC_NO_PROGRESS
+#define PRIMEFAC_NO_PROGRESS
 
 #endif
