@@ -200,7 +200,7 @@ namespace primefac
 		std::size_t b1 = N2bit.numOnes();
 		std::size_t compliance = 0;
 		std::size_t complianceNew = 0;
-		double searchSize = (double)(config.numConfigurations*config.numAnnealingSteps*config.numThreads) / 100.0;
+		double searchSize = (double)(config.numConfigurations*config.numAnnealingSteps*config.numThreads)/100.0;
 	
 		A.makeRandom(a, a1, gen);
 		B.makeRandom(b, b1, gen);

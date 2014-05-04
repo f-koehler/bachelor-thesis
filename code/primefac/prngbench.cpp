@@ -26,7 +26,6 @@ int main()
 
 	// distributions
 	uniform_int_distribution<size_t>  intDist(0, 1);
-	uniform_real_distribution<double> doubleDist(0.0, 1.0);
 
 	high_resolution_clock clock;
 	Time start;

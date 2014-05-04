@@ -65,6 +65,10 @@ int main(int argc, char** argv)
 		} else if(tmp == string("--help")) {
 			usage();
 			return EXIT_FAILURE;
+		} else {
+			cerr << "Unknown argument \"" << tmp << "\"!" << endl << endl;;
+			usage();
+			return EXIT_FAILURE;
 		}
 	}
 
