@@ -13,25 +13,53 @@
 namespace primefac
 {
 	typedef struct {
+		/** N, the number to factorize */
 		std::size_t number;
+
+		/** Nc, the number of configurations per annealing step */
 		std::size_t numConfigurations;
+
+		/** Na, the number of annealing steps */
 		std::size_t numAnnealingSteps;
+
+		/** Fc, the cooling factor */
 		double coolingFactor;
+
+		/** kB, the Boltzmann constant */
 		double kB = 0.0;
 
+
+		/** The ID of the corresponding thread */
 		std::size_t threadId;
+
+		/** The number of threads to use */
 		std::size_t numThreads;
 	} PrimefacConfiguration;
 
 	typedef struct {
+		/** The first factor of the semiprime number */
 		std::size_t prime1;
+
+		/** The second factor of the semiprime number */
 		std::size_t prime2;
+
+		/** Nc, the number of configurations per annealing step */
 		std::size_t numConfigurations;
+
+		/** Na, the number of annealing steps */
 		std::size_t numAnnealingSteps;
+
+		/** Fc, the cooling factor */
 		double coolingFactor;
+
+		/** kB, the Boltzmann constant */
 		double kB = 0.0;
 
+
+		/** The ID of the corresponding thread */
 		std::size_t threadId;
+
+		/** The number of threads to use */
 		std::size_t numThreads;
 	} SemiprimeConfiguration;
 

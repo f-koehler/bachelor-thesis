@@ -205,6 +205,12 @@ namespace primefac
 			friend std::ostream& operator<<(std::ostream& out, const Bitset& bits);
 	};
 
+	/**
+	 * Write a Bitset to an ostream, e.g. cout or an ofstream
+	 * @param[in, out] out The stream that the Bitset will be written to
+	 * @param[in] bits The Bitset to write
+	 * @return A reference to the ostream out
+	 */
 	std::ostream& operator<<(std::ostream& out, const Bitset& bits);
 }
 
