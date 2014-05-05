@@ -12,6 +12,8 @@
 
 namespace primefac
 {
+
+	/** @brief This is a threading class to factorize numbers */
 	class PrimefacThread
 	{
 		public:
@@ -75,6 +77,7 @@ namespace primefac
 	};
 
 
+	/** @brief This is a threading class to factorize semiprime numbers */
 	class SemiprimeThread
 	{
 		public:
