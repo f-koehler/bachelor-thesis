@@ -2,53 +2,8 @@
 
 namespace primefac
 {
-	std::vector<PrimefacConfiguration> createPrimefacConfigurations(
-			std::size_t number, std::size_t numConfigurations,
-			std::size_t numAnnealingSteps, double coolingFactor, 
-			double kB, std::size_t numThreads)
-	{
-		std::vector<PrimefacConfiguration> config;
-		PrimefacConfiguration current;
-		current.number = number;
-		current.numConfigurations = numConfigurations;
-		current.numAnnealingSteps = numAnnealingSteps;
-		current.coolingFactor = coolingFactor;
-		current.kB = kB;
-		current.numThreads = numThreads;
-
-		for(std::size_t i = 0; i < numThreads; i++) {
-			current.threadId = i;
-			config.push_back(current);
-		}
-		return config;
-	}
-	
-	std::vector<SemiprimeConfiguration> createSemiprimeConfigurations(
-			std::size_t prime1, std::size_t prime2,
-			std::size_t numConfigurations, std::size_t numAnnealingSteps,
-			double coolingFactor, double kB, std::size_t numThreads)
-	{
-		std::vector<SemiprimeConfiguration> config;
-		SemiprimeConfiguration current;
-		current.prime1 = prime1;
-		current.prime2 = prime2;
-		current.numConfigurations = numConfigurations/numThreads;
-		current.numAnnealingSteps = numAnnealingSteps;
-		current.coolingFactor = coolingFactor;
-		current.kB = kB;
-		current.numThreads = numThreads;
-
-		for(std::size_t i = 0; i < numThreads; i++) {
-			current.threadId = i;
-			config.push_back(current);
-		}
-		for(size_t i = 0; i < numConfigurations%numThreads; i++) {
-			config[i].numConfigurations++;
-		}
-		return config;
-	}
-
-	void primefacThreadFunc(const PrimefacConfiguration& config)
+	/* thread functions */
+	void primefacThreadFunc(const PrimefacThread::Configuration& config)
 	{
 		static std::atomic_bool finished(false);
 		static std::atomic_size_t searched(0);
@@ -175,7 +130,7 @@ namespace primefac
 		}
 	}
 
-	void semiprimeThreadFunc(const SemiprimeConfiguration& config)
+	void semiprimeThreadFunc(const SemiprimeThread::Configuration& config)
 	{
 		static std::atomic_bool finished(false);
 		static std::atomic_size_t searched(0);
@@ -262,5 +217,82 @@ namespace primefac
 			}
 			T *= config.coolingFactor;
 		}
+	}
+	/* thread functions */
+
+
+	/* PrimefacThread */
+	std::atomic_bool PrimefacThread::completed(false);
+	std::atomic_size_t PrimefacThread::numSearched(0);
+
+	PrimefacThread::PrimefacThread(PrimefacThread::Configuration& config) : 
+		thr(std::thread(primefacThreadFunc, config))
+	{
+	}
+
+	void PrimefacThread::join()
+	{
+		thr.join();
+	}
+
+	std::vector<PrimefacThread::Configuration> PrimefacThread::createConfigurations(
+			std::size_t number, std::size_t numConfigurations,
+			std::size_t numAnnealingSteps, double coolingFactor, 
+			double kB, std::size_t numThreads)
+	{
+		std::vector<Configuration> config;
+		Configuration current;
+		current.number = number;
+		current.numConfigurations = numConfigurations;
+		current.numAnnealingSteps = numAnnealingSteps;
+		current.coolingFactor = coolingFactor;
+		current.kB = kB;
+		current.numThreads = numThreads;
+
+		for(std::size_t i = 0; i < numThreads; i++) {
+			current.threadId = i;
+			config.push_back(current);
+		}
+		return config;
+	}
+	/* PrimefacThread */
+
+	/* SemiprimeThread */
+	std::atomic_bool SemiprimeThread::completed(false);
+	std::atomic_size_t SemiprimeThread::numSearched(0);
+
+	SemiprimeThread::SemiprimeThread(SemiprimeThread::Configuration& config) :
+		thr(std::thread(semiprimeThreadFunc, config))
+	{
+	}
+
+	void SemiprimeThread::join()
+	{
+		thr.join();
+	}
+
+	std::vector<SemiprimeThread::Configuration> SemiprimeThread::createConfigurations(
+			std::size_t prime1, std::size_t prime2,
+			std::size_t numConfigurations, std::size_t numAnnealingSteps,
+			double coolingFactor, double kB, std::size_t numThreads)
+	{
+		std::vector<SemiprimeThread::Configuration> config;
+		SemiprimeThread::Configuration current;
+		current.prime1 = prime1;
+		current.prime2 = prime2;
+		current.numConfigurations = numConfigurations/numThreads;
+		current.numAnnealingSteps = numAnnealingSteps;
+		current.coolingFactor = coolingFactor;
+		current.kB = kB;
+		current.numThreads = numThreads;
+
+		for(std::size_t i = 0; i < numThreads; i++) {
+			current.threadId = i;
+			config.push_back(current);
+		}
+		for(size_t i = 0; i < numConfigurations%numThreads; i++) {
+			config[i].numConfigurations++;
+		}
+		return config;
 	}
 }

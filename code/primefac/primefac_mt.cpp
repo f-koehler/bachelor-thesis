@@ -88,12 +88,12 @@ int main(int argc, char** argv)
 	chrono::high_resolution_clock clock;
 	chrono::high_resolution_clock::time_point start = clock.now();
 
-	vector<PrimefacConfiguration> config = createPrimefacConfigurations(N, Nc, Na, Fc, kB, numThreads);
-	vector<thread> threads;
-	for(vector<PrimefacConfiguration>::iterator i = config.begin(); i != config.end(); i++) {
-		threads.push_back(thread(primefacThreadFunc, *i));
+	vector<PrimefacThread::Configuration> config = PrimefacThread::createConfigurations(N, Nc, Na, Fc, kB, numThreads);
+	vector<PrimefacThread> threads;
+	for(vector<PrimefacThread::Configuration>::iterator i = config.begin(); i != config.end(); i++) {
+		threads.push_back(*i);
 	}
-	for(vector<thread>::iterator i = threads.begin(); i != threads.end(); i++) {
+	for(vector<PrimefacThread>::iterator i = threads.begin(); i != threads.end(); i++) {
 		i->join();
 	}
 

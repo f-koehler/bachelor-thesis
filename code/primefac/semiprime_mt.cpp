@@ -99,12 +99,12 @@ int main(int argc, char** argv)
 	chrono::high_resolution_clock clock;
 	chrono::high_resolution_clock::time_point start = clock.now();
 
-	vector<SemiprimeConfiguration> config = createSemiprimeConfigurations(N1, N2, Nc, Na, Fc, kB, numThreads);
-	vector<thread> threads;
-	for(vector<SemiprimeConfiguration>::iterator i = config.begin(); i != config.end(); i++) {
-		threads.push_back(thread(semiprimeThreadFunc, *i));
+	vector<SemiprimeThread::Configuration> config = SemiprimeThread::createConfigurations(N1, N2, Nc, Na, Fc, kB, numThreads);
+	vector<SemiprimeThread> threads;
+	for(vector<SemiprimeThread::Configuration>::iterator i = config.begin(); i != config.end(); i++) {
+		threads.push_back(SemiprimeThread(*i));
 	}
-	for(vector<thread>::iterator i = threads.begin(); i != threads.end(); i++) {
+	for(vector<SemiprimeThread>::iterator i = threads.begin(); i != threads.end(); i++) {
 		i->join();
 	}
 	
