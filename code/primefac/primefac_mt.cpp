@@ -1,12 +1,8 @@
-#include "bitset.hpp"
-#include "seed.hpp"
 #include "threading.hpp"
 #include <iostream>
 #include <vector>
-#include <cmath>
-#include <climits>
 #include <sstream>
-#include <string>
+#include <climits>
 using namespace primefac;
 using namespace std;
 

@@ -1,5 +1,3 @@
-#include "config.hpp"
-#include "bitset.hpp"
 #include "seed.hpp"
 #include "threading.hpp"
 #include <iostream>
@@ -7,7 +5,6 @@
 #include <cmath>
 #include <climits>
 #include <sstream>
-#include <string>
 using namespace primefac;
 using namespace std;
 

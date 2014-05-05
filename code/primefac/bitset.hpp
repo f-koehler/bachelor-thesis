@@ -3,13 +3,10 @@
 
 #include "config.hpp"
 #include <ostream>
-#include <sstream>
 #include <vector>
 #include <random>
 #include <algorithm>
 #include <cstring>
-
-#include <iostream>
 
 namespace primefac
 {
