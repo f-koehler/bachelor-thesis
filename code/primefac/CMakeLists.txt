@@ -32,22 +32,22 @@ add_library(
 
 add_executable(
 	primefac
-	primefac.cpp config.hpp bitset
+	main_primefac.cpp config.hpp bitset
 )
 
 add_executable(
 	primefac_mt
-	primefac_mt.cpp config.hpp bitset threading seed
+	main_primefac_mt.cpp config.hpp bitset threading seed
 )
 
 add_executable(
 	semiprime
-	semiprime.cpp config.hpp bitset
+	main_semiprime.cpp config.hpp bitset
 )
 
 add_executable(
 	semiprime_mt
-	semiprime_mt.cpp config.hpp bitset threading seed
+	main_semiprime_mt.cpp config.hpp bitset threading seed
 )
 
 add_executable(
