@@ -92,6 +92,8 @@ namespace primefac
 			 */
 			void slideSequence(std::size_t start, std::size_t end);
 
+			void sparsePermutation(Prng& gen);
+
 			/**
 			 * Multiply this Bitset with another one on the binary level.
 			 * @param[in] a The Bitset this one will be multiplied with
