@@ -6,6 +6,7 @@
 #include <cmath>
 #include <climits>
 #include <sstream>
+#include <chrono>
 using namespace primefac;
 using namespace std;
 
@@ -90,12 +91,15 @@ int main(int argc, char** argv)
 	cout << "Fc = " << Fc << endl;
 	cout << endl;
 
+
+	chrono::high_resolution_clock clock;
+	chrono::high_resolution_clock::time_point start = clock.now();
+
 	// working variables
 	size_t N = N1*N2;
 	Bitset Nbit(size, N);
 	Bitset N1bit(size, N1);
 	Bitset N2bit(size, N2);
-	size_t n = Nbit.getRelevant();
 	size_t a = N1bit.getRelevant();
 	size_t b = N2bit.getRelevant();
 	size_t a1 = N1bit.numOnes();
@@ -170,6 +174,9 @@ int main(int argc, char** argv)
 
 		T *= Fc;
 	}
+
+	chrono::high_resolution_clock::time_point stop = clock.now();
+	cout << "Time: " << chrono::duration_cast<chrono::nanoseconds>(stop-start).count()  << " ns" << endl;
 	return 0;
 }
 

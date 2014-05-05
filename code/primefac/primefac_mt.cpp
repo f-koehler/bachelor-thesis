@@ -3,6 +3,7 @@
 #include <vector>
 #include <sstream>
 #include <climits>
+#include <chrono>
 using namespace primefac;
 using namespace std;
 
@@ -84,6 +85,9 @@ int main(int argc, char** argv)
 	cout << "threads = " << numThreads << endl;
 	cout << endl;
 
+	chrono::high_resolution_clock clock;
+	chrono::high_resolution_clock::time_point start = clock.now();
+
 	vector<PrimefacConfiguration> config = createPrimefacConfigurations(N, Nc, Na, Fc, kB, numThreads);
 	vector<thread> threads;
 	for(vector<PrimefacConfiguration>::iterator i = config.begin(); i != config.end(); i++) {
@@ -93,6 +97,8 @@ int main(int argc, char** argv)
 		i->join();
 	}
 
+	chrono::high_resolution_clock::time_point stop = clock.now();
+	cout << "Time: " << chrono::duration_cast<chrono::nanoseconds>(stop-start).count()  << " ns" << endl;
 	return 0;
 }
 

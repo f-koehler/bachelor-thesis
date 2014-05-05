@@ -5,6 +5,7 @@
 #include <cmath>
 #include <climits>
 #include <sstream>
+#include <chrono>
 using namespace primefac;
 using namespace std;
 
@@ -95,6 +96,9 @@ int main(int argc, char** argv)
 	cout << "Fc = " << Fc << endl;
 	cout << endl;
 
+	chrono::high_resolution_clock clock;
+	chrono::high_resolution_clock::time_point start = clock.now();
+
 	vector<SemiprimeConfiguration> config = createSemiprimeConfigurations(N1, N2, Nc, Na, Fc, kB, numThreads);
 	vector<thread> threads;
 	for(vector<SemiprimeConfiguration>::iterator i = config.begin(); i != config.end(); i++) {
@@ -103,6 +107,10 @@ int main(int argc, char** argv)
 	for(vector<thread>::iterator i = threads.begin(); i != threads.end(); i++) {
 		i->join();
 	}
+	
+	chrono::high_resolution_clock::time_point stop = clock.now();
+	cout << "Time: " << chrono::duration_cast<chrono::nanoseconds>(stop-start).count()  << " ns" << endl;
+	return EXIT_SUCCESS;
 }
 
 void usage()
