@@ -2,12 +2,12 @@
 
 namespace primefac
 {
+	static std::atomic_bool   completed;
+	static std::atomic_size_t numSearched;
+
 	/* thread functions */
 	void primefacThreadFunc(const PrimefacThread::Configuration& config)
 	{
-		static std::atomic_bool finished(false);
-		static std::atomic_size_t searched(0);
-
 		std::size_t bitsetSize = sizeof(std::size_t)*8;
 
 
@@ -68,11 +68,11 @@ namespace primefac
 					for(std::size_t b1 = 1; b1 <= b; b1++) {
 #ifndef PRIMEFAC_NO_PROGRESS
 						if(config.threadId == 0) {
-							std::cout << "Thread 0:\ta=" << a << " a1=" << a1 << " b=" << b << " b1=" << b1 << "\t" << (double)searched / searchSize << "%" << std::endl;
+							std::cout << "Thread 0:\ta=" << a << " a1=" << a1 << " b=" << b << " b1=" << b1 << "\t" << (double)numSearched / searchSize << "%" << std::endl;
 						}
 #endif
 
-						searched++;
+						numSearched++;
 
 						B.makeRandom(b, b1, gen);
 						Bnew = B;
@@ -81,14 +81,14 @@ namespace primefac
 						compliance = N.quadraticCompliance(prod);
 
 						if(N == prod) {
-							finished = true;
+							completed = true;
 							std::cout << Anew << "\t" << Bnew << std::endl;
 							std::cout << Anew.toSizeT() << "\t" << Bnew.toSizeT() << std::endl;
 							return;
 						}
 
 						for(std::size_t i = 0; i < config.numAnnealingSteps; i++) {
-							if(finished) {
+							if(completed) {
 								return;
 							}
 							for(std::size_t j = 0; j < config.numConfigurations; j++) {
@@ -101,7 +101,7 @@ namespace primefac
 								Anew.multiply(Bnew, prod);
 
 								if(N == prod) {
-									finished = true;
+									completed = true;
 									std::cout << Anew << "\t" << Bnew << std::endl;
 									std::cout << Anew.toSizeT() << "\t" << Bnew.toSizeT() << std::endl;
 									return;
@@ -132,9 +132,6 @@ namespace primefac
 
 	void semiprimeThreadFunc(const SemiprimeThread::Configuration& config)
 	{
-		static std::atomic_bool finished(false);
-		static std::atomic_size_t searched(0);
-
 		std::size_t bitsetSize = 8*sizeof(std::size_t);
 
 		Bitset A(bitsetSize);
@@ -170,7 +167,7 @@ namespace primefac
 
 		if(prod == Nbit) {
 			std::cout << Anew.toSizeT() << " " << Bnew.toSizeT() << std::endl;
-			finished = true;
+			completed = true;
 			return;
 		}
 
@@ -179,10 +176,10 @@ namespace primefac
 		for(std::size_t i = 0; i < config.numConfigurations; i++) {
 #ifndef PRIMEFAC_NO_PROGRESS
 			if(config.threadId == 0) {
-				std::cout << (double)searched / searchSize << "%" << std::endl;
+				std::cout << (double)numSearched / searchSize << "%" << std::endl;
 			}
 #endif
-			if(finished) {
+			if(completed) {
 				return;
 			}
 			for(std::size_t j = 0; j < config.numAnnealingSteps; j++) {
@@ -195,7 +192,7 @@ namespace primefac
 				Anew.multiply(Bnew, prod);
 				if(prod == Nbit) {
 					std::cout << Anew.toSizeT() << " " << Bnew.toSizeT() << std::endl;
-					finished = true;
+					completed = true;
 					return;
 				}
 
@@ -213,7 +210,7 @@ namespace primefac
 					Bnew = B;
 				}
 
-				searched++;
+				numSearched++;
 			}
 			T *= config.coolingFactor;
 		}
@@ -222,9 +219,6 @@ namespace primefac
 
 
 	/* PrimefacThread */
-	std::atomic_bool PrimefacThread::completed(false);
-	std::atomic_size_t PrimefacThread::numSearched(0);
-
 	PrimefacThread::PrimefacThread(PrimefacThread::Configuration& config) : 
 		thr(std::thread(primefacThreadFunc, config))
 	{
@@ -258,9 +252,6 @@ namespace primefac
 	/* PrimefacThread */
 
 	/* SemiprimeThread */
-	std::atomic_bool SemiprimeThread::completed(false);
-	std::atomic_size_t SemiprimeThread::numSearched(0);
-
 	SemiprimeThread::SemiprimeThread(SemiprimeThread::Configuration& config) :
 		thr(std::thread(semiprimeThreadFunc, config))
 	{

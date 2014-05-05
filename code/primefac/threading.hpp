@@ -43,12 +43,6 @@ namespace primefac
 			} Configuration;
 
 		private:
-			/** A bool to store whether one of the threads completed */
-			static std::atomic_bool   completed;
-
-			/** The number of a, b, a1 and b1 values that already have been probed */
-			static std::atomic_size_t numSearched;
-
 			/** The C++11 instance for the computing */
 			std::thread thr;
 
@@ -110,12 +104,6 @@ namespace primefac
 			} Configuration;
 
 		private:
-			/** A bool to store whether one of the threads completed */
-			static std::atomic_bool   completed;
-
-			/** The number of configurations that already have been probed */
-			static std::atomic_size_t numSearched;
-
 			/** The C++11 instance for the computing */
 			std::thread thr;
 
