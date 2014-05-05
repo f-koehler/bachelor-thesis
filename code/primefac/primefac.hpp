@@ -1,7 +1,10 @@
 #ifndef PRIMEFAC_HPP_
 #define PRIMEFAC_HPP_
 
+#include "config.hpp"
+#include "threading.hpp"
 #include <vector>
+#include <utility>
 #include <chrono>
 
 namespace primefac
@@ -31,7 +34,7 @@ namespace primefac
 
 	typedef struct {
 		bool success;
-		std::vector<std::size_t> factors;
+		std::pair<std::size_t, std::size_t> factors;
 		std::chrono::microseconds duration;
 	} SemiprimeResult;
 

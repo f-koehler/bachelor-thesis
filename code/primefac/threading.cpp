@@ -6,7 +6,7 @@ namespace primefac
 	static std::atomic_size_t numSearched;
 
 	/* thread functions */
-	void primefacThreadFunc(const PrimefacThread::Configuration& config)
+	void primefacThreadFunc(const PrimefacThread::Configuration& config, bool& success, std::vector<size_t>& factors)
 	{
 		std::size_t bitsetSize = sizeof(std::size_t)*8;
 
@@ -30,6 +30,7 @@ namespace primefac
 		std::size_t newCompliance = 0;
 		double T = 1.0;
 		size_t bStart = 0;
+		factors.clear();
 
 		// thread 0 needs to know the number of a, a1, etc values
 		double searchSize = 0.0;
@@ -82,6 +83,9 @@ namespace primefac
 
 						if(N == prod) {
 							completed = true;
+							success = true;
+							factors.push_back(Anew.toSizeT());
+							factors.push_back(Bnew.toSizeT());
 							std::cout << Anew << "\t" << Bnew << std::endl;
 							std::cout << Anew.toSizeT() << "\t" << Bnew.toSizeT() << std::endl;
 							return;
@@ -102,6 +106,9 @@ namespace primefac
 
 								if(N == prod) {
 									completed = true;
+									success = true;
+									factors.push_back(Anew.toSizeT());
+									factors.push_back(Bnew.toSizeT());
 									std::cout << Anew << "\t" << Bnew << std::endl;
 									std::cout << Anew.toSizeT() << "\t" << Bnew.toSizeT() << std::endl;
 									return;
@@ -130,7 +137,7 @@ namespace primefac
 		}
 	}
 
-	void semiprimeThreadFunc(const SemiprimeThread::Configuration& config)
+	void semiprimeThreadFunc(const SemiprimeThread::Configuration& config, bool& success, std::pair<std::size_t, std::size_t>& factors)
 	{
 		std::size_t bitsetSize = 8*sizeof(std::size_t);
 
@@ -166,6 +173,9 @@ namespace primefac
 		compliance = prod.linearCompliance(Nbit);
 
 		if(prod == Nbit) {
+			success = true;
+			factors.first = Anew.toSizeT();
+			factors.second = Bnew.toSizeT();
 			std::cout << Anew.toSizeT() << " " << Bnew.toSizeT() << std::endl;
 			completed = true;
 			return;
@@ -191,6 +201,9 @@ namespace primefac
 
 				Anew.multiply(Bnew, prod);
 				if(prod == Nbit) {
+					success = true;
+					factors.first = Anew.toSizeT();
+					factors.second = Bnew.toSizeT();
 					std::cout << Anew.toSizeT() << " " << Bnew.toSizeT() << std::endl;
 					completed = true;
 					return;
@@ -220,13 +233,22 @@ namespace primefac
 
 	/* PrimefacThread */
 	PrimefacThread::PrimefacThread(PrimefacThread::Configuration& config) : 
-		thr(std::thread(primefacThreadFunc, config))
+		success(false), factors(), thr(std::thread(primefacThreadFunc, config, success, factors))
 	{
 	}
 
 	void PrimefacThread::join()
 	{
 		thr.join();
+	}
+	
+	bool PrimefacThread::getSuccess() const
+	{
+		return success;
+	}
+	std::vector<std::size_t> PrimefacThread::getFactors() const
+	{
+		return factors;
 	}
 
 	std::vector<PrimefacThread::Configuration> PrimefacThread::createConfigurations(
@@ -253,13 +275,22 @@ namespace primefac
 
 	/* SemiprimeThread */
 	SemiprimeThread::SemiprimeThread(SemiprimeThread::Configuration& config) :
-		thr(std::thread(semiprimeThreadFunc, config))
+		success(false), factors(), thr(std::thread(semiprimeThreadFunc, config))
 	{
 	}
 
 	void SemiprimeThread::join()
 	{
 		thr.join();
+	}
+		
+	bool SemiprimeThread::getSuccess() const
+	{
+		return success;
+	}
+	std::pair<std::size_t, std::size_t> SemiprimeThread::getFactors() const
+	{
+		return factors;
 	}
 
 	std::vector<SemiprimeThread::Configuration> SemiprimeThread::createConfigurations(
