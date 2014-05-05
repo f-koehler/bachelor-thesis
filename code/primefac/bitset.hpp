@@ -10,9 +10,6 @@
 
 namespace primefac
 {
-
-	typedef std::mt19937 Prng;
-	
 	class Bitset
 	{
 		private:

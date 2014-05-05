@@ -5,4 +5,6 @@
 
 //#define PRIMEFAC_NO_PROGRESS
 
+typedef std::mt19937 Prng;
+	
 #endif

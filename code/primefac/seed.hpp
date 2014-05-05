@@ -2,13 +2,11 @@
 #define SEED_HPP_
 
 #include "config.hpp"
-#include <fstream>
 #include <random>
 
-namespace primefac {
-
-	std::size_t readSeed();
-
+namespace primefac
+{
+	Prng::result_type readSeed();
 }
 
 #endif
