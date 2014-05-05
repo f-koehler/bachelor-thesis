@@ -92,6 +92,10 @@ namespace primefac
 			 */
 			void slideSequence(std::size_t start, std::size_t end);
 
+			/**
+			 * Select random sparse elements and permute them randomly.
+			 * @param[in, out] gen The random number generator to use.
+			 */
 			void sparsePermutation(Prng& gen);
 
 			/**
