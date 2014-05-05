@@ -2,6 +2,7 @@
 #include "bitset.hpp"
 #include "seed.hpp"
 #include <iostream>
+#include <fstream>
 #include <vector>
 #include <cmath>
 #include <climits>
@@ -20,48 +21,57 @@ int main(int argc, char** argv)
 	size_t Nc = 1500;
 	double Fc = 0.997;
 	double kB = 15.0;
+	string primeFile("");
 
 	size_t size = sizeof(size_t)*8;	
+	vector<size_t> factors;
 
 	// parse command line arguments
 	for(int arg = 1; arg < argc; arg++) {
 		string tmp(argv[arg]);
 
 		if(tmp == string("-N")) {
-			if(argc == argc-1) {
+			if(arg == argc-1) {
 				usage();
 				return EXIT_FAILURE;
 			}
 			arg++;
 			stringstream(argv[arg]) >> N;
 		} else if(tmp == string("-k")) {
-			if(argc == argc-1) {
+			if(arg == argc-1) {
 				usage();
 				return EXIT_FAILURE;
 			}
 			arg++;
 			stringstream(argv[arg]) >> kB;
 		} else if(tmp == string("-Na")) {
-			if(argc == argc-1) {
+			if(arg == argc-1) {
 				usage();
 				return EXIT_FAILURE;
 			}
 			arg++;
 			stringstream(argv[arg]) >> Na;
 		} else if(tmp == string("-Nc")) {
-			if(argc == argc-1) {
+			if(arg == argc-1) {
 				usage();
 				return EXIT_FAILURE;
 			}
 			arg++;
 			stringstream(argv[arg]) >> Nc;
 		} else if(tmp == string("-Fc")) {
-			if(argc == argc-1) {
+			if(arg == argc-1) {
 				usage();
 				return EXIT_FAILURE;
 			}
 			arg++;
 			stringstream(argv[arg]) >> Fc;
+		} else if(tmp == string("-p")) {
+			if(arg == argc-1) {
+				usage();
+				return EXIT_FAILURE;
+			}
+			arg++;
+			primeFile = string(argv[arg]);
 		} else if(tmp == string("--help")) {
 			usage();
 			return EXIT_FAILURE;
@@ -83,6 +93,19 @@ int main(int argc, char** argv)
 
 	chrono::high_resolution_clock clock;
 	chrono::high_resolution_clock::time_point start = clock.now();
+
+	if(!primeFile.empty()) {
+		ifstream strm(primeFile.c_str());
+		size_t prime = 0;
+		while(!strm.eof()) {
+			strm >> prime;
+			while(N % prime == 0) {
+				N /= prime;
+				factors.push_back(prime);
+			}
+		}
+		strm.close();
+	}
 
 	// working variables
 	Bitset Nbit(size, N);
@@ -146,7 +169,13 @@ int main(int argc, char** argv)
 					compliance = prod.quadraticCompliance(Nbit);
 
 					if(prod == Nbit) {
-						cout << Anew.toSizeT() << " " << Bnew.toSizeT() << endl;
+						factors.push_back(Anew.toSizeT());
+						factors.push_back(Bnew.toSizeT());
+						cout << "Success! Found factorization: ";
+						for(size_t i = 0; i < factors.size(); i++) {
+							cout << factors[i] << " ";
+						}
+						cout << endl;
 						return EXIT_SUCCESS;
 					}
 
@@ -163,7 +192,13 @@ int main(int argc, char** argv)
 							Anew.multiply(Bnew, prod);
 
 							if(prod == Nbit) {
-								cout << Anew.toSizeT() << " " << Bnew.toSizeT() << endl;
+								factors.push_back(Anew.toSizeT());
+								factors.push_back(Bnew.toSizeT());
+								cout << "Success! Found factorization: ";
+								for(size_t i = 0; i < factors.size(); i++) {
+									cout << factors[i] << " ";
+								}
+								cout << endl;
 								return EXIT_SUCCESS;
 							}
 							complianceNew = prod.quadraticCompliance(Nbit);
@@ -203,10 +238,11 @@ void usage()
 	cout << "  primefac [options]" << endl;
 	cout << endl;
 	cout << "Options:" << endl;
-	cout << "  --help\tPrint this message" << endl;
-	cout << "  -N [value]\tThe number to factor, must be larger than 1 and smaller than " << ULONG_MAX << endl;
-	cout << "  -k [value]\tValue for the Boltzmann constant" << endl;
-	cout << "  -Na [value]\tNumber of annealing steps"  << endl;
-	cout << "  -Nc [value]\tNumber of conifgurations per annealing step" << endl;
-	cout << "  -Fc [value]\tCooling factor per annealing step" << endl;
+	cout << "  --help       Print this message" << endl;
+	cout << "  -N [value]   The number to factor, must be larger than 1 and smaller than " << ULONG_MAX << endl;
+	cout << "  -k [value]   Value for the Boltzmann constant" << endl;
+	cout << "  -Na [value]  Number of annealing steps"  << endl;
+	cout << "  -Nc [value]  Number of conifgurations per annealing step" << endl;
+	cout << "  -Fc [value]  Cooling factor per annealing step" << endl;
+	cout << "  -p [file]    A file containing prime numbers" << endl;
 }

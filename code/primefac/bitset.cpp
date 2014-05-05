@@ -141,11 +141,6 @@ namespace primefac {
 	}
 	void Bitset::sparsePermutation(Prng& gen)
 	{	
-		/*std::uniform_int_distribution<std::size_t> numDist(0, setSize-1);
-		std::size_t count = numDist(gen);
-		for(std::size_t i = 0; i < count; i++) {
-		swapBits(indexDistribution(gen), indexDistribution(gen));
-		}*/
 		std::vector<bool> values;
 		std::vector<std::size_t> positions;
 		double p = 0.0;

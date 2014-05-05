@@ -19,7 +19,7 @@ namespace primefac
 			}
 		}
 
-		for(std::size_t i = 0; i <= limit; i++) {
+		for(std::size_t i = 2; i <= limit; i++) {
 			if(!cancel[i]) {
 				primes.push_back(i);
 			}
