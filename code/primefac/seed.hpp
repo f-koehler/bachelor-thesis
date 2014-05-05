@@ -6,6 +6,10 @@
 
 namespace primefac
 {
+	/**
+	 * Reads a seed from a random device (a hardware random number generator)
+	 * @return A random seed.
+	 */
 	Prng::result_type readSeed();
 }
 

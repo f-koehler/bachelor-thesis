@@ -10,27 +10,20 @@
 
 namespace primefac
 {
+	/** @brief A class representing bitsets, specially designed for the task of factorization using simulated annealing. */
 	class Bitset
 	{
 		private:
-			/**
-			 * A bool field that represents the bitset
-			 */
+			/** A bool field that represents the bitset */
 			bool*  set;
 
-			/**
-			 * The size of the array set
-			 */
+			/** The size of the array set */
 			unsigned long setSize;
 
-			/**
-			 * The number of bits that are not leading zeros.
-			 */
+			/** The number of bits that are not leading zeros. */
 			unsigned long relevant;
 
-			/**
-			 * A distribution for random numbers to chose random indices with respect to the need of leading one.
-			 */
+			/** A distribution for random numbers to chose random indices with respect to the need of leading one. */
 			std::uniform_int_distribution<std::size_t> indexDistribution;
 
 		public:
