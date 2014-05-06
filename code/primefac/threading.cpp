@@ -3,10 +3,9 @@
 namespace primefac
 {
 	/* thread functions */
-	void PrimefacThread::threadFunc(const PrimefacThread::Configuration& config)
+	void PrimefacThread::threadFunc(const Configuration& config)
 	{
 		std::size_t bitsetSize = sizeof(std::size_t)*8;
-
 
 		std::mt19937 gen;
 		std::uniform_int_distribution<std::size_t> choiceDist(0, 1);
@@ -232,8 +231,10 @@ namespace primefac
 	std::atomic_bool PrimefacThread::completed(false);
 	std::atomic_size_t PrimefacThread::numSearched(0);
 
+	bool PrimefacThread::success(true);
+	std::vector<std::size_t> PrimefacThread::factors;
 	PrimefacThread::PrimefacThread(PrimefacThread::Configuration& config) : 
-		success(false), factors(), thr(std::thread(&PrimefacThread::threadFunc, this, config))
+		thr(std::thread(&PrimefacThread::threadFunc, this, config))
 	{
 	}
 
@@ -242,11 +243,11 @@ namespace primefac
 		thr.join();
 	}
 	
-	bool PrimefacThread::getSuccess() const
+	bool PrimefacThread::getSuccess()
 	{
 		return success;
 	}
-	std::vector<std::size_t> PrimefacThread::getFactors() const
+	std::vector<std::size_t> PrimefacThread::getFactors()
 	{
 		return factors;
 	}
@@ -277,8 +278,10 @@ namespace primefac
 	std::atomic_bool SemiprimeThread::completed(false);
 	std::atomic_size_t SemiprimeThread::numSearched(0);
 
+	bool SemiprimeThread::success(true);
+	std::pair<std::size_t, std::size_t> SemiprimeThread::factors;
 	SemiprimeThread::SemiprimeThread(SemiprimeThread::Configuration& config) :
-		success(false), factors(), thr(std::thread(&SemiprimeThread::threadFunc, this, config))
+		thr(std::thread(&SemiprimeThread::threadFunc, this, config))
 	{
 	}
 
@@ -287,11 +290,11 @@ namespace primefac
 		thr.join();
 	}
 		
-	bool SemiprimeThread::getSuccess() const
+	bool SemiprimeThread::getSuccess()
 	{
 		return success;
 	}
-	std::pair<std::size_t, std::size_t> SemiprimeThread::getFactors() const
+	std::pair<std::size_t, std::size_t> SemiprimeThread::getFactors()
 	{
 		return factors;
 	}

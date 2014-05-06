@@ -119,15 +119,8 @@ namespace primefac
 
 		std::chrono::high_resolution_clock::time_point stop = clock.now();
 
-		result.success = false;
-		for(std::size_t i = 0; i < numThreads; i++) {
-			if(threads[i].getSuccess()) {
-				result.success = true;
-				result.factors = threads[i].getFactors();
-				break;
-			}
-		}
-
+		result.success = PrimefacThread::getSuccess();
+		result.factors = PrimefacThread::getFactors();
 		result.duration = std::chrono::duration_cast<std::chrono::microseconds>(stop-start);
 
 		return result;
@@ -237,15 +230,8 @@ namespace primefac
 
 		std::chrono::high_resolution_clock::time_point stop = clock.now();
 
-		result.success = false;
-		for(std::size_t i = 0; i < numThreads; i++) {
-			if(threads[i].getSuccess()) {
-				result.success = true;
-				result.factors = threads[i].getFactors();
-				break;
-			}
-		}
-
+		result.success = SemiprimeThread::getSuccess();
+		result.factors = SemiprimeThread::getFactors();
 		result.duration = std::chrono::duration_cast<std::chrono::microseconds>(stop-start);
 
 		return result;

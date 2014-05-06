@@ -44,8 +44,8 @@ namespace primefac
 			} Configuration;
 
 		private:
-			bool success;
-			std::vector<std::size_t> factors;
+			static bool success;
+			static std::vector<std::size_t> factors;
 
 			/** The C++11 instance for the computing */
 			std::thread thr;
@@ -64,8 +64,8 @@ namespace primefac
 			 */
 			void join();
 
-			bool getSuccess() const;
-			std::vector<std::size_t> getFactors() const;
+			static bool getSuccess();
+			static std::vector<std::size_t> getFactors();
 			
 			/**
 			 * This function will create a set of primefac thread configurations.
@@ -117,8 +117,8 @@ namespace primefac
 			} Configuration;
 
 		private:
-			bool success;
-			std::pair<std::size_t, std::size_t> factors;
+			static bool success;
+			static std::pair<std::size_t, std::size_t> factors;
 
 			/** The C++11 instance for the computing */
 			std::thread thr;
@@ -136,8 +136,8 @@ namespace primefac
 			 */
 			void join();
 
-			bool getSuccess() const;
-			std::pair<std::size_t, std::size_t> getFactors() const;
+			static bool getSuccess();
+			static std::pair<std::size_t, std::size_t> getFactors();
 
 			/**
 			 * This function will create a set of semiprime thread configurations.
