@@ -82,8 +82,6 @@ namespace primefac
 							success = true;
 							factors.push_back(Anew.toSizeT());
 							factors.push_back(Bnew.toSizeT());
-							std::cout << Anew << "\t" << Bnew << std::endl;
-							std::cout << Anew.toSizeT() << "\t" << Bnew.toSizeT() << std::endl;
 							return;
 						}
 
@@ -105,8 +103,6 @@ namespace primefac
 									success = true;
 									factors.push_back(Anew.toSizeT());
 									factors.push_back(Bnew.toSizeT());
-									std::cout << Anew << "\t" << Bnew << std::endl;
-									std::cout << Anew.toSizeT() << "\t" << Bnew.toSizeT() << std::endl;
 									return;
 								}
 								
@@ -172,7 +168,6 @@ namespace primefac
 			success = true;
 			factors.first = Anew.toSizeT();
 			factors.second = Bnew.toSizeT();
-			std::cout << Anew.toSizeT() << " " << Bnew.toSizeT() << std::endl;
 			completed = true;
 			return;
 		}
@@ -200,7 +195,6 @@ namespace primefac
 					success = true;
 					factors.first = Anew.toSizeT();
 					factors.second = Bnew.toSizeT();
-					std::cout << Anew.toSizeT() << " " << Bnew.toSizeT() << std::endl;
 					completed = true;
 					return;
 				}
