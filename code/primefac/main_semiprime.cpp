@@ -1,8 +1,11 @@
+#include "seed.hpp"
 #include "threading.hpp"
+#include "primefac.hpp"
 #include <iostream>
 #include <vector>
-#include <sstream>
+#include <cmath>
 #include <climits>
+#include <sstream>
 #include <chrono>
 using namespace primefac;
 using namespace std;
@@ -12,52 +15,61 @@ void usage();
 int main(int argc, char** argv)
 {
 	// standard simulation parameters
-	size_t N  = 100;
-	size_t Na = 1000;
-	size_t Nc = 1500;
-	double Fc = 0.997;
-	double kB = 15.0;
-	size_t numThreads = 8;
+	SemiprimeParameters parameters;
+	parameters.N1 = 71;
+	parameters.N2 = 73;
+	parameters.Na = 1000;
+	parameters.Nc = 1500;
+	parameters.Fc = 0.997;
+	parameters.kB = 15.0;
+	size_t numThreads = 0;
 
 	// parse command line arguments
 	for(int arg = 1; arg < argc; arg++) {
 		string tmp(argv[arg]);
 
-		if(tmp == string("-N")) {
+		if(tmp == string("-N1")) {
 			if(argc == argc-1) {
 				usage();
 				return EXIT_FAILURE;
 			}
 			arg++;
-			stringstream(argv[arg]) >> N;
+			stringstream(argv[arg]) >> parameters.N1;
+		} else if(tmp == string("-N2")) {
+			if(argc == argc-1) {
+				usage();
+				return EXIT_FAILURE;
+			}
+			arg++;
+			stringstream(argv[arg]) >> parameters.N2;
 		} else if(tmp == string("-k")) {
 			if(argc == argc-1) {
 				usage();
 				return EXIT_FAILURE;
 			}
 			arg++;
-			stringstream(argv[arg]) >> kB;
+			stringstream(argv[arg]) >> parameters.kB;
 		} else if(tmp == string("-Na")) {
 			if(argc == argc-1) {
 				usage();
 				return EXIT_FAILURE;
 			}
 			arg++;
-			stringstream(argv[arg]) >> Na;
+			stringstream(argv[arg]) >> parameters.Na;
 		} else if(tmp == string("-Nc")) {
 			if(argc == argc-1) {
 				usage();
 				return EXIT_FAILURE;
 			}
 			arg++;
-			stringstream(argv[arg]) >> Nc;
+			stringstream(argv[arg]) >> parameters.Nc;
 		} else if(tmp == string("-Fc")) {
 			if(argc == argc-1) {
 				usage();
 				return EXIT_FAILURE;
 			}
 			arg++;
-			stringstream(argv[arg]) >> Fc;
+			stringstream(argv[arg]) >> parameters.Fc;
 		} else if(tmp == string("-t")) {
 			if(argc == argc-1) {
 				usage();
@@ -75,43 +87,23 @@ int main(int argc, char** argv)
 		}
 	}
 
-	// print the parameters of the simulation to be done
-	cout << "Parameters:" << endl;
-	cout << "N  = " << N  << endl;
-	cout << "k  = " << kB << endl;
-	cout << "Na = " << Na << endl;
-	cout << "Nc = " << Nc << endl;
-	cout << "Fc = " << Fc << endl;
-	cout << "threads = " << numThreads << endl;
-	cout << endl;
-
-	chrono::high_resolution_clock clock;
-	chrono::high_resolution_clock::time_point start = clock.now();
-
-	vector<PrimefacThread::Configuration> config = PrimefacThread::createConfigurations(N, Nc, Na, Fc, kB, numThreads);
-	vector<PrimefacThread> threads;
-	for(vector<PrimefacThread::Configuration>::iterator i = config.begin(); i != config.end(); i++) {
-		threads.push_back(*i);
-	}
-	for(vector<PrimefacThread>::iterator i = threads.begin(); i != threads.end(); i++) {
-		i->join();
-	}
-
-	chrono::high_resolution_clock::time_point stop = clock.now();
-	cout << "Time: " << chrono::duration_cast<chrono::nanoseconds>(stop-start).count()  << " ns" << endl;
-	return 0;
+	SemiprimeResult result = (numThreads <= 1) ? factorizeSemiprime(parameters) : factorizeSemiprime(parameters, numThreads);
+	cout << result << endl;
+	
+	return EXIT_SUCCESS;
 }
 
 void usage()
 {
-	cout << "primefac - factorize numbers using simulated annealing" << endl;
+	cout << "semiprime - factorize semiprime numbers using simulated annealing" << endl;
 	cout << endl;
 	cout << "Usage:" << endl;
 	cout << "  primefac [options]" << endl;
 	cout << endl;
 	cout << "Options:" << endl;
 	cout << "  --help       Print this message" << endl;
-	cout << "  -N [value]   The number to factor, must be larger than 1 and smaller than " << ULONG_MAX << endl;
+	cout << "  -N1 [value]  The number to factor, must be larger than 1 and smaller than " << ULONG_MAX << endl;
+	cout << "  -N2 [value]  The number to factor, must be larger than 1 and smaller than " << ULONG_MAX << endl;
 	cout << "  -k [value]   Value for the Boltzmann constant" << endl;
 	cout << "  -Na [value]  Number of annealing steps"  << endl;
 	cout << "  -Nc [value]  Number of conifgurations per annealing step" << endl;

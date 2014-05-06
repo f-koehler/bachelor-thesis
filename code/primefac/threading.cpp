@@ -6,7 +6,7 @@ namespace primefac
 	static std::atomic_size_t numSearched;
 
 	/* thread functions */
-	void primefacThreadFunc(const PrimefacThread::Configuration& config, bool& success, std::vector<size_t>& factors)
+	void PrimefacThread::threadFunc(const PrimefacThread::Configuration& config)
 	{
 		std::size_t bitsetSize = sizeof(std::size_t)*8;
 
@@ -137,7 +137,7 @@ namespace primefac
 		}
 	}
 
-	void semiprimeThreadFunc(const SemiprimeThread::Configuration& config, bool& success, std::pair<std::size_t, std::size_t>& factors)
+	void SemiprimeThread::threadFunc(const SemiprimeThread::Configuration& config)
 	{
 		std::size_t bitsetSize = 8*sizeof(std::size_t);
 
@@ -233,7 +233,7 @@ namespace primefac
 
 	/* PrimefacThread */
 	PrimefacThread::PrimefacThread(PrimefacThread::Configuration& config) : 
-		success(false), factors(), thr(std::thread(primefacThreadFunc, config, success, factors))
+		success(false), factors(), thr(std::thread(&PrimefacThread::threadFunc, this, config))
 	{
 	}
 
@@ -275,7 +275,7 @@ namespace primefac
 
 	/* SemiprimeThread */
 	SemiprimeThread::SemiprimeThread(SemiprimeThread::Configuration& config) :
-		success(false), factors(), thr(std::thread(semiprimeThreadFunc, config))
+		success(false), factors(), thr(std::thread(&SemiprimeThread::threadFunc, this, config))
 	{
 	}
 

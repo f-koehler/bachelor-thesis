@@ -49,6 +49,8 @@ namespace primefac
 
 			/** The C++11 instance for the computing */
 			std::thread thr;
+	
+			void threadFunc(const Configuration& config);
 
 		public:
 			PrimefacThread(Configuration& config);
@@ -116,6 +118,8 @@ namespace primefac
 
 			/** The C++11 instance for the computing */
 			std::thread thr;
+
+			void threadFunc(const Configuration& config);
 
 		public:
 			SemiprimeThread(Configuration& config);

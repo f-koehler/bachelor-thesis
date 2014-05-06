@@ -250,4 +250,34 @@ namespace primefac
 
 		return result;
 	}
+
+	std::ostream& operator<<(std::ostream& out, const PrimefacResult& r)
+	{
+		if(r.success) {
+			out << "Success!" << std::endl;
+			out << "Factors: ";
+			for(std::size_t i = 0; i < r.factors.size(); i++) {
+				out << r.factors[i] << " ";
+			}
+			out << std::endl;
+		} else {
+			out << "Failure!" << std::endl;
+		}
+		out << "Duration: " << r.duration.count() << " mus" << std::endl;
+
+		return out;
+	}
+	std::ostream& operator<<(std::ostream& out, const SemiprimeResult& r)
+	{
+		if(r.success) {
+			out << "Success!" << std::endl;
+			out << "Factors: " << r.factors.first << " " << r.factors.second << std::endl;
+			out << std::endl;
+		} else {
+			out << "Failure!" << std::endl;
+		}
+		out << "Duration: " << r.duration.count() << " mus" << std::endl;
+
+		return out;
+	}
 }

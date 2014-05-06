@@ -7,6 +7,7 @@
 #include <utility>
 #include <chrono>
 #include <cmath>
+#include <ostream>
 
 namespace primefac
 {
@@ -43,6 +44,9 @@ namespace primefac
 	PrimefacResult factorize(const PrimefacParameters& parameters, std::size_t numThreads);
 	SemiprimeResult factorizeSemiprime(const SemiprimeParameters& parameters);
 	SemiprimeResult factorizeSemiprime(const SemiprimeParameters& parameters, std::size_t numThreads);
+
+	std::ostream& operator<<(std::ostream& out, const PrimefacResult& r);
+	std::ostream& operator<<(std::ostream& out, const SemiprimeResult& r);
 }
 
 #endif
