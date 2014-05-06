@@ -50,6 +50,10 @@ namespace primefac
 			/** The C++11 instance for the computing */
 			std::thread thr;
 	
+		
+			static std::atomic_bool   completed;
+			static std::atomic_size_t numSearched;
+
 			void threadFunc(const Configuration& config);
 
 		public:
@@ -118,6 +122,9 @@ namespace primefac
 
 			/** The C++11 instance for the computing */
 			std::thread thr;
+
+			static std::atomic_bool   completed;
+			static std::atomic_size_t numSearched;
 
 			void threadFunc(const Configuration& config);
 

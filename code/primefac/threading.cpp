@@ -2,9 +2,6 @@
 
 namespace primefac
 {
-	static std::atomic_bool   completed;
-	static std::atomic_size_t numSearched;
-
 	/* thread functions */
 	void PrimefacThread::threadFunc(const PrimefacThread::Configuration& config)
 	{
@@ -232,6 +229,9 @@ namespace primefac
 
 
 	/* PrimefacThread */
+	std::atomic_bool PrimefacThread::completed(false);
+	std::atomic_size_t PrimefacThread::numSearched(0);
+
 	PrimefacThread::PrimefacThread(PrimefacThread::Configuration& config) : 
 		success(false), factors(), thr(std::thread(&PrimefacThread::threadFunc, this, config))
 	{
@@ -274,6 +274,9 @@ namespace primefac
 	/* PrimefacThread */
 
 	/* SemiprimeThread */
+	std::atomic_bool SemiprimeThread::completed(false);
+	std::atomic_size_t SemiprimeThread::numSearched(0);
+
 	SemiprimeThread::SemiprimeThread(SemiprimeThread::Configuration& config) :
 		success(false), factors(), thr(std::thread(&SemiprimeThread::threadFunc, this, config))
 	{
