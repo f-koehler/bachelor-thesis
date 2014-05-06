@@ -272,7 +272,6 @@ namespace primefac
 		if(r.success) {
 			out << "Success!" << std::endl;
 			out << "Factors: " << r.factors.first << " " << r.factors.second << std::endl;
-			out << std::endl;
 		} else {
 			out << "Failure!" << std::endl;
 		}
