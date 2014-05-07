@@ -24,6 +24,25 @@ namespace primefac
 		std::size_t complianceNew = 0;
 		double T = 1.0;
 
+#ifdef PRIMEFAC_PROGRESS
+		std::size_t searchSize = 0;
+		std::size_t numSearched = 0;
+
+		for(std::size_t a = n/2; a <= n; a++) {
+			for(std::size_t a1 = 1; a1 <= a; a1++) {
+				bStart = n-a;
+				if(bStart <= 1) {
+					bStart = 2;
+				}
+				for(std::size_t b = bStart; b <= n-a+1; b++) {
+					for(std::size_t b1 = 1; b1 <= b; b1++) {
+						searchSize++;
+					}
+				}
+			}
+		}
+#endif
+
 		result.success = false;
 
 		for(std::size_t a = n/2; a <= n; a++) {
@@ -39,6 +58,9 @@ namespace primefac
 
 				for(std::size_t b = bStart; b <= n-a+1; b++) {
 					for(std::size_t b1 = 1; b1 <= b; b1++) {
+#ifdef PRIMEFAC_PROGRESS
+						std::cout << "Completion: " << ((double)numSearched)/((double)searchSize)*100.0 << "%" << std::endl;
+#endif
 						B.makeRandom(b, b1, gen);
 						Bnew = B;
 
@@ -92,6 +114,10 @@ namespace primefac
 
 							T *= parameters.Fc;
 						}
+
+#ifdef PRIMEFAC_PROGRESS
+						numSearched++;
+#endif
 					}
 				}
 			}
@@ -152,6 +178,12 @@ namespace primefac
 		std::uniform_real_distribution<double> acceptDist(0.0, 1.0);
 		double T = 1.0;
 
+#ifdef PRIMEFAC_PROGRESS
+		std::size_t searchSize = parameters.Na*parameters.Nc;
+		std::size_t numSearched = 0;
+		std::size_t updateMod = (std::size_t)(0.002*((double)searchSize));
+#endif
+
 		A.makeRandom(a, a1,gen);
 		Anew = A;
 		B.makeRandom(b, b1, gen);
@@ -171,6 +203,11 @@ namespace primefac
 
 		T = 1.0;
 		for(size_t j = 0; j < parameters.Na; j++) {
+#ifdef PRIMEFAC_PROGRESS
+			if(numSearched % updateMod == 0) {
+				std::cout << "Completion:  " << ((double)numSearched)/((double)searchSize)*100.0 << "%" << std::endl;
+			}
+#endif
 			for(size_t k = 0; k < parameters.Nc; k++) {
 				if(choiceDist(gen)) {
 					Anew.randomOperation(gen);
@@ -203,6 +240,10 @@ namespace primefac
 						Bnew = B;
 					}
 				}
+
+#ifdef PRIMEFAC_PROGRESS
+				numSearched++;
+#endif
 			}
 
 			T *= parameters.Fc;
