@@ -1,12 +1,6 @@
-#include "seed.hpp"
-#include "threading.hpp"
 #include "primefac.hpp"
-#include <iostream>
-#include <vector>
-#include <cmath>
-#include <climits>
 #include <sstream>
-#include <chrono>
+#include <climits>
 using namespace primefac;
 using namespace std;
 
@@ -23,6 +17,8 @@ int main(int argc, char** argv)
 	parameters.Fc = 0.997;
 	parameters.kB = 15.0;
 	size_t numThreads = 0;
+	size_t repetitions = 1;
+	string fileName("semiprime.txt");
 
 	// parse command line arguments
 	for(int arg = 1; arg < argc; arg++) {
@@ -77,6 +73,20 @@ int main(int argc, char** argv)
 			}
 			arg++;
 			stringstream(argv[arg]) >> numThreads;
+		} else if(tmp == string("-r")) {
+			if(argc == argc-1) {
+				usage();
+				return EXIT_FAILURE;
+			}
+			arg++;
+			stringstream(argv[arg]) >> repetitions;
+		} else if(tmp == string("-o")) {
+			if(arg == argc-1) {
+				usage();
+				return EXIT_FAILURE;
+			}
+			arg++;
+			fileName = string(argv[arg]);
 		} else if(tmp == string("--help")) {
 			usage();
 			return EXIT_FAILURE;
@@ -87,8 +97,29 @@ int main(int argc, char** argv)
 		}
 	}
 
-	SemiprimeResult result = (numThreads <= 1) ? factorizeSemiprime(parameters) : factorizeSemiprime(parameters, numThreads);
-	cout << result << endl;
+	ofstream file(fileName.c_str());
+	file << "run\tsuccess\tduration[mus]" << endl;
+
+	cout << "=====================" << endl;
+	cout << " Parameters:" << endl;
+	cout << "=====================" << endl;
+	cout << parameters << endl;
+	if(numThreads > 1) {
+		cout << "Threads: " << numThreads << endl;
+	}
+	cout << endl;
+	for(std::size_t i = 0; i < repetitions; i++) {
+		cout << "=====================" << endl;
+		cout << " Run " << i+1 << "/" << repetitions << ":" << endl;
+		cout << "=====================" << endl;
+		SemiprimeResult result = (numThreads <= 1) ? factorizeSemiprime(parameters) : factorizeSemiprime(parameters, numThreads);
+		cout << result << endl << endl;
+		file << i << "\t" << result.success << "\t" << result.duration.count() << "\t" << endl;
+
+		SemiprimeThread::reset();
+	}
+
+	file.close();
 	
 	return EXIT_SUCCESS;
 }
@@ -109,4 +140,6 @@ void usage()
 	cout << "  -Nc [value]  Number of conifgurations per annealing step" << endl;
 	cout << "  -Fc [value]  Cooling factor per annealing step" << endl;
 	cout << "  -t [value]   Number of threads" << endl;
+	cout << "  -r [value]   Number of repetitions" << endl;
+	cout << "  -o [file]    File the results will be written to" << endl;
 }

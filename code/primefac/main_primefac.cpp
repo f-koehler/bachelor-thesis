@@ -1,4 +1,3 @@
-#include "threading.hpp"
 #include "primefac.hpp"
 #include <sstream>
 #include <climits>
@@ -18,7 +17,7 @@ int main(int argc, char** argv)
 	parameters.kB = 15.0;
 	size_t numThreads = 0;
 	size_t repetitions = 1;
-	string fileName = "primefac.txt";
+	string fileName("primefac.txt");
 
 	// parse command line arguments
 	for(int arg = 1; arg < argc; arg++) {
@@ -93,7 +92,16 @@ int main(int argc, char** argv)
 	ofstream file(fileName.c_str());
 	file << "run\tsuccess\tduration[mus]" << endl;
 
+	cout << "=====================" << endl;
+	cout << " Parameters:" << endl;
+	cout << "=====================" << endl;
+	cout << parameters << endl;
+	if(numThreads > 1) {
+		cout << "Threads: " << numThreads << endl;
+	}
+	cout << endl;
 	for(size_t i = 0; i < repetitions; i++) {
+		cout << "=====================" << endl;
 		cout << " Run " << i+1 << "/" << repetitions << ":" << endl;
 		cout << "=====================" << endl;
 		PrimefacResult result = (numThreads <= 1) ? factorize(parameters) : factorize(parameters, numThreads);
@@ -123,6 +131,6 @@ void usage()
 	cout << "  -Nc [value]  Number of conifgurations per annealing step" << endl;
 	cout << "  -Fc [value]  Cooling factor per annealing step" << endl;
 	cout << "  -t [value]   Number of threads" << endl;
-	cout << "  -t [value]   Number of repetitions" << endl;
+	cout << "  -r [value]   Number of repetitions" << endl;
 	cout << "  -o [file]    File the results will be written to" << endl;
 }

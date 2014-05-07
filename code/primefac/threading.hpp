@@ -145,6 +145,7 @@ namespace primefac
 
 			static bool getSuccess();
 			static std::pair<std::size_t, std::size_t> getFactors();
+			static void reset();
 
 			/**
 			 * This function will create a set of semiprime thread configurations.

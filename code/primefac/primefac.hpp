@@ -45,6 +45,9 @@ namespace primefac
 
 	std::ostream& operator<<(std::ostream& out, const PrimefacResult& r);
 	std::ostream& operator<<(std::ostream& out, const SemiprimeResult& r);
+
+	std::ostream& operator<<(std::ostream& out, const PrimefacParameters& p);
+	std::ostream& operator<<(std::ostream& out, const SemiprimeParameters& p);
 }
 
 #endif

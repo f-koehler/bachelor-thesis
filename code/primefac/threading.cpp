@@ -332,6 +332,16 @@ namespace primefac
 	{
 		return factors;
 	}
+	void SemiprimeThread::reset()
+	{
+		success = false;
+		factors.first = 0;
+		factors.second = 0;
+		completed = false;
+#ifdef PRIMEFAC_PROGRESS
+		numSearched = 0;
+#endif
+	}
 
 	std::vector<SemiprimeThread::Configuration> SemiprimeThread::createConfigurations(
 			std::size_t prime1, std::size_t prime2,

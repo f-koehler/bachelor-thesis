@@ -306,4 +306,29 @@ namespace primefac
 
 		return out;
 	}
+
+	std::ostream& operator<<(std::ostream& out, const PrimefacParameters& p)
+	{
+		out << "N  = " << p.N  << std::endl;
+		out << "Nc = " << p.Nc << std::endl;
+		out << "Na = " << p.Na << std::endl;
+		out << "Fc = " << p.Nc << std::endl;
+		out << "kB = " << p.kB;
+
+		return out;
+	}
+
+	std::ostream& operator<<(std::ostream& out, const SemiprimeParameters& p)
+	{
+		out << "N1 = " << p.N1  << std::endl;
+		out << "N2 = " << p.N2  << std::endl;
+		out << "N  = " << p.N1*p.N2 << std::endl;
+		out << "Nc = " << p.Nc << std::endl;
+		out << "Na = " << p.Na << std::endl;
+		out << "Fc = " << p.Nc << std::endl;
+		out << "kB = " << p.kB;
+
+		return out;
+	}
+
 }
