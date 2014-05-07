@@ -7,7 +7,6 @@
 #include <iostream>
 #include <thread>
 #include <atomic>
-#include <vector>
 #include <utility>
 #include <cmath>
 

@@ -3,11 +3,8 @@
 
 #include "config.hpp"
 #include "threading.hpp"
-#include <vector>
 #include <utility>
 #include <chrono>
-#include <cmath>
-#include <ostream>
 
 namespace primefac
 {
