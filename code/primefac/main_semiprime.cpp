@@ -98,7 +98,9 @@ int main(int argc, char** argv)
 	}
 
 	ofstream file(fileName.c_str());
-	file << "run\tsuccess\tduration[mus]" << endl;
+	file << parameters << endl;
+	file << "#" << endl;
+	file << "# run\tsuccess\tduration[mus]" << endl;
 
 	cout << "=====================" << endl;
 	cout << " Parameters:" << endl;
