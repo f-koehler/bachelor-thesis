@@ -52,7 +52,9 @@ namespace primefac
 	
 		
 			static std::atomic_bool   completed;
+#ifdef PRIMEFAC_PROGRESS
 			static std::atomic_size_t numSearched;
+#endif
 
 			void threadFunc(const Configuration& config);
 

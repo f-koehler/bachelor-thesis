@@ -28,8 +28,8 @@ namespace primefac
 		size_t bStart = 0;
 		factors.clear();
 
-		// thread 0 needs to know the number of a, a1, etc values
-		double searchSize = 0.0;
+#ifdef PRIMEFAC_PROGRESS
+		size_t searchSize = 0;
 		if(config.threadId == 0) {
 			for(size_t a = n/2; a <= n; a++) {
 				for(size_t a1 = 1; a1 <= a; a1++) {
@@ -41,13 +41,13 @@ namespace primefac
 
 					for(size_t b = bStart; b <= n-a+1; b++) {
 						for(size_t b1 = 1; b1 <= n; b1++) {
-							searchSize += 1.0;
+							searchSize++;
 						}
 					}
 				}
 			}
-			searchSize /= 100.0;
 		}
+#endif
 
 		for(std::size_t a = n/2+config.threadId; a <= n; a += config.numThreads) {
 			for(std::size_t a1 = 1; a1 <= a; a1++) {
@@ -63,14 +63,11 @@ namespace primefac
 
 				for(std::size_t b = bStart; b <= n-a+1; b++) {
 					for(std::size_t b1 = 1; b1 <= b; b1++) {
-#ifndef PRIMEFAC_NO_PROGRESS
+#ifdef PRIMEFAC_PROGRESS
 						if(config.threadId == 0) {
-							std::cout << "Thread 0:\ta=" << a << " a1=" << a1 << " b=" << b << " b1=" << b1 << "\t" << (double)numSearched / searchSize << "%" << std::endl;
+							std::cout << "Completion: " << ((double)numSearched)/((double)searchSize)*100.0 << "%" << std::endl;
 						}
 #endif
-
-						numSearched++;
-
 						B.makeRandom(b, b1, gen);
 						Bnew = B;
 
@@ -123,6 +120,9 @@ namespace primefac
 
 							T *= config.coolingFactor;
 						}
+#ifdef PRIMEFAC_PROGRESS
+						numSearched++;
+#endif
 					}
 				}
 			}
@@ -223,7 +223,9 @@ namespace primefac
 
 	/* PrimefacThread */
 	std::atomic_bool PrimefacThread::completed(false);
+#ifdef PRIMEFAC_PROGRESS
 	std::atomic_size_t PrimefacThread::numSearched(0);
+#endif
 
 	bool PrimefacThread::success(true);
 	std::vector<std::size_t> PrimefacThread::factors;
