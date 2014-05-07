@@ -75,11 +75,15 @@ namespace primefac
 						compliance = N.quadraticCompliance(prod);
 
 						if(N == prod) {
-							completed = true;
-							success = true;
-							factors.push_back(Anew.toSizeT());
-							factors.push_back(Bnew.toSizeT());
-							return;
+							resultMutex.lock();
+							if(factors.empty()) {
+								completed = true;
+								success = true;
+								factors.push_back(Anew.toSizeT());
+								factors.push_back(Bnew.toSizeT());
+								resultMutex.unlock();
+								return;
+							}
 						}
 
 						for(std::size_t i = 0; i < config.numAnnealingSteps; i++) {
@@ -96,11 +100,15 @@ namespace primefac
 								Anew.multiply(Bnew, prod);
 
 								if(N == prod) {
-									completed = true;
-									success = true;
-									factors.push_back(Anew.toSizeT());
-									factors.push_back(Bnew.toSizeT());
-									return;
+									resultMutex.lock();
+									if(factors.empty()) {
+										completed = true;
+										success = true;
+										factors.push_back(Anew.toSizeT());
+										factors.push_back(Bnew.toSizeT());
+										resultMutex.unlock();
+										return;
+									}
 								}
 								
 								newCompliance = N.quadraticCompliance(prod);
@@ -227,8 +235,10 @@ namespace primefac
 	std::atomic_size_t PrimefacThread::numSearched(0);
 #endif
 
+	std::mutex PrimefacThread::resultMutex;
 	bool PrimefacThread::success(true);
 	std::vector<std::size_t> PrimefacThread::factors;
+
 	PrimefacThread::PrimefacThread(PrimefacThread::Configuration& config) : 
 		thr(std::thread(&PrimefacThread::threadFunc, this, config))
 	{
