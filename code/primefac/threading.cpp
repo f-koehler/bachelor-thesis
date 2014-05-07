@@ -81,9 +81,9 @@ namespace primefac
 								success = true;
 								factors.push_back(Anew.toSizeT());
 								factors.push_back(Bnew.toSizeT());
-								resultMutex.unlock();
-								return;
 							}
+							resultMutex.unlock();
+							return;
 						}
 
 						for(std::size_t i = 0; i < config.numAnnealingSteps; i++) {
@@ -106,9 +106,9 @@ namespace primefac
 										success = true;
 										factors.push_back(Anew.toSizeT());
 										factors.push_back(Bnew.toSizeT());
-										resultMutex.unlock();
-										return;
 									}
+									resultMutex.unlock();
+									return;
 								}
 								
 								newCompliance = N.quadraticCompliance(prod);
@@ -162,7 +162,12 @@ namespace primefac
 		std::size_t b1 = N2bit.numOnes();
 		std::size_t compliance = 0;
 		std::size_t complianceNew = 0;
-		double searchSize = (double)(config.numConfigurations*config.numAnnealingSteps*config.numThreads)/100.0;
+
+#ifdef PRIMEFAC_PROGRESS
+		std::size_t searchSize = config.numConfigurations*config.numAnnealingSteps*config.numThreads;
+		std::size_t updateTarget = (std::size_t)(((double)(config.numConfigurations*config.numAnnealingSteps))*0.05);
+		std::size_t updateCounter = 0;
+#endif
 	
 		A.makeRandom(a, a1, gen);
 		B.makeRandom(b, b1, gen);
@@ -173,19 +178,24 @@ namespace primefac
 		compliance = prod.linearCompliance(Nbit);
 
 		if(prod == Nbit) {
-			success = true;
-			factors.first = Anew.toSizeT();
-			factors.second = Bnew.toSizeT();
-			completed = true;
+			resultMutex.lock();
+			if(!success) {
+				success = true;
+				factors.first = Anew.toSizeT();
+				factors.second = Bnew.toSizeT();
+				completed = true;
+			}
+			resultMutex.unlock();
 			return;
 		}
 
 		double T = 1.0;
 
 		for(std::size_t i = 0; i < config.numConfigurations; i++) {
-#ifndef PRIMEFAC_NO_PROGRESS
-			if(config.threadId == 0) {
-				std::cout << (double)numSearched / searchSize << "%" << std::endl;
+#ifdef PRIMEFAC_PROGRESS
+			if((config.threadId == 0) && (updateCounter >= updateTarget)) {
+				std::cout << "Completion: " << ((double)numSearched)/((double)searchSize)*100.0 << "%" << std::endl;
+				updateCounter = 0;
 			}
 #endif
 			if(completed) {
@@ -200,10 +210,14 @@ namespace primefac
 
 				Anew.multiply(Bnew, prod);
 				if(prod == Nbit) {
-					success = true;
-					factors.first = Anew.toSizeT();
-					factors.second = Bnew.toSizeT();
-					completed = true;
+					resultMutex.lock();
+					if(!success) {
+						success = true;
+						factors.first = Anew.toSizeT();
+						factors.second = Bnew.toSizeT();
+						completed = true;
+					}
+					resultMutex.unlock();
 					return;
 				}
 
@@ -221,7 +235,10 @@ namespace primefac
 					Bnew = B;
 				}
 
+#ifdef PRIMEFAC_PROGRESS
 				numSearched++;
+				updateCounter++;
+#endif
 			}
 			T *= config.coolingFactor;
 		}
@@ -290,10 +307,12 @@ namespace primefac
 	/* PrimefacThread */
 
 	/* SemiprimeThread */
+	std::mutex SemiprimeThread::resultMutex;
 	std::atomic_bool SemiprimeThread::completed(false);
+#ifdef PRIMEFAC_PROGRESS
 	std::atomic_size_t SemiprimeThread::numSearched(0);
-
-	bool SemiprimeThread::success(true);
+#endif
+	bool SemiprimeThread::success(false);
 	std::pair<std::size_t, std::size_t> SemiprimeThread::factors;
 	SemiprimeThread::SemiprimeThread(SemiprimeThread::Configuration& config) :
 		thr(std::thread(&SemiprimeThread::threadFunc, this, config))
