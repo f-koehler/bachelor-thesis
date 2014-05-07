@@ -50,11 +50,10 @@ add_executable(
 	prngbench.cpp config.hpp
 )
 
-add_custom_command(
-	OUTPUT ram-primes.sh
-	COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_SOURCE_DIR}/ram-primes.sh ${CMAKE_CURRENT_BINARY_DIR}/ram-primes.sh
-	DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/ram-primes.sh
-)
+find_package(MPI)
+if(MPI_FOUND)
+	add_custom_target(mpi)
+endif(MPI_FOUND)
 
 # a target to build the documentation
 find_package(Doxygen)

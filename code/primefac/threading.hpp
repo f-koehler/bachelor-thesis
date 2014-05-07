@@ -7,6 +7,7 @@
 #include <iostream>
 #include <thread>
 #include <atomic>
+#include <mutex>
 #include <utility>
 #include <cmath>
 
@@ -67,6 +68,7 @@ namespace primefac
 
 			static bool getSuccess();
 			static std::vector<std::size_t> getFactors();
+			static void reset();
 			
 			/**
 			 * This function will create a set of primefac thread configurations.
@@ -120,6 +122,7 @@ namespace primefac
 		private:
 			static bool success;
 			static std::pair<std::size_t, std::size_t> factors;
+			static std::size_t neededSteps;
 
 			/** The C++11 instance for the computing */
 			std::thread thr;

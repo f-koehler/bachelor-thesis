@@ -1,10 +1,7 @@
 #include "threading.hpp"
 #include "primefac.hpp"
-#include <iostream>
-#include <vector>
 #include <sstream>
 #include <climits>
-#include <chrono>
 using namespace primefac;
 using namespace std;
 
@@ -20,6 +17,8 @@ int main(int argc, char** argv)
 	parameters.Fc = 0.997;
 	parameters.kB = 15.0;
 	size_t numThreads = 0;
+	size_t repetitions = 1;
+	string fileName = "primefac.txt";
 
 	// parse command line arguments
 	for(int arg = 1; arg < argc; arg++) {
@@ -67,6 +66,20 @@ int main(int argc, char** argv)
 			}
 			arg++;
 			stringstream(argv[arg]) >> numThreads;
+		} else if(tmp == string("-r")) {
+			if(argc == argc-1) {
+				usage();
+				return EXIT_FAILURE;
+			}
+			arg++;
+			stringstream(argv[arg]) >> repetitions;
+		} else if(tmp == string("-o")) {
+			if(arg == argc-1) {
+				usage();
+				return EXIT_FAILURE;
+			}
+			arg++;
+			fileName = string(argv[arg]);
 		} else if(tmp == string("--help")) {
 			usage();
 			return EXIT_FAILURE;
@@ -77,8 +90,20 @@ int main(int argc, char** argv)
 		}
 	}
 
-	PrimefacResult result = (numThreads <= 1) ? factorize(parameters) : factorize(parameters, numThreads);
-	cout << result << endl;
+	ofstream file(fileName.c_str());
+	file << "run\tsuccess\tduration[mus]" << endl;
+
+	for(size_t i = 0; i < repetitions; i++) {
+		cout << " Run " << i+1 << "/" << repetitions << ":" << endl;
+		cout << "=====================" << endl;
+		PrimefacResult result = (numThreads <= 1) ? factorize(parameters) : factorize(parameters, numThreads);
+		cout << result << endl << endl;
+		file << i << "\t" << result.success << "\t" << result.duration.count() << "\t" << endl;
+
+		PrimefacThread::reset();
+	}
+
+	file.close();
 
 	return EXIT_SUCCESS;
 }
@@ -98,4 +123,6 @@ void usage()
 	cout << "  -Nc [value]  Number of conifgurations per annealing step" << endl;
 	cout << "  -Fc [value]  Cooling factor per annealing step" << endl;
 	cout << "  -t [value]   Number of threads" << endl;
+	cout << "  -t [value]   Number of repetitions" << endl;
+	cout << "  -o [file]    File the results will be written to" << endl;
 }

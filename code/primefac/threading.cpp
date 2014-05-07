@@ -247,6 +247,15 @@ namespace primefac
 	{
 		return factors;
 	}
+	void PrimefacThread::reset()
+	{
+		success = false;
+		factors.clear();
+		completed = false;
+#ifdef PRIMEFAC_PROGRESS
+		numSearched = 0;
+#endif
+	}
 
 	std::vector<PrimefacThread::Configuration> PrimefacThread::createConfigurations(
 			std::size_t number, std::size_t numConfigurations,

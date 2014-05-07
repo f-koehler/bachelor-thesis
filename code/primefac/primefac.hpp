@@ -5,6 +5,7 @@
 #include "threading.hpp"
 #include <utility>
 #include <chrono>
+#include <fstream>
 
 namespace primefac
 {
