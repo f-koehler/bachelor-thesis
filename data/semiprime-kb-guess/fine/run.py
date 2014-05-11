@@ -8,7 +8,7 @@ prog = "../../../code/primefac-build/semiprime"
 # parameters
 N1 = 66889
 N2 = 104723
-k = [7.0+i*0.25 for i in range(0, 9)]
+k = [(7.0+i*0.25)**3 for i in range(0, 9)]
 Na = 1000
 Nc = 100000
 Fc = 0.997
