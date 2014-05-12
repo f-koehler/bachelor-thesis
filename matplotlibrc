@@ -1,0 +1,45 @@
+#######################
+#       backend       #
+#######################
+backend : qt4Agg
+backend.qt4 : PySide
+
+
+#######################
+# LaTex configuration #
+#######################
+
+# use lualatex
+pgf.texsystem : lualatex
+
+# use latex to render text
+text.usetex : true
+
+
+#######################
+#    save options     #
+#######################
+
+# tight bounding box around plot
+savfig.bbox : tight
+
+# no padding
+savefig.pad_inches : 0
+
+# postscript
+ps.papersize : A4
+
+
+######################
+#     font setup     #
+######################
+
+# font size
+font.size : 10
+legend.fontsize : 10
+axes.labelsize : 10
+xtick.labelsize : 8
+ytick.labelsize : 8
+
+# font family
+font.family : serif

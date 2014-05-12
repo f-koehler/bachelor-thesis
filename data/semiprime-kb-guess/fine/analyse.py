@@ -2,8 +2,6 @@ import numpy as np
 from scipy.stats import sem
 from matplotlib import pyplot as plt
 
-plt.rc("text", usetex=True)
-
 count = 9
 
 # read files
@@ -24,4 +22,5 @@ plt.plot(K13, S, "x")
 plt.grid()
 plt.xlabel("$k^{1/3}$")
 plt.ylabel("success rate")
+plt.show()
 plt.savefig("plot.pdf")
