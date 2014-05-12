@@ -1,0 +1,11 @@
+1. Einleitung
+	- Primfaktorzerlegung ist ein schwieriges problem
+	- Bedeutung von Primfaktorzerlegung (Verschlüsselungen)
+	- andere Ansätze (Shor, das aus der QIV VL)
+	-> hier Simulated Annealing
+2. Funktionsweise und Implementierung
+3. Untersuchung des Verfahrens
+	- Bestimmung eines guten Bereichs für kB
+	- Laufzeit des Verfahrens, O(n^4)?
+4. Fazit und Ausblick
+5. Literaturverzeichnis

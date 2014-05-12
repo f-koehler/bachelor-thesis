@@ -30,14 +30,20 @@ add_library(
 	sieve.cpp sieve.hpp config.hpp
 )
 
+add_library(
+	guess
+	OBJECT
+	guess.cpp guess.hpp config.hpp
+)
+
 add_executable(
 	primefac
-	main_primefac.cpp config.hpp bitset threading seed primefac
+	main_primefac.cpp config.hpp bitset threading seed primefac guess
 )
 
 add_executable(
 	semiprime
-	main_semiprime.cpp config.hpp bitset threading seed primefac
+	main_semiprime.cpp config.hpp bitset threading seed primefac guess
 )
 
 add_executable(
