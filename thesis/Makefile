@@ -1,9 +1,11 @@
 TEX=./buildtex.sh
 
+HEADERS=$(wildcard header/*.tex)
 SECTIONS=$(wildcard sections/*.tex)
+PSEUDOCODE=$(wildcard pseudocode/*.tex)
 
 all: build/thesis.pdf
-build/thesis.pdf: thesis.tex $(SECTIONS)
+build/thesis.pdf: thesis.tex $(HEADERS) $(SECTIONS) $(PSEUDOCODE)
 	@$(TEX) $< thesis
 
 .PHONY: clean
