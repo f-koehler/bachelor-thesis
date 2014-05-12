@@ -1,5 +1,6 @@
 import numpy as np
 from scipy.stats import sem
+import matplotlib
 from matplotlib import pyplot as plt
 
 count = 9
@@ -17,10 +18,10 @@ S = np.array(S)
 Serr = np.array(Serr)
 
 plt.title("Finer approach to finding the optimal $k$")
-plt.errorbar(K13, S, Serr, fmt=None)
+plt.errorbar(K13, S, Serr, fmt=None, label="Errors")
 plt.plot(K13, S, "x")
 plt.grid()
 plt.xlabel("$k^{1/3}$")
 plt.ylabel("success rate")
-plt.show()
+plt.legend()
 plt.savefig("plot.pdf")
