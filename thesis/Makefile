@@ -1,6 +1,6 @@
 TEX=./buildtex.sh
 
-SECTIONS=$(wildcard ./section/*)
+SECTIONS=$(wildcard *.tex)
 
 all: build/thesis.pdf
 build/thesis.pdf: thesis.tex $(SECTIONS)

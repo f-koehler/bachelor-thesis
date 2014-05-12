@@ -23,16 +23,37 @@ usage() {
 build() {
 	retVal=0
 
-	# build 1st time and check for errors
+	# build 1st time
 	echo "$TEX --jobname=$2 $1"
 	eval $TEX --jobname="$2" "$1" > /dev/null
 	retVal=$?
 
 	cd build
-	rubber-info --errors   "$2".log
-	rubber-info --warnings "$2".log
-	rubber-info --refs     "$2".log
-	rubber-info --boxes    "$2".log
+	rubber-info --errors   "$2".log > rubber/errors.txt
+	rubber-info --warnings "$2".log > rubber/warnings.txt
+	rubber-info --refs     "$2".log > rubber/refs.txt
+	rubber-info --boxes    "$2".log > rubber/boxes.txt
+	cd ..
+
+	if [ $retVal -gt 0 ]; then
+		rm -f build/"$2".pdf
+		echo "Build of $1 failed!"
+		exit 1
+	fi
+
+	# bibliography
+	# TODO
+
+	# build 2nd time
+	echo "$TEX --jobname=$2 $1"
+	eval $TEX --jobname="$2" "$1" > /dev/null
+	retVal=$?
+
+	cd build
+	rubber-info --errors   "$2".log > rubber/errors.txt
+	rubber-info --warnings "$2".log > rubber/warnings.txt
+	rubber-info --refs     "$2".log > rubber/refs.txt
+	rubber-info --boxes    "$2".log > rubber/boxes.txt
 	cd ..
 
 	if [ $retVal -gt 0 ]; then
