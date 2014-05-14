@@ -1,6 +1,7 @@
 #include "primefac.hpp"
 #include "guess.hpp"
 #include "sieve.hpp"
+#include <stack>
 #include <sstream>
 #include <climits>
 using namespace primefac;
@@ -12,6 +13,7 @@ int main(int argc, char** argv)
 {
 	// standard simulation parameters
 	PrimefacParameters parameters;
+	size_t N = 100;
 	parameters.N = 100;
 	parameters.Na = 1000;
 	parameters.Nc = 1500;
@@ -32,7 +34,7 @@ int main(int argc, char** argv)
 				return EXIT_FAILURE;
 			}
 			arg++;
-			stringstream(argv[arg]) >> parameters.N;
+			stringstream(argv[arg]) >> N;
 		} else if(tmp == string("-Na")) {
 			if(argc == argc-1) {
 				usage();
@@ -85,7 +87,10 @@ int main(int argc, char** argv)
 		}
 	}
 
-	cout << "Generating" << Np << "primes ...";
+	vector<size_t> factors;
+	stack<size_t> todo;
+
+	cout << "Generating " << Np << " primes ...";
 	vector<size_t> primes;
 	sieveOfEratosthenes(primes, Np);
 	cout << endl << endl;
@@ -107,11 +112,58 @@ int main(int argc, char** argv)
 		cout << "=====================" << endl;
 		cout << " Run " << i+1 << "/" << repetitions << ":" << endl;
 		cout << "=====================" << endl;
-		PrimefacResult result = (numThreads <= 1) ? factorize(parameters) : factorize(parameters, numThreads);
-		cout << result << endl << endl;
-		file << i << "\t" << result.success << "\t" << result.duration.count() << "\t" << endl;
 
-		PrimefacThread::reset();
+		todo = stack<size_t>();
+		factors.clear();
+
+		// factor out primes
+		/*for(size_t j = 0; j < primes.size(); j++) {
+			while(N % primes[j] == 0) {
+				factors.push_back(primes[j]);
+				N /= primes[j];
+			}
+		}*/
+
+		todo.push(N);
+
+		while(!todo.empty()) {
+			parameters.N = todo.top();
+			if(parameters.N == 1) {
+				todo.pop();
+				continue;
+			}
+			if(binary_search(primes.begin(), primes.end(), parameters.N)) {
+				todo.pop();
+				factors.push_back(parameters.N);
+				continue;
+			}
+			cout << "Factoring: " << parameters.N << endl;
+			parameters.kB = guessBoltzmann(parameters.N);
+
+			// TODO: add miller rabin
+
+			PrimefacResult result = numThreads > 1 ? factorize(parameters, numThreads) : factorize(parameters);
+			if(numThreads > 1) {
+				PrimefacThread::reset();
+			}
+			if(result.success) {
+				// TODO: this can not be more then to ~> use std::pair in result
+				todo.pop();
+				for(size_t j = 0; j < result.factors.size(); j++) {
+					todo.push(result.factors[j]);
+					cout << todo.top() << " ";
+					//factors.push_back(result.factors[j]);
+				}
+				cout << endl;
+			}
+
+		}
+		cout << "Factors: ";
+		for(size_t j = 0; j < factors.size(); j++) {
+			cout << factors[j] << ", ";
+		}
+		cout << endl;
+
 	}
 
 	file.close();

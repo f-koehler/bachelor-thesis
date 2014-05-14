@@ -19,6 +19,7 @@ namespace primefac
 		std::uniform_int_distribution<short> choiceDist(0, 1);
 		std::uniform_real_distribution<double> acceptDist(0.0, 1.0);
 		std::size_t n = Nbit.getRelevant();
+		std::size_t aStart = 0;
 		std::size_t bStart = 0;
 		std::size_t compliance = 0;
 		std::size_t complianceNew = 0;
@@ -28,7 +29,11 @@ namespace primefac
 		std::size_t searchSize = 0;
 		std::size_t numSearched = 0;
 
-		for(std::size_t a = n/2; a <= n; a++) {
+		aStart = n/2;
+		if(aStart <= 1) {
+			aStart = 2;
+		}
+		for(std::size_t a = aStart; a <= n; a++) {
 			for(std::size_t a1 = 1; a1 <= a; a1++) {
 				bStart = n-a;
 				if(bStart <= 1) {
@@ -45,7 +50,11 @@ namespace primefac
 
 		result.success = false;
 
-		for(std::size_t a = n/2; a <= n; a++) {
+		aStart = n/2;
+		if(aStart <= 1) {
+			aStart = 2;
+		}
+		for(std::size_t a = aStart; a <= n; a++) {
 			for(std::size_t a1 = 1; a1 <= a; a1++) {
 
 				A.makeRandom(a, a1, gen);
@@ -336,7 +345,7 @@ namespace primefac
 		out << "# N  = " << p.N  << std::endl;
 		out << "# Nc = " << p.Nc << std::endl;
 		out << "# Na = " << p.Na << std::endl;
-		out << "# Fc = " << p.Nc << std::endl;
+		out << "# Fc = " << p.Fc << std::endl;
 		out << "# kB = " << p.kB;
 
 		return out;
@@ -349,7 +358,7 @@ namespace primefac
 		out << "# N  = " << p.N1*p.N2 << std::endl;
 		out << "# Nc = " << p.Nc << std::endl;
 		out << "# Na = " << p.Na << std::endl;
-		out << "# Fc = " << p.Nc << std::endl;
+		out << "# Fc = " << p.Fc << std::endl;
 		out << "# kB = " << p.kB;
 
 		return out;

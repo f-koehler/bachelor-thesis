@@ -26,11 +26,16 @@ namespace primefac
 		std::size_t newCompliance = 0;
 		double T = 1.0;
 		size_t bStart = 0;
+		size_t aStart = 0;
 		factors.clear();
 
 #ifdef PRIMEFAC_PROGRESS
 		size_t searchSize = 0;
 		if(config.threadId == 0) {
+			aStart = n/2;
+			if(n/2 == 1) {
+				aStart = 2;
+			}
 			for(size_t a = n/2; a <= n; a++) {
 				for(size_t a1 = 1; a1 <= a; a1++) {
 
@@ -49,7 +54,11 @@ namespace primefac
 		}
 #endif
 
-		for(std::size_t a = n/2+config.threadId; a <= n; a += config.numThreads) {
+		aStart = n/2;
+		if(n/2 == 1) {
+			aStart = 2;
+		}
+		for(std::size_t a = aStart+config.threadId; a <= n; a += config.numThreads) {
 			for(std::size_t a1 = 1; a1 <= a; a1++) {
 
 
