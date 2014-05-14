@@ -2,8 +2,16 @@
 		\begin{algorithmic}[1]
 				\For{$a\gets $ to $n$}
 				\For{$a_1\gets $ to $a$}
+				\LState{$A\gets\mathrm{neueBinärzahl}\left(a, a1\right)$}
+				\LState{$A^\prime\gets A$}
 				\For{$b\gets 1$ to $a$}
 				\For{$b_1\gets 1$ to $b$}
+				\LState{$B\gets\mathrm{neueBinärzahl}\left(b, b1\right)$}
+				\LState{$B^\prime\gets B$}
+				\LState{$C\gets A\cdot B$}
+				\If{$C=N$}
+				  \LState{\textbf{return} $A, B$}
+				\EndIf{}
 		  \For{$i\gets 1$ to $N_a$}
   		  \For{$j\in\left[1, N_c\right]$}
   				  \LState{$c\gets\mathrm{zufälligeGanzzahl}\left(0, 1\right)$}
@@ -12,7 +20,11 @@
     				\Else{}
   				  		\LState{$B^\prime\gets\mathrm{zufälligeModifikation}\left(B^\prime\right)$}						
 				    \EndIf{}
-		  				\LState{$E^\prime\gets\mathrm{Energiefunktion}\left(A^\prime \cdot B^\prime\right)$}
+								\LState{$C\gets A^\prime\cdot B^\prime$}
+				    \If{$C=N$}
+    				  \LState{\textbf{return} $A^\prime, B^\prime$}
+				    \EndIf{}
+		  				\LState{$E^\prime\gets\mathrm{Energiefunktion}\left(C\right)$}
   						\If{$E^\prime \geqslant E$}
   						  \LState{$A\gets A^\prime$}
   				  		\LState{$B\gets B^\prime$}

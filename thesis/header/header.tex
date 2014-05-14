@@ -4,13 +4,25 @@
 \usepackage{fontspec}
 
 % german orthography
-\usepackage[ngerman]{babel}
+\usepackage[ngerman, english]{babel}
+\selectlanguage{ngerman}
 
 % common math packages
 \usepackage{amsmath}
 \usepackage{amssymb}
 
+% bold math
+\usepackage{bm}
+
 % pseudocode in latex
-\usepackage[Algorithmus]{algorithm}
-\usepackage{algpseudocode}
-\input{header/alg_vlines.tex}
+\usepackage[lined,linesnumbered,noend]{algorithm2e}
+
+% refs in pdf
+\usepackage[
+		unicode=true,
+  pdftitle={Primfaktorzerlegung mit Simulated Annealing},
+		pdfauthor={Fabian Köhler},
+		pdfsubject={Eine Methode zuer Zerlegung von Zahlen in ihre Primfaktoren},
+		pdfcreator={Fabian Köhler},
+		pdfproducer={Fabian Köhler}
+]{hyperref}
