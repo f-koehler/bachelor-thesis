@@ -4,7 +4,7 @@ CFLAGS=-Wall -Wextra -pedantic -std=c++11 -O2 -march=native
 SRC=$(wildcard *.cpp)
 INC=$(wildcard *.hpp)
 OBJ=$(patsubst %.cpp,obj/%.o,$(SRC))
-EXECUTABLES=factorization semiprime onestep prngbench primelist
+EXECUTABLES=factorize semiprime onestep prngbench primelist
 BIN=$(patsubst %,bin/%,$(EXECUTABLES))
 
 all: $(BIN)
@@ -30,7 +30,7 @@ obj/main_prngbench.o: main_prngbench.cpp config.hpp
 	$(CXX) $(CFLAGS) -c $< -o $@
 obj/main_primelist.o: main_primelist.cpp config.hpp
 	$(CXX) $(CFLAGS) -c $< -o $@
-bin/factorization: obj/main_factorize.o obj/primefac.o obj/bitset.o obj/threading.o obj/seed.o
+bin/factorize: obj/main_factorize.o obj/primefac.o obj/bitset.o obj/threading.o obj/seed.o obj/sieve.o
 	$(CXX) $(CFLAGS) $^ -o $@
 bin/semiprime: obj/main_semiprime.o obj/primefac.o obj/bitset.o obj/threading.o obj/seed.o obj/guess.o
 	$(CXX) $(CFLAGS) $^ -o $@

@@ -4,6 +4,7 @@
 #include <random>
 
 #define PRIMEFAC_PROGRESS
-typedef std::mt19937 Prng;
+
+typedef std::mt19937_64 Prng;
 	
 #endif

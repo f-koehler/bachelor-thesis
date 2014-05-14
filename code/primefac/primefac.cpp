@@ -15,7 +15,7 @@ namespace primefac
 		Bitset Anew(size);
 		Bitset Bnew(size);
 		Bitset prod(size);
-		std::mt19937 gen(size);
+		Prng gen(size);
 		std::uniform_int_distribution<short> choiceDist(0, 1);
 		std::uniform_real_distribution<double> acceptDist(0.0, 1.0);
 		std::size_t n = Nbit.getRelevant();
@@ -173,7 +173,7 @@ namespace primefac
 		Bitset Anew(size);
 		Bitset Bnew(size);
 		Bitset prod(size);
-		std::mt19937 gen;
+		Prng gen;
 		std::uniform_int_distribution<short> choiceDist(0, 1);
 		std::uniform_real_distribution<double> acceptDist(0.0, 1.0);
 		double T = 1.0;

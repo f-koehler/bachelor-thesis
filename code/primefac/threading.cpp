@@ -7,7 +7,7 @@ namespace primefac
 	{
 		std::size_t bitsetSize = sizeof(std::size_t)*8;
 
-		std::mt19937 gen;
+		Prng gen;
 		std::uniform_int_distribution<std::size_t> choiceDist(0, 1);
 		std::uniform_real_distribution<double> acceptDist(0.0, 1.0);
 
@@ -146,7 +146,7 @@ namespace primefac
 		Bitset Anew(bitsetSize);
 		Bitset Bnew(bitsetSize);
 		Bitset prod(bitsetSize);
-		std::mt19937 gen;
+		Prng gen;
 		std::uniform_int_distribution<std::size_t> choiceDist(0, 1);
 		std::uniform_real_distribution<double> acceptDist(0.0, 1.0);
 

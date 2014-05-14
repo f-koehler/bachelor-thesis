@@ -1,4 +1,6 @@
 #include "primefac.hpp"
+#include "guess.hpp"
+#include "sieve.hpp"
 #include <sstream>
 #include <climits>
 using namespace primefac;
@@ -17,6 +19,7 @@ int main(int argc, char** argv)
 	parameters.kB = 15.0;
 	size_t numThreads = 0;
 	size_t repetitions = 1;
+	size_t Np = 2000;
 	string fileName("primefac.txt");
 
 	// parse command line arguments
@@ -30,13 +33,6 @@ int main(int argc, char** argv)
 			}
 			arg++;
 			stringstream(argv[arg]) >> parameters.N;
-		} else if(tmp == string("-k")) {
-			if(argc == argc-1) {
-				usage();
-				return EXIT_FAILURE;
-			}
-			arg++;
-			stringstream(argv[arg]) >> parameters.kB;
 		} else if(tmp == string("-Na")) {
 			if(argc == argc-1) {
 				usage();
@@ -88,6 +84,11 @@ int main(int argc, char** argv)
 			return EXIT_FAILURE;
 		}
 	}
+
+	cout << "Generating" << Np << "primes ...";
+	vector<size_t> primes;
+	sieveOfEratosthenes(primes, Np);
+	cout << endl << endl;
 
 	ofstream file(fileName.c_str());
 	file << parameters << endl;
