@@ -43,7 +43,7 @@ add_executable(
 
 add_executable(
 	onestep
-	main_oneste.cpp config.hpp bitset threading seed primefac guess
+	main_onestep.cpp config.hpp bitset threading seed primefac guess
 )
 
 add_executable(
