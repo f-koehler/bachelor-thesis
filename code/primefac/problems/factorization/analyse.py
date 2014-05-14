@@ -3,21 +3,25 @@ import numpy as np
 from scipy.stats import sem
 from matplotlib import pyplot as plt
 
+count = 9
+
 # read files
-Id   = []
 S    = []
 Serr = []
 T    = []
 Terr = []
-for f in os.listdir("./data"):
-    idx, s, t = np.loadtxt("./data/"+f, unpack=True)
+for i in range(0, count):
+    idx, s, t = np.loadtxt("./data/"+str(i)+".txt", unpack=True)
     S.append(np.mean(s))
     Serr.append(sem(s))
     T.append(np.mean(t))
     Terr.append(sem(s))
 
-N = np.loadtxt("./problems.txt")
-n = np.array([len(bin(N[i]))-2 for i in N])
+S = np.array(S)
+T = np.array(T)
 
-plt.errorbar(n, T, Terr)
+N = np.loadtxt("./problems.txt", unpack=True, dtype=np.int64)
+n = np.array([len(bin(i))-2 for i in N])
+
+plt.plot(n, T)
 plt.show()
