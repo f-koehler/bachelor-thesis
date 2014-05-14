@@ -37,8 +37,13 @@ add_library(
 )
 
 add_executable(
-	primefac
-	main_primefac.cpp config.hpp bitset threading seed primefac guess
+	factorize
+	main_factorize.cpp config.hpp bitset threading seed primefac guess
+)
+
+add_executable(
+	onestep
+	main_oneste.cpp config.hpp bitset threading seed primefac guess
 )
 
 add_executable(
