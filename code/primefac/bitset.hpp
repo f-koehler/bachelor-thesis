@@ -81,7 +81,6 @@ namespace primefac
 			 * @param[in] start The starting index of the sequence
 			 * @param[in] stop The starting index of the sequence
 			 */
-
 			void reverseSequence(std::size_t start, std::size_t end);
 
 			/**

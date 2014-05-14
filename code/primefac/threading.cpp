@@ -256,7 +256,7 @@ namespace primefac
 	bool PrimefacThread::success(true);
 	std::vector<std::size_t> PrimefacThread::factors;
 
-	PrimefacThread::PrimefacThread(PrimefacThread::Configuration& config) : 
+	PrimefacThread::PrimefacThread(const PrimefacThread::Configuration& config) : 
 		thr(std::thread(&PrimefacThread::threadFunc, this, config))
 	{
 	}
@@ -314,7 +314,8 @@ namespace primefac
 #endif
 	bool SemiprimeThread::success(false);
 	std::pair<std::size_t, std::size_t> SemiprimeThread::factors;
-	SemiprimeThread::SemiprimeThread(SemiprimeThread::Configuration& config) :
+
+	SemiprimeThread::SemiprimeThread(const SemiprimeThread::Configuration& config) :
 		thr(std::thread(&SemiprimeThread::threadFunc, this, config))
 	{
 	}

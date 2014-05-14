@@ -44,33 +44,64 @@ namespace primefac
 			} Configuration;
 
 		private:
+			/** A mutex to secure the static variables */
 			static std::mutex resultMutex;
+
+			/** A variable to store whether succeeded or not */
 			static bool success;
+
+			/** The factors that were found */
 			static std::vector<std::size_t> factors;
+
 
 			/** The C++11 instance for the computing */
 			std::thread thr;
 	
-		
+	
+			/** True if one thread compleeted, needed for synchronization */
 			static std::atomic_bool   completed;
 #ifdef PRIMEFAC_PROGRESS
+			/** A variable to calculate the progress */
 			static std::atomic_size_t numSearched;
 #endif
 
+			/**
+			 * The function this thread class executes.
+			 * @param[in] config The thread configuration
+			 */
 			void threadFunc(const Configuration& config);
 
 		public:
-			PrimefacThread(Configuration& config);
+			/**
+			 * The constructor.
+			 * @param[in] config The configuration for this thread.
+			 */
+			PrimefacThread(const Configuration& config);
 
 			/**
 			 * Join the thread.
 			 */
 			void join();
 
+
+			/**
+			 * Check if this thread succeeded
+			 * @return true if this thread succeeded, false if not
+			 */
 			static bool getSuccess();
+
+			/**
+			 * The factors this thread found
+			 * @return A vector of the factors
+			 */
 			static std::vector<std::size_t> getFactors();
+
+			/**
+			 * Reset the static variables
+			 */
 			static void reset();
 			
+
 			/**
 			 * This function will create a set of primefac thread configurations.
 			 * @param[in] number The number to factorize
@@ -121,8 +152,13 @@ namespace primefac
 			} Configuration;
 
 		private:
+			/** A mutex to secure the static variables */
 			static std::mutex resultMutex;
+
+			/** A variable to store whether succeeded or not */
 			static bool success;
+
+			/** The factors that were found */
 			static std::pair<std::size_t, std::size_t> factors;
 
 			/** The C++11 instance for the computing */
@@ -130,21 +166,43 @@ namespace primefac
 
 			static std::atomic_bool   completed;
 #ifdef PRIMEFAC_PROGRESS
+			/** A variable to calculate the progress */
 			static std::atomic_size_t numSearched;
 #endif
 
+			/**
+			 * The function this thread class executes.
+			 * @param[in] config The thread configuration
+			 */
 			void threadFunc(const Configuration& config);
 
 		public:
-			SemiprimeThread(Configuration& config);
+			/**
+			 * The constructor.
+			 * @param[in] config The configuration for this thread.
+			 */
+			SemiprimeThread(const Configuration& config);
 
 			/*
 			 * Join the thread.
 			 */
 			void join();
 
+			/**
+			 * Check if this thread succeeded
+			 * @return true if this thread succeeded, false if not
+			 */
 			static bool getSuccess();
+
+			/**
+			 * The factors this thread found
+			 * @return The factors found
+			 */
 			static std::pair<std::size_t, std::size_t> getFactors();
+
+			/**
+			 * Reset the static variables
+			 */
 			static void reset();
 
 			/**
