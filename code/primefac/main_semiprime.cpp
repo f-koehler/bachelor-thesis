@@ -1,4 +1,5 @@
 #include "primefac.hpp"
+#include "guess.hpp"
 #include <sstream>
 #include <climits>
 using namespace primefac;
@@ -16,6 +17,7 @@ int main(int argc, char** argv)
 	parameters.Nc = 1500;
 	parameters.Fc = 0.997;
 	parameters.kB = 15.0;
+	bool guessKB = false;
 	size_t numThreads = 0;
 	size_t repetitions = 1;
 	string fileName("semiprime.txt");
@@ -24,70 +26,75 @@ int main(int argc, char** argv)
 	for(int arg = 1; arg < argc; arg++) {
 		string tmp(argv[arg]);
 
-		if(tmp == string("-N1")) {
+		if(tmp == "-N1") {
 			if(argc == argc-1) {
 				usage();
 				return EXIT_FAILURE;
 			}
 			arg++;
 			stringstream(argv[arg]) >> parameters.N1;
-		} else if(tmp == string("-N2")) {
+		} else if(tmp == "-N2") {
 			if(argc == argc-1) {
 				usage();
 				return EXIT_FAILURE;
 			}
 			arg++;
 			stringstream(argv[arg]) >> parameters.N2;
-		} else if(tmp == string("-k")) {
+		} else if(tmp == "-k") {
 			if(argc == argc-1) {
 				usage();
 				return EXIT_FAILURE;
 			}
 			arg++;
-			stringstream(argv[arg]) >> parameters.kB;
-		} else if(tmp == string("-Na")) {
+			tmp = string(argv[arg]);
+			if(tmp == "auto") {
+				guessKB = true;
+			} else {
+				stringstream(tmp) >> parameters.kB;
+			}
+		} else if(tmp == "-Na") {
 			if(argc == argc-1) {
 				usage();
 				return EXIT_FAILURE;
 			}
 			arg++;
 			stringstream(argv[arg]) >> parameters.Na;
-		} else if(tmp == string("-Nc")) {
+		} else if(tmp == "-Nc") {
 			if(argc == argc-1) {
 				usage();
 				return EXIT_FAILURE;
 			}
 			arg++;
 			stringstream(argv[arg]) >> parameters.Nc;
-		} else if(tmp == string("-Fc")) {
+		} else if(tmp == "-Fc") {
 			if(argc == argc-1) {
 				usage();
 				return EXIT_FAILURE;
 			}
 			arg++;
 			stringstream(argv[arg]) >> parameters.Fc;
-		} else if(tmp == string("-t")) {
+		} else if(tmp == "-t") {
 			if(argc == argc-1) {
 				usage();
 				return EXIT_FAILURE;
 			}
 			arg++;
 			stringstream(argv[arg]) >> numThreads;
-		} else if(tmp == string("-r")) {
+		} else if(tmp == "-r") {
 			if(argc == argc-1) {
 				usage();
 				return EXIT_FAILURE;
 			}
 			arg++;
 			stringstream(argv[arg]) >> repetitions;
-		} else if(tmp == string("-o")) {
+		} else if(tmp == "-o") {
 			if(arg == argc-1) {
 				usage();
 				return EXIT_FAILURE;
 			}
 			arg++;
 			fileName = string(argv[arg]);
-		} else if(tmp == string("--help")) {
+		} else if(tmp == "--help") {
 			usage();
 			return EXIT_FAILURE;
 		} else {
@@ -95,6 +102,10 @@ int main(int argc, char** argv)
 			usage();
 			return EXIT_FAILURE;
 		}
+	}
+
+	if(guessKB) {
+		parameters.kB = guessBoltzmann(parameters.N1*parameters.N2);
 	}
 
 	ofstream file(fileName.c_str());

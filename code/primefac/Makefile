@@ -32,9 +32,9 @@ obj/main_primelist.o: main_primelist.cpp config.hpp
 	$(CXX) $(CFLAGS) -c $< -o $@
 bin/factorization: obj/main_factorize.o obj/primefac.o obj/bitset.o obj/threading.o obj/seed.o
 	$(CXX) $(CFLAGS) $^ -o $@
-bin/semiprime: obj/main_semiprime.o obj/primefac.o obj/bitset.o obj/threading.o obj/seed.o
+bin/semiprime: obj/main_semiprime.o obj/primefac.o obj/bitset.o obj/threading.o obj/seed.o obj/guess.o
 	$(CXX) $(CFLAGS) $^ -o $@
-bin/onestep: obj/main_onestep.o obj/primefac.o obj/bitset.o obj/threading.o obj/seed.o
+bin/onestep: obj/main_onestep.o obj/primefac.o obj/bitset.o obj/threading.o obj/seed.o obj/guess.o
 	$(CXX) $(CFLAGS) $^ -o $@
 bin/prngbench: obj/main_prngbench.o
 	$(CXX) $(CFLAGS) $^ -o $@
