@@ -4,7 +4,7 @@ CFLAGS=-Wall -Wextra -pedantic -std=c++11 -O2 -march=native -pthread
 SRC=$(wildcard *.cpp)
 INC=$(wildcard *.hpp)
 OBJ=$(patsubst %.cpp,obj/%.o,$(SRC))
-EXECUTABLES=factorize semiprime onestep prngbench primelist
+EXECUTABLES=factorize semiprime onestep prngbench primelist randomprime
 BIN=$(patsubst %,bin/%,$(EXECUTABLES))
 
 all: $(BIN)
@@ -30,6 +30,8 @@ obj/main_prngbench.o: main_prngbench.cpp config.hpp
 	$(CXX) $(CFLAGS) -c $< -o $@
 obj/main_primelist.o: main_primelist.cpp config.hpp
 	$(CXX) $(CFLAGS) -c $< -o $@
+obj/main_randomprime.o: main_randomprime.cpp config.hpp
+	$(CXX) $(CFLAGS) -c $< -o $@
 bin/factorize: obj/main_factorize.o obj/primefac.o obj/bitset.o obj/threading.o obj/seed.o obj/sieve.o obj/guess.o
 	$(CXX) $(CFLAGS) $^ -o $@
 bin/semiprime: obj/main_semiprime.o obj/primefac.o obj/bitset.o obj/threading.o obj/seed.o obj/guess.o
@@ -39,6 +41,8 @@ bin/onestep: obj/main_onestep.o obj/primefac.o obj/bitset.o obj/threading.o obj/
 bin/prngbench: obj/main_prngbench.o
 	$(CXX) $(CFLAGS) $^ -o $@
 bin/primelist: obj/main_primelist.o obj/sieve.o
+	$(CXX) $(CFLAGS) $^ -o $@
+bin/randomprime: obj/main_randomprime.o obj/sieve.o obj/seed.o
 	$(CXX) $(CFLAGS) $^ -o $@
 
 .PHONY: clean

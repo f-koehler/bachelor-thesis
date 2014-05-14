@@ -78,8 +78,8 @@ namespace primefac
 
 						if(prod == Nbit) {
 							result.success = true;
-							result.factors.push_back(Anew.toSizeT());
-							result.factors.push_back(Bnew.toSizeT());
+							result.factors.first = Anew.toSizeT();
+							result.factors.second = Bnew.toSizeT();
 							std::chrono::high_resolution_clock::time_point stop = clock.now();
 							result.duration = std::chrono::duration_cast<std::chrono::microseconds>(stop-start);
 							return result;
@@ -97,8 +97,8 @@ namespace primefac
 
 								if(prod == Nbit) {
 									result.success = true;
-									result.factors.push_back(Anew.toSizeT());
-									result.factors.push_back(Bnew.toSizeT());
+									result.factors.first = Anew.toSizeT();
+									result.factors.second = Bnew.toSizeT();
 									std::chrono::high_resolution_clock::time_point stop = clock.now();
 									result.duration = std::chrono::duration_cast<std::chrono::microseconds>(stop-start);
 									return result;
@@ -291,11 +291,7 @@ namespace primefac
 	{
 		if(r.success) {
 			out << "Success!" << std::endl;
-			out << "Factors: ";
-			for(std::size_t i = 0; i < r.factors.size(); i++) {
-				out << r.factors[i] << " ";
-			}
-			out << std::endl;
+			out << "Factors: " << r.factors.first << " " << r.factors.second << std::endl;
 		} else {
 			out << "Failure!" << std::endl;
 		}

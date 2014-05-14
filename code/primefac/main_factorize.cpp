@@ -21,7 +21,7 @@ int main(int argc, char** argv)
 	parameters.kB = 15.0;
 	size_t numThreads = 0;
 	size_t repetitions = 1;
-	size_t Np = 2000;
+	size_t Np = 10000;
 	string fileName("factorize.txt");
 
 	// parse command line arguments
@@ -108,13 +108,13 @@ int main(int argc, char** argv)
 		cout << "Threads: " << numThreads << endl;
 	}
 	cout << endl;
+	chrono::high_resolution_clock clk;
 	for(size_t i = 0; i < repetitions; i++) {
 		cout << "=====================" << endl;
 		cout << " Run " << i+1 << "/" << repetitions << ":" << endl;
 		cout << "=====================" << endl;
 
-		chrono::high_resolution_clock clock;
-		chrono::high_resolution_clock::time_point start = clock.now();
+		chrono::high_resolution_clock::time_point start = clk.now();
 
 		todo = stack<size_t>();
 		factors.clear();
@@ -150,18 +150,16 @@ int main(int argc, char** argv)
 				PrimefacThread::reset();
 			}
 			if(result.success) {
-				// TODO: this can not be more then to ~> use std::pair in result
 				todo.pop();
-				for(size_t j = 0; j < result.factors.size(); j++) {
-					todo.push(result.factors[j]);
-					cout << todo.top() << " ";
-				}
+				todo.push(result.factors.first);
+				cout << todo.top() << " ";
+				todo.push(result.factors.second);
 				cout << endl;
 			}
 
 		}
 
-		chrono::high_resolution_clock::time_point stop = clock.now();
+		chrono::high_resolution_clock::time_point stop = clk.now();
 		chrono::microseconds duration = chrono::duration_cast<chrono::microseconds>(stop-start);
 
 		file << i << " ";
@@ -179,9 +177,10 @@ int main(int argc, char** argv)
 			file << 0 << " ";
 			cout << "Failure!" << endl;
 		}
+		cout << "Duration: " << duration.count() << endl;
 		file << duration.count() << endl;
-		cout << endl;
 
+		cout << endl;
 	}
 
 	file.close();

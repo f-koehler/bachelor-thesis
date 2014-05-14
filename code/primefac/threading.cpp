@@ -27,7 +27,8 @@ namespace primefac
 		double T = 1.0;
 		size_t bStart = 0;
 		size_t aStart = 0;
-		factors.clear();
+		factors.first = 0;
+		factors.second = 0;
 
 #ifdef PRIMEFAC_PROGRESS
 		size_t searchSize = 0;
@@ -85,11 +86,11 @@ namespace primefac
 
 						if(N == prod) {
 							resultMutex.lock();
-							if(factors.empty()) {
+							if((factors.first == 0) || (factors.second == 0)) {
 								completed = true;
 								success = true;
-								factors.push_back(Anew.toSizeT());
-								factors.push_back(Bnew.toSizeT());
+								factors.first = Anew.toSizeT();
+								factors.second = Bnew.toSizeT();
 							}
 							resultMutex.unlock();
 							return;
@@ -110,11 +111,11 @@ namespace primefac
 
 								if(N == prod) {
 									resultMutex.lock();
-									if(factors.empty()) {
+									if((factors.first == 0) || (factors.second == 0)) {
 										completed = true;
 										success = true;
-										factors.push_back(Anew.toSizeT());
-										factors.push_back(Bnew.toSizeT());
+										factors.first = Anew.toSizeT();
+										factors.second = Bnew.toSizeT();
 									}
 									resultMutex.unlock();
 									return;
@@ -263,7 +264,7 @@ namespace primefac
 
 	std::mutex PrimefacThread::resultMutex;
 	bool PrimefacThread::success(true);
-	std::vector<std::size_t> PrimefacThread::factors;
+	std::pair<std::size_t, std::size_t> PrimefacThread::factors;
 
 	PrimefacThread::PrimefacThread(const PrimefacThread::Configuration& config) : 
 		thr(std::thread(&PrimefacThread::threadFunc, this, config))
@@ -279,14 +280,15 @@ namespace primefac
 	{
 		return success;
 	}
-	std::vector<std::size_t> PrimefacThread::getFactors()
+	std::pair<std::size_t, std::size_t> PrimefacThread::getFactors()
 	{
 		return factors;
 	}
 	void PrimefacThread::reset()
 	{
 		success = false;
-		factors.clear();
+		factors.first = 0;
+		factors.second = 0;
 		completed = false;
 #ifdef PRIMEFAC_PROGRESS
 		numSearched = 0;
