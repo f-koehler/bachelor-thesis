@@ -35,6 +35,7 @@ int main(int argc, char** argv)
 			}
 			arg++;
 			stringstream(argv[arg]) >> N;
+			parameters.N = N;
 		} else if(tmp == string("-Na")) {
 			if(argc == argc-1) {
 				usage();
