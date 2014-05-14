@@ -19,7 +19,7 @@ int main(int argc, char** argv)
 	bool guessKb = false;
 	size_t numThreads = 0;
 	size_t repetitions = 1;
-	string fileName("primefac.txt");
+	string fileName("onestep.txt");
 
 	// parse command line arguments
 	for(int arg = 1; arg < argc; arg++) {

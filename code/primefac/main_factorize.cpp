@@ -22,7 +22,7 @@ int main(int argc, char** argv)
 	size_t numThreads = 0;
 	size_t repetitions = 1;
 	size_t Np = 2000;
-	string fileName("primefac.txt");
+	string fileName("factorize.txt");
 
 	// parse command line arguments
 	for(int arg = 1; arg < argc; arg++) {
@@ -113,6 +113,9 @@ int main(int argc, char** argv)
 		cout << " Run " << i+1 << "/" << repetitions << ":" << endl;
 		cout << "=====================" << endl;
 
+		chrono::high_resolution_clock clock;
+		chrono::high_resolution_clock::time_point start = clock.now();
+
 		todo = stack<size_t>();
 		factors.clear();
 
@@ -152,16 +155,31 @@ int main(int argc, char** argv)
 				for(size_t j = 0; j < result.factors.size(); j++) {
 					todo.push(result.factors[j]);
 					cout << todo.top() << " ";
-					//factors.push_back(result.factors[j]);
 				}
 				cout << endl;
 			}
 
 		}
+
+		chrono::high_resolution_clock::time_point stop = clock.now();
+		chrono::microseconds duration = chrono::duration_cast<chrono::microseconds>(stop-start);
+
+		file << i << " ";
+
 		cout << "Factors: ";
+		size_t prod = 1;
 		for(size_t j = 0; j < factors.size(); j++) {
 			cout << factors[j] << ", ";
+			prod *= factors[j];
 		}
+		if(prod == N) {
+			file << 1 << " ";
+			cout << "Success!" << endl;
+		} else {
+			file << 0 << " ";
+			cout << "Failure!" << endl;
+		}
+		file << duration.count() << endl;
 		cout << endl;
 
 	}
@@ -181,7 +199,6 @@ void usage()
 	cout << "Options:" << endl;
 	cout << "  --help       Print this message" << endl;
 	cout << "  -N [value]   The number to factor, must be larger than 1 and smaller than " << ULONG_MAX << endl;
-	cout << "  -k [value]   Value for the Boltzmann constant" << endl;
 	cout << "  -Na [value]  Number of annealing steps"  << endl;
 	cout << "  -Nc [value]  Number of conifgurations per annealing step" << endl;
 	cout << "  -Fc [value]  Cooling factor per annealing step" << endl;
