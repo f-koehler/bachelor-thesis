@@ -1,6 +1,6 @@
 CXX=g++
 #CFLAGS=-Wall -Wextra -pedantic -std=c++11 -O3 -march=native -pthread -m64
-CFLAGS=-Wall -Wextra -pedantic -std=c++0x -O3 -march=k8-sse3 -pthread -m64 -0x
+CFLAGS=-Wall -Wextra -pedantic -std=c++11 -O3 -march=k8-sse3 -pthread -m64
 
 SRC=$(wildcard *.cpp)
 INC=$(wildcard *.hpp)

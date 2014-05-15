@@ -1,5 +1,6 @@
 #include "config.hpp"
 #include <iostream>
+#include <fstream>
 #include <chrono>
 #include <random>
 using namespace std;
@@ -30,6 +31,7 @@ int main()
 	high_resolution_clock clock;
 	Time start;
 	Time stop;
+	ofstream file("prngbench.txt");
 
 	// seed all engines with the same seed
 	engineDefault.seed(42);
@@ -51,6 +53,7 @@ int main()
 	}
 	stop = clock.now();
 	cout << duration_cast<nanoseconds>(stop - start).count() << " ns" << endl;
+	file << "default_random_engine: " << duration_cast<nanoseconds>(stop - start).count() << endl;
 	
 	cout << "mindst_rand:           ";
 	start = clock.now();
@@ -59,6 +62,7 @@ int main()
 	}
 	stop = clock.now();
 	cout << duration_cast<nanoseconds>(stop - start).count() << " ns" << endl;
+	file << "mindst_rand: " << duration_cast<nanoseconds>(stop - start).count() << endl;
 
 	cout << "mindst_rand0:          ";
 	start = clock.now();
@@ -67,6 +71,7 @@ int main()
 	}
 	stop = clock.now();
 	cout << duration_cast<nanoseconds>(stop - start).count() << " ns" << endl;
+	file << "mindst_rand0: " << duration_cast<nanoseconds>(stop - start).count() << endl;
 
 	cout << "mt19937:               ";
 	start = clock.now();
@@ -75,6 +80,7 @@ int main()
 	}
 	stop = clock.now();
 	cout << duration_cast<nanoseconds>(stop - start).count() << " ns" << endl;
+	file << "mt19937: " << duration_cast<nanoseconds>(stop - start).count() << endl;
 
 	cout << "mt19937_64:            ";
 	start = clock.now();
@@ -83,6 +89,7 @@ int main()
 	}
 	stop = clock.now();
 	cout << duration_cast<nanoseconds>(stop - start).count() << " ns" << endl;
+	file << "mt19937_64: " << duration_cast<nanoseconds>(stop - start).count() << endl;
 
 	cout << "ranlux24_base:         ";
 	start = clock.now();
@@ -91,6 +98,7 @@ int main()
 	}
 	stop = clock.now();
 	cout << duration_cast<nanoseconds>(stop - start).count() << " ns" << endl;
+	file << "ranlux24_base: " << duration_cast<nanoseconds>(stop - start).count() << endl;
 
 	cout << "ranlux48_base:         ";
 	start = clock.now();
@@ -99,6 +107,7 @@ int main()
 	}
 	stop = clock.now();
 	cout << duration_cast<nanoseconds>(stop - start).count() << " ns" << endl;
+	file << "ranlux48_base: " << duration_cast<nanoseconds>(stop - start).count() << endl;
 
 	cout << "ranlux24:              ";
 	start = clock.now();
@@ -107,6 +116,7 @@ int main()
 	}
 	stop = clock.now();
 	cout << duration_cast<nanoseconds>(stop - start).count() << " ns" << endl;
+	file << "ranlux24: " << duration_cast<nanoseconds>(stop - start).count() << endl;
 
 	cout << "ranlux48:              ";
 	start = clock.now();
@@ -115,6 +125,7 @@ int main()
 	}
 	stop = clock.now();
 	cout << duration_cast<nanoseconds>(stop - start).count() << " ns" << endl;
+	file << "ranlux48: " << duration_cast<nanoseconds>(stop - start).count() << endl;
 
 	cout << "knuth_b:               ";
 	start = clock.now();
@@ -123,6 +134,9 @@ int main()
 	}
 	stop = clock.now();
 	cout << duration_cast<nanoseconds>(stop - start).count() << " ns" << endl;
+	file << "knuth_b: " << duration_cast<nanoseconds>(stop - start).count() << endl;
+
+	file.close();
 
 	return EXIT_SUCCESS;
 }
