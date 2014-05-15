@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -N runtime-test
+#PBS -N factorization-test
 #PBS -M fabian.koehler@tu-dortmund.de
 #PBS -m abe
 ##PBS -m n

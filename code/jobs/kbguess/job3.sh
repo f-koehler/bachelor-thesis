@@ -1,10 +1,10 @@
 #!/bin/bash
-#PBS -N runtime-test
+#PBS -N kbguess3
 #PBS -M fabian.koehler@tu-dortmund.de
 #PBS -m abe
 ##PBS -m n
 #PBS -j oe
-#PBS -l walltime=00:15:00
+#PBS -l walltime=85:00:00
 #PBS -l nodes=1:ppn=8
 #PBS -l vmem=2gb
 
@@ -18,7 +18,7 @@ cd ${PBS_O_WORKDIR}
 pwd
 
 # the command to run as a job
-python run-test.py
+python run3.py
 
 # output after completion
 echo "--- END ---"

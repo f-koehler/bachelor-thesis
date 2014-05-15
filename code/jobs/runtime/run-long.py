@@ -8,8 +8,8 @@ Na = 500
 Nc = 1000
 Fc = 0.997
 t = 8
-r = 3600
-path = "./data/"
+r = 7200
+path = "./data-long/"
 
 if not os.path.exists(path):
     os.mkdir(path)
