@@ -1,0 +1,13 @@
+\begin{algorithm}[ht]
+  \begin{algorithmic}[1]
+				\Procedure{Anneal}{$A,B,E,N$}
+				\State{$T\gets 1.0$}
+				\For{$i\gets 1$ to $N_a$}
+				  \For{$j\gets 1$ to $N_c$}
+						  \State{$\mathrm{Metropolis}\left(A,B,E,N\right)$}
+  				\EndFor{}
+						\State{$T\gets T\cdot F_c$}
+				\EndFor{}
+				\EndProcedure{}
+  \end{algorithmic}
+\end{algorithm}

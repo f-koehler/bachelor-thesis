@@ -58,6 +58,10 @@ build() {
 	rubber-info --warnings "$2".log > rubber/warnings.txt
 	rubber-info --refs     "$2".log > rubber/refs.txt
 	rubber-info --boxes    "$2".log > rubber/boxes.txt
+	rubber-info --errors   "$2".log
+	rubber-info --warnings "$2".log
+	rubber-info --refs     "$2".log
+	rubber-info --boxes    "$2".log
 	cd ..
 
 	if [ $retVal -gt 0 ]; then

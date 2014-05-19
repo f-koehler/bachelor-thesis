@@ -15,7 +15,8 @@
 \usepackage{bm}
 
 % pseudocode in latex
-\usepackage[lined,linesnumbered,noend]{algorithm2e}
+\usepackage[Algorithmus]{algorithm}
+\usepackage{algpseudocode}
 
 % refs in pdf
 \usepackage[
@@ -26,3 +27,10 @@
 		pdfcreator={Fabian Köhler},
 		pdfproducer={Fabian Köhler}
 ]{hyperref}
+
+% FloatBarrier
+\usepackage{placeins}
+
+% floor commands
+\def\lf{\left\lfloor}   
+\def\rf{\right\rfloor}

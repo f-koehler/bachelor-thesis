@@ -1,0 +1,21 @@
+\begin{algorithm}[ht]
+  \begin{algorithmic}[1]
+				\Procedure{Factorize}{$N$}
+    \For{$a\in\left[a_\mathrm{min}, a_\mathrm{max}\right]$}
+      \For{$a_1\in\left[1,a\right]$}
+						  \State{$A\gets\mathrm{randomBitset}\left(a, a_1\right)$}
+        \For{$b\in\left[b_\mathrm{min}, a\right]$}
+          \For{$b_1\in\left[1,b\right]$}
+  						    \State{$B\gets\mathrm{randomBitset}\left(b, b_1\right)$}
+												\State{$E\gets E\left(A,B,E,N\right)$}
+												\If{$A\cdot B=N$}
+				          \State{Exit}\Comment{Faktoren $A, B$ wurden gefunden}
+												\EndIf{}
+												\State{$\mathrm{anneal}\left(A,B,N\right)$}
+						    \EndFor{}
+    				\EndFor{}
+						\EndFor{}
+				\EndFor{}
+				\EndProcedure{}
+  \end{algorithmic}
+\end{algorithm}

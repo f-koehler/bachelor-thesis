@@ -22,6 +22,8 @@ namespace primefac
 			/** The number of bits that are not leading zeros. */
 			unsigned long relevant;
 
+			unsigned long numZeros;
+
 			/** A distribution for random numbers to chose random indices with respect to the need of leading one. */
 			std::uniform_int_distribution<std::size_t> indexDistribution;
 

@@ -1,0 +1,28 @@
+\begin{algorithm}[ht]
+		\caption{Metropolis-Schritt}\label{alg:metropolis}
+		\begin{algorithmic}[1]
+				\Procedure{Metropolis}{$A,B,E,N$}
+				\If{$\mathrm{randomInt}\left(0,1\right)$}
+  				\State{$A^\prime\gets\mathrm{randomOperation}\left(A\right)$}
+				\Else{}
+  				\State{$B^\prime\gets\mathrm{randomOperation}\left(B\right)$}
+				\EndIf{}
+				\If{$A\cdot B=N$}
+				  \State{Exit}\Comment{Faktoren $A, B$ wurden gefunden}
+				\EndIf{}
+				\State{$E^\prime=E\left(A^\prime,B^\prime,N\right)$}
+				\If{$E^\prime>E$}
+  				\State{$A\gets A^\prime$}
+						\State{$B\gets B^\prime$}
+						\State{$E\gets E^\prime$}
+				\Else{}
+  				\State{$p\gets\mathrm{randomFloat}\left(0.0, 1.0\right)$}
+						\If{$p<\exp\left(-\frac{E^\prime-E}{kT_i}\right)$}
+    				\State{$A\gets A^\prime$}
+		  				\State{$B\gets B^\prime$}
+				  		\State{$E\gets E^\prime$}
+						\EndIf{}
+				\EndIf{}
+				\EndProcedure{}
+		\end{algorithmic}
+\end{algorithm}

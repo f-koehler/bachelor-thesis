@@ -29,8 +29,12 @@ namespace primefac {
 		set = new bool[setSize];
 
 		std::size_t i = 0;
+		numZeros = 0;
 		while(((number != 0) || (i == 0)) && (i < setSize)) {
 			set[i] = (bool)(number % 2);
+			if(!set[i]) {
+				numZeros++;
+			}
 			number /= 2;
 			i++;
 		}
@@ -49,12 +53,15 @@ namespace primefac {
 		set = new bool[setSize];
 		relevant = numRelevant;
 
+		numZeros = size-numOnes;
+
 		std::size_t i = 0;
 		for(i = 0; i < numOnes-1; i++) {
 			set[i] = true;
 		}
 		for(i = numOnes-1; i < numRelevant-1; i++) {
-			set[i] =false;
+			set[i] = false;
+			numZeros++;
 		}
 		set[numRelevant-1] = true;
 
@@ -77,6 +84,8 @@ namespace primefac {
 			set[i] = bits.set[i];
 		}
 		indexDistribution = bits.indexDistribution;
+
+		numZeros = bits.numZeros;
 	}
 	Bitset::~Bitset()
 	{
@@ -88,12 +97,14 @@ namespace primefac {
 	void Bitset::makeRandom(std::size_t numRelevant, std::size_t numOnes, Prng& gen)
 	{
 		relevant = numRelevant;
+		numZeros = setSize-numOnes;
+
 		std::size_t i = 0;
 		for(i = 0; i < numOnes-1; i++) {
 			set[i] = true;
 		}
 		for(i = numOnes-1; i < numRelevant-1; i++) {
-			set[i] =false;
+			set[i] = false;
 		}
 		set[numRelevant-1] = true;
 
@@ -110,6 +121,9 @@ namespace primefac {
 
 	void Bitset::swapBits(std::size_t i, std::size_t j)
 	{
+		if(numZeros == 0) {
+			return;
+		}
 		bool tmp = set[i];
 		set[i] = set[j];
 		set[j] = tmp;
@@ -212,7 +226,16 @@ namespace primefac {
 
 		switch(choice) {
 			case 0:
-				swapBits(indexDistribution(gen), indexDistribution(gen));
+				if(numZeros != 0) {
+					std::size_t i = indexDistribution(gen);
+					std::size_t j = indexDistribution(gen);
+					std::size_t tries = 1;
+					while((set[j] == set[i]) && (tries < setSize)) {
+						j = indexDistribution(gen);
+						tries++;
+					}
+					swapBits(i, j);
+				}
 				break;
 			case 1:
 				reverseSequence(indexDistribution(gen), indexDistribution(gen));

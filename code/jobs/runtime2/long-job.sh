@@ -1,10 +1,10 @@
 #!/bin/bash
-#PBS -N kbguess1
+#PBS -N runtime-long
 #PBS -M fabian.koehler@tu-dortmund.de
 #PBS -m abe
 ##PBS -m n
 #PBS -j oe
-#PBS -l walltime=95:00:00
+#PBS -l walltime=142:00:00
 #PBS -l nodes=1:ppn=8
 #PBS -l vmem=2gb
 
@@ -18,7 +18,7 @@ cd ${PBS_O_WORKDIR}
 pwd
 
 # the command to run as a job
-python run1.py
+python run-long.py
 
 # output after completion
 echo "--- END ---"
