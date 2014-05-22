@@ -1,4 +1,8 @@
-\documentclass{scrartcl}
+\documentclass[]{scrreprt}
+
+% common math packages
+\usepackage{amsmath}
+\usepackage{amssymb}
 
 % font loading, required for unicode
 \usepackage{fontspec}
@@ -7,16 +11,19 @@
 \usepackage[ngerman, english]{babel}
 \selectlanguage{ngerman}
 
-% common math packages
-\usepackage{amsmath}
-\usepackage{amssymb}
-
 % bold math
 \usepackage{bm}
 
 % pseudocode in latex
 \usepackage[Algorithmus]{algorithm}
 \usepackage{algpseudocode}
+
+% bibliography
+\usepackage[
+		backend=biber,
+		sortlocale=de_DE.UTF-8
+]{biblatex}
+\usepackage[strict=true,autostyle=true]{csquotes}
 
 % refs in pdf
 \usepackage[
@@ -28,8 +35,12 @@
 		pdfproducer={Fabian Köhler}
 ]{hyperref}
 
-% FloatBarrier
-\usepackage{placeins}
+% FloatBarriers
+\usepackage[
+  above,
+  below,
+  section
+]{placeins}
 
 % floor commands
 \def\lf{\left\lfloor}   

@@ -1,9 +1,20 @@
 \begin{algorithm}[ht]
+		\caption{Zerlegung in zwei Faktoren}\label{alg:factorize}
   \begin{algorithmic}[1]
 				\Procedure{Factorize}{$N$}
-    \For{$a\in\left[a_\mathrm{min}, a_\mathrm{max}\right]$}
+				\If{$\lf\frac{n}{2}\rf$}
+				  \State{$a_\mathrm{min}\gets 2$}
+				\Else{}
+  				\State{$a_\mathrm{min}\gets\lf\frac{n}{2}\rf$}
+				\EndIf{}
+    \For{$a\in\left[a_\mathrm{min}, n\right]$}
       \For{$a_1\in\left[1,a\right]$}
 						  \State{$A\gets\mathrm{randomBitset}\left(a, a_1\right)$}
+				    \If{$n-a=1$}
+    				  \State{$b_\mathrm{min}\gets 2$}
+				    \Else{}
+      				\State{$b_\mathrm{min}\gets n-a$}
+				    \EndIf{}
         \For{$b\in\left[b_\mathrm{min}, a\right]$}
           \For{$b_1\in\left[1,b\right]$}
   						    \State{$B\gets\mathrm{randomBitset}\left(b, b_1\right)$}
@@ -11,7 +22,7 @@
 												\If{$A\cdot B=N$}
 				          \State{Exit}\Comment{Faktoren $A, B$ wurden gefunden}
 												\EndIf{}
-												\State{$\mathrm{anneal}\left(A,B,N\right)$}
+												\State{$\mathrm{anneal}\left(A,B,E,N\right)$}
 						    \EndFor{}
     				\EndFor{}
 						\EndFor{}

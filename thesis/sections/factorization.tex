@@ -1,4 +1,4 @@
-\section{Beschreibung des Verfahren}
+\chapter{Beschreibung des Verfahrens}
 Die kanonische Primfaktorzerlegung bezeichnet die eindeutige Darstellung einer Zahl $N\in\mathbb{N}$ durch
 \begin{equation*}
   N=\prod\limits_{i=1}^M p_i^{m_i},
@@ -6,10 +6,9 @@ Die kanonische Primfaktorzerlegung bezeichnet die eindeutige Darstellung einer Z
 wobei die $p_i\in\mathbb{N}$i mit $p_i>1$ Primzahlen und die $m_i\in\mathbb{N}$ die zugehörigen Exponenten sind.\\
 Diese Zerlegung kann rekursiv aufgebaut werden. So wird zunächst die Zahl $N$ in zwei Faktoren $A$ und $B$ zerlegt, wobei $A,B\in\mathbb{N}$ nicht zwangsläufig Primfaktoren sind. Danach werden $A$ und $B$ zerlegt sofern sie nicht prim sind.\\
 
-\subsection{Simulated Annealing Ansatz}
-Es soll nun ein Verfahren entwickelt werden, dass die Zerlegung $N=A\cdot B$ mit $A\geq B$ berechnet.\\
-Die Zahlen $N,A,B$ werden im Dualsystem ohne führende Nullen dargestellt, wobei $n, a, b$ die Anzahl der Stellen im $2$er-System seien. Es gilt also $2^{n}\leq N \leq 2^{n+1}-1$ \\
-Die Faktoren $A, B$ können maximal die gleiche Länge haben wie $N$.
+\section{Simulated Annealing Ansatz}
+Es soll ein Verfahren entwickelt werden, dass die Zerlegung $N=A\cdot B$ mit $A\geq B$ berechnet.\\
+Die Zahlen $N,A,B$ werden im Dualsystem ohne führende Nullen dargestellt, wobei $n, a, b$ die Anzahl der Stellen im $2$er-System seien. Die Faktoren $A, B$ können maximal die gleiche Länge haben wie $N$.
 \begin{equation*}
 		a_\mathrm{max}=b_\mathrm{max}=n
 \end{equation*}
@@ -31,28 +30,33 @@ Die untere Schranke für $b$ ist bei gegebenem $a$
 						n-a & \mathrm{sonst}
 				\end{cases}
 \end{equation*}
-Es werden nun noch zwei Zahlen $a_1, b_1\in\mathbb{N}$ eingeführt, die die Anzahl der $1$en in der binären Representation der Zahlen $A, B$, es gilt dann
+Es werden nun noch zwei Zahlen $a_1, b_1\in\mathbb{N}$ eingeführt, die die Anzahl der $1$en in der binären Representation der Zahlen $A, B$ angibt. Es gilt dann:
 \begin{align*}
 		1\leq a_1\leq a \\
 		1\leq b_1\leq b
 \end{align*}
-Das hier benutzte Verfahren testet alle erlaubten Werte $\left\{a,b,a_1,b_1\right\}$ und erstellt zufällig Zahlen $A,B$. Nach der Energiefunktion
+Das hier benutzte Verfahren testet alle erlaubten Werte $\left(a,b,a_1,b_1\right)$ und erstellt zufällig Zahlen $A,B$. Nach der Energiefunktion
 \begin{equation*}
 		E\left(A,B,N\right)=\sum\limits_{i=1}^n\begin{cases}
 		  		f\left(i\right) & \mathrm{falls}\:{\left\{A\cdot B\right\}}_i={\left\{N\right\}}_i \\
 						0 & \mathrm{sonst}\\
 				\end{cases}
 \end{equation*}
-wird die Energie der Konfiguration berechnet.. Dabei ist ${\left\{N\right\}}_i$ die $i$-te Stelle der binären Repräsentation der Zahl $N$, wobei $i=0$ das niederwertigste Bit ist. $f\left(i\right)$ ist eine monoton steigende Funktion, z.B. $f\left(i\right)=i$ oder $f\left(i\right)=i^2$. Die Energie wächst mit der Übereinstimmung des Produktes $A\cdot B$ mit $N$, wobei die höherwertigen Bits ein größeres Gewicht haben, so dass versucht wird die Energie zu maximieren.\\
-Es kommt ein Metropolisalgorithmus nach Algortithmus~\ref{alg:metropolis} zum Einsatz. Die Funktion $\mathrm{randomOperation}\left(A\right)$ git eine zufällige Modifikation der binären Representation der Zahl $A$ zurück. Dabei wird eine der folgenden Operationen zufällig ausgewählt:
+wird die Energie der Konfiguration berechnet. Dabei ist ${\left\{N\right\}}_i$ die $i$-te Stelle der binären Repräsentation der Zahl $N$, wobei $i=0$ das niederwertigste Bit ist. $f\left(i\right)$ ist eine monoton steigende Funktion, z.B. $f\left(i\right)=i$ oder $f\left(i\right)=i^2$. Die Energie wächst mit der Übereinstimmung des Produktes $A\cdot B$ mit $N$, wobei die höherwertigen Bits ein größeres Gewicht haben. Es gilt also die Energie zu maximieren werden. \\
+Für das Simulated Annealing wird für jedes $4$-Tupel $\left(a,b,a_1,b_1\right)$ mit einer Temperatur $T_0=1$ begonnen. Es werden dann $N_a$ Annealing-Schritte durchgeführt und bei jedem das System um einen Faktor $F_c$ abgekühlt, also $T_{i+1}=F_c\cdot T_i$. Vor jedem abkühlen werden $N_c$ Konfiguration getestet. \\
+Dabei kommt ein Metropolisalgorithmus nach Algorithmus~\ref{alg:metropolis} zum Einsatz. Die Funktion $\mathrm{randomOperation}\left(A\right)$ git eine zufällige Modifikation der binären Representation der Zahl $A$ zurück. Dabei wird eine der folgenden Operationen zufällig ausgewählt:
 \begin{itemize}
 		\item \textbf{swap} Es werdene zwei Bits zufällig vertauscht, wovon eines eine $1$ und eines eine $0$ ist.
 		\item \textbf{slide} Es wird eine durchgängige Sequenz an Bits zufällig ausgewählt und das Bit ganz rechts entfernt. Danach werden alle anderen Bits nach rechts durchgeschoben und das entfernte Bit hinten t wieder eingefügt.
 		\item \textbf{reverse} Es wird eine zufällige Sequenz an Bits ausgewählt und ihre Reihenfolge invertiert.
 		\item \textbf{random} Es werden Bits zufällige ausgewählt und zufällig permutiert.
 \end{itemize}
-Eine solche Änderung wird akzeptiert, wenn die Energie dadurch größer wird ansonsten nur mit einer Wahrscheinlichkeit von $\exp\left(-\frac{E^\prime-E}{k T_i}\right)$
+Die Akzeptanzwahrscheinlichkeit ist dabei
+\begin{equation*}
+		p=\min\left\{1,\;\exp\left(-\frac{E^\prime-E}{k T_i}\right)\right\}.
+\end{equation*}
+Konfigurationen, die eine höhere Energie haben, werden also auf jeden Fall akzeptiert, ungünstigere nur gemäß eines Boltzman-Faktors.
 \input{./pseudocode/metropolis.tex}
+Das Annealing erfolgt dann nach Algortihmus~\ref{alg:anneal}. Die Iteration über alle $\left(a,b,a_1,b_1\right)$ ist in Algorithmus~\ref{alg:factorize} dargestellt.
 \input{./pseudocode/anneal.tex}
 \input{./pseudocode/factorize.tex}
-\FloatBarrier{}

@@ -46,7 +46,12 @@ build() {
 	fi
 
 	# bibliography
-	# TODO
+	echo biber --logfile build/"$2".blg --outfile build/"$2".bbl build/"$2".bcf
+	biber --logfile build/"$2".blg --outfile build/"$2".bbl build/"$2".bcf | grep -E "^(WARN|ERROR)"
+	if ! [ ${PIPESTATUS[0]} -eq 0 ] ; then
+		rm -f "$2".pdf
+		exit 1
+	fi
 
 	# build 2nd time
 	echo "$TEX --jobname=$2 $1"
