@@ -1,12 +1,16 @@
 \chapter{Beschreibung des Verfahrens}
+
+\section{Simulated Annealing}
+Simulated Annealing ist eine Methode, um Optimierungsprobleme zu lösen. Dieses Verfahren bietet sich an, wenn das Problem sehr komplex ist. Dies ist der Fall wenn für die Parameter ein großer Wertebereich zulässig ist, die Dimensionalität des Problems, d.h.\ die Anzahl der Parameter, hoch ist oder es neben dem gesuchten globalen Extremum noch viele lokale Extrema gibt. In dem Fall der Primfaktorzerlegung gilt es eine Funktion zu maximieren, deren Parameter diskret sind. Dies führt auf einen speziellen Fall des Simulated Annealing. \\
+Dieses Verfahren wurde in Analogie zur Thermodynamik entwickelt. Ein physikalisches System strebt in den Zustand niedrigster Energie. Bei einer endlichen Temperatur ist die Wahrscheinlichkeit das System in einem Zustand der 
+
+\section{Primfaktorzerlegung}
 Die kanonische Primfaktorzerlegung bezeichnet die eindeutige Darstellung einer Zahl $N\in\mathbb{N}$ durch
 \begin{equation*}
   N=\prod\limits_{i=1}^M p_i^{m_i},
 \end{equation*}
 wobei die $p_i\in\mathbb{N}$i mit $p_i>1$ Primzahlen und die $m_i\in\mathbb{N}$ die zugehörigen Exponenten sind.\\
 Diese Zerlegung kann rekursiv aufgebaut werden. So wird zunächst die Zahl $N$ in zwei Faktoren $A$ und $B$ zerlegt, wobei $A,B\in\mathbb{N}$ nicht zwangsläufig Primfaktoren sind. Danach werden $A$ und $B$ zerlegt sofern sie nicht prim sind.\\
-
-\section{Simulated Annealing Ansatz}
 Es soll ein Verfahren entwickelt werden, dass die Zerlegung $N=A\cdot B$ mit $A\geq B$ berechnet.\\
 Die Zahlen $N,A,B$ werden im Dualsystem ohne führende Nullen dargestellt, wobei $n, a, b$ die Anzahl der Stellen im $2$er-System seien. Die Faktoren $A, B$ können maximal die gleiche Länge haben wie $N$.
 \begin{equation*}

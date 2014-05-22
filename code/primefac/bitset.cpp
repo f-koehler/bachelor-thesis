@@ -227,14 +227,27 @@ namespace primefac {
 		switch(choice) {
 			case 0:
 				if(numZeros != 0) {
-					std::size_t i = indexDistribution(gen);
+					/*std::size_t i = indexDistribution(gen);
 					std::size_t j = indexDistribution(gen);
 					std::size_t tries = 1;
 					while((set[j] == set[i]) && (tries < setSize)) {
 						j = indexDistribution(gen);
 						tries++;
 					}
-					swapBits(i, j);
+					swapBits(i, j);*/
+					std::vector<std::size_t> zeros;
+					std::vector<std::size_t> ones;
+					for(std::size_t i = 0; i < setSize; i++) {
+						if(set[i]) {
+							ones.push_back(i);
+						} else {
+							zeros.push_back(i);
+						}
+					}
+					std::uniform_int_distribution<std::size_t> dist0(0, zeros.size()-1);
+					std::uniform_int_distribution<std::size_t> dist1(0, ones.size()-1);
+
+					swapBits(zeros[dist0(gen)], ones[dist1(gen)]);
 				}
 				break;
 			case 1:
