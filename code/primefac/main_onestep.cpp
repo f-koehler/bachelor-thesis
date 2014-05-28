@@ -103,7 +103,7 @@ int main(int argc, char** argv)
 	ofstream file(fileName.c_str());
 	file << parameters << endl;
 	file << "#" << endl;
-	file << "# run\tsuccess\tduration[mus]" << endl;
+	file << "# run\tsuccess\tduration[mus]\tusedSteps" << endl;
 
 	cout << "=====================" << endl;
 	cout << " Parameters:" << endl;
@@ -119,7 +119,7 @@ int main(int argc, char** argv)
 		cout << "=====================" << endl;
 		PrimefacResult result = (numThreads <= 1) ? factorize(parameters) : factorize(parameters, numThreads);
 		cout << result << endl << endl;
-		file << i << "\t" << result.success << "\t" << result.duration.count() << "\t" << endl;
+		file << i << "\t" << result.success << "\t" << result.duration.count() << "\t" << result.usedSteps << endl;
 
 		PrimefacThread::reset();
 	}

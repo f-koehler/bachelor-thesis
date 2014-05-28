@@ -35,7 +35,6 @@ namespace primefac
 				/** kB, the Boltzmann constant */
 				double kB = 0.0;
 
-
 				/** The ID of the corresponding thread */
 				std::size_t threadId;
 
@@ -52,6 +51,8 @@ namespace primefac
 
 			/** The factors that were found */
 			static std::pair<std::size_t, std::size_t> factors;
+
+			static std::size_t usedSteps;
 
 
 			/** The C++11 instance for the computing */
@@ -95,6 +96,8 @@ namespace primefac
 			 * @return A vector of the factors
 			 */
 			static std::pair<std::size_t, std::size_t> getFactors();
+
+			static std::size_t getUsedSteps();
 
 			/**
 			 * Reset the static variables
@@ -161,6 +164,8 @@ namespace primefac
 			/** The factors that were found */
 			static std::pair<std::size_t, std::size_t> factors;
 
+			static std::size_t usedNa;
+
 			/** The C++11 instance for the computing */
 			std::thread thr;
 
@@ -199,6 +204,8 @@ namespace primefac
 			 * @return The factors found
 			 */
 			static std::pair<std::size_t, std::size_t> getFactors();
+
+			static std::size_t getUsedNa();
 
 			/**
 			 * Reset the static variables

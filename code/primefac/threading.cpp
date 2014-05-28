@@ -10,6 +10,7 @@ namespace primefac
 		Prng gen;
 		std::uniform_int_distribution<std::size_t> choiceDist(0, 1);
 		std::uniform_real_distribution<double> acceptDist(0.0, 1.0);
+		std::size_t steps = 0;
 
 		gen.seed(readSeed());
 
@@ -91,6 +92,7 @@ namespace primefac
 								success = true;
 								factors.first = Anew.toSizeT();
 								factors.second = Bnew.toSizeT();
+								usedSteps = steps;
 							}
 							resultMutex.unlock();
 							return;
@@ -116,6 +118,7 @@ namespace primefac
 										success = true;
 										factors.first = Anew.toSizeT();
 										factors.second = Bnew.toSizeT();
+										usedSteps = steps;
 									}
 									resultMutex.unlock();
 									return;
@@ -134,7 +137,8 @@ namespace primefac
 										Bnew = B;
 									}
 								}
-							}							
+								steps++;
+							}
 
 							T *= config.coolingFactor;
 						}
@@ -172,6 +176,7 @@ namespace primefac
 		std::size_t b1 = N2bit.numOnes();
 		std::size_t compliance = 0;
 		std::size_t complianceNew = 0;
+		std::size_t steps = 0;
 
 #ifdef PRIMEFAC_PROGRESS
 		std::size_t searchSize = config.numConfigurations*config.numAnnealingSteps*config.numThreads;
@@ -194,6 +199,7 @@ namespace primefac
 				factors.first = Anew.toSizeT();
 				factors.second = Bnew.toSizeT();
 				completed = true;
+				usedNa = steps;
 			}
 			resultMutex.unlock();
 			return;
@@ -226,6 +232,7 @@ namespace primefac
 						factors.first = Anew.toSizeT();
 						factors.second = Bnew.toSizeT();
 						completed = true;
+						usedNa = steps;
 					}
 					resultMutex.unlock();
 					return;
@@ -245,12 +252,14 @@ namespace primefac
 					Bnew = B;
 				}
 
+
 #ifdef PRIMEFAC_PROGRESS
 				numSearched++;
 				updateCounter++;
 #endif
 			}
 			T *= config.coolingFactor;
+			steps++;
 		}
 	}
 	/* thread functions */
@@ -265,6 +274,7 @@ namespace primefac
 	std::mutex PrimefacThread::resultMutex;
 	bool PrimefacThread::success(true);
 	std::pair<std::size_t, std::size_t> PrimefacThread::factors;
+	std::size_t PrimefacThread::usedSteps(0);
 
 	PrimefacThread::PrimefacThread(const PrimefacThread::Configuration& config) : 
 		thr(std::thread(&PrimefacThread::threadFunc, this, config))
@@ -284,12 +294,17 @@ namespace primefac
 	{
 		return factors;
 	}
+	std::size_t PrimefacThread::getUsedSteps()
+	{
+		return usedSteps;
+	}
 	void PrimefacThread::reset()
 	{
 		success = false;
 		factors.first = 0;
 		factors.second = 0;
 		completed = false;
+		usedSteps = 0;
 #ifdef PRIMEFAC_PROGRESS
 		numSearched = 0;
 #endif
@@ -325,6 +340,7 @@ namespace primefac
 #endif
 	bool SemiprimeThread::success(false);
 	std::pair<std::size_t, std::size_t> SemiprimeThread::factors;
+	std::size_t SemiprimeThread::usedNa(0);
 
 	SemiprimeThread::SemiprimeThread(const SemiprimeThread::Configuration& config) :
 		thr(std::thread(&SemiprimeThread::threadFunc, this, config))
@@ -344,12 +360,17 @@ namespace primefac
 	{
 		return factors;
 	}
+	std::size_t SemiprimeThread::getUsedNa()
+	{
+		return usedNa;
+	}
 	void SemiprimeThread::reset()
 	{
 		success = false;
 		factors.first = 0;
 		factors.second = 0;
 		completed = false;
+		usedNa = 0;
 #ifdef PRIMEFAC_PROGRESS
 		numSearched = 0;
 #endif

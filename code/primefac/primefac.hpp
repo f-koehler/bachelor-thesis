@@ -20,6 +20,7 @@ namespace primefac
 	typedef struct {
 		bool success;
 		std::pair<std::size_t, std::size_t> factors;
+		std::size_t usedSteps;
 		std::chrono::microseconds duration;
 	} PrimefacResult;
 
@@ -35,6 +36,7 @@ namespace primefac
 	typedef struct {
 		bool success;
 		std::pair<std::size_t, std::size_t> factors;
+		std::size_t usedNa;
 		std::chrono::microseconds duration;
 	} SemiprimeResult;
 

@@ -1,5 +1,28 @@
 \chapter{Untersuchung des Verfahrens}
+
 \section{\texorpdfstring{Abschätzung von $\bm{k_\mathrm{B}}$}{Abschätzung von kB}}
+Bei allen Untersuchungen wurde hier die zu maximierende Kostenfunktion
+\begin{equation*}
+		E\left(A,B,N\right)=\sum\limits_{i=1}^n\begin{cases}
+    i^2 & \mathrm{falls}\:{\left\{A\cdot B\right\}}_i={\left\{N\right\}}_i \\
+	0 & \mathrm{sonst}
+  \end{cases}
+\end{equation*}
+gewählt. Der maximale Wert dieser Funktion ist eine quadratische Pyramidazahl~\parencite{oeis}, also
+\begin{equation*}
+		E_{\mathrm{max}}\left(n\right)=\sum\limits_{i=1}^n i^2=\frac{1}{3}n^3+\frac{1}{2}n^2+\frac{1}{6}n.
+\end{equation*}
+Die Energie skaliert also mit $\mathcal{O}\left(n^3\right)$. \\
+Es ist wichtig $k_\mathrm{B}$ geeignet zu wählen, weil dieser Paramter die Wahrscheinlichkeit bestimmt, mit der der Metroploisalgorithmus energetisch ungünstigere Konfigurationen akzeptiert. Kennt man für ein $\tilde{n}$ einen guten Wert $\tilde{k}_\mathrm{B}$ so kann man nach
+\begin{equation*}
+		k_\mathrm{B}=\frac{E_{\mathrm{max}}\left(n\right)}{E_{\mathrm{max}}\left(\tilde{n}\right)}\tilde{k}_\mathrm{B}
+\end{equation*}
+eine Abschätzung für die zu wählende Boltzmann-Konstante treffen. \\
+Das Experimentieren mit verschiedenen Werten hat gezeigt, dass bei $n=33$ eine Boltzmannkonstante $\tilde{k}_\mathrm{B}=512$ zu guten Erfolgsraten führt.
+
 \section{Laufzeitverhalten bei Semiprimzahlen}
+
 \section{Laufzeitverhalten bei kompletter Zerlegung}
+
 \section{Parallelisierbarkeit}
+Wie in \ref{alg:factorize} ersichtlich sind die Berechnungen für die Tupel $\left(a, b, a_1, b_1\right)$ unabhängig voneinander. Dies bietet Möglichkeiten zur Parallelisierung.

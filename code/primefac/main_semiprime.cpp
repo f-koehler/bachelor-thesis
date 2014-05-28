@@ -111,7 +111,7 @@ int main(int argc, char** argv)
 	ofstream file(fileName.c_str());
 	file << parameters << endl;
 	file << "#" << endl;
-	file << "# run\tsuccess\tduration[mus]" << endl;
+	file << "# run\tsuccess\tduration[mus]\tusedNa" << endl;
 
 	cout << "=====================" << endl;
 	cout << " Parameters:" << endl;
@@ -127,7 +127,7 @@ int main(int argc, char** argv)
 		cout << "=====================" << endl;
 		SemiprimeResult result = (numThreads <= 1) ? factorizeSemiprime(parameters) : factorizeSemiprime(parameters, numThreads);
 		cout << result << endl << endl;
-		file << i << "\t" << result.success << "\t" << result.duration.count() << "\t" << endl;
+		file << i << "\t" << result.success << "\t" << result.duration.count() << "\t" << result.usedNa << endl;
 
 		SemiprimeThread::reset();
 	}

@@ -23,6 +23,7 @@ namespace primefac
 		std::size_t bStart = 0;
 		std::size_t compliance = 0;
 		std::size_t complianceNew = 0;
+		std::size_t usedSteps = 0;
 		double T = 1.0;
 
 #ifdef PRIMEFAC_PROGRESS
@@ -119,6 +120,8 @@ namespace primefac
 										Bnew = B;
 									}
 								}
+
+								usedSteps++;
 							}
 
 							T *= parameters.Fc;
@@ -134,6 +137,7 @@ namespace primefac
 
 		std::chrono::high_resolution_clock::time_point stop = clock.now();
 		result.duration = std::chrono::duration_cast<std::chrono::microseconds>(stop-start);
+		result.usedSteps = usedSteps;
 
 		return result;
 	}
@@ -156,6 +160,7 @@ namespace primefac
 
 		result.success = PrimefacThread::getSuccess();
 		result.factors = PrimefacThread::getFactors();
+		result.usedSteps = PrimefacThread::getUsedSteps();
 		result.duration = std::chrono::duration_cast<std::chrono::microseconds>(stop-start);
 
 		return result;
@@ -186,6 +191,7 @@ namespace primefac
 		std::uniform_int_distribution<short> choiceDist(0, 1);
 		std::uniform_real_distribution<double> acceptDist(0.0, 1.0);
 		double T = 1.0;
+		std::size_t usedNa = 0;
 
 #ifdef PRIMEFAC_PROGRESS
 		std::size_t searchSize = parameters.Na*parameters.Nc;
@@ -207,6 +213,7 @@ namespace primefac
 			result.factors.second = Bnew.toSizeT();
 			std::chrono::high_resolution_clock::time_point stop = clock.now();
 			result.duration = std::chrono::duration_cast<std::chrono::microseconds>(stop-start);
+			result.usedNa = usedNa;
 			return result;
 		}
 
@@ -232,6 +239,7 @@ namespace primefac
 					result.factors.second = Bnew.toSizeT();
 					std::chrono::high_resolution_clock::time_point stop = clock.now();
 					result.duration = std::chrono::duration_cast<std::chrono::microseconds>(stop-start);
+					result.usedNa = usedNa;
 					return result;
 				}
 				complianceNew = prod.quadraticCompliance(Nbit);
@@ -282,6 +290,7 @@ namespace primefac
 
 		result.success = SemiprimeThread::getSuccess();
 		result.factors = SemiprimeThread::getFactors();
+		result.usedNa = SemiprimeThread::getUsedNa();
 		result.duration = std::chrono::duration_cast<std::chrono::microseconds>(stop-start);
 
 		return result;

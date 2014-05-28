@@ -1,10 +1,10 @@
 #!/bin/bash
-#PBS -N semiprime-test
+#PBS -N semiprime
 #PBS -M fabian.koehler@tu-dortmund.de
 #PBS -m abe
 ##PBS -m n
 #PBS -j oe
-#PBS -l walltime=100:00:00
+#PBS -l walltime=90:00:00
 #PBS -l nodes=1:ppn=8
 #PBS -l vmem=2gb
 
