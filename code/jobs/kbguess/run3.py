@@ -16,7 +16,7 @@ Na = 1000
 Nc = 80000
 Fc = 0.997
 t  = 8
-r  = 1500
+r  = 1200
 path = "./data3/"
 
 # create a directory or clear it
