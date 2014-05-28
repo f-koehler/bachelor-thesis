@@ -16,3 +16,6 @@ cp -r ./jobs clusterpack
 cp -r ./primefac/*.cpp ./primefac/*.hpp ./primefac/Makefile clusterpack
 
 tar -pczf clusterpack.tar.gz clusterpack/*
+
+# clean up
+rm -rf clusterpack/Ü

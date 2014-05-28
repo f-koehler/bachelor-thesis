@@ -99,7 +99,7 @@ int main(int argc, char** argv)
 	ofstream file(fileName.c_str());
 	file << parameters << endl;
 	file << "#" << endl;
-	file << "# run\tsuccess\tduration[mus]" << endl;
+	file << "# run\tsuccess\tduration[mus]\tusedSteps" << endl;
 
 	cout << "=====================" << endl;
 	cout << " Parameters:" << endl;
@@ -115,6 +115,7 @@ int main(int argc, char** argv)
 		cout << " Run " << i+1 << "/" << repetitions << ":" << endl;
 		cout << "=====================" << endl;
 
+		size_t usedSteps = 0;
 		chrono::high_resolution_clock::time_point start = clk.now();
 
 		todo = stack<size_t>();
@@ -158,6 +159,7 @@ int main(int argc, char** argv)
 				cout << endl;
 			}
 
+			usedSteps += result.usedSteps;
 		}
 
 		chrono::high_resolution_clock::time_point stop = clk.now();
@@ -179,7 +181,7 @@ int main(int argc, char** argv)
 			cout << "Failure!" << endl;
 		}
 		cout << "Duration: " << duration.count() << endl;
-		file << duration.count() << endl;
+		file << duration.count() << " " << usedSteps << endl;
 
 		cout << endl;
 	}
