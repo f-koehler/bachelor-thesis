@@ -1,4 +1,5 @@
 TEX=./buildtex.sh
+PY=python3
 
 HEADERS=$(wildcard header/*.tex)
 SECTIONS=$(wildcard sections/*.tex)
@@ -9,14 +10,14 @@ BIB=literature.bib
 all: build/thesis.pdf
 
 # generate data for theory
-data/runtime-theo/data.txt:
-	python data/runtime-theo/runtime.py
+data/runtime-theo/data.txt: data/runtime-theo/runtime.py
+	$(PY) $<
 
 # make plots
-plot/runtime-theo/runtime.pdf: data/runtime-theo/data.txt
-	python plot/runtime-theo/runtime.py
-plot/runtime-theo/comparison.pdf: data/runtime-theo/data.txt
-	python plot/runtime-theo/comparison.py
+plot/runtime-theo/runtime.pdf: plot/runtime-theo/runtime.py data/runtime-theo/data.txt matplotlibrc
+	$(PY) $<
+plot/runtime-theo/comparison.pdf: plot/runtime-theo/comparison.py data/runtime-theo/data.txt matplotlibrc
+	$(PY) $<
 
 # build the thesis
 build/thesis.pdf: thesis.tex $(HEADERS) $(SECTIONS) $(PSEUDOCODE) $(BIB) $(PLOTS)

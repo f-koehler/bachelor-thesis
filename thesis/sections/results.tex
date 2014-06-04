@@ -1,5 +1,7 @@
 \chapter{Untersuchung des Verfahrens}
 
+\section{Implementierung}
+
 \section{\texorpdfstring{Abschätzung von $\bm{k_\mathrm{B}}$}{Abschätzung von kB}}
 Bei allen Untersuchungen wurde hier die zu maximierende Kostenfunktion
 \begin{equation*}
@@ -10,9 +12,9 @@ Bei allen Untersuchungen wurde hier die zu maximierende Kostenfunktion
 \end{equation*}
 gewählt. Der maximale Wert dieser Funktion ist eine quadratische Pyramidazahl~\parencite{oeis}, also
 \begin{equation*}
-		E_{\mathrm{max}}\left(n\right)=\sum\limits_{i=1}^n i^2=\frac{1}{3}n^3+\frac{1}{2}n^2+\frac{1}{6}n.
+		E_{\mathrm{max}}\left(n\right)=\sum\limits_{i=1}^n i^2=\frac{1}{3}n^3+\frac{1}{2}n^2+\frac{1}{6}n,
 \end{equation*}
-Die Energie skaliert also mit $\mathcal{O}\left(n^3\right)$. \\
+sodass die Energie mit $\mathcal{O}\left(n^3\right)$ skaliert. \\
 Es ist wichtig $k_\mathrm{B}$ geeignet zu wählen, weil dieser Paramter die Wahrscheinlichkeit bestimmt, mit der der Metroploisalgorithmus energetisch ungünstigere Konfigurationen akzeptiert. Kennt man für ein $\tilde{n}$ einen guten Wert $\tilde{k}_\mathrm{B}$ so kann man nach
 \begin{equation*}
 		k_\mathrm{B}=\frac{E_{\mathrm{max}}\left(n\right)}{E_{\mathrm{max}}\left(\tilde{n}\right)}\tilde{k}_\mathrm{B}
