@@ -1,0 +1,115 @@
+\chapter{Beschreibung des Verfahrens}
+
+\section{Simulated Annealing}
+Simulated Annealing~\parencite{nr} ist eine Methode, um Optimierungsprobleme zu lösen, die sich anbietet, wenn das Problem sehr komplex ist. Dies ist der Fall wenn für die Parameter ein großer Wertebereich zulässig ist, die Dimensionalität des Problems, d.h.\ die Anzahl der Parameter, hoch ist oder es neben dem gesuchten globalen Extremum noch viele lokale Extrema gibt. \\
+Zu einer gegebenem Temperatur wird eine adäquate Anfangskonfiguration gewählt, z.B.\ bei einer hohen Temperatur eine zufällige Konfiguration. Dann werden Annealing Schritte ausgeführt, d.h.\ die Temperatur sukzessive gesenkt und dabei die Konfiguration leicht modifiziert. Eine solche Modifikation wird gemäß eines Metropolisalgorithmus akzeptiert. Verringert die neue Konfiguration die Energie respektive eine analog dazu definierte Kostenfunktion, so wird die Änderung akzeptiert ansonsten nur mit einer Wahrscheinlichkeit von $p=\exp\left(-\frac{\Delta E}{k_\mathrm{B}T}\right)$.
+
+\section{Primfaktorzerlegung}
+Die Primfaktorzerlegung bezeichnet die eindeutige Darstellung einer Zahl $N\in\mathbb{N}$ durch
+\begin{equation*}
+  N=\prod\limits_{i=1}^M p_i^{m_i},
+\end{equation*}
+wobei die $p_i\in\mathbb{N}$ mit $p_i>1$ und $p_i\neq p_j$ für $i\neq j$ Primzahlen und die $m_i\in\mathbb{N}$ die zugehörigen Exponenten sind.\\
+Diese Zerlegung kann rekursiv aufgebaut werden, Zunächst wird die Zahl $N$ in zwei Faktoren $A$ und $B$ zerlegt. Danach werden $A$ und $B$ zerlegt sofern sie nicht prim sind.\\
+Es soll ein Verfahren entwickelt werden, dass die Zerlegung $N=A\cdot B$ mit $A\geq B$ berechnet und dabei die Methode des Simulated Annealing anwendet.\\
+
+\subsection{Abschätzung der Wertebereiche}\label{sec:parameterspace}
+Die Zahlen $N,A,B$ werden im Dualsystem dargestellt. Die Zahlen $a,b,n$ sollen dabei angeben wie viele Stellen die binären Representationen von $A,B,N$ unter Vernachlässigung führender $0$en haben. Durch $a_1$ bzw.\ $b_1$ soll angegeben werden, wie häufig dabei die Ziffer $1$ vorkommt. \\
+Der Algorithmus wird alle möglichen Tupel $\left(a,a_1,b,b_1\right)$ durchlaufen. Deshalb sollte geprüft werden in wie weit der Suchbereich bei gegebenem $N$ eingeschränkt werden kann.\\
+$A$ und $B$ sind Faktoren von $N$, ihre binäre Darstellung kann also maximal so lang sein wie die von $n$, d.h.\ $a\leq n\:\wedge\: b\leq n$. Da alle Primfaktoren $p_i > 1$ sein müssen, kann $a>1$ und $b>1$ angenommen werden. \\
+Bei der Multiplikation $A\cdot B =N$ gilt $a+b=n\:\vee\:a+b=n+1$. Mit Hilfe dieser Gleichungen kann der Parameterbereich noch deutlich genauer eingegrenzt werden. Zunächst kann eine untere Schranke für $a$ gewonnen werden, es gilt:
+\begin{equation*}
+		a=n-b \:\vee\: a=n-b+1
+\end{equation*}
+Dieser Ausdruck wir minimal für das maximale $b \leq a$ mit $a,b>1$, also $a=b$, so dass der minimale Wert für $a$ durch die Gleichung
+\begin{equation}
+		a_\mathrm{min}=\begin{cases}
+						2 & \mathrm{falls}\:\lf\frac{n}{2}\rf = 1 \\
+						\lf\frac{n}{2}\rf & \mathrm{sonst}
+		\end{cases}\label{eq:amin}
+\end{equation}
+gegeben ist. Dies legt zu gegebenem $a$ die untere Schranke
+\begin{equation}
+		b_\mathrm{min}=\begin{cases}
+						2 & \mathrm{falls}\:n-a=1 \\
+						n-a & \mathrm{sonst}
+		\end{cases}\label{eq:amax}
+\end{equation}
+für $b$ fest.\\
+Die binären Darstellungen von $A$ bzw.\ $B$ müssen mindestens eine $1$ enthalten, sonst wäre die Zahl $0$. Maximal können alle Stellen $1$ sein, sodass die Wertebereiche für $a_1$ bzw.\ $b_1$ durch die Ungleichungen
+\begin{align*}
+		1\leq a_1\leq a \\
+		1\leq b_1\leq b
+\end{align*}
+gegeben sind.\\
+Mit diesen Überlegungen wird der Parameterraum von
+\begin{align}
+		2 \leq a \leq n \notag \\
+		1 \leq a_1 \leq a \notag \\
+		2 \leq b \leq a \notag \\
+		1 \leq b_1 \leq b \label{eq:parameterspace1}
+\end{align}
+auf
+\begin{align}
+		a_\mathrm{min} \leq a \leq n \notag \\
+		1 \leq a_1 \leq a \notag \\
+		b_\mathrm{min} \leq b \leq a \notag \\
+		1 \leq b_1 \leq b \label{eq:parameterspace2}
+\end{align}
+reduziert. Die Auswirkungen auf die Laufzeit werden in Abschnitt~\ref{sec:runtime-theo} betrachtet.
+
+\subsection{Anwendung von Simulated Annealing}
+Es muss eine Energie- bzw.\ Kostenfunktion eingeführt werden, um Simulated Annealing benutzen zu können. Hier wird die Definition
+\begin{equation*}
+		E\left(A,B,N\right)=\sum\limits_{i=1}^n\begin{cases}
+		  		f\left(i\right) & \mathrm{falls}\:{\left\{A\cdot B\right\}}_i={\left\{N\right\}}_i \\
+						0 & \mathrm{sonst}\\
+				\end{cases}
+\end{equation*}
+gewählt. Dabei ist ${\left\{N\right\}}_i$ die $i$-te Stelle der binären Repräsentation der Zahl $N$, wobei $i=0$ das niederwertigste Bit ist. $f\left(i\right)$ ist eine monoton steigende Funktion, z.B. $f\left(i\right)=i$ oder $f\left(i\right)=i^2$. Die Energie wächst mit der Übereinstimmung des Produktes $A\cdot B$ mit $N$, wobei die höherwertigen Bits ein größeres Gewicht haben. Bei dieser Energiedefinition gilt es also ein Maximum zu finden, da die Energie bei der Annäherung an die Lösung wächst. \\
+Für das Simulated Annealing wird für jedes $4$-Tupel $\left(a,b,a_1,b_1\right)$ mit einer Temperatur $T_0=1$ begonnen. Es werden dann $N_a$ Annealing-Schritte durchgeführt und bei jedem das System um einen Faktor $F_c$ abgekühlt, also $T_{i+1}=F_c\cdot T_i$. Vor jedem abkühlen werden $N_c$ Konfiguration getestet. Dies wird mit Hilfe eines Metropolis-Algorithmus~\parencite{metropolis} realisiert. \\
+Zunächst sollen einige notwendige, grundlegende Operationen zur Modifikation von binären Zahlen eingeführt werden. Diese lassen die Länge der der Binärzahl und die Anzahl der auf $1$ bzw. $0$ gesetzten Bits invariant.
+\begin{itemize}
+		\item \textbf{swap:} Es werden zwei Bits zufällig vertauscht, wovon eines eine $1$ und eines eine $0$ ist.
+		\item \textbf{slide:} Es wird eine durchgängige Sequenz an Bits zufällig ausgewählt und das Bit ganz rechts entfernt. Danach werden alle anderen Bits nach rechts durchgeschoben und das entfernte Bit hinten wieder eingefügt.
+		\item \textbf{reverse:} Es wird eine zufällige Sequenz an Bits ausgewählt und ihre Reihenfolge invertiert.
+		\item \textbf{random:} Es werden Bits zufällige ausgewählt und zufällig permutiert.
+\end{itemize}
+Der Ablauf eines Metropolisschrittes ist in Algorithmus~\ref{alg:metropolis} dargestellt. Es wird mit der Funktion $\mathrm{\textit{randomOperation}}\left(\right)$ zufällig eine der Operationen ausgewählt und durchgeführt. Danach wird die Energie $E^\prime$ der daraus resultierenden neuen Konfiguration berechnet. Die Akzeptanzwahrscheinlichkeit für die neue Konfiguration ist
+\begin{equation*}
+		p=\min\left\{1,\;\exp\left(-\frac{E^\prime-E}{k T_i}\right)\right\}.
+\end{equation*}
+Eine neue Konfiguration wird also akzeptiert, wenn sie die Energie vergrößert, ansonsten mit einer über einen Boltzmann-Faktor gegebene Wahrscheinlichkeit. \\
+\input{./pseudocode/metropolis.tex}
+\FloatBarrier{}
+
+Für jedes $4$-Tupel $\left(a,b,a_1,b_1\right)$ werden $N_a$ Annealing-Schritte durchgeführt. Dies geschieht wie in Algorithmus~\ref{alg:anneal} dargestellt.
+\input{./pseudocode/anneal.tex}
+\FloatBarrier{}
+
+Für die Zerlegung einer Zahl in zwei Faktoren müssen noch alle Tupel $\left(a,b,a_1,b_1\right)$ durchlaufen werden. Dies ist in Algorithmus~\ref{alg:factorize} dargestellt,
+\input{./pseudocode/factorize.tex}
+\FloatBarrier{}
+
+\subsection{Theoretische Abschätzung der Laufzeit}\label{sec:runtime-theo}
+Interressant bei der Untersuchung des Algorithmus ist die Laufzeit in Abhängigkeit von der Länge $n$ der zu faktorisierenden Zahl. Hierzu betrachtet man die Anzahl der im ungünstigsten Fall benötigten Metroopolis-Schritte. \\
+Schränkt man den Suchbereich nicht in Abschnitt~\ref{sec:parameterspace} beschrieben ein, d.h.\ wählt man den Parameterbereich~\ref{eq:parameterspace1} werden maximal
+\begin{equation*}
+		R_1\left(n\right)=\sum\limits_{a=2}^{n}\sum\limits_{a_1=1}^{a}\sum\limits_{b=2}^{a}\sum\limits_{b_1=1}^{b}N_a\cdot N_c
+\end{equation*}
+Metropolis-Schritte durchgeführt. Mit dem kleineren Suchbereich gemäß Gleichung~\ref{eq:parameterspace2} ergibt sich eine Laufzeit von
+\begin{equation*}
+		R_2\left(n\right)=\sum\limits_{a=a_\mathrm{min}}^{n}\sum\limits_{a_1=1}^{a}\sum\limits_{b=b_\mathrm{min}}^{a}\sum\limits_{b_1=1}^{b}N_a\cdot N_c.
+\end{equation*}
+\begin{figure}[ht]
+		\centering
+		\begin{minipage}[ht]{0.49\linewidth}
+				\centering
+				\includegraphics[width=\linewidth]{plot/runtime-theo/runtime.pdf}
+		\end{minipage}
+		\begin{minipage}[ht]{0.49\linewidth}
+				\centering
+				\includegraphics[width=\linewidth]{plot/runtime-theo/comparison.pdf}
+		\end{minipage}
+\end{figure}
+\FloatBarrier{}

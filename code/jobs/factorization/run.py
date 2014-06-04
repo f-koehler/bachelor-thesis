@@ -8,7 +8,7 @@ Na = 1000
 Nc = 1000
 Fc = 0.997
 t = 8
-r = 20
+r = 10
 path = "./data/"
 
 if not os.path.exists(path):

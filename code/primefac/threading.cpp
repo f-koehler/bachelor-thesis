@@ -93,6 +93,8 @@ namespace primefac
 								factors.first = Anew.toSizeT();
 								factors.second = Bnew.toSizeT();
 								usedSteps = steps;
+							} else {
+								usedSteps += steps;
 							}
 							resultMutex.unlock();
 							return;
@@ -100,6 +102,9 @@ namespace primefac
 
 						for(std::size_t i = 0; i < config.numAnnealingSteps; i++) {
 							if(completed) {
+								resultMutex.lock();
+								usedSteps += steps;
+								resultMutex.unlock();
 								return;
 							}
 							for(std::size_t j = 0; j < config.numConfigurations; j++) {
@@ -119,6 +124,8 @@ namespace primefac
 										factors.first = Anew.toSizeT();
 										factors.second = Bnew.toSizeT();
 										usedSteps = steps;
+									} else {
+										usedSteps += steps;
 									}
 									resultMutex.unlock();
 									return;
@@ -215,6 +222,9 @@ namespace primefac
 			}
 #endif
 			if(completed) {
+				resultMutex.lock();
+				usedNa += steps;
+				resultMutex.unlock();
 				return;
 			}
 			for(std::size_t j = 0; j < config.numAnnealingSteps; j++) {
@@ -233,6 +243,8 @@ namespace primefac
 						factors.second = Bnew.toSizeT();
 						completed = true;
 						usedNa = steps;
+					} else {
+						usedNa += steps;
 					}
 					resultMutex.unlock();
 					return;
