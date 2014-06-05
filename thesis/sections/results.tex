@@ -1,6 +1,7 @@
 \chapter{Untersuchung des Verfahrens}
 
 \section{Implementierung}
+Für die Implementierung des Verfahrens wurde die Programmiersprache \textit{C++} verwendet. Zur Parallelisierung wurden die vom \textit{C++11}-Standard spezifizierte Thread-Klasse verwendet.
 
 \section{\texorpdfstring{Abschätzung von $\bm{k_\mathrm{B}}$}{Abschätzung von kB}}
 Bei allen Untersuchungen wurde hier die zu maximierende Kostenfunktion
@@ -27,4 +28,4 @@ Das Experimentieren mit verschiedenen Werten hat gezeigt, dass bei $n=33$ eine B
 \section{Laufzeitverhalten bei kompletter Zerlegung}
 
 \section{Parallelisierbarkeit}
-Wie in \ref{alg:factorize} ersichtlich sind die Berechnungen für die Tupel $\left(a, b, a_1, b_1\right)$ unabhängig voneinander. Dies bietet Möglichkeiten zur Parallelisierung.
+Wie in~\ref{alg:factorize} ersichtlich sind die Berechnungen für die Tupel $\left(a, b, a_1, b_1\right)$ unabhängig voneinander. Dies bietet Möglichkeiten zur Parallelisierung.
