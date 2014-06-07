@@ -16,6 +16,7 @@ font.size   : 14
 
 # figure 
 figure.autolayout : True
+figure.dpi        : 500
 
 # lines
 lines.antialiased     : True
@@ -29,3 +30,4 @@ legend.fancybox : True
 # saving
 savefig.bbox       : tight
 savefig.pad_inches : 0
+savefig.dpi        : 1000
