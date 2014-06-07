@@ -15,9 +15,23 @@ Es soll ein Verfahren entwickelt werden, dass die Zerlegung $N=A\cdot B$ mit $A\
 
 \subsection{Abschätzung der Wertebereiche}\label{sec:parameterspace}
 Die Zahlen $N,A,B$ werden im Dualsystem dargestellt. Die Zahlen $a,b,n$ sollen dabei angeben wie viele Stellen die binären Representationen von $A,B,N$ unter Vernachlässigung führender $0$en haben. Durch $a_1$ bzw.\ $b_1$ soll angegeben werden, wie häufig dabei die Ziffer $1$ vorkommt. \\
-Der Algorithmus wird alle möglichen Tupel $\left(a,a_1,b,b_1\right)$ durchlaufen. Deshalb sollte geprüft werden in wie weit der Suchbereich bei gegebenem $N$ eingeschränkt werden kann.\\
-$A$ und $B$ sind Faktoren von $N$, ihre binäre Darstellung kann also maximal so lang sein wie die von $n$, d.h.\ $a\leq n\:\wedge\: b\leq n$. Da alle Primfaktoren $p_i > 1$ sein müssen, kann $a>1$ und $b>1$ angenommen werden. \\
-Bei der Multiplikation $A\cdot B =N$ gilt $a+b=n\:\vee\:a+b=n+1$. Mit Hilfe dieser Gleichungen kann der Parameterbereich noch deutlich genauer eingegrenzt werden. Zunächst kann eine untere Schranke für $a$ gewonnen werden, es gilt:
+Der Algorithmus wird alle möglichen Tupel $\left(a,a_1,b,b_1\right)$ durchlaufen. Deshalb sollte geprüft werden in wie weit der Suchbereich bei gegebenem $N$ eingeschränkt werden kann. \\
+$A$ und $B$ sind Faktoren von $N$, ihre binäre Darstellung kann also maximal so lang sein wie die von $n$, d.h.\ $a\leq n\:\wedge\: b\leq n$. Da alle Primfaktoren $p_i > 1$ sein müssen, kann $a>1$ und $b>1$ angenommen werden. Es gibt allerdings noch Potential die Wertebereiche für $a$ und $b$ einzuschränken. Durch $a,b,n$ sind die Wertebereiche der Zahlen $A,B,N$ auf
+\begin{align*}
+		2^{a-1}\leq &A \leq 2^a-1 \\
+		2^{b-1}\leq &B \leq 2^b-1 \\
+		2^{n-1}\leq &N \leq 2^n-1 \\
+\end{align*}
+engeschränkt. Es ist $A\cdot B=N$, sodass bei maximalem $N$
+\begin{equation*}
+		\left(2^a-1\right)\left(2^b-1\right)=2^{a+b}-2^a-2^b+1<2^{a+b} \\
+\end{equation*}
+gilt und $a+b$ Bits zur Darstellung von $N$ genügen. Für den Fall eines minimalen $N$ gilt analog
+\begin{align*}
+		2^{a-1}\cdot 2^{b-1}&=2^{a+b-2}\overset{!}{=}2^{n-1} \\
+		\Rightarrow a+b&=n+1
+\end{align*}
+Bei der Multiplikation $A\cdot B =N$ gilt also $a+b=n\:\vee\:a+b=n+1$. Mit Hilfe dieser Gleichung kann der Parameterbereich deutlich genauer eingegrenzt werden. Zunächst kann eine untere Schranke für $a$ gewonnen werden, es gilt:
 \begin{equation*}
 		a=n-b \:\vee\: a=n-b+1
 \end{equation*}
@@ -101,11 +115,11 @@ Metropolis-Schritte durchgeführt. Mit dem kleineren Suchbereich gemäß Gleichu
 		\centering
 		\begin{minipage}[ht]{0.49\linewidth}
 				\centering
-				\includegraphics[width=\linewidth]{plot/runtime-theo/runtime.pdf}
+				\includegraphics{plot/runtime-theo/runtime.pdf}
 		\end{minipage}
 		\begin{minipage}[ht]{0.49\linewidth}
 				\centering
-				\includegraphics[width=\linewidth]{plot/runtime-theo/comparison.pdf}
+				\includegraphics{plot/runtime-theo/comparison.pdf}
 		\end{minipage}
 \end{figure}
 \FloatBarrier{}

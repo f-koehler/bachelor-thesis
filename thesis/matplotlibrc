@@ -1,43 +1,31 @@
+backend : pgf
+
 # latex
 pgf.texsystem : lualatex
 pgf.rcfonts   : False
-#pgf.preamble  : \input{header/matplotlib.tex}
+pgf.preamble  : \input{/home/fabian/bachelor-thesis/thesis/header/matplotlib.tex}
 
 # text
-text.usetex      : True
-text.antialiased : True
+text.usetex        : True
+text.antialiased   : True
+text.latex.unicode : True
+
+# font
+font.family : lmodern
+font.size   : 14
 
 # figure 
 figure.autolayout : True
 
-# font
-font.size   : 18
-font.family : sans-serif
-font.serif : Liberation Serif, DejaVu Serif, Bitstream Vera Serif, New Century Schoolbook, Century Schoolbook L, Utopia, ITC Bookman, Bookman, Nimbus Roman No9 L, Times New Roman, Times, Palatino, Charter, serif
-font.sans-serif : Liberation Sans, Bitstream Vera Sans, Lucida Grande, Verdana, Geneva, Lucid, Arial, Helvetica, Avant Garde, sans-serif
-font.cursive : Apple Chancery, Textile, Zapf Chancery, Sand, cursive
-font.fantasy : Comic Sans MS, Chicago, Charcoal, Impact, Western, fantasy
-font.monospace : Liberation Mono, DejaVu Sans Mono, Andale Mono, Nimbus Mono L, Courier New, Courier, Fixed, Terminal, monospace
-
 # lines
-lines.markeredgewidth : 0.5
-lines.markersize      : 6
 lines.antialiased     : True
 
 # patches
 patch.antialiased : True
 
-# axes
-axes.labelsize : 18
-
-# ticks
-xtick.labelsize : 14
-ytick.labelsize : 14
-
 # legend
-legend.fontsize : 18
 legend.fancybox : True
 
 # saving
-#savefig.bbox       : tight
+savefig.bbox       : tight
 savefig.pad_inches : 0

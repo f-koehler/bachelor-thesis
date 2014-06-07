@@ -1,4 +1,12 @@
-\documentclass[]{scrreprt}
+\documentclass[open=right, cleardoublepage=empty]{scrreprt}
+
+% some fixes
+\usepackage{fixltx2e}
+
+% Lua specific stuff
+\usepackage{luacode}
+\usepackage{luatexbase}
+\RequireLuaModule{lualibs}
 
 % german orthography
 \usepackage[english, ngerman]{babel}
@@ -11,8 +19,14 @@
 % font loading, required for unicode
 \usepackage{fontspec}
 
+% use latin modern fonts
+\usepackage{lmodern}
+
 % bold math
 \usepackage{bm}
+
+% graphics
+\usepackage{graphicx}
 
 % pseudocode in latex
 \usepackage[Algorithmus]{algorithm}
@@ -36,7 +50,7 @@
 		unicode=true,
   pdftitle={Primfaktorzerlegung mit Simulated Annealing},
 		pdfauthor={Fabian Köhler},
-		pdfsubject={Eine Methode zuer Zerlegung von Zahlen in ihre Primfaktoren},
+		pdfsubject={Eine statistische Methode zur Zerlegung von Zahlen in ihre Primfaktoren},
 		pdfcreator={Fabian Köhler},
 		pdfproducer={Fabian Köhler}
 ]{hyperref}
