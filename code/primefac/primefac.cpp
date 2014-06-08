@@ -111,7 +111,7 @@ namespace primefac
 									B = Bnew;
 									compliance = complianceNew;
 								} else {
-									if(acceptDist(gen) < exp(((double)(compliance-complianceNew))/(parameters.kB*T))) {
+									if(acceptDist(gen) < exp(-((double)(compliance-complianceNew))/(parameters.kB*T))) {
 										A = Anew;
 										B = Bnew;
 										compliance = complianceNew;
@@ -248,7 +248,7 @@ namespace primefac
 					B = Bnew;
 					compliance = complianceNew;
 				} else {
-					if(acceptDist(gen) < exp(((double)(compliance-complianceNew))/(parameters.kB*T))) {
+					if(acceptDist(gen) < exp(-((double)(compliance-complianceNew))/(parameters.kB*T))) {
 						A = Anew;
 						B = Bnew;
 						compliance = complianceNew;
