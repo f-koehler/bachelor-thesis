@@ -12,7 +12,7 @@ text.latex.unicode : True
 
 # font
 font.family : lmodern
-font.size   : 14
+font.size   : 20
 
 # figure 
 figure.autolayout : True
