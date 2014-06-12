@@ -9,8 +9,7 @@ prog = "../../bin/semiprime"
 # parameters
 N1 = 66889
 N2 = 104723
-#k = [i**3 for i in range(1, 16)]
-k = np.linspace(1, 16, 16)
+k = np.linspace(4, 28, 24)
 k = k**3
 Na = 1000
 Nc = 80000

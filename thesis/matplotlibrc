@@ -29,5 +29,5 @@ legend.fancybox : True
 
 # saving
 savefig.bbox       : tight
-savefig.pad_inches : 0
+savefig.pad_inches : 0.05
 savefig.dpi        : 1000

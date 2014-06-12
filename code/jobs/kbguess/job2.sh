@@ -4,7 +4,7 @@
 #PBS -m abe
 ##PBS -m n
 #PBS -j oe
-#PBS -l walltime=95:00:00
+#PBS -l walltime=135:00:00
 #PBS -l nodes=1:ppn=8
 #PBS -l vmem=2gb
 

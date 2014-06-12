@@ -91,7 +91,7 @@ Der Ablauf eines Metropolisschrittes ist in Algorithmus~\ref{alg:metropolis} dar
 \begin{equation*}
 		p=\begin{cases}
 				1 & \mathrm{falls}\: E^\prime > E \\
-				\exp\left(-\frac{E^\prime-E}{k T_i}\right) & \mathrm{sonst}
+				\exp\left(\frac{E^\prime-E}{k T_i}\right) & \mathrm{sonst}
 		\end{cases}
 \end{equation*}
 Eine neue Konfiguration wird also akzeptiert, wenn sie die Energie vergrößert, ansonsten mit einer über einen Boltzmann-Faktor gegebene Wahrscheinlichkeit. \\
@@ -104,18 +104,18 @@ Für die Zerlegung einer Zahl in zwei Faktoren müssen noch alle Tupel $\left(a,
 \subsection{Theoretische Abschätzung der Laufzeit}\label{sec:runtime-theo}
 Interressant bei der Untersuchung des Algorithmus ist die Laufzeit in Abhängigkeit von der Länge $n$ der zu faktorisierenden Zahl. Hierzu kann die Anzahl der im ungünstigsten Fall benötigten Metropolis-Schritte betrachtet werden. \\
 Schränkt man den Suchbereich nicht in Abschnitt~\ref{sec:parameterspace} beschrieben ein, d.h.\ wählt man den Parameterbereich~\ref{eq:parameterspace1} werden maximal
-\begin{equation*}
+\begin{equation}
 		R_1\left(n\right)=\sum\limits_{a=2}^{n}\sum\limits_{a_1=1}^{a}\sum\limits_{b=2}^{a}\sum\limits_{b_1=1}^{b}N_a\cdot N_c\label{eq:runtime-theo}
-\end{equation*}
+\end{equation}
 Metropolis-Schritte durchgeführt. Mit dem kleineren Suchbereich gemäß Gleichung~\ref{eq:parameterspace2} ergibt sich eine Laufzeit von
-\begin{equation*}
+\begin{equation}
 		R_2\left(n\right)=\sum\limits_{a=a_\mathrm{min}}^{n}\sum\limits_{a_1=1}^{a}\sum\limits_{b=b_\mathrm{min}}^{a}\sum\limits_{b_1=1}^{b}N_a\cdot N_c\label{eq:runtime-theo-opt}.
-\end{equation*}
-In beiden Fällen erwartet man grob eine Laufzeit von $\mathcal{o}\left(n^4\cdot N_a\cdot N_c\right)$, weil die Anzahl der Summanden in jeder Summe linear mit $n$ wächst. Die Gleichungen~\eqref{eq:runtime-theo} und~\eqref{eq:runtime-theo-opt} wurden numerisch ausgewertet und in Abb.~\ref{fig:runtime-theo} graphisch dargestellt. Außerdem wurde die Abweichung
+\end{equation}
+In beiden Fällen erwartet man grob eine Laufzeit von $\mathcal{O}\left(n^4\cdot N_a\cdot N_c\right)$, weil die Anzahl der Summanden in jeder Summe linear mit $n$ wächst. Die Gleichungen~\eqref{eq:runtime-theo} und~\eqref{eq:runtime-theo-opt} wurden numerisch ausgewertet und in Abb.~\ref{fig:runtime-theo} graphisch dargestellt. Außerdem wurde die Abweichung
 \begin{equation*}
 		1-\frac{R_2\left(n\right)}{R_1\left(n\right)}
 \end{equation*}
-berechnet und in Abb.~\ref{fig:runtime-theo-comparison} dargestellt, um die Verbesserung der Laufzeit durch den kleineren Parameterbereich darzustellen. Es ist eine deutliche Verbesserung von über $20\%$ erkennbar. 
+berechnet und in Abb.~\ref{fig:runtime-theo-comparison} dargestellt, um die Verbesserung der Laufzeit durch den kleineren Parameterbereich darzustellen. Es ist eine deutliche Verbesserung von über $15\%$ erkennbar. 
 \begin{figure}[ht]
 		\centering
 		\includegraphics[height=0.3\textheight]{plot/runtime-theo/runtime.pdf}

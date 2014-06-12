@@ -25,7 +25,7 @@ def runtime_optimized(n):
                     r += 1
     return r
 
-n = np.arange(4, 256)
+n = np.arange(6, 256)
 r1 = np.array([runtime(i) for i in n])
 r2 = np.array([runtime_optimized(i) for i in n])
 
