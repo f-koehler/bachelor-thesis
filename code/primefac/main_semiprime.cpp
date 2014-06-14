@@ -126,6 +126,7 @@ int main(int argc, char** argv)
 		cout << " Run " << i+1 << "/" << repetitions << ":" << endl;
 		cout << "=====================" << endl;
 		SemiprimeResult result = (numThreads <= 1) ? factorizeSemiprime(parameters) : factorizeSemiprime(parameters, numThreads);
+		//SemiprimeResult result = factorizeSemiprime(parameters, numThreads);
 		cout << result << endl << endl;
 		file << i << "\t" << result.success << "\t" << result.duration.count() << "\t" << result.usedNa << endl;
 

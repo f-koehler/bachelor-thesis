@@ -1,23 +1,28 @@
 \documentclass[open=right, cleardoublepage=empty]{scrreprt}
 
-% some fixes
+% Lua stuff and fixes
 \usepackage{fixltx2e}
-
-% Lua specific stuff
+\usepackage{letltxmacro}
+\usepackage{expl3}
+\usepackage{xparse}
 \usepackage{luacode}
 \usepackage{luatexbase}
+\usepackage{pdftexcmds}
 \RequireLuaModule{lualibs}
+
+% some fixes
+\usepackage{fixltx2e}
 
 % german orthography
 \usepackage[english, ngerman]{babel}
 \selectlanguage{ngerman}
 
+% font loading, required for unicode
+\usepackage{fontspec}
+
 % common math packages
 \usepackage{amsmath}
 \usepackage{amssymb}
-
-% font loading, required for unicode
-\usepackage{fontspec}
 
 % use latin modern fonts
 \usepackage{lmodern}
@@ -31,6 +36,12 @@
 % pseudocode in latex
 \usepackage[Algorithmus]{algorithm}
 \usepackage{algpseudocode}
+
+% hyphens
+\usepackage{hyphenat}
+
+% euro symbol
+\usepackage[official]{eurosym}
 
 % bibliography
 \usepackage[
@@ -61,6 +72,12 @@
   below,
   section
 ]{placeins}
+
+% unit support
+\usepackage{siunitx}
+
+% serif font for headings
+\setkomafont{sectioning}{\normalfont\normalcolor\bfseries}
 
 % floor commands
 \def\lf{\left\lfloor}   

@@ -2,12 +2,12 @@
 
 \section{Implementierung}
 Es wurden im wesentlichen $3$ Programme implementiert.  \\
-Das Programm \textit{onestep} führt einen Schritt der einer Zahl Faktorisierung durch, bildet also Algorithmus~\ref{alg:factorize} ab. \\
-Mit dem Programm \textit{factorize} kann die komplette Faktorisierung einer Zahl durchgeführt werden. Es führt also den Algorithmus~\ref{alg:factorize} an der Zahl $N$ aus. Anschließend wird durch vergleich mit einer Liste vom Primzahlen überprüft, ob die erhaltenen Faktoren prim sind. Ist dies nicht der Fall wird der Algorithmus auf die entsprechenden Faktoren angewendet, bis die komplette Zerlegung ermittelt wurde. \\
+Das Programm \textit{onestep} führt einen Schritt der Faktorisierung einer Zahl durch, bildet also Algorithmus~\ref{alg:factorize} ab. \\
+Mit dem Programm \textit{factorize} kann die komplette Faktorisierung einer Zahl berechnet werden. Es führt also den Algorithmus~\ref{alg:factorize} an der Zahl $N$ aus. Anschließend wird durch vergleich mit einer Liste vom Primzahlen überprüft, ob die erhaltenen Faktoren prim sind. Ist dies nicht der Fall wird der Algorithmus auf die entsprechenden Faktoren angewendet, bis die komplette Zerlegung ermittelt wurde. \\
 Das Programm \textit{semiprime} bekommt zwei Primfaktoren $A$ und $B$ übergeben und berechnet das Produkt $N=A\cdot B$, welches folglich eine Semiprimzahl ist. Hier werden $a, a_1, b, b_1$ fest gewählt, weil sie über die Faktoren $A,B$ festgelegt werden. Dann werden $N_a$ Annealing-Schritte durchgeführt mit jeweils $N_c$ Konfigurationen/Metropolis-Schritten. Es soll hauptsächlich der Einfluss der Boltzmann-Konstanten auf das Verfahren untersucht werden. Diese muss variiert werden um die Skalierung der Energie auszugleichen, siehe Abschnitt~\ref{sec:kbguess}. \\
 Beim Programmdurchlauf werden jeweils die Laufzeit, der Erfolgsrate und die Anzahl der benötigten Metropolis-Schritte. \\
 Die angewendete Methode ist nicht-deterministisch und führt somit nicht immer zum gewünschten Ergebnis. Da die Probe bei allen $3$ Programmen effizient durchführbar ist, wird bei jedem Durchlauf der Erfolg oder Misserfolg gespeichert. Daraus kann die Erfolgsrate durch Division der Anzahl der erfolgreichen Versuche durch die Anzahl der Aufrufe berechnet werden. \\
-Beim Program \textit{semiprime} ist die Anzahl der Schritte im Falle eines Misserfolgs $N_a\cdot N_c$ ansonsten eine kleinere Anzahl. Beim Program \textit{onestep} ist die Anzahl der Schritte bei Misserfolg durch Gl.\eqref{eq:runtime-theo-opt} gegeben.\\
+Beim Programm \textit{semiprime} ist die Anzahl der Schritte im Falle eines Misserfolgs $N_a\cdot N_c$ ansonsten eine kleinere Anzahl. Beim Programm \textit{onestep} ist die Anzahl der Schritte bei Misserfolg durch Gl.\eqref{eq:runtime-theo-opt} gegeben.\\
 Für die Implementierung des Verfahrens wurde die Programmiersprache C++ verwendet. Alle Programme bieten die Möglichkeit zur Verwendung von Threads also der parallelen Programausführung, vgl. Abschnitt~\ref{sec:parallel}. Dabei kommt die Thread-Bibliothek aus dem aktuellen C++ Standard~\parencite{cppthreads} zum Einsatz. \\
 Die Programme liefen auf einem Knoten mit $8$ Kernen des Phido-Clusters der Fakultät Physik der TU Dortmund sowie einem privaten Rechner mit $8$ Kernen.
 
@@ -30,27 +30,50 @@ Es ist wichtig $k_\mathrm{B}$ geeignet zu wählen, weil dieser Paramter die Wahr
 \end{equation*}
 eine Abschätzung für die zu wählende Boltzmann-Konstante treffen. \\
 Das Experimentieren mit verschiedenen Werten hat gezeigt, dass bei $n=33$ eine Boltzmannkonstante $\tilde{k}_\mathrm{B}=512$ zu guten Erfolgsraten führt. \\
-Außerdem wurde das Program \textit{semiprime} verwendet gezielt nach einem optimalen Wert für $k_B$ zu suchen. Dabei wurden zwei Primzahlen $A=66889$ und $B=104723$ gewählt, welche die Semiprimzahl $A=A\cdot B=7004816747$ gewählt und das Programm für verschiedene Werte $1^3\leq 16^3$
+Außerdem wurde das Programm \textit{semiprime} verwendet gezielt nach einem optimalen Wert für $k_B$ zu suchen. Dabei wurden zwei Primzahlen $A=66889$ und $B=104723$ gewählt, welche die Semiprimzahl $A=A\cdot B=70.35816747$ gewählt und das Programm für verschiedene Werte $1^3\leq K_\mathrm{B}\leq 16^3$ aufgerufen. Jeder Durchlauf wurde dabei $4800$-mal wiederhohlt. Die dabei ermittelte Erfolsgrate bzw.\ die Programmlaufzeiten sind in Abb.~\ref{fig:kbguess-success} bzw.~\ref{fig:kbguess-runtime} grafisch dargestellt.\\
+Es ist deutlich erkennbar, dass eine zu niedriger Wert von $k_\mathrm{B}$ zu Erfolgsraten nahe $0$ führt, also nur die wenigsten Programmaufrufe die Primfaktoren $A,B$ finden. Für den Erfahrungswert $k_\mathrm{B}$ ergibt sich bereits eine gute Erfolgsrate von $30\%$. Besser scheint es jedoch $k_\mathrm{B}=15^3$ zu wählen, was hier einer Erfolgsrate von ca. $\SI{45}{\percent}$ entspricht.
 \begin{figure}[ht]
 		\centering
-		\includegraphics[height=0.3\textheight]{plot/kbguess/success.pdf}
+		\includegraphics[height=0.35\textheight]{plot/kbguess/success.pdf}
+		\caption{Erfolgsrate bei der Suche nach einem optimalen Wert für $k_\mathrm{B}$}\label{fig:kbguess-success}
 \end{figure}
 \begin{figure}[ht]
 		\centering
-		\includegraphics[height=0.3\textheight]{plot/kbguess/time.pdf}
+		\includegraphics[height=0.35\textheight]{plot/kbguess/time.pdf}
+		\caption{Laufzeiten bei der Suche nach einem optimalen Wert für $k_\mathrm{B}$}\label{fig:kbguess-runtime}
 \end{figure}
 
-\section{Laufzeitverhalten bei Semiprimzahlen}
+\section{Analyse eines einzelnen Zerlegungsschrittes}
 \begin{figure}[ht]
 		\centering
-		\includegraphics[height=0.3\textheight]{plot/runtime/success.pdf}
+		\includegraphics[height=0.35\textheight]{plot/runtime/success.pdf}
 \end{figure}
 \begin{figure}[ht]
 		\centering
-		\includegraphics[height=0.3\textheight]{plot/runtime/time.pdf}
+		\includegraphics[height=0.35\textheight]{plot/runtime/time.pdf}
+\end{figure}
+\begin{figure}[ht]
+		\centering
+		\includegraphics[height=0.35\textheight]{plot/runtime2/success.pdf}
+\end{figure}
+\begin{figure}[ht]
+		\centering
+		\includegraphics[height=0.35\textheight]{plot/runtime2/time.pdf}
 \end{figure}
 
 \section{Laufzeitverhalten bei kompletter Zerlegung}
+\begin{figure}[ht]
+		\centering
+		\includegraphics[height=0.35\textheight]{plot/dummy/dummy.pdf}
+\end{figure}
+\begin{figure}[ht]
+		\centering
+		\includegraphics[height=0.35\textheight]{plot/dummy/dummy.pdf}
+\end{figure}
 
 \section{Parallelisierbarkeit}\label{sec:parallel}
 Wie in~\ref{alg:factorize} ersichtlich sind die Berechnungen für die Tupel $\left(a, b, a_1, b_1\right)$ unabhängig voneinander. Dies bietet Möglichkeiten zur Parallelisierung.
+\begin{figure}[ht]
+		\centering
+		\includegraphics[height=0.35\textheight]{plot/dummy/dummy.pdf}
+\end{figure}

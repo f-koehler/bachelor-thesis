@@ -198,6 +198,7 @@ namespace primefac
 		std::size_t numSearched = 0;
 		std::size_t updateMod = (std::size_t)(0.002*((double)searchSize));
 #endif
+		gen.seed(readSeed());
 
 		A.makeRandom(a, a1,gen);
 		Anew = A;

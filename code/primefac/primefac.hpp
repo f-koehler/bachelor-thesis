@@ -3,6 +3,7 @@
 
 #include "config.hpp"
 #include "threading.hpp"
+#include "sieve.hpp"
 #include <utility>
 #include <chrono>
 #include <fstream>

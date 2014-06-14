@@ -23,19 +23,22 @@
 \end{center}
 \newpage
 
-% Abstract
-%TODO
-\thispagestyle{empty}
-\begin{abstract}
-  \vfill
-  \selectlanguage{english}
-		This is a test.
-  \vfill
-  \selectlanguage{ngerman}
-		Dies ist ein Test.
-  \vfill
-\end{abstract}
-\vfill
+% page with correctors
+%\if\pdfstrcmp{\jobname}{thesis-print}0
+  \thispagestyle{empty}
+		\vspace*{\fill}
+		\begin{tabbing}
+				1. Gutachter: \=Name\kill
+				1. Gutachter: \>Prof. Dr. Joachim Stolze\\[10pt]
+				2. Gutachter: \>Priv.-Doz. Dr. Ute Löw
+		\end{tabbing}
+		\vspace{20pt}
+		Datum des Einreichens der Arbeit: 25. Juni 2014
+		\newpage
+%\fi
+
+% abstract
+\input{./sections/abstract}
 \newpage
 
 % table of contents
