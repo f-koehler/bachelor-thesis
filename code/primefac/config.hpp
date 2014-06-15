@@ -3,7 +3,7 @@
 
 #include <random>
 
-#define PRIMEFAC_PROGRESS
+//#define PRIMEFAC_PROGRESS
 
 typedef std::mt19937_64 Prng;
 	

@@ -8,7 +8,8 @@ MATPLOTLIB=matplotlibrc header/matplotlib.tex
 PLOTS=plot/runtime-theo/runtime.pdf plot/runtime-theo/comparison.pdf plot/kbguess/time.pdf plot/runtime/time.pdf plot/runtime2/time.pdf plot/dummy/dummy.pdf
 BIB=literature.bib
 
-all: build/thesis.pdf build/thesis-print.pdf
+all: build/thesis.pdf 
+	#build/thesis-print.pdf
 
 # analyse data
 data/runtime-theo/data.txt: data/runtime-theo/runtime.py

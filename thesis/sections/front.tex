@@ -1,5 +1,3 @@
-\thispagestyle{empty}
-
 % title page
 \thispagestyle{empty}
 \begin{center}
@@ -25,9 +23,6 @@
 
 \expandafter\ifstrequal\expandafter{\jobname}{thesis-print}{
 		\KOMAoptions{twoside}
-		%\setlength{\evensidemargin}{0mm}
-		%\setlength{\oddsidemargin}{13mm}
-		%\setlength{\textwidth}{145mm}
   \thispagestyle{empty}
   \vspace*{\fill}
   \begin{tabbing}
@@ -45,9 +40,10 @@
 \newpage
 
 % table of contents
-\thispagestyle{empty}
 \tableofcontents
+\thispagestyle{empty}
 \newpage
+\setcounter{page}{1}
 
 % start page numbering here
 \setcounter{page}{1}

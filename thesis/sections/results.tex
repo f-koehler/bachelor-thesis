@@ -1,4 +1,4 @@
-\chapter{Untersuchung des Verfahrens}
+\chapter{Untersuchung des Verfahrens}\label{ch:results}
 
 \section{Implementierung}
 Es wurden im wesentlichen $3$ Programme implementiert.  \\
@@ -30,7 +30,7 @@ Es ist wichtig $k_\mathrm{B}$ geeignet zu wählen, weil dieser Paramter die Wahr
 \end{equation*}
 eine Abschätzung für die zu wählende Boltzmann-Konstante treffen. \\
 Das Experimentieren mit verschiedenen Werten hat gezeigt, dass bei $n=33$ eine Boltzmannkonstante $\tilde{k}_\mathrm{B}=512$ zu guten Erfolgsraten führt. \\
-Außerdem wurde das Programm \textit{semiprime} verwendet gezielt nach einem optimalen Wert für $k_B$ zu suchen. Dabei wurden zwei Primzahlen $A=66889$ und $B=104723$ gewählt, welche die Semiprimzahl $A=A\cdot B=70.35816747$ ergeben und das Programm für verschiedene Werte $1^3\leq K_\mathrm{B}\leq 16^3$ aufgerufen. Jeder Durchlauf wurde dabei $4800$-mal wiederhohlt. Die dabei ermittelte Erfolsgrate bzw.\ die Programmlaufzeiten sind in Abb.~\ref{fig:kbguess-success} bzw.~\ref{fig:kbguess-runtime} grafisch dargestellt.\\
+Außerdem wurde das Programm \textit{semiprime} verwendet gezielt nach einem optimalen Wert für $k_B$ zu suchen. Dabei wurden zwei Primzahlen $A=66889$ und $B=104723$ gewählt, welche die Semiprimzahl $A=A\cdot B=7004816747$ ergeben und das Programm für verschiedene Werte $1^3\leq K_\mathrm{B}\leq 16^3$ aufgerufen. Jeder Durchlauf wurde dabei $4800$-mal wiederhohlt. Die dabei ermittelte Erfolsgrate bzw.\ die Programmlaufzeiten sind in Abb.~\ref{fig:kbguess-success} bzw.~\ref{fig:kbguess-runtime} grafisch dargestellt.\\
 Es ist deutlich erkennbar, dass eine zu niedriger Wert von $k_\mathrm{B}$ zu Erfolgsraten nahe $0$ führt, also nur die wenigsten Programmaufrufe die Primfaktoren $A,B$ finden. Für den Erfahrungswert $k_\mathrm{B}$ ergibt sich bereits eine gute Erfolgsrate von $30\%$. Besser scheint es jedoch $k_\mathrm{B}=15^3$ zu wählen, was hier einer Erfolgsrate von ca. $\SI{45}{\percent}$ entspricht.
 \begin{figure}[ht]
 		\centering
