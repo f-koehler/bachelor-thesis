@@ -12,7 +12,7 @@ Für die Implementierung des Verfahrens wurde die Programmiersprache C++ verwend
 Die Programme liefen auf einem Knoten mit $8$ Kernen des Phido-Clusters der Fakultät Physik der TU Dortmund sowie einem privaten Rechner mit $8$ Kernen.
 
 \section{\texorpdfstring{Abschätzung von $\bm{k_\mathrm{B}}$}{Abschätzung von kB}}\label{sec:kbguess}
-Bei allen Untersuchungen wurde hier die zu maximierende Kostenfunktion
+Bei allen Untersuchungen wurde hier las zu maximierende Kostenfunktion
 \begin{equation*}
 		E\left(A,B,N\right)=\sum\limits_{i=1}^n\begin{cases}
     i^2 & \mathrm{falls}\:{\left\{A\cdot B\right\}}_i={\left\{N\right\}}_i \\
@@ -21,17 +21,19 @@ Bei allen Untersuchungen wurde hier die zu maximierende Kostenfunktion
 \end{equation*}
 gewählt. Der maximale Wert dieser Funktion ist eine quadratische Pyramidalzahl~\parencite{oeis}, also
 \begin{equation*}
-		E_{\mathrm{max}}\left(n\right)=\sum\limits_{i=1}^n i^2=\frac{1}{3}n^3+\frac{1}{2}n^2+\frac{1}{6}n,
+		E_{\mathrm{\max}}\left(n\right)=\sum\limits_{i=1}^n i^2=\frac{1}{3}n^3+\frac{1}{2}n^2+\frac{1}{6}n,\label{eq:kbguess}
 \end{equation*}
 sodass die Energie mit $\mathcal{O}\left(n^3\right)$ skaliert. \\
-Es ist wichtig $k_\mathrm{B}$ geeignet zu wählen, weil dieser Paramter die Wahrscheinlichkeit bestimmt, mit der der Metroploisalgorithmus energetisch ungünstigere Konfigurationen akzeptiert. Kennt man für ein $\tilde{n}$ einen guten Wert $\tilde{k}_\mathrm{B}$ so kann man nach
+Es ist wichtig $k_\mathrm{B}$ geeignet zu wählen, weil dieser Paramter die Wahrscheinlichkeit bestimmt, mit der der Metroplisalgorithmus energetisch ungünstigere Konfigurationen akzeptiert. Kennt man für ein $\tilde{n}$ einen guten Wert $\tilde{k}_\mathrm{B}$ so kann man nach
 \begin{equation*}
-		k_\mathrm{B}=\frac{E_{\mathrm{max}}\left(n\right)}{E_{\mathrm{max}}\left(\tilde{n}\right)}\tilde{k}_\mathrm{B}
+		k_\mathrm{B}=\frac{E_{\mathrm{\max}}\left(n\right)}{E_{\mathrm{\max}}\left(\tilde{n}\right)}\tilde{k}_\mathrm{B}
 \end{equation*}
-eine Abschätzung für die zu wählende Boltzmann-Konstante treffen. \\
-Das Experimentieren mit verschiedenen Werten hat gezeigt, dass bei $n=33$ eine Boltzmannkonstante $\tilde{k}_\mathrm{B}=512$ zu guten Erfolgsraten führt. \\
-Außerdem wurde das Programm \textit{semiprime} verwendet gezielt nach einem optimalen Wert für $k_B$ zu suchen. Dabei wurden zwei Primzahlen $A=66889$ und $B=104723$ gewählt, welche die Semiprimzahl $A=A\cdot B=7004816747$ ergeben und das Programm für verschiedene Werte $1^3\leq K_\mathrm{B}\leq 16^3$ aufgerufen. Jeder Durchlauf wurde dabei $4800$-mal wiederhohlt. Die dabei ermittelte Erfolsgrate bzw.\ die Programmlaufzeiten sind in Abb.~\ref{fig:kbguess-success} bzw.~\ref{fig:kbguess-runtime} grafisch dargestellt.\\
-Es ist deutlich erkennbar, dass eine zu niedriger Wert von $k_\mathrm{B}$ zu Erfolgsraten nahe $0$ führt, also nur die wenigsten Programmaufrufe die Primfaktoren $A,B$ finden. Für den Erfahrungswert $k_\mathrm{B}$ ergibt sich bereits eine gute Erfolgsrate von $30\%$. Besser scheint es jedoch $k_\mathrm{B}=15^3$ zu wählen, was hier einer Erfolgsrate von ca. $\SI{45}{\percent}$ entspricht.
+eine Abschätzung bei beliebiger Zahlenlänge $n$ für die zu wählende Boltzmann-Konstante treffen. \\
+Das Experimentieren mit verschiedenen Werten hat gezeigt, dass bei $n=33$ eine Boltzmannkonstante $\tilde{k}_\mathrm{B}\approx 8^3=512$ zu guten Erfolgsraten führt. \\
+Außerdem wurde das Programm \textit{semiprime} verwendet gezielt nach einem optimalen Wert für $k_B$ zu suchen. Dabei wurden zwei Primzahlen $A=66889$ und $B=104723$ gewählt, welche die Semiprimzahl $N=A\cdot B=7004816747$ mit $n=33$ ergeben und das Programm für verschiedene Werte $1^3\leq k_\mathrm{B}\leq 16^3$ aufgerufen. Jeder Durchlauf wurde dabei $4800$-mal wiederholt. Die dabei ermittelte Erfolsgrate bzw.\ die Programmlaufzeiten sind in Abb.~\ref{fig:kbguess-success} bzw.~\ref{fig:kbguess-runtime} grafisch dargestellt.\\
+Es ist deutlich erkennbar, dass eine zu niedriger Wert von $k_\mathrm{B}$ zu Erfolgsraten nahe $0$ führt, also nur die wenigsten Programmaufrufe die Primfaktoren $A,B$ finden. Für den Erfahrungswert $k_\mathrm{B}\approx 8^3$ ergibt sich bereits eine gute Erfolgsrate von $30\%$. Besser scheint es jedoch $k_\mathrm{B}=15^3$ zu wählen, was hier einer Erfolgsrate von ca. $\SI{45}{\percent}$ entspricht. \\
+Dieses Verhalten spiegelt sich auch in der Programmlaufzeit wieder. Zu beginn ist diese nahezu konstant, da kaum Durchläufe die gesuchten Faktoren finden und dadurch $N_c\cdot N_a$ Schritte durchlaufen werden. Mit steigender Erfolgsrate nimmt die Laufzeit ab und bei $k_\mathrm{B}=15^3$ wird ein Minimum erreicht. \\
+Es wäre also günstiger gewesen in der Formel~\eqref{eq:kbguess} $\tilde{k}_\mathrm{B}=15^3=3375$ für $\tilde{n}$ zu wählen. In den nachfolgenden Untersuchungen konnte dies jedoch nicht berücksichtigt werden, da diese Erkenntnis erst sehr spät gemacht werden. In allen weiteren Simulationen wurde $\tilde{k}_\mathrm{B}=8^3=512$ gesetzt, um automatisch Werte der Boltzmann-Konstanten in Abhängigkeit der Länge $n$ der zu faktorisierenden Zahl zu ermitteln.
 \begin{figure}[ht]
 		\centering
 		\includegraphics[height=0.35\textheight]{plot/kbguess/success.pdf}
