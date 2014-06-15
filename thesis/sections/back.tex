@@ -1,6 +1,7 @@
 \printbibliography
 \newpage
 
+\expandafter\ifstrequal\expandafter{\jobname}{thesis-print}{
   \thispagestyle{empty}
   \selectlanguage{ngerman}
   \section*{Eidesstattliche Versicherung}
@@ -31,4 +32,5 @@
   \ \\
   \ \\
   \line(1,0){150} \hfill \line(1,0){150} \\
-  Ort, Datum \hfill Unterschrift \hspace*{3cm}%
+  Ort, Datum \hfill Unterschrift \hspace*{3cm}
+}{}

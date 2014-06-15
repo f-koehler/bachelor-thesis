@@ -18,7 +18,7 @@ int main(int argc, char** argv)
 	parameters.Fc = 0.997;
 	parameters.kB = 15.0;
 	bool guessKB = false;
-	size_t numThreads = 0;
+	size_t numThreads = 1;
 	size_t repetitions = 1;
 	string fileName("semiprime.txt");
 
@@ -125,8 +125,8 @@ int main(int argc, char** argv)
 		cout << "=====================" << endl;
 		cout << " Run " << i+1 << "/" << repetitions << ":" << endl;
 		cout << "=====================" << endl;
-		SemiprimeResult result = (numThreads <= 1) ? factorizeSemiprime(parameters) : factorizeSemiprime(parameters, numThreads);
-		//SemiprimeResult result = factorizeSemiprime(parameters, numThreads);
+		//SemiprimeResult result = (numThreads <= 1) ? factorizeSemiprime(parameters) : factorizeSemiprime(parameters, numThreads);
+		SemiprimeResult result = factorizeSemiprime(parameters, numThreads);
 		cout << result << endl << endl;
 		file << i << "\t" << result.success << "\t" << result.duration.count() << "\t" << result.usedNa << endl;
 

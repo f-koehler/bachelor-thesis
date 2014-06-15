@@ -7,8 +7,10 @@
 \usepackage{xparse}
 \usepackage{luacode}
 \usepackage{luatexbase}
-\usepackage{pdftexcmds}
 \RequireLuaModule{lualibs}
+
+% used from string comparison
+\usepackage{etoolbox}
 
 % some fixes
 \usepackage{fixltx2e}
@@ -29,6 +31,13 @@
 
 % bold math
 \usepackage{bm}
+
+% captions
+\usepackage[
+		margin=10pt,
+		font=small,
+  labelfont=bf
+]{caption}
 
 % graphics
 \usepackage{graphicx}

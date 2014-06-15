@@ -17,7 +17,7 @@ int main(int argc, char** argv)
 	parameters.Fc = 0.997;
 	parameters.kB = 15.0;
 	bool guessKb = false;
-	size_t numThreads = 0;
+	size_t numThreads = 1;
 	size_t repetitions = 1;
 	string fileName("onestep.txt");
 
@@ -117,7 +117,8 @@ int main(int argc, char** argv)
 		cout << "=====================" << endl;
 		cout << " Run " << i+1 << "/" << repetitions << ":" << endl;
 		cout << "=====================" << endl;
-		PrimefacResult result = (numThreads <= 1) ? factorize(parameters) : factorize(parameters, numThreads);
+		//PrimefacResult result = (numThreads <= 1) ? factorize(parameters) : factorize(parameters, numThreads);
+		PrimefacResult result = factorize(parameters, numThreads);
 		cout << result << endl << endl;
 		file << i << "\t" << result.success << "\t" << result.duration.count() << "\t" << result.usedSteps << endl;
 

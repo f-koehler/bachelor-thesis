@@ -19,7 +19,7 @@ int main(int argc, char** argv)
 	parameters.Nc = 1500;
 	parameters.Fc = 0.997;
 	parameters.kB = 15.0;
-	size_t numThreads = 0;
+	size_t numThreads = 1;
 	size_t repetitions = 1;
 	size_t Np = 10000;
 	string fileName("factorize.txt");
@@ -147,7 +147,7 @@ int main(int argc, char** argv)
 
 			// TODO: add miller rabin
 
-			PrimefacResult result = numThreads > 1 ? factorize(parameters, numThreads) : factorize(parameters);
+			PrimefacResult result = factorize(parameters, numThreads);
 			if(numThreads > 1) {
 				PrimefacThread::reset();
 			}

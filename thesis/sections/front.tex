@@ -23,19 +23,22 @@
 \end{center}
 \newpage
 
-% page with correctors
-%\if\pdfstrcmp{\jobname}{thesis-print}0
+\expandafter\ifstrequal\expandafter{\jobname}{thesis-print}{
+		\KOMAoptions{twoside}
+		%\setlength{\evensidemargin}{0mm}
+		%\setlength{\oddsidemargin}{13mm}
+		%\setlength{\textwidth}{145mm}
   \thispagestyle{empty}
-		\vspace*{\fill}
-		\begin{tabbing}
+  \vspace*{\fill}
+  \begin{tabbing}
 				1. Gutachter: \=Name\kill
 				1. Gutachter: \>Prof. Dr. Joachim Stolze\\[10pt]
 				2. Gutachter: \>Priv.-Doz. Dr. Ute Löw
-		\end{tabbing}
-		\vspace{20pt}
-		Datum des Einreichens der Arbeit: 25. Juni 2014
-		\newpage
-%\fi
+  \end{tabbing}
+  \vspace{22pt}
+  Datum des Einreichens der Arbeit: 04.07.2013
+  \newpage
+}{}
 
 % abstract
 \input{./sections/abstract}
