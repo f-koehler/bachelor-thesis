@@ -115,7 +115,7 @@ In beiden Fällen erwartet man grob eine Laufzeit von $\mathcal{O}\left(n^4\cdot
 \begin{equation*}
 		1-\frac{R_2\left(n\right)}{R_1\left(n\right)}
 \end{equation*}
-berechnet und in Abb.~\ref{fig:runtime-theo-comparison} dargestellt, um die Verbesserung der Laufzeit durch den kleineren Parameterbereich darzustellen. Es ist eine deutliche Verbesserung von über $15\%$ erkennbar. 
+berechnet und in Abb.~\ref{fig:runtime-theo-comparison} dargestellt, um die Verbesserung der Laufzeit durch den kleineren Parameterbereich darzustellen. Es ist eine deutliche Verbesserung von über $\SI{15}{\percent}$ erkennbar. \\
 \begin{figure}[ht]
 		\centering
 		\includegraphics[height=0.35\textheight]{plot/runtime-theo/runtime.pdf}
@@ -125,4 +125,14 @@ berechnet und in Abb.~\ref{fig:runtime-theo-comparison} dargestellt, um die Verb
 		\centering
 		\includegraphics[height=0.35\textheight]{plot/runtime-theo/comparison.pdf}
 		\caption{Verbesserung der Laufzeit durch Einschränkung des Parameterbereiches}\label{fig:runtime-theo-comparison}
+\end{figure}
+Das Zahlkörpersieb hat eine Laufzeit von 
+\begin{equation}
+		r_\mathrm{sieve}\approx\exp\left(c\cdot{\left(\log N\right)}^\frac{2}{3}{\left(\log\log N\right)}^\frac{1}{3}\right)\label{eq:runtime-sieve}
+\end{equation}
+mit $c=64/9$ (allgemeines Zahlkörpersieb)~\parencite{pomerance}. Diese wurde im Vergleich zu der maximalen Laufzeit der Simulated Annealing Methode in~\ref{fig:runtime-sieve} aufgetragen. Dabei ist noch zu berücksichtigen, dass das Zahlkörpersieb ein deterministischer Algorithmus ist, also immer das korrekte Ergebnis liefert.
+\begin{figure}[ht]
+		\centering
+		\includegraphics[height=0.35\textheight]{plot/runtime-sieve/plot.pdf}
+		\caption{Laufzeitverhalten des allgemeinen Zahlkörpersiebs und der Simualted Annealing Methode}\label{fig:runtime-sieve}
 \end{figure}

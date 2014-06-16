@@ -5,7 +5,7 @@ HEADERS=$(wildcard header/*.tex)
 SECTIONS=$(wildcard sections/*.tex)
 PSEUDOCODE=$(wildcard pseudocode/*.tex)
 MATPLOTLIB=matplotlibrc header/matplotlib.tex
-PLOTS=plot/runtime-theo/runtime.pdf plot/runtime-theo/comparison.pdf plot/kbguess/time.pdf plot/runtime/time.pdf plot/runtime2/time.pdf plot/dummy/dummy.pdf
+PLOTS=plot/runtime-theo/runtime.pdf plot/runtime-theo/comparison.pdf plot/runtime-sieve/plot.pdf plot/kbguess/time.pdf plot/runtime/time.pdf plot/runtime2/time.pdf plot/dummy/dummy.pdf
 BIB=literature.bib
 
 all: build/thesis.pdf 
@@ -13,6 +13,8 @@ all: build/thesis.pdf
 
 # analyse data
 data/runtime-theo/data.txt: data/runtime-theo/runtime.py
+	$(PY) $<
+data/runtime-sieve/data.txt: data/runtime-sieve/runtime.py
 	$(PY) $<
 data/kbguess/data/0.txt: data/kbguess/concatenate.py data/kbguess/data1/0.txt
 	$(PY) $<
@@ -25,6 +27,8 @@ data/runtime2/results.txt: data/runtime2/analyse.py data/runtime2/data/0.txt
 plot/runtime-theo/runtime.pdf: plot/runtime-theo/runtime.py data/runtime-theo/data.txt $(MATPLOTLIB)
 	$(PY) $<
 plot/runtime-theo/comparison.pdf: plot/runtime-theo/comparison.py data/runtime-theo/data.txt $(MATPLOTLIB)
+	$(PY) $<
+plot/runtime-sieve/plot.pdf: plot/runtime-sieve/plot.py data/runtime-sieve/data.txt $(MATPLOTLIB)
 	$(PY) $<
 plot/kbguess/time.pdf: plot/kbguess/plot.py data/kbguess/data/0.txt
 	$(PY) $<
