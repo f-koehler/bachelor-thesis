@@ -5,6 +5,7 @@ Simulated Annealing~\parencite{nr} ist eine Methode, um Optimierungsprobleme zu 
 Zu einer gegebenem Temperatur wird eine adäquate Anfangskonfiguration gewählt, z.B.\ bei einer hohen Temperatur eine zufällige Konfiguration. Dann werden Annealing Schritte ausgeführt, d.h.\ die Temperatur sukzessive gesenkt. Nach jeder Temperatursenkung ausreichend viele Metropolisschritte durchgeführt. Dazu wird jeweils eine leichte Modifikation am aktuellen Systemzustand vorgenommen. Verringert die neue Konfiguration die Energie respektive eine analog dazu definierte Kostenfunktion, so wird die Änderung akzeptiert, ansonsten nur mit einer Wahrscheinlichkeit von $p=\exp\left(-\frac{\Delta E}{k_\mathrm{B}T}\right)$. Auf diese Art und Weise wird versucht das System zu equilibrieren.
 
 \section{Primfaktorzerlegung}
+Das hier beschriebene Verfahren basiert größtenteils auf der Originalarbeit~\parencite{altschuler}. Diese ist aber kurz gefasst und es wird nicht klar welchen Suchbereich die Autoren gewählt haben und ob die möglichen Optimierungen~\ref{sec:parameterspace} verwendet wurden.\\
 Die Primfaktorzerlegung bezeichnet die eindeutige Darstellung einer Zahl $N\in\mathbb{N}$ durch
 \begin{equation*}
   N=\prod\limits_{i=1}^M p_i^{m_i},
@@ -14,9 +15,9 @@ Diese Zerlegung kann rekursiv aufgebaut werden, Zunächst wird die Zahl $N$ in z
 Es soll ein Verfahren entwickelt werden, dass die Zerlegung $N=A\cdot B$ mit $A\geq B$ berechnet und dabei die Methode des Simulated Annealing anwendet.\\
 
 \subsection{Abschätzung der Wertebereiche}\label{sec:parameterspace}
-Die Zahlen $N,A,B$ werden im Dualsystem dargestellt. Die Zahlen $a,b,n$ sollen dabei angeben wie viele Stellen die binären Representationen von $A,B,N$ unter Vernachlässigung führender Nullen haben. Durch $a_1$ bzw.\ $b_1$ soll angegeben werden, wie häufig die Ziffer $1$ in $A$ bzw. $B$ vorkommt. \\
-Der Algorithmus wird alle möglichen Tupel $\left(a,a_1,b,b_1\right)$ durchlaufen. Deshalb sollte geprüft werden in wie weit der Suchbereich bei gegebenem $N$ eingeschränkt werden kann. \\
-$A$ und $B$ sind Faktoren von $N$, ihre binäre Darstellung kann also maximal so lang sein wie die von $n$, d.h.\ $a\leq n\:\wedge\: b\leq n$. Da alle Primfaktoren $p_i > 1$ sein müssen, kann $a>1$ und $b>1$ angenommen werden. Es gibt allerdings noch Potential die Wertebereiche für $a$ und $b$ zu reduzieren. \\
+Die Zahlen $N,A,B$ werden im Dualsystem dargestellt. $a,b,n$ sollen dabei angeben, wie viele Stellen die binären Representationen von $A,B,N$ unter Vernachlässigung führender Nullen haben. Durch $a_1$ bzw.\ $b_1$ soll angegeben werden, wie häufig die Ziffer $1$ in $A$ bzw. $B$ vorkommt. \\
+Der Algorithmus wird alle möglichen Tupel $\left(a,a_1,b,b_1\right)$ durchlaufen. Deshalb sollte geprüft werden, inwieweit der Suchbereich bei gegebenem $N$ eingeschränkt werden kann. \\
+$A$ und $B$ sind Faktoren von $N$, ihre binäre Darstellung kann also maximal so lang sein wie die von $N$, d.h.\ $a\leq n\:\wedge\: b\leq n$. Da alle Primfaktoren $p_i > 1$ sein müssen, kann $a>1$ und $b>1$ angenommen werden. Es gibt allerdings noch Potential die Wertebereiche für $a$ und $b$ zu reduzieren. \\
 Durch $a,b,n$ sind die Wertebereiche der Zahlen $A,B,N$ auf
 \begin{align*}
 		2^{a-1}\leq &A \leq 2^a-1 \\
@@ -39,14 +40,14 @@ Zunächst kann eine untere Schranke für $a$ gewonnen werden, es gilt:
 \end{equation*}
 Dieser Ausdruck wir minimal für das maximale $b \leq a$, also $a=b$, so dass der minimale Wert für $a$ durch die Gleichung
 \begin{equation}
-		a_\mathrm{min}=\begin{cases}
+		a_\mathrm{\min}=\begin{cases}
 						2 & \mathrm{falls}\:\lf\frac{n}{2}\rf = 1 \\
 						\lf\frac{n}{2}\rf & \mathrm{sonst}
 		\end{cases}\label{eq:amin}
 \end{equation}
 gegeben ist. Dies legt zu gegebenem $a$ die untere Schranke
 \begin{equation}
-		b_\mathrm{min}=\begin{cases}
+		b_\mathrm{\min}=\begin{cases}
 						2 & \mathrm{falls}\:n-a=1 \\
 						n-a & \mathrm{sonst}
 		\end{cases}\label{eq:amax}
@@ -65,8 +66,8 @@ Mit diesen Überlegungen wird der Parameterraum von
 \end{align}
 auf
 \begin{align}
-		a_\mathrm{min} \leq a \leq n &\quad\quad	1 \leq a_1 \leq a \notag \\
-		b_\mathrm{min} \leq b \leq a &\quad\quad	1 \leq b_1 \leq b \label{eq:parameterspace2}
+		a_\mathrm{\min} \leq a \leq n &\quad\quad	1 \leq a_1 \leq a \notag \\
+		b_\mathrm{\min} \leq b \leq a &\quad\quad	1 \leq b_1 \leq b \label{eq:parameterspace2}
 \end{align}
 reduziert. Die Auswirkungen auf die Laufzeit werden in Abschnitt~\ref{sec:runtime-theo} betrachtet.
 
@@ -78,14 +79,14 @@ Es muss eine Energie- bzw.\ Kostenfunktion eingeführt werden, um Simulated Anne
 						0 & \mathrm{sonst}\\
 				\end{cases}
 \end{equation*}
-gewählt. Dabei ist ${\left\{N\right\}}_i$ die $i$-te Stelle der binären Repräsentation der Zahl $N$, wobei $i=0$ das niederwertigste Bit ist. $f\left(i\right)$ ist eine monoton steigende Funktion, z.B. $f\left(i\right)=i$ oder $f\left(i\right)=i^2$. Die Energie wächst mit der Übereinstimmung des Produktes $A\cdot B$ mit $N$, wobei die höherwertigen Bits ein größeres Gewicht haben. Bei dieser Energiedefinition gilt es also ein Maximum zu finden und kein Minimum, da die Energie bei der Annäherung an die Lösung wächst. \\
+gewählt. Dabei ist ${\left\{N\right\}}_i$ die $i$-te Stelle der binären Repräsentation der Zahl $N$, wobei $i=0$ das niederwertigste Bit ist. $f\left(i\right)$ ist eine monoton steigende Funktion, z.B. $f\left(i\right)=i$ oder $f\left(i\right)=i^2$. Die Energie wächst mit der Übereinstimmung des Produktes $A\cdot B$ mit $N$, wobei die höherwertigen Bits ein größeres Gewicht haben. Bei dieser Energiedefinition gilt es also ein Maximum zu finden und kein Minimum. \\
 Für das Simulated Annealing wird für jedes $4$-Tupel $\left(a,b,a_1,b_1\right)$ mit einer Temperatur $T_0=1$ begonnen. Es werden dann $N_a$ Annealing-Schritte durchgeführt und bei jedem das System um einen Faktor $F_c$ abgekühlt, also $T_{i+1}=F_c\cdot T_i$. Vor jedem abkühlen werden $N_c$ Konfiguration getestet. Dies wird mit Hilfe eines Metropolis-Algorithmus~\parencite{metropolis} realisiert. \\
-Zunächst sollen einige notwendige, grundlegende Operationen zur Modifikation von binären Zahlen eingeführt werden. Diese lassen die Länge der der Binärzahl und die Anzahl der auf $1$ bzw. $0$ gesetzten Bits invariant.
+Zunächst sollen einige notwendige, grundlegende Operationen zur Modifikation von binären Zahlen eingeführt werden. Diese lassen die Länge der der Binärzahl und die Anzahl der auf $1$ bzw. $0$ gesetzten Bits invariant und werden verwendet, um Variationen einer Kondifguration zu generieren.
 \begin{itemize}
-		\item \textbf{swap:} Es werden zwei Bits zufällig vertauscht, wovon eines eine $1$ und eines eine $0$ ist.
+		\item \textbf{swap:} Es werden zwei Bits zufällig vertauscht, wovon eines eine $1$ und das andere eine $0$ ist.
 		\item \textbf{slide:} Es wird eine durchgängige Sequenz an Bits zufällig ausgewählt und das Bit ganz rechts entfernt. Danach werden alle anderen Bits nach rechts durchgeschoben und das entfernte Bit hinten wieder eingefügt.
 		\item \textbf{reverse:} Es wird eine zufällige Sequenz an Bits ausgewählt und ihre Reihenfolge invertiert.
-		\item \textbf{random:} Es werden Bits zufällige ausgewählt und zufällig permutiert.
+		\item \textbf{random:} Es werden Bits zufällig ausgewählt und zufällig permutiert.
 \end{itemize}
 Der Ablauf eines Metropolisschrittes ist in Algorithmus~\ref{alg:metropolis} dargestellt. Es wird mit der Funktion $\mathrm{\textit{randomOperation}}\left(\right)$ zufällig eine der Operationen ausgewählt und durchgeführt. Danach wird die Energie $E^\prime$ der daraus resultierenden neuen Konfiguration berechnet. Die Akzeptanzwahrscheinlichkeit für die neue Konfiguration ist
 \begin{equation*}
@@ -95,21 +96,23 @@ Der Ablauf eines Metropolisschrittes ist in Algorithmus~\ref{alg:metropolis} dar
 		\end{cases}
 \end{equation*}
 Eine neue Konfiguration wird also akzeptiert, wenn sie die Energie vergrößert, ansonsten mit einer über einen Boltzmann-Faktor gegebene Wahrscheinlichkeit. \\
-\input{./pseudocode/metropolis.tex}\\
-Für jedes $4$-Tupel $\left(a,b,a_1,b_1\right)$ werden $N_a$ Annealing-Schritte durchgeführt. Dies geschieht wie in Algorithmus~\ref{alg:anneal} dargestellt.
-\input{./pseudocode/anneal.tex}\\
-Für die Zerlegung einer Zahl in zwei Faktoren müssen noch alle Tupel $\left(a,b,a_1,b_1\right)$ durchlaufen werden. Dies ist in Algorithmus~\ref{alg:factorize} dargestellt,
-\input{./pseudocode/factorize.tex}\\
+Der Metropolis-Algorithmus~\ref{alg:metropolis} wird im Rahmen des in Algorithmus~\ref{alg:anneal} dargestellten Annealing-Algorithmus aufgerufen. Es wird mit einer Temperatur von $T_0=1$ begonnen. Dann werden $N_a$ Annealing-Schritte durchgeführt und dabei jeweils $N_c$ Metropolis-Schritte durchgeführt. \\
+Diese Prozedur wird für jedes erlaubte $4$-Tupel $\left(a,a_1,b,b_1\right)$ durchgeführt. Dies wird mit $4$ Schleifen realisiert, wie in Algorithmus~\ref{alg:factorize} dargestellt. \\
+Für jedes Tupel $\left(a,a_1\right)$ wird eine zufällige binäre Zahl $A$ erstellt, die $a$ Stellen hat, von denen $a_1$ eine $1$ sind. Analog wird für jedes Tupel $\left(b,b_1\right)$ eine entsprechende Zahl $B$ erstellt. Anschließend wird die anfängliche Energie berechnet. Außerdem wird das Produkt $A\cdot B$ berechnet, sodass das Programm abgebrochen werden kann, falls zufällig direkt eine Zerlegung der Zahl $N$ in zwei Faktoren gefunden wurde. Ansonsten wird das in Algorithmus~\ref{alg:anneal} beschriebene Annealing durchgeführt.
+\input{./pseudocode/metropolis.tex}
+\input{./pseudocode/anneal.tex}
+\input{./pseudocode/factorize.tex}
+\FloatBarrier{}
 
 \subsection{Theoretische Abschätzung der Laufzeit}\label{sec:runtime-theo}
-Interressant bei der Untersuchung des Algorithmus ist die Laufzeit in Abhängigkeit von der Länge $n$ der zu faktorisierenden Zahl. Hierzu kann die Anzahl der im ungünstigsten Fall benötigten Metropolis-Schritte betrachtet werden. \\
-Schränkt man den Suchbereich nicht in Abschnitt~\ref{sec:parameterspace} beschrieben ein, d.h.\ wählt man den Parameterbereich~\ref{eq:parameterspace1} werden maximal
+Interessant bei der Untersuchung des Algorithmus ist die Laufzeit in Abhängigkeit von der Länge $n$ der zu faktorisierenden Zahl. Hierzu kann die Anzahl der im ungünstigsten Fall benötigten Metropolis-Schritte betrachtet werden. \\
+Schränkt man den Suchbereich nicht wie in Abschnitt~\ref{sec:parameterspace} beschrieben ein, d.h.\ wählt man den Parameterbereichgemäß der Gleichungen~\eqref{eq:parameterspace1}, werden maximal
 \begin{equation}
 		R_1\left(n\right)=\sum\limits_{a=2}^{n}\sum\limits_{a_1=1}^{a}\sum\limits_{b=2}^{a}\sum\limits_{b_1=1}^{b}N_a\cdot N_c\label{eq:runtime-theo}
 \end{equation}
-Metropolis-Schritte durchgeführt. Mit dem kleineren Suchbereich gemäß Gleichung~\ref{eq:parameterspace2} ergibt sich eine Laufzeit von
+Metropolis-Schritte durchgeführt. Mit dem kleineren Suchbereich gemäß Gleichungen~\eqref{eq:parameterspace2} ergibt sich eine Laufzeit von
 \begin{equation}
-		R_2\left(n\right)=\sum\limits_{a=a_\mathrm{min}}^{n}\sum\limits_{a_1=1}^{a}\sum\limits_{b=b_\mathrm{min}}^{a}\sum\limits_{b_1=1}^{b}N_a\cdot N_c\label{eq:runtime-theo-opt}.
+		R_2\left(n\right)=\sum\limits_{a=a_\mathrm{\min}}^{n}\sum\limits_{a_1=1}^{a}\sum\limits_{b=b_\mathrm{\min}}^{a}\sum\limits_{b_1=1}^{b}N_a\cdot N_c\label{eq:runtime-theo-opt}.
 \end{equation}
 In beiden Fällen erwartet man grob eine Laufzeit von $\mathcal{O}\left(n^4\cdot N_a\cdot N_c\right)$, weil die Anzahl der Summanden in jeder Summe linear mit $n$ wächst. Die Gleichungen~\eqref{eq:runtime-theo} und~\eqref{eq:runtime-theo-opt} wurden numerisch ausgewertet und in Abb.~\ref{fig:runtime-theo} graphisch dargestellt. Außerdem wurde die Abweichung
 \begin{equation*}
@@ -126,11 +129,11 @@ berechnet und in Abb.~\ref{fig:runtime-theo-comparison} dargestellt, um die Verb
 		\includegraphics[height=0.35\textheight]{plot/runtime-theo/comparison.pdf}
 		\caption{Verbesserung der Laufzeit durch Einschränkung des Parameterbereiches}\label{fig:runtime-theo-comparison}
 \end{figure}
-Das Zahlkörpersieb hat eine Laufzeit von 
+Nun vergleichen wir dieses Verhalten noch mit dem Zahlkörpersieb, welches eine Laufzeit von 
 \begin{equation}
 		r_\mathrm{sieve}\approx\exp\left(c\cdot{\left(\log N\right)}^\frac{2}{3}{\left(\log\log N\right)}^\frac{1}{3}\right)\label{eq:runtime-sieve}
 \end{equation}
-mit $c=64/9$ (allgemeines Zahlkörpersieb)~\parencite{pomerance}. Diese wurde im Vergleich zu der maximalen Laufzeit der Simulated Annealing Methode in~\ref{fig:runtime-sieve} aufgetragen. Dabei ist noch zu berücksichtigen, dass das Zahlkörpersieb ein deterministischer Algorithmus ist, also immer das korrekte Ergebnis liefert.
+mit $c=64/9$ (allgemeines Zahlkörpersieb)~\parencite{pomerance}. Diese wurde im Vergleich zu der maximalen Laufzeit der Simulated Annealing Methode in~\ref{fig:runtime-sieve} aufgetragen. Dabei ist noch zu berücksichtigen, dass das Zahlkörpersieb ein deterministischer Algorithmus ist, also immer das korrekte Ergebnis liefert. Das Verfahren ist spätestens bei der maximalen Laufzeit beendet, muss aber nicht zwangsläufig ein Ergebnis geliefert haben.
 \begin{figure}[ht]
 		\centering
 		\includegraphics[height=0.35\textheight]{plot/runtime-sieve/plot.pdf}
