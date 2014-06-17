@@ -17,6 +17,8 @@ data/runtime-sieve/data.txt: data/runtime-sieve/runtime.py
 	$(PY) $<
 data/kbguess/data/0.txt: data/kbguess/concatenate.py data/kbguess/data1/0.txt
 	$(PY) $<
+data/kbguess2/data/0.txt: data/kbguess2/concatenate.py data/kbguess2/data1/0.txt
+	$(PY) $<
 data/runtime/results.txt: data/runtime/analyse.py data/runtime/data/0.txt
 	$(PY) $<
 data/runtime2/results.txt: data/runtime2/analyse.py data/runtime2/data/0.txt
@@ -29,7 +31,7 @@ plot/runtime-theo/comparison.pdf: plot/runtime-theo/comparison.py data/runtime-t
 	$(PY) $<
 plot/runtime-sieve/plot.pdf: plot/runtime-sieve/plot.py data/runtime-sieve/data.txt $(MATPLOTLIB)
 	$(PY) $<
-plot/kbguess/time.pdf: plot/kbguess/plot.py data/kbguess/data/0.txt
+plot/kbguess/time.pdf: plot/kbguess/plot.py data/kbguess/data/0.txt data/kbguess2/data/0.txt
 	$(PY) $<
 plot/runtime/time.pdf: plot/runtime/plot.py data/runtime/results.txt $(MATPLOTLIB)
 	$(PY) $<
