@@ -1,9 +1,11 @@
 import numpy as np
 from matplotlib import pyplot as plt
 
-n, success, successErr, time, timeErr, steps, stepsErr = np.loadtxt("data/runtime2/results.txt", unpack=True)
+n, success, successErr, time, timeErr, steps, stepsErr, timeClean, timeErrClean, stepsClean, stepsErrClean = np.loadtxt("data/runtime2/results.txt", unpack=True)
 time = time*1e-6
 timeErr = timeErr*1e-6
+timeClean = timeClean*1e-6
+timeErrClean = timeErrClean*1e-6
 
 plt.errorbar(n, success, successErr)
 plt.xlabel("$n$")
@@ -15,11 +17,13 @@ plt.grid()
 plt.savefig("plot/runtime2/success.pdf")
 plt.close()
 
-plt.errorbar(n**4, time, timeErr)
+plt.errorbar(n**4, time, timeErr, label="alle")
+plt.errorbar(n**4, timeClean, timeErrClean, label="nur erfolgreiche")
 plt.xlabel("$n^4$")
 plt.ylabel("$T/\\si{\\second}$")
 plt.xticks((n**4)[10::2], ["$"+str(int(_n))+"^4$" for _n in n[10::2]])
 plt.grid()
+plt.legend(loc=2)
 plt.savefig("plot/runtime2/time.pdf")
 plt.close()
 
