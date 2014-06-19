@@ -5,7 +5,7 @@ HEADERS=$(wildcard header/*.tex)
 SECTIONS=$(wildcard sections/*.tex)
 PSEUDOCODE=$(wildcard pseudocode/*.tex)
 MATPLOTLIB=matplotlibrc header/matplotlib.tex
-PLOTS=plot/runtime-theo/runtime.pdf plot/runtime-theo/comparison.pdf plot/runtime-sieve/plot.pdf plot/kbguess/time.pdf plot/runtime/time.pdf plot/runtime2/time.pdf plot/parallelization/plot.pdf plot/dummy/dummy.pdf
+PLOTS=plot/runtime-theo/runtime.pdf plot/runtime-theo/comparison.pdf plot/runtime-sieve/plot.pdf plot/kbguess/time.pdf plot/runtime/time.pdf plot/runtime2/time.pdf plot/factorization/time.pdf plot/parallelization/plot.pdf plot/dummy/dummy.pdf
 BIB=literature.bib
 
 all: build/thesis.pdf build/thesis-print.pdf
@@ -23,6 +23,8 @@ data/runtime/results.txt: data/runtime/analyse.py data/runtime/data/0.txt
 	$(PY) $<
 data/runtime2/results.txt: data/runtime2/analyse.py data/runtime2/data/0.txt
 	$(PY) $<
+data/factorization/results.txt: data/factorization/analyse.py data/factorization/data/0.txt
+	$(PY) $ $<
 
 # create plots
 plot/runtime-theo/runtime.pdf: plot/runtime-theo/runtime.py data/runtime-theo/data.txt $(MATPLOTLIB)
@@ -37,7 +39,10 @@ plot/runtime/time.pdf: plot/runtime/plot.py data/runtime/results.txt $(MATPLOTLI
 	$(PY) $<
 plot/runtime2/time.pdf: plot/runtime2/plot.py data/runtime2/results.txt $(MATPLOTLIB)
 	$(PY) $<
+plot/factorization/time.pdf: plot/factorization/plot.py data/factorization/results.txt $(MATPLOTLIB)
+	$(PY) $<
 plot/parallelization/plot.pdf: plot/parallelization/plot.py data/parallelization/1.txt $(MATPLOTLIB)
+	$(PY) $<
 plot/dummy/dummy.pdf: plot/dummy/plot.py $(MATPLOTLIB)
 	$(PY) $<
 
