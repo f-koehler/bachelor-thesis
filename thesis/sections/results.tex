@@ -53,12 +53,13 @@ Es wäre also günstiger gewesen in der Formel~\eqref{eq:kbguess} beispielsweise
 Betrachtet man Algorithmus~\ref{alg:factorize}, so erkennt man, dass dieses Verfahren zur Primfaktorzerlegung Potential zur Parallelisierung bietet. So kann das Annealing für jedes Tupel $\left(a,a_1,b,b_1\right)$ unabhängig ausgeführt werden. Man generiert für jedes Tupel neue Anfangskonfigurationen $A$ und $B$ und führt dann jeweils das Annealing aus. Dies kann dann auf verschiedenen Prozessorkernen oder Rechnern erfolgen. Dadurch ist eine enorme Leistungssteigerung zu erwarten.\\
 Dieses Vorgehen unterscheidet sich jedoch leicht von Algorithmus~\ref{alg:factorize}. Dort wird für jedes Tupel $\left(a,a_1\right)$ eine Anfangskonfiguration $A$ generiert und dann über alle Werte $\left(b,b_1\right)$ iteriert. Dabei werden dann Anfangskonfigurationen $B$ erzeugt. Da $A$ jedoch zufällig gewählt wird und innerhalb der Schleifen zufällige modifiziert wird, kann für jedes Tupel $\left(a,a_1,b,b_1\right)$ eine neues $A$ zufällig generiert werden. \\
 Die Implementierung der Programme erlaubt es, eine beliebige Anzahl von Threads festzulegen, auf die die Tupel $\left(a,a_1,b,b_1\right)$ gleichmäßig verteilt werden. So wurden bereits die Simulationen in Abschnitt~\ref{sec:kbguess} mit $8$ Threads ausgeführt, genauso wie alle späteren Simulationen mit der Ausnahme der in diesem Abschnitt zu findenden. \\
-Es soll durch Aufruf des Programms \textit{onestep} mit verschiedenen Anzahlen von Threads untersucht werden, wie effizient die Parallelisierung gelungen ist. Theoretisch halbiert sich die Laufzeit, wenn man die Anzahl der Threads verdoppelt. Dieses Vorgehen führt jedoch zu einem gewissen Verwaltungsaufwand beim erstellen der Threads, so dass die Parallelisierungseffizienz nicht bei $\SI{100}{\percent}$ liegen wird.\\
-Der Begriff Parallelisierungseffizienz bezeichnet hier den Quotienten $\tau_1/\left(i\tau_i\right)$. Dabei ist $i$ die Anzahl der Threads und $\tau_j$ die Laufzeit des Programs mit $j$ Threads. Es wird also die Laufzeit des Programmes mit mehreren Threads mit dem seriellen Programm gemäß Algorithmus~\ref{alg:factorize} verglichen.
+Es soll durch Aufruf des Programms \textit{onestep} mit verschiedenen Anzahlen von Threads untersucht werden, wie effizient die Parallelisierung gelungen ist. Theoretisch halbiert sich die Laufzeit, wenn man die Anzahl der Threads verdoppelt. Dieses Vorgehen führt jedoch zu einem gewissen Verwaltungsaufwand beim erstellen der Threads, so dass die Parallelisierungseffizienz nicht bei $\SI{100}{\percent}$ liegen wird. Dafür müsste sich die Programmlaufzeit halbieren, wenn man die Anzahl der Threads verdoppelt.\\
+Um die Parallelisierbarkeit des Verfahrens zu untersuchen wird das Programm \textit{onestep} verwendet. Die zu zerlegende Semiprimzahl ist $N=783061$. Die weiteren Parameter betrugen $N_a=500$, $N_c=200$ und $F_c=0.997$. Die Simulation wurde $200$-mal wiederhohlt und zwar je für $1, 2, 4, 8$-Threads. Im Anschluss wurde der Speedup $\tau_1/\tau_i$ berechnet, wobei $\tau_1$ die Laufzeit mit einem Thread und $\tau_i$ mit $i$-Threads ist. Diese Größe wurde in Abb.~\ref{fig:speedup} grafisch gegen die Anzahl der Threads aufgetragen.\\
+Es ist erkennbar, dass für $2$ und $4$ Threads fast der maximal mögliche Speedup (Faktor $2$ bzw.\ $4$ erreicht wird), während $8$ Threads nur ein Speedup von unter $5$ erreicht wird. Im Idealfall würden alle Punkte auf einer Geraden liegen.
 \begin{figure}[ht]
 		\centering
-		\includegraphics[height=0.35\textheight]{plot/dummy/dummy.pdf}
-		\caption{Ein schmucker Platzhalter}
+		\includegraphics[height=0.35\textheight]{plot/parallelization/plot.pdf}
+		\caption{Beschleunigung des Programmes durch die Verwendung mehrerer Threads}\label{fig:speedup}
 \end{figure}
 
 \section{Analyse eines einzelnen Zerlegungsschrittes}
@@ -92,11 +93,6 @@ In beiden Fällen erkennt man, dass die Erfolgsrate mit zunehmendem $n$ merklich
 Mit dem Programm \textit{factorize} wurde für $n=8,9,\dots,32$ die Zerlegung von Zahlen in alle ihre Primfaktoren untersucht. Dazu wurden für jedes $n$ zufällig $5$ Zahlen gezogen und jede davon $10$-mal zerlegt. Als Parameter wurden $N_a=1000$, $N_c=1000$ und $F_c=0.997$ gewählt.
 \begin{figure}[ht]
 		\centering
-		\includegraphics[height=0.35\textheight]{plot/dummy/dummy.pdf}
-		\caption{Ein schmucker Platzhalter}
-\end{figure}
-\begin{figure}[ht]
-		\centering
-		\includegraphics[height=0.35\textheight]{plot/dummy/dummy.pdf}
-		\caption{Ein schmucker Platzhalter}
+		\includegraphics[height=0.35\textheight]{plot/factorization/time.pdf}
+		\caption{Laufzeitverhalten bei kompletter Zerlegung in Abhängigkeit der Zahlenlänge}
 \end{figure}
