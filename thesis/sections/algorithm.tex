@@ -117,7 +117,18 @@ Metropolis-Schritte durchgeführt. Mit dem kleineren Suchbereich gemäß Gleichu
 		R_2\left(n\right)=\sum\limits_{a=a_\mathrm{\min}}^{n}\sum\limits_{a_1=1}^{a}\sum\limits_{b=b_\mathrm{\min}}^{a}\sum\limits_{b_1=1}^{b}N_a\cdot N_c\label{eq:runtime-theo-opt}.
 \end{equation}
 In beiden Fällen ist grob eine Laufzeit von $\mathcal{O}\left(n^4\cdot N_a\cdot N_c\right)$ zu erwarten, weil die Anzahl der Summanden in jeder Summe linear mit $n$ wächst. \\
-Die Gleichungen~\eqref{eq:runtime-theo} und~\eqref{eq:runtime-theo-opt} wurden numerisch ausgewertet und in Abb.~\ref{fig:runtime-theo} graphisch dargestellt. Außerdem wurde die Abweichung
+\begin{figure}[h!]
+		\centering
+		\includegraphics[height=0.35\textheight]{plot/runtime-theo/runtime.pdf}
+		\caption{Theoretische Laufzeiten nach Gln.~\eqref{eq:runtime-theo} und~\eqref{eq:runtime-theo-opt}}\label{fig:runtime-theo}
+\end{figure}
+Die Gleichungen~\eqref{eq:runtime-theo} und~\eqref{eq:runtime-theo-opt} wurden numerisch ausgewertet und in Abb.~\ref{fig:runtime-theo} graphisch dargestellt.\\
+\begin{figure}[h!]
+		\centering
+		\includegraphics[height=0.35\textheight]{plot/runtime-theo/comparison.pdf}
+		\caption{Verbesserung der Laufzeit durch Einschränkung des Parameterbereiches}\label{fig:runtime-theo-comparison}
+\end{figure}
+Außerdem wurde die Abweichung
 \begin{equation*}
 		1-\frac{R_2\left(n\right)}{R_1\left(n\right)}
 \end{equation*}
@@ -127,16 +138,6 @@ Nun vergleichen wir dieses Verhalten mit dem Zahlkörpersieb, welches eine Laufz
 		r_\mathrm{sieve}\approx\exp\left(c\cdot{\left(\log N\right)}^\frac{2}{3}{\left(\log\log N\right)}^\frac{1}{3}\right)\label{eq:runtime-sieve}
 \end{equation}
 mit $c=64/9$ (allgemeines Zahlkörpersieb) hat~\parencite{pomerance}. Diese wurde im Vergleich zu der maximalen Laufzeit der Simulated Annealing Methode in~\ref{fig:runtime-sieve} aufgetragen. Dabei ist zu berücksichtigen, dass das Zahlkörpersieb ein deterministischer Algorithmus ist, also immer das korrekte Ergebnis liefert. Das Simulated Annealing ist spätestens bei der maximalen Laufzeit beendet, muss aber nicht zwangsläufig ein Ergebnis geliefert haben.
-\begin{figure}[ht]
-		\centering
-		\includegraphics[height=0.35\textheight]{plot/runtime-theo/runtime.pdf}
-		\caption{Theoretische Laufzeiten nach Gln.~\eqref{eq:runtime-theo} und~\eqref{eq:runtime-theo-opt}}\label{fig:runtime-theo}
-\end{figure}
-\begin{figure}[ht]
-		\centering
-		\includegraphics[height=0.35\textheight]{plot/runtime-theo/comparison.pdf}
-		\caption{Verbesserung der Laufzeit durch Einschränkung des Parameterbereiches}\label{fig:runtime-theo-comparison}
-\end{figure}
 \begin{figure}[ht]
 		\centering
 		\includegraphics[height=0.35\textheight]{plot/runtime-sieve/plot.pdf}
