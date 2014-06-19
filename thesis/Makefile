@@ -5,7 +5,7 @@ HEADERS=$(wildcard header/*.tex)
 SECTIONS=$(wildcard sections/*.tex)
 PSEUDOCODE=$(wildcard pseudocode/*.tex)
 MATPLOTLIB=matplotlibrc header/matplotlib.tex
-PLOTS=plot/runtime-theo/runtime.pdf plot/runtime-theo/comparison.pdf plot/runtime-sieve/plot.pdf plot/kbguess/time.pdf plot/runtime/time.pdf plot/runtime2/time.pdf plot/dummy/dummy.pdf
+PLOTS=plot/runtime-theo/runtime.pdf plot/runtime-theo/comparison.pdf plot/runtime-sieve/plot.pdf plot/kbguess/time.pdf plot/runtime/time.pdf plot/runtime2/time.pdf plot/parallelization/plot.pdf plot/dummy/dummy.pdf
 BIB=literature.bib
 
 all: build/thesis.pdf build/thesis-print.pdf
@@ -37,6 +37,7 @@ plot/runtime/time.pdf: plot/runtime/plot.py data/runtime/results.txt $(MATPLOTLI
 	$(PY) $<
 plot/runtime2/time.pdf: plot/runtime2/plot.py data/runtime2/results.txt $(MATPLOTLIB)
 	$(PY) $<
+plot/parallelization/plot.pdf: plot/parallelization/plot.py data/parallelization/1.txt $(MATPLOTLIB)
 plot/dummy/dummy.pdf: plot/dummy/plot.py $(MATPLOTLIB)
 	$(PY) $<
 
