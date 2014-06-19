@@ -1,0 +1,7 @@
+# N  = 18446744072624468016
+# Nc = 1000
+# Na = 500
+# Fc = 0.997
+# kB = 3654.98
+#
+# run	success	duration[mus]	usedSteps
