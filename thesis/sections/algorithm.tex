@@ -9,11 +9,11 @@ Die Primfaktorzerlegung bezeichnet die eindeutige Darstellung einer Zahl $N\in\m
 wobei die $p_i\in\mathbb{N}$ mit $p_i>1$ und $p_i\neq p_j$ für $i\neq j$ Primzahlen und die $m_i\in\mathbb{N}$ die zugehörigen Exponenten sind.\\
 Diese Zerlegung kann rekursiv aufgebaut werden. Zunächst wird die Zahl $N$ in zwei Faktoren $A$ und $B$ zerlegt. Danach werden $A$ und $B$ zerlegt sofern sie nicht prim sind.\\
 Es soll ein Verfahren entwickelt werden, welches die Zerlegung $N=A\cdot B$ mit $A\geq B$ berechnet und dabei die Methode des Simulated Annealing anwendet.\\
-Im folgenden sollen zunächst einige Eigenschaften der binären Representation der Zahlen $A$ und $B$ abgeleitet werden.
+Im folgenden sollen zunächst einige Eigenschaften der binären Repräsentation der Zahlen $A$ und $B$ abgeleitet werden.
 
 \section{\texorpdfstring{Abschätzung der Wertebereiche von $a,a_1,b,b_1$}{Abschätzung der Wertebereiche von a, a1, b, b1}}\label{sec:parameterspace}
 Die Zahlen $N,A,B$ werden im Dualsystem dargestellt. $a,b,n$ sollen dabei angeben, wie viele Stellen dafür unter Vernachlässigung führender Nullen erforderlich sind. $a_1$ bzw.\ $b_1$ geben dabei an, wie häufig die Ziffer $1$ in $A$ bzw. $B$ vorkommt. \\
-Der Algorithmus durchläuft alle möglichen Tupel $\left(a,a_1,b,b_1\right)$ (vgl. Abschnitt~\ref{sec:annealfac}). Deshalb sollte geprüft werden, inwieweit der Suchbereich bei gegebenem $N$ eingeschränkt werden kann. \\
+Der Algorithmus durchläuft alle möglichen Tupel $\left(a,a_1,b,b_1\right)$ (vgl.\ Abschnitt~\ref{sec:annealfac}). Deshalb sollte geprüft werden, inwieweit der Suchbereich bei gegebenem $N$ eingeschränkt werden kann. \\
 Die binäre Darstellung von $A$ bzw.\ $B$ kann maximal so lang sein wie die von $N$, d.h.\ $a\leq n\:\wedge\: b\leq n$. Wegen $p_i > 1$ ist $a>1\:\wedge\:b>1$. Es gibt allerdings noch Potential, die Wertebereiche für $a$ und $b$ zu reduzieren. \\
 Durch $a,b,n$ sind die Wertebereiche der Zahlen $A,B,N$ auf
 \begin{align*}
@@ -71,7 +71,7 @@ Im nächsten Abschnitt wird zunächst ein Überblick über die Methode des Simul
 
 \section{Simulated Annealing}
 Simulated Annealing ist eine Methode, um Optimierungsprobleme zu lösen, die sehr komplex sind~\parencite{nr}. Dies ist der Fall wenn für die Parameter ein großer Wertebereich zulässig ist, die Dimensionalität des Problems, d.h.\ die Anzahl der Parameter, hoch ist oder es neben dem gesuchten globalen Extremum viele lokale Extrema gibt. \\
-Zu einer gegebenem Temperatur wird eine adäquate Anfangskonfiguration gewählt, z.B.\ bei einer hohen Temperatur eine zufällige Konfiguration. Dann werden Annealing Schritte ausgeführt, d.h.\ die Temperatur sukzessive gesenkt. Nach jeder Temperatursenkung wird eineausreichende Anzahl an Metropolisschritten durchgeführt. Dazu wird jeweils eine leichte Modifikation am aktuellen Systemzustand vorgenommen. Verringert die neue Konfiguration die Energie respektive eine analog dazu definierte Kostenfunktion, so wird die Änderung akzeptiert, ansonsten nur mit einer Wahrscheinlichkeit von $p=\exp\left(-\frac{\Delta E}{k_\mathrm{B}T}\right)$. Auf diese Art und Weise wird versucht, das System zu equilibrieren.
+Zu einer gegebenem Temperatur wird eine adäquate Anfangskonfiguration gewählt, z.B.\ bei einer hohen Temperatur eine zufällige Konfiguration. Dann werden Annealing Schritte ausgeführt, d.h.\ die Temperatur sukzessive gesenkt. Nach jeder Temperatursenkung wird eine ausreichende Anzahl an Metropolisschritten durchgeführt. Dazu wird jeweils eine leichte Modifikation am aktuellen Systemzustand vorgenommen. Verringert die neue Konfiguration die Energie respektive eine analog dazu definierte Kostenfunktion, so wird die Änderung akzeptiert, ansonsten nur mit einer Wahrscheinlichkeit von $p=\exp\left(-\frac{\Delta E}{k_\mathrm{B}T}\right)$. Auf diese Art und Weise wird versucht, das System zu equilibrieren.
 
 \section{Anwendung von Simulated Annealing auf die Primfaktorzerlegung}\label{sec:annealfac}
 Zunächst wird eine Energiedefinition eingeführt, um Simulated Annealing auf das Problem der Primfaktorzerlegung anwenden zu können.
