@@ -1,5 +1,7 @@
 \chapter{Untersuchung des Verfahrens}\label{ch:results}
 
+
+
 \section{Implementierung}
 Für die Untersuchungen wurden $3$ Programme (\textit{onestep}, \textit{semiprime} und \textit{factorize}) implementiert.  \\
 Das Programm \textit{onestep} führt einen Schritt der Faktorisierung einer Zahl durch, bildet also Algorithmus~\ref{alg:factorize} ab. \\
@@ -7,9 +9,11 @@ Mit dem Programm \textit{factorize} kann die komplette Faktorisierung einer Zahl
 Das Programm \textit{semiprime} bekommt zwei Primfaktoren $A$ und $B$ übergeben und berechnet das Produkt $N=A\cdot B$, welches folglich eine Semiprimzahl ist. Die $a, a_1, b, b_1$ sind durch die übergebenen Zahlen bereits bekannt. Dann werden $N_a$ Annealing-Schritte durchgeführt mit jeweils $N_c$ Metropolis-Schritten. Von allen Iterationen in Algorithmus~\ref{alg:factorize} wird somit nur diejenige durchgeführt, die das gesuchte Ergebnis liefern könnte. Mit diesem Programm soll hauptsächlich der Einfluss der Wahl der Boltzmann-Konstanten auf das Verfahren untersucht werden. \\
 Bei der Ausführung der einzelnen Programme werden jeweils die Laufzeit, die Erfolgsrate und die Anzahl der benötigten Metropolis-Schritte protokolliert. \\
 Die angewendete Methode ist nicht-deterministisch und führt somit nicht immer auf die gesuchten Primfaktoren. Da die Probe bei allen $3$ Programmen effizient durchführbar ist, wird bei jedem Durchlauf der Erfolg oder Misserfolg gespeichert. Daraus kann die Erfolgsrate durch Division der Anzahl der erfolgreichen Versuche durch die Anzahl der Aufrufe berechnet werden. \\
-Weil bei allen Programmen nur die tatsächliche Laufzeit und nicht die Anzahl der Metropolisschritte protokolliert wird, ist eine etwas anderes Wachstum als in~\ref{sec:runtime-theo} beschrieben zu erwarten. Bei der Betrachtung der erlaubten Operationen stellt sich heraus, dass diese alle linear in $n$ also in $\mathcal{O}\left(n\right)$ skalieren. Die Anzahl der Bits in den Sequenzen kann maximal $n$ sein und für die swap-Operation wird ebenfalls über alle Bits iteriert. Für einen einzelnen Zerlegungsschritt ist mit einem Verhalten $\mathcal{O}\left(n^5\cdot N_c\cdot N_a\right)$ zu rechnen, wenn die reale Laufzeit betrachtet wird.\\
+Weil bei allen Programmen nur die tatsächliche Laufzeit und nicht die Anzahl der Metropolisschritte protokolliert wird, ist eine etwas anderes Wachstum als in~\ref{sec:runtime-theo} beschrieben zu erwarten. Bei der Betrachtung der erlaubten Operationen stellt sich heraus, dass diese alle linear in $n$ also in $\mathcal{O}\left(n\right)$ skalieren. Die Anzahl der Bits in den Sequenzen kann maximal $n$ sein und für die swap-Operation wird im ungünstigsten Fall über alle Bits iteriert. Für einen einzelnen Zerlegungsschritt ist mit einem Verhalten $\mathcal{O}\left(n^5\cdot N_c\cdot N_a\right)$ zu rechnen, wenn die reale Laufzeit betrachtet wird.\\
 Für die Implementierung des Verfahrens wurde die Programmiersprache C++ verwendet. Alle Programme bieten die Möglichkeit zur Verwendung von Threads, also der parallelen Programmausführung, vgl. Abschnitt~\ref{sec:parallel}. Dabei kommt die Thread-Bibliothek aus dem aktuellen C++11 Standard zum Einsatz. \\
 Zur Auswertung und für die grafische Darstellung wurde die Programmiersprache Python mit den Paketen numpy, scipy und matplotlib verwendet. \\ 
+
+
 
 \section{\texorpdfstring{Abschätzung von $\bm{k_\mathrm{B}}$}{Abschätzung von kB}}\label{sec:kbguess}
 Bei allen Untersuchungen wurde hier $f\left(i\right)=i^2$ gewählt, sodass die zu maximierende Kostenfunktion
@@ -32,66 +36,84 @@ eine Abschätzung für die zu wählende Boltzmann-Konstante in Abhängigkeit der
 Das Experimentieren mit verschiedenen Werten zeigte, dass bei $n=33$ eine Boltzmann-Konstante $\tilde{k}_\mathrm{B}\approx 8^3=512$ geeignet ist. \\
 Außerdem wurde das Programm \textit{semiprime} verwendet, um gezielt nach einem optimalen Wert für $k_B$ zu suchen. Dabei wurden zwei Primzahlen $A=66889$ und $B=104723$ gewählt, welche die Semiprimzahl $N=A\cdot B=7004816747$ mit $n=33$, ergeben und das Programm für verschiedene Werte $1^3\leq k_\mathrm{B}\leq 16^3$ aufgerufen. Jeder Durchlauf wurde dabei $4800$-mal wiederholt. Als Parameter wurden $N_a=1000$, $N_c=80000$ und $F_c=0.997$ gewählt. \\
 Es wurde noch eine zweite Reihe von Simulationen mit den selben Parametern durchgeführt, allerdings mit Werten $4^3\leq k_\mathrm{B} \leq 28^3$.
-\begin{figure}[h!]
+
+\begin{figure}[!ht]
 		\centering
 		\includegraphics[height=0.35\textheight]{plot/kbguess/success.pdf}
 		\caption{Erfolgsrate bei der Suche nach einem optimalen Wert für $k_\mathrm{B}$}\label{fig:kbguess-success}
 \end{figure}
-\begin{figure}[h!]
+
+\begin{figure}[!ht]
 		\centering
 		\includegraphics[height=0.35\textheight]{plot/kbguess/time.pdf}
 		\caption{Laufzeiten bei der Suche nach einem optimalen Wert für $k_\mathrm{B}$}\label{fig:kbguess-runtime}
 \end{figure}
+
 Die ermittelte Erfolgsrate bzw.\ die Programmlaufzeiten sind in Abb.~\ref{fig:kbguess-success} bzw.~\ref{fig:kbguess-runtime} grafisch dargestellt. Die Erfolgsraten wurden jeweils durch Mittelung über alle Laufzeiten zu jedem $k_\mathrm{B}$ unabhängig davon, ob diese erfolgreich waren, errechnet. \\
 Es ist deutlich erkennbar, dass ein zu niedriger Wert von $k_\mathrm{B}$ zu Erfolgsraten nahe $0$ führt, also nur die wenigsten Programmaufrufe die Primfaktoren $A,B$ finden. Für den Erfahrungswert $k_\mathrm{B}\approx 8^3$ ergibt sich bereits eine Erfolgsrate von $\approx30\%$. Besser scheint es jedoch beispielsweise $k_\mathrm{B}=17^3$ oder auch größer zu wählen, was hier einer Erfolgsrate von $>\SI{45}{\percent}$ entspricht. \\
 Dieses Verhalten spiegelt sich auch in der Programmlaufzeit wieder. Zu Beginn ist diese nahezu konstant, da kaum Durchläufe die gesuchten Faktoren finden und dadurch $N_c\cdot N_a$ Schritte durchlaufen werden. Mit steigendem $k_\mathrm{B}$ sinkt die Laufzeit des Programmes. Dies spiegelt die zunehmende Erfolgsrate wieder. Wenn mehr Durchläufe erfolgreich sind, führen weniger Programmaufrufe dazu, dass der gesamte Parameterbereich durchlaufen werden muss. Dies passiert bei den nicht erfolgreichen Durchläufen. \\
 Betrachtet man die Akzeptanzwahrscheinlichkeit, so kann man dieses Verhalten erklären. Ein zu kleines $k_\mathrm{B}$ führt dazu, dass so gut wie keine ungünstigen Konfigurationen akzeptiert werden. Dies widerspricht der grundsätzlichen Idee hinter dem Metropolisalgorithmus, da auch schlechtere Konfigurationen teilweise akzeptiert werden müssen, damit das Verfahren in kein lokales Extremum läuft. Es ist auch zu erwarten, dass $k_\mathrm{B}$ nicht zu groß gewählt werden sollte, weil dies dazu führen würde, dass die Akzeptanzwahrscheinlichkeit für schlechtere Zahlen $A, B$ sehr hoch ist. Der Algorithmus würde sich hier nicht der gesuchten Lösung nähern, sondern die Zahlen $A, B$ beliebig ändern. \\
 Es wäre also günstiger gewesen in der Formel~\eqref{eq:kbguess} beispielsweise $\tilde{k}_\mathrm{B}=17^3=4913$ für $\tilde{n}=33$ zu wählen. In den nachfolgenden Untersuchungen konnte dies jedoch nicht berücksichtigt werden, da diese Erkenntnis erst sehr spät gemacht wurde. In allen weiteren Simulationen wurde $\tilde{k}_\mathrm{B}=8^3=512$ gesetzt, um automatisch Werte der Boltzmann-Konstanten in Abhängigkeit der Länge $n$ der zu faktorisierenden Zahl zu ermitteln.
 
+
+
 \section{Parallelisierbarkeit}\label{sec:parallel}
 Betrachtet man Algorithmus~\ref{alg:factorize}, so erkennt man, dass dieses Verfahren zur Primfaktorzerlegung Potential zur Parallelisierung bietet. So kann das Annealing für jedes Tupel $\left(a,a_1,b,b_1\right)$ unabhängig ausgeführt werden. Man generiert für jedes Tupel neue Anfangskonfigurationen $A$ und $B$ und führt dann jeweils das Annealing aus. Dies kann dann auf verschiedenen Prozessorkernen oder Rechnern erfolgen. Dadurch ist eine enorme Leistungssteigerung zu erwarten.\\
-Dieses Vorgehen unterscheidet sich jedoch leicht von Algorithmus~\ref{alg:factorize}. Dort wird für jedes Tupel $\left(a,a_1\right)$ eine Anfangskonfiguration $A$ generiert und dann über alle Werte $\left(b,b_1\right)$ iteriert. Dabei werden dann Anfangskonfigurationen $B$ erzeugt. Da $A$ jedoch zufällig gewählt wird und innerhalb der Schleifen zufällige modifiziert wird, kann für jedes Tupel $\left(a,a_1,b,b_1\right)$ eine neues $A$ zufällig generiert werden. \\
+Dieses Vorgehen unterscheidet sich jedoch leicht von Algorithmus~\ref{alg:factorize}. Dort wird für jedes Tupel $\left(a,a_1\right)$ eine Anfangskonfiguration $A$ generiert und dann über alle Werte $\left(b,b_1\right)$ iteriert. Dabei werden dann Anfangskonfigurationen $B$ erzeugt. Da $A$ jedoch zufällig gewählt wird und innerhalb der Schleifen zufällig modifiziert wird, kann für jedes Tupel $\left(a,a_1,b,b_1\right)$ eine neues $A$ zufällig generiert werden. \\
 Die Implementierung der Programme erlaubt es, eine beliebige Anzahl von Threads festzulegen, auf die die Tupel $\left(a,a_1,b,b_1\right)$ gleichmäßig verteilt werden. So wurden bereits die Simulationen in Abschnitt~\ref{sec:kbguess} mit $8$ Threads ausgeführt, genauso wie alle späteren Simulationen mit der Ausnahme der in diesem Abschnitt zu findenden. \\
 Es soll durch Aufruf des Programms \textit{onestep} mit verschiedenen Anzahlen von Threads untersucht werden, wie effizient die Parallelisierung gelungen ist. Theoretisch halbiert sich die Laufzeit, wenn man die Anzahl der Threads verdoppelt. Dieses Vorgehen führt jedoch zu einem gewissen Verwaltungsaufwand beim Erstellen der Threads und dem Verteilen der Arbeit, sodass die Parallelisierungseffizienz nicht bei $\SI{100}{\percent}$ liegen wird. Dafür müsste sich die Programmlaufzeit halbieren, wenn man die Anzahl der Threads verdoppelt.\\
-Um die Parallelisierbarkeit des Verfahrens zu untersuchen wird das Programm \textit{onestep} verwendet. Die zu zerlegende Semiprimzahl ist $N=783061$. Die weiteren Parameter betrugen $N_a=500$, $N_c=200$ und $F_c=0.997$. Die Simulation wurde $200$-mal wiederholt und zwar je für $1, 2, 4, 8$-Threads. Im Anschluss wurde der Speedup $\tau_1/\tau_i$ berechnet, wobei $\tau_1$ die Laufzeit mit einem Thread und $\tau_i$ mit $i$-Threads ist. Diese Größe wurde in Abb.~\ref{fig:speedup} grafisch gegen die Anzahl der Threads aufgetragen.\\
-\begin{figure}[ht]
+Um die Parallelisierbarkeit des Verfahrens zu untersuchen wird das Programm \textit{onestep} verwendet. Die zu zerlegende Semiprimzahl ist $N=783061$ ($n=20$). Die weiteren Parameter betrugen $N_a=500$, $N_c=200$ und $F_c=0.997$. Die Simulation wurde $200$-mal wiederholt und zwar je für $1, 2, \dots, 8$-Threads. Im Anschluss wurde der Speedup $\tau_1/\tau_i$ berechnet, wobei $\tau_1$ die Laufzeit mit einem Thread und $\tau_i$ mit $i$-Threads ist. Diese Größe wurde in Abb.~\ref{fig:speedup} grafisch gegen die Anzahl der Threads aufgetragen.\\
+
+\begin{figure}[!ht]
 		\centering
 		\includegraphics[height=0.35\textheight]{plot/parallelization/plot.pdf}
 		\caption{Beschleunigung des Programmes durch die Verwendung mehrerer Threads}\label{fig:speedup}
 \end{figure}
-Es ist erkennbar, dass für $2$ und $4$ Threads fast der maximal mögliche Speedup (Faktor $2$ bzw.\ $4$ erreicht wird), während $8$ Threads nur ein Speedup von unter $5$ erreicht wird. Im Idealfall würden alle Punkte auf einer Geraden liegen.
+
+Es ist erkennbar, dass für $2$ und $4$ Threads fast der maximal mögliche Speedup (Faktor $2$ bzw.\ $4$ erreicht wird), während $8$ Threads nur ein Speedup von unter $5$ erreicht wird. Im Idealfall würden alle Punkte auf einer Ursprungsgeraden mit der Steigung $1$ liegen. Für $1$ bis $6$ Threads scheint die Parallelisierung gut zu funktionieren. Dass der Speed für $7$ bis $8$ geringer ist, könnte an statistischen Fluktuationen liegen oder daran, dass der Verwaltungsaufwand für mehr als $6$ Threads bei $n=20$ zu hoch ist. Diese Threadanzahlen rentieren sich erst bei längeren Zahlen.
 
 \section{Analyse eines einzelnen Zerlegungsschrittes}
 Mit dem Programm \textit{onestep} wurden einzelne Zerlegungsschritte untersucht und dafür zunächst zwei Sätze von Zahlen gewählt. Zum einen wurden manuell für $n\in\left\{6,8,\dots,24\right\}$ je $10$ Semiprimzahlen konstruiert, sowie die drei Möglichen für $n=4$. Der andere Satz von Zahlen besteht aus beliebigen Zahlen, wobei für jedes $n\in\left\{8,9,\dots,32\right\}$ jeweils $15$ solcher Zahlen zufällig ausgesucht wurden. Die Boltzmann-Konstante wurde dabei wie in Abschnitt~\ref{sec:kbguess} beschrieben automatisch gewählt.\\
 Die Parameter waren $N_a=500$, $N_c=1000$ und $F_c=0.997$. Bei den Semiprimzahlen wurde jede Zerlegung $20$-mal durchgeführt, bei den beliebigen Zahlen auf Grund des größeren Datensatzes nur $10$-mal. \\
-Für jedes $n$ wurde die Erfolgsrate bestimmt. Dabei wurden die Anzahl der erfolgreichen Zerlegungen der Zahlen der Länge $n$ aufsummiert und durch die Gesamtzahl aller Zerlegungen dividiert. Die Laufzeit wurde auf zwei Arten bestimmt. Zum einen wurden Analog zur Erfolgsrate einfach alle Laufzeiten zu jedem $n$ gemittelt, zum anderen wurde nur über die erfolgreichen Durchläufe gemittelt. Der Grund dafür ist, dass beide Mittelungen interessant sein können. Die eine gibt an, welche Zeit das Programm im Mittel benötigt, bis es unabhängig vom Ergebnis beendet wird, die andere, wie lange die erfolgreichen Zerlegungen im Mittel brauchen. \\
-\begin{figure}[h!]
+Für jedes $n$ wurde die Erfolgsrate bestimmt. Dabei wurden die Anzahl der erfolgreichen Zerlegungen der Zahlen der Länge $n$ aufsummiert und durch die Gesamtzahl aller Zerlegungen dividiert. Die Laufzeit wurde auf zwei Arten bestimmt. Zum einen wurden Analog zur Erfolgsrate einfach alle Laufzeiten zu jedem $n$ gemittelt, zum anderen wurde nur über die erfolgreichen Durchläufe gemittelt. Der Grund dafür ist, dass beide Mittelungen interessant sein können. Die eine gibt an, welche Zeit das Programm im Mittel benötigt, bis es unabhängig vom Ergebnis beendet wird, die andere, wie lange die erfolgreichen Zerlegungen im Mittel brauchen.\\
+
+\begin{figure}[!ht]
 		\centering
 		\includegraphics[height=0.35\textheight]{plot/runtime/success.pdf}
 		\caption{Erfolgsrate bei der Zerlegung von Semiprimzahlen}\label{fig:runtime-success}
 \end{figure}
-\begin{figure}[h!]
+
+\begin{figure}[!ht]
 		\centering
 		\includegraphics[height=0.35\textheight]{plot/runtime2/success.pdf}
 		\caption{Erfolgsrate bei der Zerlegung von beliebigen Zahlen}\label{fig:runtime2-success}
 \end{figure}
+
 Die dabei ermittelten Erfolgsraten wurden in Abb.~\ref{fig:runtime-success} und Abb.~\ref{fig:runtime2-success} dargestellt. \\
 In beiden Fällen erkennt man, dass die Erfolgsrate mit zunehmendem $n$ merklich abnimmt. Dies liegt daran, dass $N_a$ und $N_c$ für alle $N$ gleich belassen wurden. Der Bereich in dem $\left(a,a_1,b,b_1\right)$ liegen können wächst jedoch mit zunehmendem $n$, genauso wie die oberen Grenzen für $a$ und $b$. Für große $a$ und $b$ gibt es viel mehr mögliche Zahlen $A, B$ mit gegebenen $a_1$ und $b_1$. Dies bedeutet, dass bei großen $n$ ein geringerer Anteil der möglichen Zahlen $A$ und $B$ durchlaufen wird als bei kleinen $n$, somit sinkt auch die Wahrscheinlichkeit, die Faktoren zu finden.
-\begin{figure}[ht]
+
+\begin{figure}[!ht]
 		\centering
 		\includegraphics[height=0.35\textheight]{plot/runtime/time.pdf}
 		\caption{Laufzeiten bei der Zerlegung von Semiprimzahlen}\label{fig:runtime-runtime}
 \end{figure}
-\begin{figure}[ht]
+
+\begin{figure}[!ht]
 		\centering
 		\includegraphics[height=0.35\textheight]{plot/runtime2/time.pdf}
 		\caption{Laufzeiten bei der Zerlegung von beliebigen Zahlen}\label{fig:runtime2-runtime}
 \end{figure}
 
+Bei der Simulation wurden die gleichen Werte $N_a$ und $N_c$ nicht geändert und stellen somit konstante Faktoren dar. Die Laufzeit wächst nach einem $\mathcal{O}\left(n^5\right)$-Gesetz.
+
+
+
 \section{Laufzeitverhalten bei kompletter Zerlegung}
-Mit dem Programm \textit{factorize} wurde für $n=8,9,\dots,32$ die Zerlegung von Zahlen in alle ihre Primfaktoren untersucht. Dazu wurden für jedes $n$ zufällig $5$ Zahlen gezogen und jede davon $10$-mal zerlegt. Als Parameter wurden $N_a=1000$, $N_c=1000$ und $F_c=0.997$ gewählt.
-\begin{figure}[ht]
+Mit dem Programm \textit{factorize} wurde für $n=8,9,\dots,15$ die Zerlegung von Zahlen in alle ihre Primfaktoren untersucht. Dazu wurden für jedes $n$ zufällig $5$ Zahlen gezogen und jede davon $10$-mal zerlegt. Als Parameter wurden $N_a=1000$, $N_c=1000$ und $F_c=0.997$ gewählt. \\
+Die Werte für $N_a$ und $N_c$ wurden scheinbar recht hoch angesetzt, da alle Durchläufe erfolgreich waren. Die ermittelte Lauzeit ist in Abb.~\ref{fig:runtime-factorization}. Auch hier ist grob ein Wachstum mit $\mathcal{O}\left(n^5\right)$ erkennbar, dies würde darauf hindeuten, dass der erste Zerlegungsschritt den dominanten Beitrag zur Laufzeit liefert. Dies kann jedoch in künftigen Untersuchungen genauer überprüft werden. Es ist ein komplizierterer Zusammenhang zu erwarten, da die vollständige Zerlegung noch von der Zahl der Primfaktoren so wie deren Längen abhängt.
+
+\begin{figure}[!ht]
 		\centering
 		\includegraphics[height=0.35\textheight]{plot/factorization/time.pdf}
-		\caption{Laufzeitverhalten bei kompletter Zerlegung in Abhängigkeit der Zahlenlänge}
+		\caption{Laufzeitverhalten bei kompletter Zerlegung in Abhängigkeit der Zahlenlänge}\label{fig:runtime-factorization}
 \end{figure}
