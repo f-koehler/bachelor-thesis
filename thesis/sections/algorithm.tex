@@ -14,7 +14,7 @@ Im folgenden sollen zunächst einige Eigenschaften der binären Repräsentation 
 \section{\texorpdfstring{Abschätzung der Wertebereiche von $a,a_1,b,b_1$}{Abschätzung der Wertebereiche von a, a1, b, b1}}\label{sec:parameterspace}
 Die Zahlen $N,A,B$ werden im Dualsystem dargestellt. $a,b,n$ sollen dabei angeben, wie viele Stellen dafür unter Vernachlässigung führender Nullen erforderlich sind. $a_1$ bzw.\ $b_1$ geben dabei an, wie häufig die Ziffer $1$ in $A$ bzw. $B$ vorkommt. \\
 Der Algorithmus durchläuft alle möglichen Tupel $\left(a,a_1,b,b_1\right)$ (vgl.\ Abschnitt~\ref{sec:annealfac}). Deshalb sollte geprüft werden, inwieweit der Suchbereich bei gegebenem $N$ eingeschränkt werden kann. \\
-Die binäre Darstellung von $A$ bzw.\ $B$ kann maximal so lang sein wie die von $N$, d.h.\ $a\leq n\:\wedge\: b\leq n$. Wegen $p_i > 1$ ist $a>1\:\wedge\:b>1$. Es gibt allerdings noch Potential, die Wertebereiche für $a$ und $b$ zu reduzieren. \\
+Die binäre Darstellung von $A$ bzw.\ $B$ kann maximal so lang sein wie die von $N$, d.h.\ $a\leq n\:\wedge\: b\leq n$. Wegen $p_i > 1$ ist $a>1\:\wedge\:b>1$. Es gibt allerdings noch weiteres Potential, die Wertebereiche für $a$ und $b$ zu reduzieren. \\
 Durch $a,b,n$ sind die Wertebereiche der Zahlen $A,B,N$ auf
 \begin{align*}
 		2^{a-1}\leq &A \leq 2^a-1 \\
@@ -23,7 +23,7 @@ Durch $a,b,n$ sind die Wertebereiche der Zahlen $A,B,N$ auf
 \end{align*}
 eingeschränkt. Es ist $A\cdot B=N$, sodass bei maximalem $N$
 \begin{equation*}
-		\left(2^a-1\right)\left(2^b-1\right)=2^{a+b}-2^a-2^b+1<2^{a+b} \\
+		\big(2^a-1\big)\big(2^b-1\big)=2^{a+b}-2^a-2^b+1<2^{a+b} \\
 \end{equation*}
 gilt und $a+b$ Bits zur Darstellung von $N$ genügen. Für den Fall eines minimalen $N$ gilt analog
 \begin{align*}
@@ -67,11 +67,11 @@ auf
 		b_\mathrm{\min} \leq b \leq a &\quad\quad	1 \leq b_1 \leq b \label{eq:parameterspace2}
 \end{align}
 reduziert. Die Auswirkungen auf die Laufzeit werden in Abschnitt~\ref{sec:runtime-theo} betrachtet. \\
-Im nächsten Abschnitt wird zunächst ein Überblick über die Methode des Simulated Annealing gegeben werden.
+Im nächsten Abschnitt wird zunächst ein Überblick über die Methode des Simulated Annealing gegeben.
 
 \section{Simulated Annealing}
 Simulated Annealing ist eine Methode, um Optimierungsprobleme zu lösen, die sehr komplex sind~\parencite{nr}. Dies ist der Fall wenn für die Parameter ein großer Wertebereich zulässig ist, die Dimensionalität des Problems, d.h.\ die Anzahl der Parameter, hoch ist oder es neben dem gesuchten globalen Extremum viele lokale Extrema gibt. \\
-Zu einer gegebenem Temperatur wird eine adäquate Anfangskonfiguration gewählt, z.B.\ bei einer hohen Temperatur eine zufällige Konfiguration. Dann werden Annealing Schritte ausgeführt, d.h.\ die Temperatur sukzessive gesenkt. Nach jeder Temperatursenkung wird eine ausreichende Anzahl an Metropolisschritten durchgeführt. Dazu wird jeweils eine leichte Modifikation am aktuellen Systemzustand vorgenommen. Verringert die neue Konfiguration die Energie respektive eine analog dazu definierte Kostenfunktion, so wird die Änderung akzeptiert, ansonsten nur mit einer Wahrscheinlichkeit von $p=\exp\left(-\frac{\Delta E}{k_\mathrm{B}T}\right)$. Auf diese Art und Weise wird versucht, das System zu equilibrieren.
+Zu einer gegebenem Temperatur wird eine adäquate Anfangskonfiguration gewählt, z.B.\ bei einer hohen Temperatur eine zufällige Konfiguration. Dann werden Annealing Schritte ausgeführt, d.h.\ die Temperatur sukzessive gesenkt. Nach jeder Temperatursenkung wird eine ausreichende Anzahl an Metropolisschritten durchgeführt. Dazu wird jeweils eine leichte Modifikation am aktuellen Systemzustand vorgenommen. Verringert die neue Konfiguration die Energie respektive eine analog dazu definierte Kostenfunktion, so wird die Änderung akzeptiert, ansonsten nur mit einer Wahrscheinlichkeit von $p=\exp\left(-\frac{\Delta E}{k_\mathrm{B}T}\right)$. Auf diese Art und Weise wird versucht, das System zu äquilibrieren.
 
 \section{Anwendung von Simulated Annealing auf die Primfaktorzerlegung}\label{sec:annealfac}
 Zunächst wird eine Energiedefinition eingeführt, um Simulated Annealing auf das Problem der Primfaktorzerlegung anwenden zu können.
@@ -100,7 +100,7 @@ Der Ablauf eines Metropolisschrittes ist in Algorithmus~\ref{alg:metropolis} dar
 Eine neue Konfiguration wird also auf jeden Fall akzeptiert, wenn sie die Energie vergrößert, ansonsten mit einer über einen Boltzmann-Faktor gegebene Wahrscheinlichkeit. Dabei ist $k_\mathrm{B}$ ein Analogon zur physikalischen Boltzmann-Konstanten. Hier wird sie je nach Problem unterschiedlich gewählt, um das Wachsen der Energieskala mit zunehmendem $n$ auszugleichen, damit eine geeignete Akzeptanzwahrscheinlichkeit ungünstigerer Konfigurationen gewährleistet ist. Dies wird im Abschnitt~\ref{sec:kbguess} genauer untersucht. \\
 Der Metropolis-Algorithmus~\ref{alg:metropolis} wird im Rahmen des in Algorithmus~\ref{alg:anneal} dargestellten Annealing-Verfahrens aufgerufen. Es wird mit einer Temperatur von $T_0=1$ begonnen. Dann werden $N_a$ Annealing-Schritte durchgeführt und dabei jeweils $N_c$ Metropolis-Schritte durchgeführt. \\
 Diese Prozedur wird für jedes erlaubte $4$-Tupel $\left(a,a_1,b,b_1\right)$ durchgeführt. Diesem Zweck dienen die $4$ Schleifen in Algorithmus~\ref{alg:factorize}. \\
-Für jedes Tupel $\left(a,a_1\right)$ wird eine zufällige binäre Zahl $A$ mit $a$ Stellen, von denen $a_1$ auf $1$ gesetzt sind. Analog wird für jedes Tupel $\left(b,b_1\right)$ eine entsprechende Zahl $B$ erstellt. Anschließend wird die anfängliche Energie berechnet. Außerdem wird das Produkt $A\cdot B$ berechnet, sodass das Programm abgebrochen werden kann, falls zufällig direkt eine Zerlegung der Zahl $N$ in zwei Faktoren gefunden wurde. Ansonsten wird das in Algorithmus~\ref{alg:anneal} beschriebene Annealing durchgeführt.
+Für jedes Tupel $\left(a,a_1\right)$ wird eine zufällige binäre Zahl $A$ mit $a$ Stellen gezogen, von denen $a_1$ auf $1$ gesetzt sind. Analog wird für jedes Tupel $\left(b,b_1\right)$ eine entsprechende Zahl $B$ erstellt. Anschließend wird die anfängliche Energie berechnet. Außerdem wird das Produkt $A\cdot B$ berechnet, sodass das Programm abgebrochen werden kann, falls zufällig direkt eine Zerlegung der Zahl $N$ in zwei Faktoren gefunden wird. Ansonsten wird das in Algorithmus~\ref{alg:anneal} beschriebene Annealing durchgeführt.
 \input{./pseudocode/metropolis.tex}
 \input{./pseudocode/anneal.tex}
 \input{./pseudocode/factorize.tex}
