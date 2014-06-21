@@ -1,4 +1,5 @@
 # bachelor-thesis
+Prime factorization is an interesting problem as it is not efficiently solvable on a classical computer with any known algorithm. This fact is used in modern cryptograpy methods. In this thesis, a method based on simulated annealing will be examined. It could be shown that one factorization step can be done in polynomial time.
 
 ## Required programs (tested versions)
 * GNU make 4.0
