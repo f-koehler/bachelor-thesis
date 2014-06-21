@@ -22,7 +22,6 @@ plt.xlabel("$n^4$")
 plt.ylabel("$T/\\si{\\second}$")
 plt.xticks((n**4), ["$"+str(int(_n))+"^4$" for _n in n])
 plt.grid()
-plt.legend(loc=2)
 plt.savefig("plot/factorization/time.pdf")
 plt.close()
 

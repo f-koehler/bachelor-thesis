@@ -77,12 +77,12 @@ Im nächsten Abschnitt wird zunächst ein Überblick über die Methode des Simul
 
 \section{Simulated Annealing}
 Simulated Annealing ist eine Methode, um Optimierungsprobleme zu lösen, die sehr komplex sind~\parencite{nr}. Dies ist der Fall wenn für die Parameter ein großer Wertebereich zulässig ist, die Dimensionalität des Problems, d.h.\ die Anzahl der Parameter, hoch ist oder es neben dem gesuchten globalen Extremum viele lokale Extrema gibt. \\
-Zu einer gegebenem Temperatur wird eine adäquate Anfangskonfiguration gewählt, z.B.\ bei einer hohen Temperatur eine zufällige Konfiguration. Dann werden Annealing Schritte ausgeführt, d.h.\ die Temperatur sukzessive gesenkt. Nach jeder Temperatursenkung wird eine ausreichende Anzahl an Metropolisschritten durchgeführt. Dazu wird jeweils eine leichte Modifikation am aktuellen Systemzustand vorgenommen. Verringert die neue Konfiguration die Energie respektive eine analog dazu definierte Kostenfunktion, so wird die Änderung akzeptiert, ansonsten nur mit einer Wahrscheinlichkeit von $p=\exp\left(-\frac{\Delta E}{k_\mathrm{B}T}\right)$. Auf diese Art und Weise wird versucht, das System zu äquilibrieren.
+Zu einer gegebenem Temperatur wird eine adäquate Anfangskonfiguration gewählt, z.B.\ bei einer hohen Temperatur eine zufällige Konfiguration. Dann werden Annealing Schritte ausgeführt, d.h.\ die Temperatur sukzessive gesenkt. Nach jeder Temperatursenkung wird eine ausreichende Anzahl an Metropolisschritten durchgeführt. Dazu wird jeweils eine leichte Modifikation am aktuellen Systemzustand vorgenommen. Verringert die neue Konfiguration die Energie, respektive eine analog dazu definierte Kostenfunktion, so wird die Änderung akzeptiert, ansonsten nur mit einer Wahrscheinlichkeit von $p=\exp\left(-\frac{\Delta E}{k_\mathrm{B}T}\right)$. Auf diese Art und Weise wird versucht, das System zu äquilibrieren.
 
 
 
 \section{Anwendung von Simulated Annealing auf die Primfaktorzerlegung}\label{sec:annealfac}
-Zunächst wird eine Energiedefinition eingeführt, um Simulated Annealing auf das Problem der Primfaktorzerlegung anwenden zu können.
+Damit Simulated Annealing auf das das Problem der Primfaktorzerlegung angewendet werden kann, wird zunächst eine Energiedefinition eingeführt. Hier wird
 \begin{equation*}
 		E\left(A,B,N\right)=\sum\limits_{i=1}^n\begin{cases}
 		  		f\left(i\right) & \mathrm{falls}\:{\left\{A\cdot B\right\}}_i={\left\{N\right\}}_i \\
@@ -90,10 +90,10 @@ Zunächst wird eine Energiedefinition eingeführt, um Simulated Annealing auf da
 				\end{cases}
 \end{equation*}
 gewählt. Dabei bezeichne die Schreibweise ${\left\{Z\right\}}_i$ die $i$-te Stelle der binären Repräsentation einer Zahl $Z$, wobei $i=0$ das niederwertigste Bit ist. $f\left(i\right)$ ist eine monoton steigende Funktion, z.B. $f\left(i\right)=i$ oder $f\left(i\right)=i^2$. Die Energie wächst mit der Übereinstimmung des Produktes $A\cdot B$ mit $N$, wobei die höherwertigen Bits ein größeres Gewicht haben. Bei dieser Energiedefinition gilt es also ein Maximum zu finden und kein Minimum. \\
-Für das Simulated Annealing wird für jedes $4$-Tupel $\left(a,b,a_1,b_1\right)$ mit einer Temperatur $T_0=1$ begonnen, um dann $N_a$ Annealing-Schritte durchzuführen. Dabei wird das System jeweils um einen Faktor $F_c < 1$ abgekühlt, sodass $T_{i+1}=F_c\cdot T_i$. Vor jedem Abkühlen werden $N_c$ Konfiguration getestet. Dies geschieht mit Hilfe des Metropolis-Algorithmus~\parencite{metropolis}. \\
+Für das Simulated Annealing wird für jedes $4$-Tupel $\left(a,b,a_1,b_1\right)$ mit einer Temperatur $T_0=1$ begonnen, um dann $N_a$ Annealing-Schritte durchzuführen. Dabei wird das System jeweils um einen Faktor $F_c < 1$ abgekühlt, sodass $T_{i+1}=F_c\cdot T_i$. Vor jedem Abkühlen werden $N_c$ Konfigurationen getestet. Dies geschieht mit Hilfe des Metropolis-Algorithmus~\parencite{metropolis}. \\
 Zunächst sollen einige notwendige, grundlegende Operationen zur Modifikation von binären Zahlen eingeführt werden. Diese lassen die Länge der Binärzahl und die Anzahl der auf $1$ bzw. $0$ gesetzten Bits invariant und werden verwendet, um Variationen einer Konfiguration zu generieren.
 \begin{itemize}
-		\item \textbf{swap:} Es werden zwei Bits zufällig vertauscht, wovon eines eine $1$ und das andere eine $0$ ist.
+		\item \textbf{swap:} Es werden zwei Bits zufällig vertauscht, wobei darauf zu achten ist, dass eines auf $1$ gesetzt ist und das andere auf $0$.
 		\item \textbf{slide:} Es wird eine durchgängige Sequenz an Bits zufällig ausgewählt und das Bit ganz rechts entfernt. Danach werden alle anderen Bits nach rechts durchgeschoben und das entfernte Bit links wieder eingefügt.
 		\item \textbf{reverse:} Es wird eine zufällige Sequenz an Bits ausgewählt und ihre Reihenfolge invertiert.
 		\item \textbf{random:} Es werden Bits zufällig ausgewählt und zufällig permutiert.
