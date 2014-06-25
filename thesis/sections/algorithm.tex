@@ -132,7 +132,7 @@ Metropolis-Schritte durchgeführt. Mit dem kleineren Suchbereich gemäß Gleichu
 \begin{equation}
 		R_2\left(n\right)=\sum\limits_{a=a_\mathrm{\min}}^{n}\sum\limits_{a_1=1}^{a}\sum\limits_{b=b_\mathrm{\min}}^{a}\sum\limits_{b_1=1}^{b}N_a\cdot N_c\label{eq:runtime-theo-opt}.
 \end{equation}
-In beiden Fällen ist grob eine Laufzeit von $\mathcal{O}\left(n^4\cdot N_a\cdot N_c\right)$ zu erwarten, weil die Anzahl der Summanden in jeder Summe linear mit $n$ wächst. \\
+In beiden Fällen ist grob eine Laufzeit von $\mathcal{O}\left(n^4\cdot N_a\cdot N_c\right)$ zu erwarten, weil die Anzahl der Summanden in jeder Summe linear mit $n$ wächst.
 
 \begin{figure}[!ht]
 		\centering
@@ -140,7 +140,7 @@ In beiden Fällen ist grob eine Laufzeit von $\mathcal{O}\left(n^4\cdot N_a\cdot
 		\caption{Theoretische Laufzeiten nach Gln.~\eqref{eq:runtime-theo} und~\eqref{eq:runtime-theo-opt}}\label{fig:runtime-theo}
 \end{figure}
 
-Die Gleichungen~\eqref{eq:runtime-theo} und~\eqref{eq:runtime-theo-opt} wurden numerisch ausgewertet und in Abb.~\ref{fig:runtime-theo} graphisch dargestellt.\\
+Die Gleichungen~\eqref{eq:runtime-theo} und~\eqref{eq:runtime-theo-opt} wurden numerisch ausgewertet und in Abb.~\ref{fig:runtime-theo} graphisch dargestellt.
 
 \begin{figure}[!ht]
 		\centering
@@ -152,7 +152,7 @@ Außerdem wurde die Abweichung
 \begin{equation*}
 		1-\frac{R_2\left(n\right)}{R_1\left(n\right)}
 \end{equation*}
-berechnet und in Abb.~\ref{fig:runtime-theo-comparison} dargestellt, um die Verbesserung der Laufzeit durch den kleineren Parameterbereich darzustellen. Dabei ist festzustellen, dass durch die Einschränkungen im ungünstigsten Fall $\SI{16}{\percent}$ weniger Metropolisschritte erforderlich sind. \\
+berechnet und in Abb.~\ref{fig:runtime-theo-comparison} aufgetragen, um die Verbesserung der Laufzeit durch den kleineren Parameterbereich darzustellen. Dabei ist festzustellen, dass durch die Einschränkungen im ungünstigsten Fall $\SI{16}{\percent}$ weniger Metropolisschritte erforderlich sind. \\
 Nun vergleichen wir dieses Verhalten mit dem Zahlkörpersieb, welches eine Laufzeit von 
 \begin{equation}
 		r_\mathrm{sieve}\approx\exp\left(c\cdot{\left(\log N\right)}^\frac{2}{3}{\left(\log\log N\right)}^\frac{1}{3}\right)\label{eq:runtime-sieve}
