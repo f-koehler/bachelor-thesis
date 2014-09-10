@@ -1,0 +1,69 @@
+\section{Simulated-Annealing-Methode}
+
+\begin{frame}
+  \frametitle{Grundidee}
+  \begin{itemize}
+    \item $A$, $B$ und $N$ werden als binäre Zahlen dargestellt
+    \item $a$, $b$ und $n$ sind die Längen der Zahlen
+    \pause
+    \item $a_1$ und $b_1$ sind die Zahlen der $1$en
+      \begin{align*}
+        2 \leq a \leq n \quad&\quad 1 \leq a_1 \leq a \\
+        2 \leq b \leq a \quad&\quad	1 \leq b_1 \leq b
+      \end{align*}
+    \pause
+    \item Der Suchbereich kann eingeschränkt werden (ca. $16\%$)
+      \begin{align*}
+        a_{\mathrm{min}}&=\begin{cases} 2 & \mathrm{falls}\;\; \lf\frac{n}{2}\rf=1 \\ \lf\frac{n}{2}\rf & \mathrm{sonst} \end{cases} \\
+        b_{\mathrm{min}}&=\begin{cases} 2 & \mathrm{falls}\;\; n-a=1 \\ n-a & \mathrm{sonst} \end{cases}
+      \end{align*}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Vorgehen}
+  \begin{enumerate}
+    \item Einführung einer Energiedefinition
+    \pause{}
+    \item Operationen zur Modifikation des Zustandes
+    \pause{}
+    \item Algorithmus zur Akzeptanz oder Zurückweisung des neuen Zustandes
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Energiedefinition}
+  Es wird eine Energiedefinition eingeführt:
+  \begin{equation*}
+    E\left(A,B,N\right)=\sum\limits_{i=1}^N\begin{cases}f\left(i\right) & \mathrm{falls} {\left\{A\cdot B\right\}}_i={\left\{N\right\}}_i \\ 0 & \mathrm{sonst}\end{cases}
+  \end{equation*}
+  $f\left(i\right)$ ist eine monoton steigende Funktion, z.B. $f\left(i\right)=i$ oder $f\left(i\right)=i^2$. \\
+  \Rightarrow{} Übereinstimmung von $A\cdot B$ mit $N$ erhöht die Energie \\
+  \Rightarrow{} Energie soll maximiert werden
+\end{frame}
+
+\begin{frame}
+  \frametitle{Operationen}
+  \begin{itemize}
+    \setlength{\itemsep}{5pt}
+    \item\textbf{Swap:} Tausche zwei zufällige Bits mit unterschiedlichem Wert
+    \item\textbf{Reverse:} Zufällige Bitsequenz umkehren
+    \item\textbf{Slide:} Es wird eine zufällige Bitsequenz nach rechts geschoben
+    \item\textbf{Shuffle:} Bits zufällig auswählen und permutieren
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Metropolis-Algorithmus}
+  \input{pseudocode/metropolis-beamer.tex}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Annealing-Algorithmus}
+  \input{pseudocode/anneal-beamer.tex}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Zerlegungsschritt}
+  \input{pseudocode/factorize-beamer.tex}
+\end{frame}

@@ -1,0 +1,41 @@
+\section{Einleitung}
+
+\begin{frame}
+  \frametitle{Definition: Primfaktorzerlegung}
+  \begin{definition}
+    Die Darstellung
+    \begin{equation*}
+      N=\prod\limits_{i=1}^M p_i^{m_i}.
+    \end{equation*}
+    einer Zahl $N\in\mathbb{N}$ mit Primzahlen $p_1,\dots,p_M$ mit $p_i \neq p_j$ für $i \neq j$ und Exponenten $m_1,\dots,m_M\in\mathbb{N}$ ist die \textit{Primfaktorzerlegung} der Zahl $N$.
+  \end{definition}
+  \pause{}
+
+  Zerlegung kann rekursiv aufgebaut werden:
+  \begin{equation*}
+    N=A\cdot B
+  \end{equation*}
+  \Rightarrow{} $A, B$ weiterzerlegen
+\end{frame}
+
+\begin{frame}
+  \frametitle{Bedeutung der Primfaktorzerlegung}
+  \begin{itemize}
+    \item Primfaktorzerlegung wichtig in der Kryptografie
+    \begin{itemize}
+      \item Test
+    \end{itemize}
+    \item ``Harte Probleme'' generell interessant
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Lösungsansätze}
+  \begin{itemize}
+    \item ``Brute Force'' (durchprobieren aller Lösungen)
+    \item Zahlkörpersieb $\mathcal{O}\left(\exp\left(c\cdot {\left(\log n\right)}^{\frac{2}{3}}{\left(\log\log n\right)}^{\frac{1}{3}}\right)\right)$
+    \item Shor-Algorithmus auf Quantencomputern $\mathcal{O}\left(n^2 \log n \log\log n\right)$\cite{shor}
+    \item Adiabatic Quantum Computing
+    \item Simulated Annealing
+  \end{itemize}
+\end{frame}

@@ -1,0 +1,92 @@
+\documentclass[compress]{beamer}
+
+% Lua stuff and fixes
+\usepackage{fixltx2e}
+\usepackage{letltxmacro}
+\usepackage{expl3}
+\usepackage{xparse}
+\usepackage{luacode}
+\usepackage{luatexbase}
+\RequireLuaModule{lualibs}
+
+% german orthography
+\usepackage[english, ngerman]{babel}
+\selectlanguage{ngerman}
+
+% font loading, required for unicode
+\usepackage{fontspec}
+
+% common math packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+% use latin modern fonts
+\usepackage{lmodern}
+
+% bold math
+\usepackage{bm}
+
+% graphics
+\usepackage{graphicx}
+
+% pseudocode in latex
+\usepackage[Algorithmus]{algorithm}
+\usepackage[noend]{algpseudocode}
+
+% bibliography
+\usepackage[
+  strict=true,
+  autostyle=true,
+  babel,
+  german=quotes
+]{csquotes}
+\usepackage[
+		backend=biber,
+		sortlocale=de_DE.UTF-8,
+		maxnames=99
+]{biblatex}
+
+\usetheme{Dresden}
+%\usecolortheme[named=DarkBlue]{structure}
+\usecolortheme{rose}
+%\usecolortheme{whale}
+%\usefonttheme{serif}
+\usefonttheme{professionalfonts}
+\setbeamertemplate{navigation symbols}{}
+%\setbeamertemplate{footline}{\hfill \hbox{\insertframenumber/\inserttotalframenumber \hspace{1em}\rule[-1em]{0pt}{0pt}}}
+%\useoutertheme[subsection=false]{miniframes}
+
+\NewDocumentCommand\makebibliography{}{\printbibliography[heading=bibintoc]}
+
+\newcommand{\frameofframes}{/}
+\newcommand{\setframeofframes}[1]{\renewcommand{\frameofframes}{#1}}
+
+\setframeofframes{of}
+\makeatletter
+\setbeamertemplate{footline}{
+  \begin{beamercolorbox}[colsep=1.5pt]{upper separation line foot}
+  \end{beamercolorbox}
+  \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,
+    leftskip=.3cm,rightskip=.3cm plus1fil]{author in head/foot}
+    \leavevmode{\usebeamerfont{author in head/foot}\insertshortauthor}
+    \hfill
+    {\usebeamerfont{institute in head/foot}\usebeamercolor[fg]{institute in head/foot}\insertshortinstitute}
+  \end{beamercolorbox}
+  \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,
+    leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}
+    {\usebeamerfont{title in head/foot}\insertshorttitle}
+    \hfill%
+    %{\usebeamerfont{frame number}\usebeamercolor[fg]{frame number}\insertframenumber~\frameofframes~\inserttotalframenumber}
+    {\usebeamerfont{frame number}\usebeamercolor[fg]{frame number}\insertframenumber~/~\inserttotalframenumber}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[colsep=1.5pt]{lower separation line foot}
+  \end{beamercolorbox}
+}
+\makeatother
+
+% floor commands
+\def\lf{\left\lfloor}   
+\def\rf{\right\rfloor}
+
+\parindent0pt

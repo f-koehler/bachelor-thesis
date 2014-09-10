@@ -3,12 +3,13 @@ PY=python3
 
 HEADERS=$(wildcard header/*.tex)
 SECTIONS=$(wildcard sections/*.tex)
+SLIDES=$(wildcard slides/*.tex)
 PSEUDOCODE=$(wildcard pseudocode/*.tex)
 MATPLOTLIB=matplotlibrc header/matplotlib.tex
 PLOTS=plot/runtime-theo/runtime.pdf plot/runtime-theo/comparison.pdf plot/runtime-sieve/plot.pdf plot/kbguess/time.pdf plot/runtime/time.pdf plot/runtime2/time.pdf plot/factorization/time.pdf plot/parallelization/plot.pdf plot/dummy/dummy.pdf
 BIB=literature.bib
 
-all: build/thesis.pdf build/thesis-print.pdf
+all: build/thesis.pdf build/thesis-print.pdf build/talk.pdf
 
 # analyse data
 data/runtime-theo/data.txt: data/runtime-theo/runtime.py
@@ -46,11 +47,15 @@ plot/parallelization/plot.pdf: plot/parallelization/plot.py data/parallelization
 plot/dummy/dummy.pdf: plot/dummy/plot.py $(MATPLOTLIB)
 	$(PY) $<
 
-# build the thesis
+# build thesis
 build/thesis.pdf: thesis.tex $(HEADERS) $(SECTIONS) $(PSEUDOCODE) $(BIB) $(PLOTS)
 	$(TEX) $< thesis
 build/thesis-print.pdf: thesis.tex $(HEADERS) $(SECTIONS) $(PSEUDOCODE) $(BIB) $(PLOTS)
 	$(TEX) $< thesis-print
+
+# build talk
+build/talk.pdf: talk.tex $(HEADERS) $(SLIDES) $(PSEUDOCODE) $(BIB) $(PLOTS)
+	$(TEX) $< talk
 
 .PHONY: clean
 clean:
