@@ -1,0 +1,5004 @@
+semiprime
+node055
+node055
+node055
+node055
+node055
+node055
+node055
+node055
+
+Thu May 29 02:06:11 CEST 2014
+--- START ---
+/home/fkoehler/clusterpack/jobs/semiprime
+=====================
+ Parameters:
+=====================
+N1 = 241
+N2 = 241
+N  = 58081
+Nc = 500000
+Na = 600
+Fc = 0.997
+kB = 61.1343
+Threads: 8
+
+=====================
+ Run 1/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 11710 mus
+
+
+=====================
+ Run 2/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 4827 mus
+
+
+=====================
+ Run 3/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 3840 mus
+
+
+=====================
+ Run 4/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 10498 mus
+
+
+=====================
+ Run 5/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 6486 mus
+
+
+=====================
+ Run 6/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 10113 mus
+
+
+=====================
+ Run 7/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 3984 mus
+
+
+=====================
+ Run 8/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 3709 mus
+
+
+=====================
+ Run 9/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 6790 mus
+
+
+=====================
+ Run 10/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 7670 mus
+
+
+=====================
+ Run 11/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 7237 mus
+
+
+=====================
+ Run 12/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 4396 mus
+
+
+=====================
+ Run 13/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 4380 mus
+
+
+=====================
+ Run 14/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 4995 mus
+
+
+=====================
+ Run 15/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 6186 mus
+
+
+=====================
+ Run 16/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 6146 mus
+
+
+=====================
+ Run 17/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 6857 mus
+
+
+=====================
+ Run 18/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 7526 mus
+
+
+=====================
+ Run 19/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 6211 mus
+
+
+=====================
+ Run 20/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 8109 mus
+
+
+=====================
+ Run 21/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 6350 mus
+
+
+=====================
+ Run 22/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 9239 mus
+
+
+=====================
+ Run 23/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 6807 mus
+
+
+=====================
+ Run 24/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 5527 mus
+
+
+=====================
+ Run 25/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 9041 mus
+
+
+=====================
+ Run 26/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 6769 mus
+
+
+=====================
+ Run 27/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 8535 mus
+
+
+=====================
+ Run 28/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 5692 mus
+
+
+=====================
+ Run 29/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 15338 mus
+
+
+=====================
+ Run 30/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 3751 mus
+
+
+=====================
+ Run 31/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 3473 mus
+
+
+=====================
+ Run 32/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 3527 mus
+
+
+=====================
+ Run 33/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 3534 mus
+
+
+=====================
+ Run 34/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 5545 mus
+
+
+=====================
+ Run 35/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 5231 mus
+
+
+=====================
+ Run 36/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 4519 mus
+
+
+=====================
+ Run 37/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 5799 mus
+
+
+=====================
+ Run 38/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 5571 mus
+
+
+=====================
+ Run 39/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 2779 mus
+
+
+=====================
+ Run 40/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 3832 mus
+
+
+=====================
+ Run 41/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 3751 mus
+
+
+=====================
+ Run 42/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 6665 mus
+
+
+=====================
+ Run 43/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 5954 mus
+
+
+=====================
+ Run 44/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 6905 mus
+
+
+=====================
+ Run 45/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 6689 mus
+
+
+=====================
+ Run 46/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 8799 mus
+
+
+=====================
+ Run 47/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 6260 mus
+
+
+=====================
+ Run 48/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 9138 mus
+
+
+=====================
+ Run 49/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 3838 mus
+
+
+=====================
+ Run 50/50:
+=====================
+Success!
+Factors: 241 241
+Duration: 5905 mus
+
+
+=====================
+ Parameters:
+=====================
+N1 = 48647
+N2 = 48611
+N  = 2364779317
+Nc = 1000000
+Na = 600
+Fc = 0.997
+kB = 467.498
+Threads: 8
+
+=====================
+ Run 1/50:
+=====================
+Completion: 5.01105%
+Completion: 11.0498%
+Completion: 17.1332%
+Completion: 22.7318%
+Success!
+Factors: 48647 48611
+Duration: 35645003 mus
+
+
+=====================
+ Run 2/50:
+=====================
+Success!
+Factors: 48647 48611
+Duration: 3170060 mus
+
+
+=====================
+ Run 3/50:
+=====================
+Completion: 5.43972%
+Completion: 9.91372%
+Completion: 16.3141%
+Success!
+Factors: 48647 48611
+Duration: 31002007 mus
+
+
+=====================
+ Run 4/50:
+=====================
+Completion: 5.70794%
+Success!
+Factors: 48647 48611
+Duration: 9587020 mus
+
+
+=====================
+ Run 5/50:
+=====================
+Completion: 5.02109%
+Success!
+Factors: 48647 48611
+Duration: 8064644 mus
+
+
+=====================
+ Run 6/50:
+=====================
+Completion: 5.57864%
+Completion: 12.0611%
+Completion: 16.949%
+Completion: 22.8735%
+Completion: 27.4226%
+Success!
+Factors: 48647 48611
+Duration: 43372317 mus
+
+
+=====================
+ Run 7/50:
+=====================
+Completion: 5.70775%
+Success!
+Factors: 48647 48611
+Duration: 14203992 mus
+
+
+=====================
+ Run 8/50:
+=====================
+Completion: 4.97292%
+Completion: 10.166%
+Completion: 15.8318%
+Completion: 22.7532%
+Success!
+Factors: 48647 48611
+Duration: 35781789 mus
+
+
+=====================
+ Run 9/50:
+=====================
+Completion: 5.60883%
+Success!
+Factors: 48647 48611
+Duration: 16403130 mus
+
+
+=====================
+ Run 10/50:
+=====================
+Completion: 5.7914%
+Success!
+Factors: 48647 48611
+Duration: 9800542 mus
+
+
+=====================
+ Run 11/50:
+=====================
+Completion: 5.63384%
+Completion: 11.5885%
+Success!
+Factors: 48647 48611
+Duration: 17671658 mus
+
+
+=====================
+ Run 12/50:
+=====================
+Success!
+Factors: 48647 48611
+Duration: 3825373 mus
+
+
+=====================
+ Run 13/50:
+=====================
+Success!
+Factors: 48647 48611
+Duration: 2525689 mus
+
+
+=====================
+ Run 14/50:
+=====================
+Completion: 4.58598%
+Completion: 9.99469%
+Success!
+Factors: 48647 48611
+Duration: 14926399 mus
+
+
+=====================
+ Run 15/50:
+=====================
+Success!
+Factors: 48647 48611
+Duration: 4350319 mus
+
+
+=====================
+ Run 16/50:
+=====================
+Completion: 6.01667%
+Completion: 11.3097%
+Completion: 17.1934%
+Completion: 22.9888%
+Success!
+Factors: 48647 48611
+Duration: 39487649 mus
+
+
+=====================
+ Run 17/50:
+=====================
+Completion: 4.59294%
+Completion: 10.3842%
+Completion: 15.6514%
+Completion: 21.3344%
+Completion: 26.6225%
+Completion: 31.6015%
+Success!
+Factors: 48647 48611
+Duration: 47372361 mus
+
+
+=====================
+ Run 18/50:
+=====================
+Success!
+Factors: 48647 48611
+Duration: 1581068 mus
+
+
+=====================
+ Run 19/50:
+=====================
+Success!
+Factors: 48647 48611
+Duration: 361795 mus
+
+
+=====================
+ Run 20/50:
+=====================
+Completion: 5.81783%
+Success!
+Factors: 48647 48611
+Duration: 9315103 mus
+
+
+=====================
+ Run 21/50:
+=====================
+Completion: 4.91145%
+Completion: 10.3508%
+Completion: 16.0989%
+Completion: 21.9652%
+Completion: 27.4739%
+Completion: 33.1109%
+Completion: 38.2452%
+Completion: 44.0287%
+Completion: 50.2806%
+Completion: 55.3756%
+Completion: 60.7293%
+Completion: 67.2747%
+Success!
+Factors: 48647 48611
+Duration: 102996301 mus
+
+
+=====================
+ Run 22/50:
+=====================
+Completion: 4.40211%
+Completion: 8.76619%
+Completion: 13.139%
+Success!
+Factors: 48647 48611
+Duration: 19710889 mus
+
+
+=====================
+ Run 23/50:
+=====================
+Completion: 5.35764%
+Completion: 11.2161%
+Success!
+Factors: 48647 48611
+Duration: 23209678 mus
+
+
+=====================
+ Run 24/50:
+=====================
+Completion: 5.57717%
+Completion: 11.5691%
+Completion: 16.6803%
+Completion: 22.4016%
+Completion: 27.5267%
+Completion: 32.1273%
+Completion: 36.5299%
+Completion: 41.1871%
+Completion: 45.5467%
+Success!
+Factors: 48647 48611
+Duration: 71308272 mus
+
+
+=====================
+ Run 25/50:
+=====================
+Completion: 5.1979%
+Success!
+Factors: 48647 48611
+Duration: 13191411 mus
+
+
+=====================
+ Run 26/50:
+=====================
+Completion: 5.79898%
+Completion: 11.8934%
+Success!
+Factors: 48647 48611
+Duration: 21226457 mus
+
+
+=====================
+ Run 27/50:
+=====================
+Success!
+Factors: 48647 48611
+Duration: 5577222 mus
+
+
+=====================
+ Run 28/50:
+=====================
+Success!
+Factors: 48647 48611
+Duration: 5085751 mus
+
+
+=====================
+ Run 29/50:
+=====================
+Success!
+Factors: 48647 48611
+Duration: 158512 mus
+
+
+=====================
+ Run 30/50:
+=====================
+Completion: 5.15465%
+Success!
+Factors: 48647 48611
+Duration: 8618001 mus
+
+
+=====================
+ Run 31/50:
+=====================
+Completion: 4.35783%
+Completion: 8.71619%
+Completion: 13.0833%
+Completion: 17.4457%
+Completion: 21.8014%
+Completion: 26.1653%
+Success!
+Factors: 48647 48611
+Duration: 41455201 mus
+
+
+=====================
+ Run 32/50:
+=====================
+Completion: 6.68722%
+Completion: 11.9157%
+Success!
+Factors: 48647 48611
+Duration: 18941096 mus
+
+
+=====================
+ Run 33/50:
+=====================
+Completion: 5.97537%
+Completion: 11.673%
+Completion: 17.0817%
+Success!
+Factors: 48647 48611
+Duration: 26630330 mus
+
+
+=====================
+ Run 34/50:
+=====================
+Completion: 6.71921%
+Success!
+Factors: 48647 48611
+Duration: 17728886 mus
+
+
+=====================
+ Run 35/50:
+=====================
+Success!
+Factors: 48647 48611
+Duration: 493447 mus
+
+
+=====================
+ Run 36/50:
+=====================
+Completion: 5.55444%
+Completion: 10.8201%
+Completion: 16.4992%
+Completion: 21.5685%
+Completion: 27.086%
+Success!
+Factors: 48647 48611
+Duration: 46199310 mus
+
+
+=====================
+ Run 37/50:
+=====================
+Success!
+Factors: 48647 48611
+Duration: 2415773 mus
+
+
+=====================
+ Run 38/50:
+=====================
+Completion: 5.47681%
+Completion: 11.078%
+Completion: 17.0268%
+Completion: 22.5061%
+Completion: 28.5665%
+Completion: 34.2264%
+Completion: 39.3953%
+Completion: 44.4164%
+Completion: 49.4586%
+Completion: 54.4795%
+Completion: 59.5057%
+Completion: 64.5331%
+Completion: 69.5659%
+Success!
+Factors: 48647 48611
+Duration: 99466172 mus
+
+
+=====================
+ Run 39/50:
+=====================
+Completion: 4.39921%
+Success!
+Factors: 48647 48611
+Duration: 6616619 mus
+
+
+=====================
+ Run 40/50:
+=====================
+Completion: 4.39456%
+Completion: 10.162%
+Completion: 15.2569%
+Success!
+Factors: 48647 48611
+Duration: 27761962 mus
+
+
+=====================
+ Run 41/50:
+=====================
+Completion: 5.92381%
+Completion: 11.7403%
+Completion: 16.5306%
+Completion: 22.2415%
+Completion: 27.6011%
+Completion: 32.3441%
+Completion: 37.2276%
+Success!
+Factors: 48647 48611
+Duration: 59218586 mus
+
+
+=====================
+ Run 42/50:
+=====================
+Completion: 5.02306%
+Completion: 10.0505%
+Success!
+Factors: 48647 48611
+Duration: 17005325 mus
+
+
+=====================
+ Run 43/50:
+=====================
+Success!
+Factors: 48647 48611
+Duration: 7286653 mus
+
+
+=====================
+ Run 44/50:
+=====================
+Completion: 5.5222%
+Success!
+Factors: 48647 48611
+Duration: 13751953 mus
+
+
+=====================
+ Run 45/50:
+=====================
+Completion: 5.05968%
+Success!
+Factors: 48647 48611
+Duration: 10032054 mus
+
+
+=====================
+ Run 46/50:
+=====================
+Success!
+Factors: 48647 48611
+Duration: 7415316 mus
+
+
+=====================
+ Run 47/50:
+=====================
+Success!
+Factors: 48647 48611
+Duration: 12221185 mus
+
+
+=====================
+ Run 48/50:
+=====================
+Completion: 4.42991%
+Success!
+Factors: 48647 48611
+Duration: 11949789 mus
+
+
+=====================
+ Run 49/50:
+=====================
+Completion: 4.40505%
+Completion: 9.44819%
+Completion: 13.8419%
+Completion: 18.2424%
+Success!
+Factors: 48647 48611
+Duration: 28675619 mus
+
+
+=====================
+ Run 50/50:
+=====================
+Completion: 4.38128%
+Completion: 8.77691%
+Completion: 13.1883%
+Success!
+Factors: 48647 48611
+Duration: 27763556 mus
+
+
+=====================
+ Parameters:
+=====================
+N1 = 12195257
+N2 = 13834103
+N  = 168710441449471
+Nc = 1300000
+Na = 600
+Fc = 0.997
+kB = 1553.86
+Threads: 8
+
+=====================
+ Run 1/50:
+=====================
+Completion: 4.98782%
+Completion: 11.2988%
+Completion: 16.8872%
+Completion: 22.4752%
+Completion: 27.0677%
+Completion: 33.1102%
+Completion: 38.2366%
+Completion: 44.5117%
+Completion: 50.0534%
+Completion: 56.1447%
+Completion: 61.6375%
+Completion: 67.2498%
+Completion: 72.4826%
+Completion: 78.2884%
+Completion: 84.0065%
+Completion: 88.5851%
+Completion: 91.7043%
+Completion: 94.8242%
+Completion: 97.5257%
+Failure!
+Duration: 426204170 mus
+
+
+=====================
+ Run 2/50:
+=====================
+Completion: 5.88475%
+Completion: 12.7084%
+Completion: 18.4409%
+Completion: 23.8346%
+Completion: 29.5502%
+Completion: 36.1659%
+Completion: 40.5341%
+Completion: 44.8968%
+Completion: 49.2613%
+Completion: 53.6364%
+Completion: 58.0016%
+Completion: 63.5263%
+Completion: 69.6479%
+Completion: 74.6743%
+Completion: 79.6953%
+Completion: 84.7161%
+Completion: 89.7609%
+Completion: 93.154%
+Completion: 95.2285%
+Failure!
+Duration: 435573362 mus
+
+
+=====================
+ Run 3/50:
+=====================
+Completion: 4.54755%
+Completion: 10.3299%
+Completion: 16.0619%
+Completion: 21.9215%
+Completion: 27.4745%
+Completion: 32.9788%
+Completion: 38.7221%
+Completion: 44.2111%
+Completion: 50.4838%
+Completion: 55.7105%
+Completion: 61.3707%
+Completion: 67.1707%
+Completion: 72.4648%
+Completion: 77.932%
+Completion: 83.3979%
+Completion: 88.2082%
+Completion: 91.345%
+Completion: 94.4801%
+Completion: 97.6158%
+Failure!
+Duration: 414612298 mus
+
+
+=====================
+ Run 4/50:
+=====================
+Completion: 4.99175%
+Completion: 9.97888%
+Completion: 14.9663%
+Completion: 19.9576%
+Completion: 24.9513%
+Completion: 29.9403%
+Completion: 34.9323%
+Completion: 39.9269%
+Completion: 44.9174%
+Completion: 49.9026%
+Completion: 54.8939%
+Completion: 59.8864%
+Completion: 64.8744%
+Completion: 69.8633%
+Completion: 74.8533%
+Completion: 79.8422%
+Completion: 84.8307%
+Completion: 89.8209%
+Completion: 94.8147%
+Failure!
+Duration: 342172511 mus
+
+
+=====================
+ Run 5/50:
+=====================
+Completion: 5.78168%
+Completion: 10.7991%
+Completion: 16.5616%
+Completion: 21.076%
+Completion: 26.2048%
+Completion: 32.0209%
+Completion: 37.1709%
+Completion: 42.8711%
+Completion: 48.2479%
+Completion: 52.9137%
+Completion: 58.045%
+Completion: 63.0306%
+Completion: 68.0123%
+Completion: 73.0034%
+Completion: 77.9917%
+Completion: 82.982%
+Completion: 87.9707%
+Completion: 92.8329%
+Completion: 95.9533%
+Failure!
+Duration: 385936514 mus
+
+
+=====================
+ Run 6/50:
+=====================
+Completion: 4.97287%
+Completion: 9.95864%
+Completion: 14.943%
+Completion: 19.9224%
+Completion: 24.9067%
+Completion: 29.8897%
+Completion: 34.8737%
+Completion: 39.8508%
+Completion: 44.8352%
+Completion: 49.8195%
+Completion: 54.7954%
+Completion: 59.7802%
+Completion: 64.7654%
+Completion: 69.7498%
+Completion: 74.7286%
+Completion: 79.7131%
+Completion: 84.6974%
+Completion: 89.6793%
+Completion: 94.6658%
+Failure!
+Duration: 342080976 mus
+
+
+=====================
+ Run 7/50:
+=====================
+Completion: 4.98169%
+Completion: 9.97235%
+Completion: 14.953%
+Completion: 19.9398%
+Completion: 24.9272%
+Completion: 29.9127%
+Completion: 34.8983%
+Completion: 39.8845%
+Completion: 44.8737%
+Completion: 49.8593%
+Completion: 54.8437%
+Completion: 59.8325%
+Completion: 64.8206%
+Completion: 69.8116%
+Completion: 74.8012%
+Completion: 79.7957%
+Completion: 84.787%
+Completion: 89.7737%
+Completion: 94.7627%
+Failure!
+Duration: 342486857 mus
+
+
+=====================
+ Run 8/50:
+=====================
+Completion: 4.36953%
+Completion: 8.73654%
+Completion: 13.1105%
+Completion: 17.4791%
+Completion: 21.8425%
+Completion: 26.2163%
+Completion: 30.5852%
+Completion: 35.5105%
+Completion: 39.8744%
+Completion: 45.4132%
+Completion: 53.0218%
+Completion: 58.757%
+Completion: 64.7129%
+Completion: 69.0749%
+Completion: 73.7127%
+Completion: 78.6982%
+Completion: 83.6815%
+Completion: 88.6676%
+Completion: 92.3201%
+Failure!
+Duration: 416392980 mus
+
+
+=====================
+ Run 9/50:
+=====================
+Completion: 4.98369%
+Completion: 9.96569%
+Completion: 14.9542%
+Completion: 19.9391%
+Completion: 24.9227%
+Completion: 29.9074%
+Completion: 34.896%
+Completion: 39.8822%
+Completion: 44.8679%
+Completion: 49.8565%
+Completion: 54.8456%
+Completion: 59.8313%
+Completion: 64.817%
+Completion: 69.8076%
+Completion: 74.7915%
+Completion: 79.7756%
+Completion: 84.7619%
+Completion: 89.7486%
+Completion: 94.7342%
+Failure!
+Duration: 342239694 mus
+
+
+=====================
+ Run 10/50:
+=====================
+Completion: 7.63871%
+Completion: 12.7876%
+Completion: 17.3884%
+Completion: 22.369%
+Completion: 26.7567%
+Completion: 31.15%
+Completion: 36.1331%
+Completion: 41.1178%
+Completion: 46.1004%
+Completion: 51.0766%
+Completion: 56.0652%
+Completion: 61.0481%
+Completion: 66.0281%
+Completion: 71.009%
+Completion: 75.9932%
+Completion: 80.9773%
+Completion: 85.9587%
+Completion: 90.9443%
+Completion: 95.9028%
+Failure!
+Duration: 394602962 mus
+
+
+=====================
+ Run 11/50:
+=====================
+Completion: 4.37516%
+Completion: 8.96763%
+Completion: 14.6224%
+Completion: 20.0592%
+Completion: 25.4446%
+Completion: 30.718%
+Completion: 36.3613%
+Completion: 41.521%
+Completion: 46.9656%
+Completion: 52.2836%
+Completion: 58.1777%
+Completion: 63.0591%
+Completion: 69.0658%
+Completion: 74.291%
+Completion: 79.3524%
+Completion: 84.6959%
+Completion: 88.8069%
+Completion: 91.9243%
+Completion: 95.0398%
+Failure!
+Duration: 413715507 mus
+
+
+=====================
+ Run 12/50:
+=====================
+Completion: 5.09368%
+Completion: 10.7658%
+Completion: 16.9682%
+Completion: 22.8925%
+Completion: 28.0129%
+Completion: 33.1371%
+Completion: 39.1698%
+Completion: 44.1778%
+Completion: 50.1324%
+Completion: 55.548%
+Completion: 60.1553%
+Completion: 64.6458%
+Completion: 70.599%
+Completion: 76.0812%
+Completion: 81.39%
+Completion: 86.818%
+Completion: 90.2894%
+Completion: 93.4261%
+Completion: 96.5606%
+Failure!
+Duration: 422433341 mus
+
+
+=====================
+ Run 13/50:
+=====================
+Completion: 5.33104%
+Completion: 9.70877%
+Completion: 14.0708%
+Completion: 20.2693%
+Completion: 26.731%
+Completion: 31.736%
+Completion: 37.5483%
+Completion: 45.0815%
+Completion: 53.6419%
+Completion: 61.9644%
+Completion: 70.6912%
+Completion: 79.3111%
+Completion: 87.8441%
+Completion: 90.9816%
+Completion: 93.68%
+Completion: 95.2191%
+Completion: 96.4691%
+Completion: 97.7194%
+Completion: 98.9693%
+Failure!
+Duration: 461262618 mus
+
+
+=====================
+ Run 14/50:
+=====================
+Completion: 4.36289%
+Completion: 8.82455%
+Completion: 14.5607%
+Completion: 20.3097%
+Completion: 26.0719%
+Completion: 31.7319%
+Completion: 37.6899%
+Completion: 43.3429%
+Completion: 49.4875%
+Completion: 55.2193%
+Completion: 60.1507%
+Completion: 65.6748%
+Completion: 70.9201%
+Completion: 75.9374%
+Completion: 81.5645%
+Completion: 87.6595%
+Completion: 90.8291%
+Completion: 93.9644%
+Completion: 96.5144%
+Failure!
+Duration: 433219118 mus
+
+
+=====================
+ Run 15/50:
+=====================
+Completion: 4.98018%
+Completion: 9.96204%
+Completion: 14.9518%
+Completion: 19.9398%
+Completion: 24.9234%
+Completion: 29.9124%
+Completion: 34.896%
+Completion: 39.8805%
+Completion: 44.8676%
+Completion: 49.8545%
+Completion: 54.8404%
+Completion: 59.8268%
+Completion: 64.8139%
+Completion: 69.8005%
+Completion: 74.7859%
+Completion: 79.77%
+Completion: 84.7582%
+Completion: 89.7446%
+Completion: 94.7314%
+Failure!
+Duration: 342244482 mus
+
+
+=====================
+ Run 16/50:
+=====================
+Completion: 5.90666%
+Completion: 11.8506%
+Completion: 18.0597%
+Completion: 23.3282%
+Completion: 28.9384%
+Completion: 34.4536%
+Completion: 40.0885%
+Completion: 45.4058%
+Completion: 50.6134%
+Completion: 56.555%
+Completion: 62.6799%
+Completion: 67.8695%
+Completion: 73.4778%
+Completion: 78.8075%
+Completion: 84.4132%
+Completion: 89.0949%
+Completion: 92.2158%
+Completion: 95.3367%
+Completion: 98.4569%
+Failure!
+Duration: 416765397 mus
+
+
+=====================
+ Run 17/50:
+=====================
+Completion: 4.9793%
+Completion: 9.96794%
+Completion: 14.9514%
+Completion: 19.9371%
+Completion: 24.9234%
+Completion: 29.907%
+Completion: 34.8944%
+Completion: 39.8807%
+Completion: 44.8653%
+Completion: 49.8463%
+Completion: 54.8322%
+Completion: 59.823%
+Completion: 64.8078%
+Completion: 69.7939%
+Completion: 74.7819%
+Completion: 79.7678%
+Completion: 84.7547%
+Completion: 89.7396%
+Completion: 94.7256%
+Failure!
+Duration: 342361979 mus
+
+
+=====================
+ Run 18/50:
+=====================
+Completion: 5.3177%
+Completion: 9.83528%
+Completion: 14.1999%
+Completion: 18.5652%
+Completion: 22.9362%
+Completion: 27.2999%
+Completion: 33.2272%
+Completion: 38.628%
+Completion: 43.6506%
+Completion: 48.6722%
+Completion: 53.6968%
+Completion: 58.7123%
+Completion: 63.7297%
+Completion: 68.747%
+Completion: 73.7702%
+Completion: 78.7859%
+Completion: 83.803%
+Completion: 88.8276%
+Completion: 93.8463%
+Failure!
+Duration: 398911968 mus
+
+
+=====================
+ Run 19/50:
+=====================
+Completion: 5.91716%
+Completion: 11.3327%
+Completion: 16.9249%
+Completion: 22.5742%
+Completion: 28.1421%
+Completion: 33.9914%
+Completion: 39.8019%
+Completion: 45.0822%
+Completion: 50.2595%
+Completion: 55.6451%
+Completion: 60.6024%
+Completion: 65.6305%
+Completion: 70.6521%
+Completion: 75.6767%
+Completion: 80.6942%
+Completion: 85.7091%
+Completion: 90.7361%
+Completion: 94.4425%
+Completion: 97.581%
+Failure!
+Duration: 390231486 mus
+
+
+=====================
+ Run 20/50:
+=====================
+Completion: 5.60849%
+Completion: 11.1972%
+Completion: 16.6505%
+Completion: 21.0182%
+Completion: 25.3838%
+Completion: 29.7529%
+Completion: 34.1303%
+Completion: 38.4991%
+Completion: 42.8677%
+Completion: 47.2372%
+Completion: 51.6094%
+Completion: 55.9742%
+Completion: 60.3413%
+Completion: 64.7178%
+Completion: 69.1728%
+Completion: 74.1446%
+Completion: 82.5071%
+Completion: 88.6262%
+Completion: 91.516%
+Failure!
+Duration: 466095392 mus
+
+
+=====================
+ Run 21/50:
+=====================
+Completion: 5.81332%
+Completion: 10.3423%
+Completion: 14.709%
+Completion: 19.0771%
+Completion: 23.9436%
+Completion: 28.9276%
+Completion: 33.915%
+Completion: 38.9005%
+Completion: 43.8875%
+Completion: 48.8746%
+Completion: 53.8592%
+Completion: 58.8437%
+Completion: 63.8261%
+Completion: 68.8085%
+Completion: 73.7937%
+Completion: 78.7783%
+Completion: 83.763%
+Completion: 88.7479%
+Completion: 93.738%
+Failure!
+Duration: 371381219 mus
+
+
+=====================
+ Run 22/50:
+=====================
+Completion: 5.73325%
+Completion: 10.7551%
+Completion: 15.7748%
+Completion: 20.8069%
+Completion: 25.827%
+Completion: 30.8452%
+Completion: 35.8694%
+Completion: 40.8993%
+Completion: 45.9194%
+Completion: 50.9355%
+Completion: 55.96%
+Completion: 60.9764%
+Completion: 65.9913%
+Completion: 71.0058%
+Completion: 76.0269%
+Completion: 81.0455%
+Completion: 86.0624%
+Completion: 91.0854%
+Completion: 96.1001%
+Failure!
+Duration: 345424719 mus
+
+
+=====================
+ Run 23/50:
+=====================
+Completion: 7.36929%
+Completion: 12.3518%
+Completion: 17.3359%
+Completion: 22.3219%
+Completion: 27.3056%
+Completion: 32.2943%
+Completion: 37.2789%
+Completion: 42.2716%
+Completion: 47.2596%
+Completion: 52.2471%
+Completion: 57.2338%
+Completion: 62.2266%
+Completion: 67.2114%
+Completion: 72.1968%
+Completion: 77.1917%
+Completion: 82.176%
+Completion: 87.1626%
+Completion: 92.146%
+Completion: 97.1413%
+Failure!
+Duration: 350846280 mus
+
+
+=====================
+ Run 24/50:
+=====================
+Completion: 6.49366%
+Completion: 12.409%
+Completion: 17.7685%
+Completion: 23.6004%
+Completion: 29.7406%
+Completion: 34.8223%
+Completion: 40.4479%
+Completion: 45.9757%
+Completion: 51.5494%
+Completion: 56.7325%
+Completion: 61.8681%
+Completion: 67.7214%
+Completion: 73.0176%
+Completion: 77.9738%
+Completion: 83.559%
+Completion: 88.7239%
+Completion: 91.8598%
+Completion: 94.9964%
+Completion: 98.1356%
+Failure!
+Duration: 415098935 mus
+
+
+=====================
+ Run 25/50:
+=====================
+Completion: 5.19674%
+Completion: 10.7203%
+Completion: 15.1859%
+Completion: 20.2103%
+Completion: 25.2314%
+Completion: 30.2572%
+Completion: 35.2734%
+Completion: 40.2889%
+Completion: 45.3204%
+Completion: 50.3404%
+Completion: 55.3596%
+Completion: 60.3785%
+Completion: 65.4006%
+Completion: 70.4183%
+Completion: 75.441%
+Completion: 80.4678%
+Completion: 85.4893%
+Completion: 90.5121%
+Completion: 95.5268%
+Failure!
+Duration: 357672474 mus
+
+
+=====================
+ Run 26/50:
+=====================
+Completion: 6.69041%
+Completion: 12.6738%
+Completion: 19.4504%
+Completion: 24.2813%
+Completion: 31.1281%
+Completion: 36.7866%
+Completion: 44.4829%
+Completion: 48.8491%
+Completion: 53.7489%
+Completion: 59.3115%
+Completion: 64.3298%
+Completion: 69.3479%
+Completion: 74.3692%
+Completion: 79.3871%
+Completion: 84.4038%
+Completion: 89.4232%
+Completion: 93.6503%
+Completion: 96.3797%
+Completion: 98.3781%
+Failure!
+Duration: 400183320 mus
+
+
+=====================
+ Run 27/50:
+=====================
+Completion: 5.07772%
+Completion: 10.465%
+Completion: 15.4562%
+Completion: 21.4258%
+Completion: 27.2074%
+Completion: 33.2062%
+Completion: 38.9948%
+Completion: 43.6188%
+Completion: 49.411%
+Completion: 55.3468%
+Completion: 60.8014%
+Completion: 66.4516%
+Completion: 72.096%
+Completion: 77.2388%
+Completion: 82.0652%
+Completion: 87.4181%
+Completion: 90.6339%
+Completion: 93.7536%
+Completion: 96.4046%
+Failure!
+Duration: 427906057 mus
+
+
+=====================
+ Run 28/50:
+=====================
+Completion: 4.8673%
+Completion: 9.57764%
+Completion: 13.9885%
+Completion: 18.356%
+Completion: 23.404%
+Completion: 29.2959%
+Completion: 35.6223%
+Completion: 41.6661%
+Completion: 48.1639%
+Completion: 54.624%
+Completion: 60.4255%
+Completion: 65.4092%
+Completion: 70.3913%
+Completion: 75.3736%
+Completion: 80.3491%
+Completion: 85.332%
+Completion: 90.3145%
+Completion: 94.0114%
+Completion: 96.5325%
+Failure!
+Duration: 409442957 mus
+
+
+=====================
+ Run 29/50:
+=====================
+Completion: 5.21818%
+Completion: 11.0791%
+Completion: 16.6924%
+Completion: 22.4811%
+Completion: 28.0613%
+Completion: 33.0313%
+Completion: 38.5733%
+Completion: 44.0218%
+Completion: 49.0968%
+Completion: 54.3395%
+Completion: 60.0177%
+Completion: 65.8349%
+Completion: 71.4122%
+Completion: 76.7583%
+Completion: 82.4083%
+Completion: 87.7332%
+Completion: 90.8674%
+Completion: 93.988%
+Completion: 97.1079%
+Failure!
+Duration: 413596617 mus
+
+
+=====================
+ Run 30/50:
+=====================
+Completion: 4.40766%
+Completion: 8.77446%
+Completion: 13.1407%
+Completion: 17.5169%
+Completion: 22.0976%
+Completion: 30.0995%
+Completion: 36.1339%
+Completion: 41.1587%
+Completion: 46.1829%
+Completion: 51.2148%
+Completion: 56.2375%
+Completion: 61.2539%
+Completion: 66.2741%
+Completion: 71.3008%
+Completion: 76.3171%
+Completion: 81.334%
+Completion: 86.3588%
+Completion: 91.3748%
+Completion: 96.1136%
+Failure!
+Duration: 390929463 mus
+
+
+=====================
+ Run 31/50:
+=====================
+Completion: 5.73625%
+Completion: 11.2361%
+Completion: 16.1775%
+Completion: 22.0966%
+Completion: 27.3411%
+Completion: 32.3229%
+Completion: 37.3072%
+Completion: 42.2901%
+Completion: 47.2684%
+Completion: 52.2522%
+Completion: 57.237%
+Completion: 62.2152%
+Completion: 67.1974%
+Completion: 72.1833%
+Completion: 77.165%
+Completion: 82.1416%
+Completion: 87.1238%
+Completion: 92.1058%
+Completion: 96.9608%
+Failure!
+Duration: 363942893 mus
+
+
+=====================
+ Run 32/50:
+=====================
+Completion: 4.82708%
+Completion: 9.19291%
+Completion: 13.56%
+Completion: 17.9256%
+Completion: 22.2875%
+Completion: 26.654%
+Completion: 31.404%
+Completion: 35.8717%
+Completion: 41.7932%
+Completion: 47.8053%
+Completion: 53.1009%
+Completion: 59.8216%
+Completion: 65.822%
+Completion: 72.7139%
+Completion: 79.1729%
+Completion: 86.1819%
+Completion: 90.0028%
+Completion: 93.119%
+Completion: 96.2372%
+Failure!
+Duration: 430780078 mus
+
+
+=====================
+ Run 33/50:
+=====================
+Completion: 5.39335%
+Completion: 11.1661%
+Completion: 17.102%
+Completion: 23.2541%
+Completion: 28.683%
+Completion: 34.4383%
+Completion: 39.5179%
+Completion: 44.5448%
+Completion: 49.5645%
+Completion: 54.599%
+Completion: 59.6258%
+Completion: 64.6442%
+Completion: 69.663%
+Completion: 74.7023%
+Completion: 79.7268%
+Completion: 84.7477%
+Completion: 89.7846%
+Completion: 94.8139%
+Completion: 98.1358%
+Failure!
+Duration: 374006460 mus
+
+
+=====================
+ Run 34/50:
+=====================
+Completion: 5.67257%
+Completion: 10.8079%
+Completion: 15.3583%
+Completion: 19.737%
+Completion: 24.1017%
+Completion: 28.4704%
+Completion: 32.85%
+Completion: 37.2518%
+Completion: 41.635%
+Completion: 46.3403%
+Completion: 51.2805%
+Completion: 56.9878%
+Completion: 62.5454%
+Completion: 68.7566%
+Completion: 74.6303%
+Completion: 79.6842%
+Completion: 85.38%
+Completion: 89.5941%
+Completion: 92.6065%
+Failure!
+Duration: 431570518 mus
+
+
+=====================
+ Run 35/50:
+=====================
+Completion: 6.08266%
+Completion: 12.1922%
+Completion: 18.4168%
+Completion: 24.5752%
+Completion: 31.5257%
+Completion: 37.4143%
+Completion: 42.4397%
+Completion: 47.4728%
+Completion: 52.4955%
+Completion: 57.5154%
+Completion: 62.53%
+Completion: 67.5643%
+Completion: 72.5798%
+Completion: 77.5972%
+Completion: 82.6312%
+Completion: 87.6508%
+Completion: 92.6701%
+Completion: 96.7389%
+Completion: 99.3057%
+Failure!
+Duration: 384012520 mus
+
+
+=====================
+ Run 36/50:
+=====================
+Completion: 5.70029%
+Completion: 11.5293%
+Completion: 16.0082%
+Completion: 21.1572%
+Completion: 26.5483%
+Completion: 32.6227%
+Completion: 38.8505%
+Completion: 44.3033%
+Completion: 49.5878%
+Completion: 54.797%
+Completion: 59.7804%
+Completion: 64.7659%
+Completion: 69.7506%
+Completion: 74.7258%
+Completion: 79.71%
+Completion: 84.6929%
+Completion: 89.6727%
+Completion: 93.8574%
+Completion: 96.9769%
+Failure!
+Duration: 389713553 mus
+
+
+=====================
+ Run 37/50:
+=====================
+Completion: 5.20842%
+Completion: 10.6323%
+Completion: 15.9114%
+Completion: 22.1091%
+Completion: 27.9933%
+Completion: 32.7342%
+Completion: 37.1008%
+Completion: 41.4684%
+Completion: 45.8372%
+Completion: 50.6024%
+Completion: 55.6236%
+Completion: 60.6385%
+Completion: 65.673%
+Completion: 70.6905%
+Completion: 75.7125%
+Completion: 80.7369%
+Completion: 85.7608%
+Completion: 90.7844%
+Completion: 94.9237%
+Failure!
+Duration: 380412295 mus
+
+
+=====================
+ Run 38/50:
+=====================
+Completion: 5.93207%
+Completion: 12.2822%
+Completion: 17.8324%
+Completion: 23.6336%
+Completion: 28.8024%
+Completion: 34.138%
+Completion: 39.2944%
+Completion: 46.0137%
+Completion: 51.2242%
+Completion: 57.0385%
+Completion: 62.5569%
+Completion: 68.3491%
+Completion: 74.0142%
+Completion: 79.8337%
+Completion: 85.539%
+Completion: 89.5255%
+Completion: 92.6424%
+Completion: 95.7598%
+Completion: 98.7438%
+Failure!
+Duration: 419008944 mus
+
+
+=====================
+ Run 39/50:
+=====================
+Completion: 5.46153%
+Completion: 11.1528%
+Completion: 16.4595%
+Completion: 22.2936%
+Completion: 27.7224%
+Completion: 32.6806%
+Completion: 37.4983%
+Completion: 43.7986%
+Completion: 49.8195%
+Completion: 55.1453%
+Completion: 60.1662%
+Completion: 65.1901%
+Completion: 70.2127%
+Completion: 75.2319%
+Completion: 80.25%
+Completion: 85.2645%
+Completion: 90.2774%
+Completion: 94.3225%
+Completion: 97.4577%
+Failure!
+Duration: 384511693 mus
+
+
+=====================
+ Run 40/50:
+=====================
+Completion: 4.63776%
+Completion: 10.7233%
+Completion: 15.9445%
+Completion: 22.1357%
+Completion: 28.7418%
+Completion: 33.1696%
+Completion: 38.6478%
+Completion: 44.408%
+Completion: 50.2195%
+Completion: 55.0819%
+Completion: 60.0536%
+Completion: 65.039%
+Completion: 70.0283%
+Completion: 75.0119%
+Completion: 79.9966%
+Completion: 84.9814%
+Completion: 89.9708%
+Completion: 94.2541%
+Completion: 97.376%
+Failure!
+Duration: 391576893 mus
+
+
+=====================
+ Run 41/50:
+=====================
+Completion: 5.02541%
+Completion: 10.0433%
+Completion: 15.0737%
+Completion: 20.099%
+Completion: 25.122%
+Completion: 30.1455%
+Completion: 35.1625%
+Completion: 40.18%
+Completion: 45.1933%
+Completion: 50.2068%
+Completion: 55.2247%
+Completion: 60.2376%
+Completion: 65.2517%
+Completion: 70.2621%
+Completion: 75.2792%
+Completion: 80.2926%
+Completion: 85.3066%
+Completion: 90.3262%
+Completion: 95.3438%
+Failure!
+Duration: 342148757 mus
+
+
+=====================
+ Run 42/50:
+=====================
+Completion: 4.92779%
+Completion: 10.3593%
+Completion: 16.2746%
+Completion: 21.3599%
+Completion: 26.8346%
+Completion: 32.1235%
+Completion: 37.6545%
+Completion: 43.0557%
+Completion: 48.1768%
+Completion: 53.1345%
+Completion: 58.7548%
+Completion: 64.1978%
+Completion: 69.8009%
+Completion: 75.077%
+Completion: 80.3509%
+Completion: 85.9099%
+Completion: 89.7618%
+Completion: 92.8803%
+Completion: 95.9989%
+Failure!
+Duration: 414401666 mus
+
+
+=====================
+ Run 43/50:
+=====================
+Completion: 5.2149%
+Completion: 9.82768%
+Completion: 15.2423%
+Completion: 20.5771%
+Completion: 26.5844%
+Completion: 32.1845%
+Completion: 37.6566%
+Completion: 43.401%
+Completion: 49.0309%
+Completion: 54.8343%
+Completion: 60.2167%
+Completion: 66.1943%
+Completion: 72.0157%
+Completion: 77.5859%
+Completion: 83.668%
+Completion: 88.6963%
+Completion: 91.8131%
+Completion: 94.931%
+Completion: 97.9751%
+Failure!
+Duration: 420442339 mus
+
+
+=====================
+ Run 44/50:
+=====================
+Completion: 4.97074%
+Completion: 9.95296%
+Completion: 14.9372%
+Completion: 19.924%
+Completion: 24.9011%
+Completion: 29.8865%
+Completion: 34.8737%
+Completion: 39.8517%
+Completion: 44.836%
+Completion: 49.8219%
+Completion: 54.8074%
+Completion: 59.7832%
+Completion: 64.7686%
+Completion: 69.7537%
+Completion: 74.7318%
+Completion: 79.7177%
+Completion: 84.7021%
+Completion: 89.6885%
+Completion: 94.6658%
+Failure!
+Duration: 342271425 mus
+
+
+=====================
+ Run 45/50:
+=====================
+Completion: 5.51531%
+Completion: 11.7239%
+Completion: 17.3906%
+Completion: 23.3591%
+Completion: 29.1124%
+Completion: 34.8705%
+Completion: 40.054%
+Completion: 45.4757%
+Completion: 50.4927%
+Completion: 56.4279%
+Completion: 61.778%
+Completion: 67.3292%
+Completion: 72.9925%
+Completion: 78.9304%
+Completion: 84.8156%
+Completion: 89.234%
+Completion: 92.3502%
+Completion: 95.4663%
+Completion: 98.1184%
+Failure!
+Duration: 415896219 mus
+
+
+=====================
+ Run 46/50:
+=====================
+Completion: 5.87308%
+Completion: 12.0645%
+Completion: 17.6395%
+Completion: 23.3104%
+Completion: 28.2206%
+Completion: 33.5141%
+Completion: 39.0576%
+Completion: 44.4208%
+Completion: 49.3685%
+Completion: 54.7905%
+Completion: 60.0045%
+Completion: 65.1334%
+Completion: 70.372%
+Completion: 75.3585%
+Completion: 80.3445%
+Completion: 85.3305%
+Completion: 90.3095%
+Completion: 93.4612%
+Completion: 96.4499%
+Failure!
+Duration: 409829658 mus
+
+
+=====================
+ Run 47/50:
+=====================
+Completion: 4.98141%
+Completion: 9.96503%
+Completion: 14.9542%
+Completion: 19.9382%
+Completion: 24.9222%
+Completion: 29.9054%
+Completion: 34.8952%
+Completion: 39.8823%
+Completion: 44.8685%
+Completion: 49.8591%
+Completion: 54.845%
+Completion: 59.8318%
+Completion: 64.8209%
+Completion: 69.8076%
+Completion: 74.7925%
+Completion: 79.7756%
+Completion: 84.7611%
+Completion: 89.7487%
+Completion: 94.7336%
+Failure!
+Duration: 342152220 mus
+
+
+=====================
+ Run 48/50:
+=====================
+Completion: 4.98122%
+Completion: 9.96702%
+Completion: 14.954%
+Completion: 19.9497%
+Completion: 24.9355%
+Completion: 29.9223%
+Completion: 34.9124%
+Completion: 39.9062%
+Completion: 44.8967%
+Completion: 49.8825%
+Completion: 54.8803%
+Completion: 59.8692%
+Completion: 64.8561%
+Completion: 69.842%
+Completion: 74.8379%
+Completion: 79.8285%
+Completion: 84.8152%
+Completion: 89.8129%
+Completion: 94.7989%
+Failure!
+Duration: 341969702 mus
+
+
+=====================
+ Run 49/50:
+=====================
+Completion: 6.66882%
+Completion: 11.7535%
+Completion: 17.1156%
+Completion: 22.7811%
+Completion: 28.4987%
+Completion: 34.3318%
+Completion: 39.2665%
+Completion: 44.5759%
+Completion: 50.1823%
+Completion: 55.8226%
+Completion: 60.5268%
+Completion: 64.8912%
+Completion: 69.2568%
+Completion: 73.623%
+Completion: 78.4744%
+Completion: 83.5169%
+Completion: 88.5359%
+Completion: 92.0654%
+Completion: 95.2028%
+Failure!
+Duration: 408188495 mus
+
+
+=====================
+ Run 50/50:
+=====================
+Completion: 5.9546%
+Completion: 11.8436%
+Completion: 17.1832%
+Completion: 22.8765%
+Completion: 27.8599%
+Completion: 32.8453%
+Completion: 37.8295%
+Completion: 42.8155%
+Completion: 47.8002%
+Completion: 52.785%
+Completion: 57.7698%
+Completion: 62.7594%
+Completion: 67.7463%
+Completion: 72.7315%
+Completion: 77.726%
+Completion: 82.716%
+Completion: 87.7032%
+Completion: 92.6906%
+Completion: 97.4268%
+Failure!
+Duration: 362848177 mus
+
+
+=====================
+ Parameters:
+=====================
+N1 = 316227731
+N2 = 316227767
+N  = 99999989237606677
+Nc = 1450000
+Na = 600
+Fc = 0.997
+kB = 2589.42
+Threads: 8
+
+=====================
+ Run 1/50:
+=====================
+Completion: 5.58577%
+Completion: 11.008%
+Completion: 16.513%
+Completion: 21.9751%
+Completion: 27.4662%
+Completion: 33.2666%
+Completion: 38.8304%
+Completion: 44.0578%
+Completion: 49.5494%
+Completion: 54.78%
+Completion: 60.3646%
+Completion: 65.4409%
+Completion: 70.7873%
+Completion: 76.2049%
+Completion: 81.7956%
+Completion: 87.443%
+Completion: 90.689%
+Completion: 93.8078%
+Completion: 96.927%
+Failure!
+Duration: 546633365 mus
+
+
+=====================
+ Run 2/50:
+=====================
+Completion: 4.98952%
+Completion: 9.98131%
+Completion: 14.9744%
+Completion: 19.9635%
+Completion: 24.9521%
+Completion: 29.9404%
+Completion: 34.9313%
+Completion: 39.9191%
+Completion: 44.9107%
+Completion: 49.9011%
+Completion: 54.8932%
+Completion: 59.8857%
+Completion: 64.8764%
+Completion: 69.8643%
+Completion: 74.8567%
+Completion: 79.845%
+Completion: 84.8403%
+Completion: 89.8292%
+Completion: 94.8184%
+Failure!
+Duration: 451782390 mus
+
+
+=====================
+ Run 3/50:
+=====================
+Completion: 4.97225%
+Completion: 10.6313%
+Completion: 16.0917%
+Completion: 21.8415%
+Completion: 27.0161%
+Completion: 32.6375%
+Completion: 37.6601%
+Completion: 42.6789%
+Completion: 47.7006%
+Completion: 52.717%
+Completion: 57.733%
+Completion: 62.7521%
+Completion: 67.7684%
+Completion: 72.7868%
+Completion: 77.8031%
+Completion: 82.8211%
+Completion: 87.8416%
+Completion: 92.8639%
+Completion: 97.0783%
+Failure!
+Duration: 485641347 mus
+
+
+=====================
+ Run 4/50:
+=====================
+Completion: 6.75243%
+Completion: 11.2505%
+Completion: 15.6174%
+Completion: 19.9933%
+Completion: 24.3589%
+Completion: 31.3863%
+Completion: 36.4237%
+Completion: 41.4458%
+Completion: 46.4797%
+Completion: 51.497%
+Completion: 56.5137%
+Completion: 61.5378%
+Completion: 66.5516%
+Completion: 71.5693%
+Completion: 76.5901%
+Completion: 81.6056%
+Completion: 86.6333%
+Completion: 91.6493%
+Completion: 95.9674%
+Failure!
+Duration: 523475312 mus
+
+
+=====================
+ Run 5/50:
+=====================
+Completion: 6.85751%
+Completion: 12.7019%
+Completion: 18.617%
+Completion: 25.0213%
+Completion: 31.0284%
+Completion: 36.0643%
+Completion: 41.7338%
+Completion: 47.5436%
+Completion: 52.5978%
+Completion: 57.6146%
+Completion: 62.6379%
+Completion: 67.6624%
+Completion: 72.6846%
+Completion: 77.7053%
+Completion: 82.7229%
+Completion: 87.7426%
+Completion: 92.7609%
+Completion: 95.846%
+Completion: 98.3528%
+Failure!
+Duration: 516603658 mus
+
+
+=====================
+ Run 6/50:
+=====================
+Completion: 5.71971%
+Completion: 10.2348%
+Completion: 15.7641%
+Completion: 21.6948%
+Completion: 27.2748%
+Completion: 33.541%
+Completion: 39.1615%
+Completion: 44.6573%
+Completion: 50.4649%
+Completion: 56.7034%
+Completion: 62.6103%
+Completion: 68.5429%
+Completion: 74.3039%
+Completion: 79.5402%
+Completion: 85.2364%
+Completion: 89.5947%
+Completion: 92.7141%
+Completion: 95.3702%
+Completion: 97.8645%
+Failure!
+Duration: 558434472 mus
+
+
+=====================
+ Run 7/50:
+=====================
+Completion: 5.98669%
+Completion: 11.6064%
+Completion: 16.6572%
+Completion: 21.6423%
+Completion: 26.6236%
+Completion: 31.6114%
+Completion: 36.5968%
+Completion: 41.5787%
+Completion: 46.564%
+Completion: 51.5512%
+Completion: 56.5331%
+Completion: 61.5197%
+Completion: 66.4994%
+Completion: 71.4866%
+Completion: 76.4726%
+Completion: 81.4546%
+Completion: 86.4403%
+Completion: 91.4262%
+Completion: 96.41%
+Failure!
+Duration: 465380632 mus
+
+
+=====================
+ Run 8/50:
+=====================
+Completion: 4.59181%
+Completion: 9.85141%
+Completion: 15.109%
+Completion: 20.3182%
+Completion: 25.8524%
+Completion: 31.0628%
+Completion: 36.3717%
+Completion: 41.4099%
+Completion: 46.8086%
+Completion: 52.1509%
+Completion: 57.6958%
+Completion: 62.9216%
+Completion: 68.2125%
+Completion: 73.8437%
+Completion: 78.8327%
+Completion: 83.8231%
+Completion: 88.817%
+Completion: 92.3046%
+Completion: 95.4393%
+Failure!
+Duration: 532576122 mus
+
+
+=====================
+ Run 9/50:
+=====================
+Completion: 4.98608%
+Completion: 9.9748%
+Completion: 14.961%
+Completion: 19.9494%
+Completion: 24.9396%
+Completion: 29.9296%
+Completion: 34.9197%
+Completion: 39.9046%
+Completion: 44.8888%
+Completion: 49.8789%
+Completion: 54.865%
+Completion: 59.853%
+Completion: 64.8401%
+Completion: 69.8266%
+Completion: 74.8153%
+Completion: 79.8027%
+Completion: 84.7898%
+Completion: 89.7785%
+Completion: 94.7663%
+Failure!
+Duration: 451978864 mus
+
+
+=====================
+ Run 10/50:
+=====================
+Completion: 8.53915%
+Completion: 14.1991%
+Completion: 18.5636%
+Completion: 23.0628%
+Completion: 28.0501%
+Completion: 33.0348%
+Completion: 38.0159%
+Completion: 43.001%
+Completion: 47.9866%
+Completion: 52.9674%
+Completion: 57.9534%
+Completion: 62.9339%
+Completion: 67.9218%
+Completion: 72.9072%
+Completion: 77.8898%
+Completion: 82.874%
+Completion: 87.8604%
+Completion: 92.8405%
+Completion: 97.3897%
+Failure!
+Duration: 503605626 mus
+
+
+=====================
+ Run 11/50:
+=====================
+Completion: 4.3712%
+Completion: 9.40484%
+Completion: 14.4178%
+Completion: 19.8628%
+Completion: 25.6314%
+Completion: 31.0842%
+Completion: 36.723%
+Completion: 42.2882%
+Completion: 47.8362%
+Completion: 53.8717%
+Completion: 59.3045%
+Completion: 65.2554%
+Completion: 70.776%
+Completion: 76.2881%
+Completion: 81.5378%
+Completion: 87.1842%
+Completion: 90.4455%
+Completion: 93.5653%
+Completion: 96.6871%
+Failure!
+Duration: 542462946 mus
+
+
+=====================
+ Run 12/50:
+=====================
+Completion: 4.98316%
+Completion: 9.97537%
+Completion: 14.9628%
+Completion: 19.9546%
+Completion: 24.9433%
+Completion: 29.9303%
+Completion: 34.9231%
+Completion: 39.9123%
+Completion: 44.9%
+Completion: 49.8883%
+Completion: 54.8751%
+Completion: 59.8634%
+Completion: 64.8568%
+Completion: 69.8429%
+Completion: 74.83%
+Completion: 79.8179%
+Completion: 84.8051%
+Completion: 89.7952%
+Completion: 94.7819%
+Failure!
+Duration: 451902083 mus
+
+
+=====================
+ Run 13/50:
+=====================
+Completion: 4.98353%
+Completion: 9.96824%
+Completion: 14.9582%
+Completion: 19.9462%
+Completion: 24.9353%
+Completion: 29.925%
+Completion: 34.9173%
+Completion: 39.9095%
+Completion: 44.9027%
+Completion: 49.8939%
+Completion: 54.8891%
+Completion: 59.8797%
+Completion: 64.8697%
+Completion: 69.8562%
+Completion: 74.8422%
+Completion: 79.8303%
+Completion: 84.8184%
+Completion: 89.8043%
+Completion: 94.7928%
+Failure!
+Duration: 451674940 mus
+
+
+=====================
+ Run 14/50:
+=====================
+Completion: 5.55965%
+Completion: 10.4583%
+Completion: 14.8777%
+Completion: 19.6699%
+Completion: 24.6568%
+Completion: 29.639%
+Completion: 34.6229%
+Completion: 39.6071%
+Completion: 44.5877%
+Completion: 49.572%
+Completion: 54.5592%
+Completion: 59.5404%
+Completion: 64.5264%
+Completion: 69.5108%
+Completion: 74.4925%
+Completion: 79.479%
+Completion: 84.459%
+Completion: 89.4356%
+Completion: 94.4206%
+Failure!
+Duration: 474670244 mus
+
+
+=====================
+ Run 15/50:
+=====================
+Completion: 5.98976%
+Completion: 11.2607%
+Completion: 16.6644%
+Completion: 21.8762%
+Completion: 27.6684%
+Completion: 33.7728%
+Completion: 38.8062%
+Completion: 44.5764%
+Completion: 49.8463%
+Completion: 55.0469%
+Completion: 60.6063%
+Completion: 65.4909%
+Completion: 70.5187%
+Completion: 76.6579%
+Completion: 81.8351%
+Completion: 87.2611%
+Completion: 90.5366%
+Completion: 93.657%
+Completion: 96.7772%
+Failure!
+Duration: 545288040 mus
+
+
+=====================
+ Run 16/50:
+=====================
+Completion: 5.85549%
+Completion: 11.0609%
+Completion: 16.6498%
+Completion: 22.5259%
+Completion: 28.3122%
+Completion: 33.5599%
+Completion: 38.5505%
+Completion: 43.3076%
+Completion: 48.7943%
+Completion: 54.0813%
+Completion: 59.6131%
+Completion: 65.29%
+Completion: 70.3552%
+Completion: 75.9001%
+Completion: 80.8965%
+Completion: 86.4325%
+Completion: 89.9784%
+Completion: 93.0972%
+Completion: 96.2169%
+Failure!
+Duration: 549002334 mus
+
+
+=====================
+ Run 17/50:
+=====================
+Completion: 5.92857%
+Completion: 11.8954%
+Completion: 17.013%
+Completion: 22.8369%
+Completion: 28.0244%
+Completion: 34.0402%
+Completion: 39.8589%
+Completion: 45.5056%
+Completion: 50.6479%
+Completion: 56.0164%
+Completion: 62.0614%
+Completion: 67.7609%
+Completion: 73.1387%
+Completion: 78.4119%
+Completion: 83.2992%
+Completion: 88.1983%
+Completion: 91.3326%
+Completion: 94.4671%
+Completion: 97.6036%
+Failure!
+Duration: 545095814 mus
+
+
+=====================
+ Run 18/50:
+=====================
+Completion: 6.0278%
+Completion: 11.5449%
+Completion: 17.4744%
+Completion: 23.0538%
+Completion: 27.8807%
+Completion: 33.5386%
+Completion: 38.7915%
+Completion: 43.889%
+Completion: 49.7519%
+Completion: 55.034%
+Completion: 60.6622%
+Completion: 66.2066%
+Completion: 71.2262%
+Completion: 76.9214%
+Completion: 81.9717%
+Completion: 87.1101%
+Completion: 90.4244%
+Completion: 93.5414%
+Completion: 96.6582%
+Failure!
+Duration: 544027457 mus
+
+
+=====================
+ Run 19/50:
+=====================
+Completion: 4.47693%
+Completion: 8.84655%
+Completion: 13.2144%
+Completion: 17.5816%
+Completion: 21.9487%
+Completion: 26.3351%
+Completion: 30.7033%
+Completion: 36.8062%
+Completion: 41.2682%
+Completion: 45.6358%
+Completion: 50.002%
+Completion: 54.3697%
+Completion: 58.7356%
+Completion: 63.1246%
+Completion: 69.8887%
+Completion: 77.366%
+Completion: 82.5128%
+Completion: 87.4868%
+Completion: 90.9733%
+Failure!
+Duration: 612399298 mus
+
+
+=====================
+ Run 20/50:
+=====================
+Completion: 5.2456%
+Completion: 10.0373%
+Completion: 15.5563%
+Completion: 20.9219%
+Completion: 26.3409%
+Completion: 31.6162%
+Completion: 37.3281%
+Completion: 42.9647%
+Completion: 48.6215%
+Completion: 53.9225%
+Completion: 59.4474%
+Completion: 65.3226%
+Completion: 70.9996%
+Completion: 76.5684%
+Completion: 82.3897%
+Completion: 87.8207%
+Completion: 90.9381%
+Completion: 94.0574%
+Completion: 97.1767%
+Failure!
+Duration: 542780585 mus
+
+
+=====================
+ Run 21/50:
+=====================
+Completion: 4.98297%
+Completion: 9.96721%
+Completion: 14.9585%
+Completion: 19.9454%
+Completion: 24.9323%
+Completion: 29.9222%
+Completion: 34.9091%
+Completion: 39.8974%
+Completion: 44.8847%
+Completion: 49.8708%
+Completion: 54.8607%
+Completion: 59.8491%
+Completion: 64.8369%
+Completion: 69.8246%
+Completion: 74.8123%
+Completion: 79.803%
+Completion: 84.7914%
+Completion: 89.7795%
+Completion: 94.7709%
+Failure!
+Duration: 451783514 mus
+
+
+=====================
+ Run 22/50:
+=====================
+Completion: 5.18898%
+Completion: 9.58031%
+Completion: 13.9751%
+Completion: 18.4216%
+Completion: 22.8161%
+Completion: 27.2768%
+Completion: 32.2968%
+Completion: 37.3159%
+Completion: 42.3405%
+Completion: 47.3544%
+Completion: 52.3718%
+Completion: 57.3974%
+Completion: 62.4134%
+Completion: 67.4372%
+Completion: 72.447%
+Completion: 77.4562%
+Completion: 82.474%
+Completion: 87.4863%
+Completion: 92.5008%
+Failure!
+Duration: 503021560 mus
+
+
+=====================
+ Run 23/50:
+=====================
+Completion: 8.68034%
+Completion: 16.4225%
+Completion: 23.4876%
+Completion: 29.1551%
+Completion: 35.4895%
+Completion: 44.257%
+Completion: 51.7264%
+Completion: 58.6306%
+Completion: 64.4483%
+Completion: 69.6086%
+Completion: 74.0966%
+Completion: 78.6849%
+Completion: 83.4099%
+Completion: 88.3081%
+Completion: 91.44%
+Completion: 94.5715%
+Completion: 97.2542%
+Completion: 98.5053%
+Completion: 99.3757%
+Failure!
+Duration: 584906619 mus
+
+
+=====================
+ Run 24/50:
+=====================
+Completion: 6.11542%
+Completion: 11.2659%
+Completion: 16.4473%
+Completion: 21.9136%
+Completion: 27.6497%
+Completion: 33.7281%
+Completion: 39.4382%
+Completion: 45.2874%
+Completion: 51.1416%
+Completion: 56.9824%
+Completion: 62.26%
+Completion: 67.7628%
+Completion: 73.7319%
+Completion: 79.1706%
+Completion: 85.338%
+Completion: 89.3663%
+Completion: 92.4949%
+Completion: 95.3407%
+Completion: 97.8467%
+Failure!
+Duration: 562892402 mus
+
+
+=====================
+ Run 25/50:
+=====================
+Completion: 5.04542%
+Completion: 10.0585%
+Completion: 15.0703%
+Completion: 20.0804%
+Completion: 25.084%
+Completion: 30.0897%
+Completion: 35.1003%
+Completion: 40.1157%
+Completion: 45.1257%
+Completion: 50.1311%
+Completion: 55.1374%
+Completion: 60.1477%
+Completion: 65.1557%
+Completion: 70.1666%
+Completion: 75.1806%
+Completion: 80.1914%
+Completion: 85.2057%
+Completion: 90.2154%
+Completion: 95.2285%
+Failure!
+Duration: 461100485 mus
+
+
+=====================
+ Run 26/50:
+=====================
+Completion: 5.1632%
+Completion: 11.2467%
+Completion: 17.2563%
+Completion: 22.6322%
+Completion: 27.9302%
+Completion: 33.3839%
+Completion: 38.8526%
+Completion: 44.7713%
+Completion: 50.0952%
+Completion: 55.2394%
+Completion: 60.5676%
+Completion: 65.5853%
+Completion: 70.5985%
+Completion: 75.6232%
+Completion: 80.6381%
+Completion: 85.6513%
+Completion: 90.6734%
+Completion: 93.9839%
+Completion: 97.1188%
+Failure!
+Duration: 525600868 mus
+
+
+=====================
+ Run 27/50:
+=====================
+Completion: 5.43154%
+Completion: 10.8785%
+Completion: 16.572%
+Completion: 22.0877%
+Completion: 27.4995%
+Completion: 32.9322%
+Completion: 38.0372%
+Completion: 42.4289%
+Completion: 46.8179%
+Completion: 51.58%
+Completion: 57.5681%
+Completion: 63.9517%
+Completion: 69.4001%
+Completion: 75.0706%
+Completion: 80.0766%
+Completion: 85.0638%
+Completion: 89.5408%
+Completion: 92.6561%
+Completion: 95.7707%
+Failure!
+Duration: 541857177 mus
+
+
+=====================
+ Run 28/50:
+=====================
+Completion: 6.02648%
+Completion: 11.4475%
+Completion: 16.7792%
+Completion: 21.7803%
+Completion: 26.7743%
+Completion: 31.7709%
+Completion: 36.7624%
+Completion: 41.753%
+Completion: 46.749%
+Completion: 51.7401%
+Completion: 56.7379%
+Completion: 61.7279%
+Completion: 66.7207%
+Completion: 71.7163%
+Completion: 76.7064%
+Completion: 81.7002%
+Completion: 86.6942%
+Completion: 91.685%
+Completion: 96.6848%
+Failure!
+Duration: 469874957 mus
+
+
+=====================
+ Run 29/50:
+=====================
+Completion: 5.58688%
+Completion: 11.1717%
+Completion: 17.3076%
+Completion: 22.9848%
+Completion: 28.2568%
+Completion: 33.1523%
+Completion: 38.1482%
+Completion: 43.1425%
+Completion: 48.1306%
+Completion: 53.1223%
+Completion: 58.1147%
+Completion: 63.1089%
+Completion: 68.1028%
+Completion: 73.0973%
+Completion: 78.0892%
+Completion: 83.0849%
+Completion: 88.078%
+Completion: 93.0698%
+Completion: 97.1044%
+Failure!
+Duration: 487478532 mus
+
+
+=====================
+ Run 30/50:
+=====================
+Completion: 5.17898%
+Completion: 10.0901%
+Completion: 15.6155%
+Completion: 20.6655%
+Completion: 26.2563%
+Completion: 31.8866%
+Completion: 36.8304%
+Completion: 41.8392%
+Completion: 46.8486%
+Completion: 51.8608%
+Completion: 56.8743%
+Completion: 61.8895%
+Completion: 66.8989%
+Completion: 71.9085%
+Completion: 76.9202%
+Completion: 81.9254%
+Completion: 86.9387%
+Completion: 91.9512%
+Completion: 96.2098%
+Failure!
+Duration: 489871000 mus
+
+
+=====================
+ Run 31/50:
+=====================
+Completion: 5.57449%
+Completion: 11.0287%
+Completion: 17.1474%
+Completion: 23.3659%
+Completion: 29.3793%
+Completion: 35.4224%
+Completion: 41.0364%
+Completion: 46.2346%
+Completion: 51.7487%
+Completion: 57.3561%
+Completion: 62.2592%
+Completion: 67.8749%
+Completion: 72.262%
+Completion: 76.6461%
+Completion: 81.108%
+Completion: 86.4036%
+Completion: 89.9015%
+Completion: 93.019%
+Completion: 96.1353%
+Failure!
+Duration: 549197734 mus
+
+
+=====================
+ Run 32/50:
+=====================
+Completion: 5.85369%
+Completion: 11.3125%
+Completion: 17.2174%
+Completion: 22.3765%
+Completion: 28.1594%
+Completion: 34.0838%
+Completion: 39.909%
+Completion: 45.2624%
+Completion: 49.9091%
+Completion: 54.2887%
+Completion: 58.6727%
+Completion: 63.0578%
+Completion: 69.0322%
+Completion: 73.7607%
+Completion: 78.148%
+Completion: 83.6018%
+Completion: 88.3081%
+Completion: 91.4244%
+Completion: 94.5429%
+Failure!
+Duration: 552897957 mus
+
+
+=====================
+ Run 33/50:
+=====================
+Completion: 5.52376%
+Completion: 10.8535%
+Completion: 15.8716%
+Completion: 21.6405%
+Completion: 27.2683%
+Completion: 33.5249%
+Completion: 39.3853%
+Completion: 44.6239%
+Completion: 50.6107%
+Completion: 55.9838%
+Completion: 61.2214%
+Completion: 66.8639%
+Completion: 72.0016%
+Completion: 77.016%
+Completion: 82.0236%
+Completion: 87.0337%
+Completion: 91.2495%
+Completion: 94.3836%
+Completion: 97.5182%
+Failure!
+Duration: 526335743 mus
+
+
+=====================
+ Run 34/50:
+=====================
+Completion: 5.84713%
+Completion: 11.3417%
+Completion: 17.4691%
+Completion: 22.3098%
+Completion: 27.1142%
+Completion: 31.511%
+Completion: 35.9073%
+Completion: 40.2981%
+Completion: 44.6925%
+Completion: 49.0941%
+Completion: 53.4938%
+Completion: 57.8907%
+Completion: 62.2937%
+Completion: 66.7022%
+Completion: 71.2179%
+Completion: 75.6167%
+Completion: 80.0144%
+Completion: 84.4166%
+Completion: 88.334%
+Failure!
+Duration: 598189445 mus
+
+
+=====================
+ Run 35/50:
+=====================
+Completion: 5.02393%
+Completion: 10.0387%
+Completion: 15.0627%
+Completion: 20.1299%
+Completion: 25.1414%
+Completion: 30.1613%
+Completion: 35.1727%
+Completion: 40.1902%
+Completion: 45.2194%
+Completion: 50.2407%
+Completion: 55.2621%
+Completion: 60.2755%
+Completion: 65.2888%
+Completion: 70.308%
+Completion: 75.3264%
+Completion: 80.3463%
+Completion: 85.375%
+Completion: 90.3916%
+Completion: 95.4135%
+Failure!
+Duration: 452370397 mus
+
+
+=====================
+ Run 36/50:
+=====================
+Completion: 4.98641%
+Completion: 9.97406%
+Completion: 14.9632%
+Completion: 19.9558%
+Completion: 24.9435%
+Completion: 29.9325%
+Completion: 34.9215%
+Completion: 39.9115%
+Completion: 44.9009%
+Completion: 49.8927%
+Completion: 54.8827%
+Completion: 59.8721%
+Completion: 64.8602%
+Completion: 69.8488%
+Completion: 74.8354%
+Completion: 79.8229%
+Completion: 84.8123%
+Completion: 89.803%
+Completion: 94.7962%
+Failure!
+Duration: 451949355 mus
+
+
+=====================
+ Run 37/50:
+=====================
+Completion: 4.73072%
+Completion: 10.3836%
+Completion: 16.0907%
+Completion: 21.5652%
+Completion: 27.5052%
+Completion: 33.919%
+Completion: 39.9012%
+Completion: 45.4776%
+Completion: 50.2166%
+Completion: 54.5836%
+Completion: 58.9521%
+Completion: 63.3194%
+Completion: 68.0537%
+Completion: 73.0918%
+Completion: 78.1162%
+Completion: 83.1376%
+Completion: 88.1753%
+Completion: 92.3373%
+Completion: 95.474%
+Failure!
+Duration: 536075364 mus
+
+
+=====================
+ Run 38/50:
+=====================
+Completion: 4.48425%
+Completion: 10.1947%
+Completion: 17.9025%
+Completion: 26.6304%
+Completion: 35.3592%
+Completion: 43.2464%
+Completion: 51.0308%
+Completion: 58.2833%
+Completion: 63.841%
+Completion: 71.0083%
+Completion: 77.1366%
+Completion: 81.8501%
+Completion: 88.5141%
+Completion: 91.65%
+Completion: 94.5631%
+Completion: 96.4414%
+Completion: 98.1256%
+Completion: 98.7506%
+Completion: 99.3757%
+Failure!
+Duration: 613040680 mus
+
+
+=====================
+ Run 39/50:
+=====================
+Completion: 4.3752%
+Completion: 9.31044%
+Completion: 14.3227%
+Completion: 19.2881%
+Completion: 25.6509%
+Completion: 31.9301%
+Completion: 37.0486%
+Completion: 41.7773%
+Completion: 47.0092%
+Completion: 51.9486%
+Completion: 57.9677%
+Completion: 63.8942%
+Completion: 69.3436%
+Completion: 75.0265%
+Completion: 80.7349%
+Completion: 85.9975%
+Completion: 89.9762%
+Completion: 93.0952%
+Completion: 96.215%
+Failure!
+Duration: 559068745 mus
+
+
+=====================
+ Run 40/50:
+=====================
+Completion: 5.29546%
+Completion: 11.2187%
+Completion: 16.6963%
+Completion: 21.73%
+Completion: 27.3861%
+Completion: 32.9199%
+Completion: 38.2162%
+Completion: 43.5929%
+Completion: 49.08%
+Completion: 54.2185%
+Completion: 59.6887%
+Completion: 65.1985%
+Completion: 70.6779%
+Completion: 75.8695%
+Completion: 81.2719%
+Completion: 86.9361%
+Completion: 90.442%
+Completion: 93.577%
+Completion: 96.7103%
+Failure!
+Duration: 551233593 mus
+
+
+=====================
+ Run 41/50:
+=====================
+Completion: 4.35815%
+Completion: 8.71924%
+Completion: 13.0805%
+Completion: 17.6728%
+Completion: 22.6596%
+Completion: 27.6443%
+Completion: 32.6338%
+Completion: 37.6184%
+Completion: 42.6065%
+Completion: 47.5956%
+Completion: 52.5817%
+Completion: 57.5734%
+Completion: 62.5577%
+Completion: 67.5455%
+Completion: 72.5373%
+Completion: 77.5214%
+Completion: 82.5108%
+Completion: 87.5019%
+Completion: 92.4907%
+Failure!
+Duration: 473558839 mus
+
+
+=====================
+ Run 42/50:
+=====================
+Completion: 5.16338%
+Completion: 10.6188%
+Completion: 15.9831%
+Completion: 21.0084%
+Completion: 26.243%
+Completion: 32.0711%
+Completion: 37.3844%
+Completion: 42.9493%
+Completion: 47.9307%
+Completion: 53.8335%
+Completion: 59.2707%
+Completion: 64.6602%
+Completion: 69.4014%
+Completion: 74.5553%
+Completion: 80.3481%
+Completion: 85.5357%
+Completion: 89.7348%
+Completion: 92.8707%
+Completion: 96.0065%
+Failure!
+Duration: 548027887 mus
+
+
+=====================
+ Run 43/50:
+=====================
+Completion: 7.93376%
+Completion: 12.5381%
+Completion: 17.2817%
+Completion: 25.4443%
+Completion: 32.1181%
+Completion: 37.0353%
+Completion: 42.5686%
+Completion: 47.5895%
+Completion: 52.6077%
+Completion: 57.6201%
+Completion: 62.6319%
+Completion: 67.6431%
+Completion: 72.6538%
+Completion: 77.665%
+Completion: 82.6702%
+Completion: 87.6814%
+Completion: 92.687%
+Completion: 96.1908%
+Completion: 98.1051%
+Failure!
+Duration: 512888965 mus
+
+
+=====================
+ Run 44/50:
+=====================
+Completion: 4.42776%
+Completion: 9.73139%
+Completion: 14.7197%
+Completion: 19.7096%
+Completion: 24.6923%
+Completion: 29.6822%
+Completion: 34.6709%
+Completion: 39.6539%
+Completion: 44.6398%
+Completion: 49.6249%
+Completion: 54.6078%
+Completion: 59.5961%
+Completion: 64.5793%
+Completion: 69.565%
+Completion: 74.552%
+Completion: 79.5331%
+Completion: 84.5205%
+Completion: 89.5049%
+Completion: 94.4886%
+Failure!
+Duration: 465847192 mus
+
+
+=====================
+ Run 45/50:
+=====================
+Completion: 6.01091%
+Completion: 11.6522%
+Completion: 16.7281%
+Completion: 22.4416%
+Completion: 27.6343%
+Completion: 32.374%
+Completion: 37.9221%
+Completion: 43.7593%
+Completion: 49.5153%
+Completion: 55.0198%
+Completion: 60.9708%
+Completion: 66.961%
+Completion: 72.638%
+Completion: 78.4207%
+Completion: 83.8601%
+Completion: 88.8129%
+Completion: 91.9314%
+Completion: 95.0501%
+Completion: 97.8216%
+Failure!
+Duration: 548695773 mus
+
+
+=====================
+ Run 46/50:
+=====================
+Completion: 7.51706%
+Completion: 15.4385%
+Completion: 23.0234%
+Completion: 30.693%
+Completion: 35.0601%
+Completion: 39.4303%
+Completion: 43.7965%
+Completion: 48.1949%
+Completion: 52.5614%
+Completion: 58.9091%
+Completion: 63.9336%
+Completion: 68.9563%
+Completion: 73.9739%
+Completion: 78.9922%
+Completion: 84.0069%
+Completion: 89.0216%
+Completion: 93.3255%
+Completion: 96.4123%
+Completion: 98.3434%
+Failure!
+Duration: 527690394 mus
+
+
+=====================
+ Run 47/50:
+=====================
+Completion: 4.36959%
+Completion: 8.73363%
+Completion: 13.1787%
+Completion: 18.1673%
+Completion: 23.1574%
+Completion: 28.1474%
+Completion: 33.1339%
+Completion: 38.1184%
+Completion: 43.1062%
+Completion: 48.093%
+Completion: 53.081%
+Completion: 58.0712%
+Completion: 63.0577%
+Completion: 68.0469%
+Completion: 73.0325%
+Completion: 78.0166%
+Completion: 83.0036%
+Completion: 87.99%
+Completion: 92.9781%
+Failure!
+Duration: 482226223 mus
+
+
+=====================
+ Run 48/50:
+=====================
+Completion: 4.36979%
+Completion: 9.05657%
+Completion: 15.0558%
+Completion: 20.1269%
+Completion: 25.7257%
+Completion: 31.0213%
+Completion: 36.5274%
+Completion: 42.0161%
+Completion: 47.8087%
+Completion: 53.2442%
+Completion: 58.9273%
+Completion: 63.7108%
+Completion: 68.8417%
+Completion: 73.6362%
+Completion: 78.5591%
+Completion: 83.8629%
+Completion: 88.4414%
+Completion: 91.5775%
+Completion: 94.7146%
+Failure!
+Duration: 551591884 mus
+
+
+=====================
+ Run 49/50:
+=====================
+Completion: 4.36448%
+Completion: 8.72924%
+Completion: 13.0972%
+Completion: 17.4647%
+Completion: 21.8333%
+Completion: 26.2045%
+Completion: 30.5737%
+Completion: 34.9454%
+Completion: 40.5893%
+Completion: 47.4992%
+Completion: 52.5213%
+Completion: 57.5378%
+Completion: 62.5678%
+Completion: 67.5846%
+Completion: 72.6145%
+Completion: 77.6289%
+Completion: 82.6523%
+Completion: 87.6905%
+Completion: 92.7104%
+Failure!
+Duration: 563695435 mus
+
+
+=====================
+ Run 50/50:
+=====================
+Completion: 8.72531%
+Completion: 17.4468%
+Completion: 26.1713%
+Completion: 34.8964%
+Completion: 40.5536%
+Completion: 44.9207%
+Completion: 49.2882%
+Completion: 53.6571%
+Completion: 58.026%
+Completion: 62.3923%
+Completion: 67.2115%
+Completion: 72.1968%
+Completion: 77.183%
+Completion: 82.1731%
+Completion: 87.1604%
+Completion: 91.7189%
+Completion: 94.2122%
+Completion: 96.285%
+Completion: 97.5349%
+Failure!
+Duration: 588409665 mus
+
+
+=====================
+ Parameters:
+=====================
+N1 = 999999929
+N2 = 999999927
+N  = 999999856000005183
+Nc = 1500000
+Na = 600
+Fc = 0.997
+kB = 3016.26
+Threads: 8
+
+=====================
+ Run 1/50:
+=====================
+Completion: 4.99143%
+Completion: 9.99208%
+Completion: 14.9838%
+Completion: 19.9774%
+Completion: 24.9728%
+Completion: 29.9636%
+Completion: 34.9574%
+Completion: 39.9468%
+Completion: 44.9418%
+Completion: 49.9339%
+Completion: 54.9279%
+Completion: 59.9174%
+Completion: 64.9131%
+Completion: 69.9023%
+Completion: 74.8963%
+Completion: 79.8893%
+Completion: 84.8767%
+Completion: 89.8721%
+Completion: 94.8624%
+Failure!
+Duration: 653476800 mus
+
+
+=====================
+ Run 2/50:
+=====================
+Completion: 5.68079%
+Completion: 10.8222%
+Completion: 16.1182%
+Completion: 21.5452%
+Completion: 26.8231%
+Completion: 32.4439%
+Completion: 37.7246%
+Completion: 42.864%
+Completion: 47.8584%
+Completion: 52.8497%
+Completion: 57.8462%
+Completion: 62.8392%
+Completion: 67.8335%
+Completion: 72.8237%
+Completion: 77.8187%
+Completion: 82.8087%
+Completion: 87.8038%
+Completion: 92.7945%
+Completion: 96.4733%
+Failure!
+Duration: 724343817 mus
+
+
+=====================
+ Run 3/50:
+=====================
+Completion: 5.80539%
+Completion: 11.6873%
+Completion: 17.0516%
+Completion: 22.0409%
+Completion: 27.0339%
+Completion: 32.0243%
+Completion: 37.0161%
+Completion: 42.0053%
+Completion: 46.9963%
+Completion: 51.9881%
+Completion: 56.9773%
+Completion: 61.9671%
+Completion: 66.9566%
+Completion: 71.9471%
+Completion: 76.9359%
+Completion: 81.9277%
+Completion: 86.9168%
+Completion: 91.909%
+Completion: 96.9005%
+Failure!
+Duration: 679362721 mus
+
+
+=====================
+ Run 4/50:
+=====================
+Completion: 5.65778%
+Completion: 11.5003%
+Completion: 16.9535%
+Completion: 22.6785%
+Completion: 28.0396%
+Completion: 33.2945%
+Completion: 38.6091%
+Completion: 44.0481%
+Completion: 49.6404%
+Completion: 55.0135%
+Completion: 60.3541%
+Completion: 65.8868%
+Completion: 71.1649%
+Completion: 76.2023%
+Completion: 81.689%
+Completion: 87.5671%
+Completion: 90.7485%
+Completion: 93.8809%
+Completion: 97.0128%
+Failure!
+Duration: 791193199 mus
+
+
+=====================
+ Run 5/50:
+=====================
+Completion: 4.99662%
+Completion: 9.98795%
+Completion: 14.9826%
+Completion: 19.9765%
+Completion: 24.9718%
+Completion: 29.9715%
+Completion: 34.9674%
+Completion: 39.965%
+Completion: 44.9592%
+Completion: 49.9581%
+Completion: 54.9523%
+Completion: 59.9505%
+Completion: 64.945%
+Completion: 69.9431%
+Completion: 74.9367%
+Completion: 79.9344%
+Completion: 84.9355%
+Completion: 89.9281%
+Completion: 94.9314%
+Failure!
+Duration: 653375261 mus
+
+
+=====================
+ Run 6/50:
+=====================
+Completion: 5.84605%
+Completion: 11.7795%
+Completion: 17.9133%
+Completion: 23.9279%
+Completion: 29.1468%
+Completion: 34.1345%
+Completion: 39.1162%
+Completion: 44.1023%
+Completion: 49.0845%
+Completion: 54.0705%
+Completion: 59.0548%
+Completion: 64.0375%
+Completion: 69.0239%
+Completion: 74.0066%
+Completion: 78.994%
+Completion: 83.9775%
+Completion: 88.9643%
+Completion: 93.947%
+Completion: 97.9913%
+Failure!
+Duration: 702039906 mus
+
+
+=====================
+ Run 7/50:
+=====================
+Completion: 4.70789%
+Completion: 11.3425%
+Completion: 16.7237%
+Completion: 21.0913%
+Completion: 25.4602%
+Completion: 29.8327%
+Completion: 34.1982%
+Completion: 38.5675%
+Completion: 43.1364%
+Completion: 51.2751%
+Completion: 60.0082%
+Completion: 68.6773%
+Completion: 76.0725%
+Completion: 83.6006%
+Completion: 88.942%
+Completion: 92.0618%
+Completion: 95.1816%
+Completion: 98.0651%
+Completion: 99.375%
+Failure!
+Duration: 828278938 mus
+
+
+=====================
+ Run 8/50:
+=====================
+Completion: 5.65086%
+Completion: 11.8848%
+Completion: 18.0642%
+Completion: 24.0601%
+Completion: 29.7778%
+Completion: 35.0896%
+Completion: 40.8657%
+Completion: 46.4117%
+Completion: 52.4479%
+Completion: 58.23%
+Completion: 64.0364%
+Completion: 69.8549%
+Completion: 75.1217%
+Completion: 80.4484%
+Completion: 86.3707%
+Completion: 90.2358%
+Completion: 93.3571%
+Completion: 96.4099%
+Completion: 98.6099%
+Failure!
+Duration: 809702018 mus
+
+
+=====================
+ Run 9/50:
+=====================
+Completion: 4.6589%
+Completion: 9.64674%
+Completion: 14.6381%
+Completion: 19.6269%
+Completion: 24.6154%
+Completion: 29.6026%
+Completion: 34.5918%
+Completion: 39.5797%
+Completion: 44.569%
+Completion: 49.5584%
+Completion: 54.5504%
+Completion: 59.542%
+Completion: 64.5317%
+Completion: 69.5207%
+Completion: 74.5093%
+Completion: 79.4962%
+Completion: 84.4859%
+Completion: 89.4761%
+Completion: 94.4651%
+Failure!
+Duration: 662009496 mus
+
+
+=====================
+ Run 10/50:
+=====================
+Completion: 6.82126%
+Completion: 13.0689%
+Completion: 17.9957%
+Completion: 23.1198%
+Completion: 29.025%
+Completion: 34.5022%
+Completion: 40.1923%
+Completion: 45.6213%
+Completion: 50.9107%
+Completion: 56.675%
+Completion: 61.9866%
+Completion: 67.246%
+Completion: 72.2386%
+Completion: 77.2336%
+Completion: 82.2237%
+Completion: 87.2175%
+Completion: 91.6372%
+Completion: 94.7563%
+Completion: 97.8757%
+Failure!
+Duration: 760278233 mus
+
+
+=====================
+ Run 11/50:
+=====================
+Completion: 5.32906%
+Completion: 10.7885%
+Completion: 16.3931%
+Completion: 21.789%
+Completion: 27.0362%
+Completion: 32.5569%
+Completion: 37.9934%
+Completion: 43.8155%
+Completion: 49.4768%
+Completion: 55.0458%
+Completion: 60.5039%
+Completion: 66.107%
+Completion: 71.434%
+Completion: 76.918%
+Completion: 82.276%
+Completion: 87.489%
+Completion: 90.6809%
+Completion: 93.8003%
+Completion: 96.9205%
+Failure!
+Duration: 782737025 mus
+
+
+=====================
+ Run 12/50:
+=====================
+Completion: 5.30065%
+Completion: 10.9623%
+Completion: 16.6707%
+Completion: 21.8997%
+Completion: 27.206%
+Completion: 32.4043%
+Completion: 37.9233%
+Completion: 43.377%
+Completion: 49.0741%
+Completion: 54.5614%
+Completion: 59.9282%
+Completion: 65.1119%
+Completion: 70.5518%
+Completion: 75.5391%
+Completion: 80.5285%
+Completion: 85.5172%
+Completion: 90.453%
+Completion: 93.5748%
+Completion: 96.6957%
+Failure!
+Duration: 763548376 mus
+
+
+=====================
+ Run 13/50:
+=====================
+Completion: 5.58291%
+Completion: 10.4421%
+Completion: 15.4307%
+Completion: 20.416%
+Completion: 25.4007%
+Completion: 30.3888%
+Completion: 35.3728%
+Completion: 40.3592%
+Completion: 45.344%
+Completion: 50.3321%
+Completion: 55.3174%
+Completion: 60.3061%
+Completion: 65.2913%
+Completion: 70.2805%
+Completion: 75.2632%
+Completion: 80.2491%
+Completion: 85.2294%
+Completion: 90.2124%
+Completion: 95.2008%
+Failure!
+Duration: 668085881 mus
+
+
+=====================
+ Run 14/50:
+=====================
+Completion: 5.72771%
+Completion: 11.5041%
+Completion: 16.8497%
+Completion: 22.5729%
+Completion: 28.6713%
+Completion: 33.7217%
+Completion: 39.5064%
+Completion: 44.6502%
+Completion: 50.0902%
+Completion: 55.074%
+Completion: 60.0611%
+Completion: 65.0451%
+Completion: 70.0333%
+Completion: 75.0166%
+Completion: 80.0052%
+Completion: 84.9882%
+Completion: 89.9756%
+Completion: 94.2836%
+Completion: 97.4045%
+Failure!
+Duration: 737330102 mus
+
+
+=====================
+ Run 15/50:
+=====================
+Completion: 5.95328%
+Completion: 12.0552%
+Completion: 16.9297%
+Completion: 22.2023%
+Completion: 27.0434%
+Completion: 33.0423%
+Completion: 39.6411%
+Completion: 45.2312%
+Completion: 50.6648%
+Completion: 56.9321%
+Completion: 62.2683%
+Completion: 68.4104%
+Completion: 74.2168%
+Completion: 80.0974%
+Completion: 85.1601%
+Completion: 89.4603%
+Completion: 92.5845%
+Completion: 95.7059%
+Completion: 98.5432%
+Failure!
+Duration: 801421517 mus
+
+
+=====================
+ Run 16/50:
+=====================
+Completion: 5.42821%
+Completion: 10.7493%
+Completion: 16.1748%
+Completion: 21.7082%
+Completion: 26.8396%
+Completion: 32.7726%
+Completion: 38.6823%
+Completion: 44.219%
+Completion: 49.7154%
+Completion: 54.4261%
+Completion: 59.4098%
+Completion: 64.9493%
+Completion: 70.976%
+Completion: 76.6436%
+Completion: 82.5637%
+Completion: 88.1493%
+Completion: 91.2822%
+Completion: 94.4144%
+Completion: 97.4702%
+Failure!
+Duration: 792655674 mus
+
+
+=====================
+ Run 17/50:
+=====================
+Completion: 4.58126%
+Completion: 9.28165%
+Completion: 14.2725%
+Completion: 19.2684%
+Completion: 24.2619%
+Completion: 29.2574%
+Completion: 34.2521%
+Completion: 39.2454%
+Completion: 44.2401%
+Completion: 49.2341%
+Completion: 54.231%
+Completion: 59.2257%
+Completion: 64.2223%
+Completion: 69.2197%
+Completion: 74.2159%
+Completion: 79.2108%
+Completion: 84.2085%
+Completion: 89.2015%
+Completion: 94.1966%
+Failure!
+Duration: 670952255 mus
+
+
+=====================
+ Run 18/50:
+=====================
+Completion: 6.4055%
+Completion: 11.1936%
+Completion: 17.2423%
+Completion: 22.0399%
+Completion: 27.0308%
+Completion: 32.0243%
+Completion: 37.0163%
+Completion: 42.0103%
+Completion: 46.9986%
+Completion: 51.9912%
+Completion: 56.9821%
+Completion: 61.9779%
+Completion: 66.9691%
+Completion: 71.9615%
+Completion: 76.9578%
+Completion: 81.9471%
+Completion: 86.941%
+Completion: 91.9317%
+Completion: 96.9274%
+Failure!
+Duration: 703328163 mus
+
+
+=====================
+ Run 19/50:
+=====================
+Completion: 5.39771%
+Completion: 10.4268%
+Completion: 15.75%
+Completion: 21.511%
+Completion: 27.2579%
+Completion: 32.9653%
+Completion: 38.1998%
+Completion: 43.9782%
+Completion: 49.0886%
+Completion: 54.0783%
+Completion: 59.0625%
+Completion: 64.0511%
+Completion: 69.0364%
+Completion: 74.024%
+Completion: 79.0102%
+Completion: 83.9984%
+Completion: 88.9836%
+Completion: 93.8511%
+Completion: 96.9729%
+Failure!
+Duration: 726729243 mus
+
+
+=====================
+ Run 20/50:
+=====================
+Completion: 5.43357%
+Completion: 9.97938%
+Completion: 15.7913%
+Completion: 20.1601%
+Completion: 25.7566%
+Completion: 31.4611%
+Completion: 36.1966%
+Completion: 40.8533%
+Completion: 45.8713%
+Completion: 50.8876%
+Completion: 55.9008%
+Completion: 60.9081%
+Completion: 65.919%
+Completion: 70.9278%
+Completion: 75.9379%
+Completion: 80.9462%
+Completion: 85.9555%
+Completion: 90.9708%
+Completion: 95.4926%
+Failure!
+Duration: 766767877 mus
+
+
+=====================
+ Run 21/50:
+=====================
+Completion: 5.8609%
+Completion: 10.2267%
+Completion: 14.5923%
+Completion: 19.7167%
+Completion: 25.738%
+Completion: 31.5269%
+Completion: 37.3005%
+Completion: 42.8546%
+Completion: 47.93%
+Completion: 52.925%
+Completion: 57.9188%
+Completion: 62.9177%
+Completion: 67.9138%
+Completion: 72.9103%
+Completion: 77.9087%
+Completion: 82.9027%
+Completion: 87.8997%
+Completion: 92.8954%
+Completion: 96.4065%
+Failure!
+Duration: 734384314 mus
+
+
+=====================
+ Run 22/50:
+=====================
+Completion: 5.50945%
+Completion: 10.8748%
+Completion: 16.0865%
+Completion: 21.4283%
+Completion: 26.7538%
+Completion: 32.5734%
+Completion: 38.1491%
+Completion: 43.8558%
+Completion: 49.2492%
+Completion: 54.5344%
+Completion: 59.9162%
+Completion: 65.689%
+Completion: 71.2283%
+Completion: 76.5138%
+Completion: 81.5967%
+Completion: 87.0851%
+Completion: 90.4554%
+Completion: 93.5754%
+Completion: 96.6965%
+Failure!
+Duration: 793647063 mus
+
+
+=====================
+ Run 23/50:
+=====================
+Completion: 5.42244%
+Completion: 11.3871%
+Completion: 17.5105%
+Completion: 22.4513%
+Completion: 27.9219%
+Completion: 33.6054%
+Completion: 38.1619%
+Completion: 43.3759%
+Completion: 48.6235%
+Completion: 53.6124%
+Completion: 58.5993%
+Completion: 63.5846%
+Completion: 68.5724%
+Completion: 73.5582%
+Completion: 78.5478%
+Completion: 83.5312%
+Completion: 88.5211%
+Completion: 93.5058%
+Completion: 96.728%
+Failure!
+Duration: 734576850 mus
+
+
+=====================
+ Run 24/50:
+=====================
+Completion: 5.26781%
+Completion: 10.5755%
+Completion: 15.7378%
+Completion: 20.9829%
+Completion: 26.5012%
+Completion: 32.1364%
+Completion: 37.6089%
+Completion: 43.0595%
+Completion: 48.6999%
+Completion: 53.8387%
+Completion: 59.4694%
+Completion: 64.8335%
+Completion: 70.3425%
+Completion: 75.5297%
+Completion: 80.8187%
+Completion: 86.2041%
+Completion: 89.9396%
+Completion: 93.0723%
+Completion: 96.2053%
+Failure!
+Duration: 788339951 mus
+
+
+=====================
+ Run 25/50:
+=====================
+Completion: 5.66557%
+Completion: 10.0824%
+Completion: 15.6471%
+Completion: 20.1513%
+Completion: 25.4423%
+Completion: 30.4166%
+Completion: 35.4059%
+Completion: 40.3981%
+Completion: 45.389%
+Completion: 50.3773%
+Completion: 55.3685%
+Completion: 60.3587%
+Completion: 65.3543%
+Completion: 70.3446%
+Completion: 75.3397%
+Completion: 80.3304%
+Completion: 85.3266%
+Completion: 90.322%
+Completion: 95.3118%
+Failure!
+Duration: 729489313 mus
+
+
+=====================
+ Run 26/50:
+=====================
+Completion: 4.99856%
+Completion: 9.99858%
+Completion: 14.9937%
+Completion: 19.9928%
+Completion: 24.9886%
+Completion: 29.9898%
+Completion: 34.9852%
+Completion: 39.9844%
+Completion: 44.9785%
+Completion: 49.9779%
+Completion: 54.9743%
+Completion: 59.9753%
+Completion: 64.977%
+Completion: 69.9705%
+Completion: 74.9707%
+Completion: 79.9655%
+Completion: 84.9637%
+Completion: 89.9592%
+Completion: 94.9605%
+Failure!
+Duration: 653564466 mus
+
+
+=====================
+ Run 27/50:
+=====================
+Completion: 6.30235%
+Completion: 12.3152%
+Completion: 17.6186%
+Completion: 23.2815%
+Completion: 28.9768%
+Completion: 34.3686%
+Completion: 39.3945%
+Completion: 44.7196%
+Completion: 49.7086%
+Completion: 54.6941%
+Completion: 59.6817%
+Completion: 64.6689%
+Completion: 69.6543%
+Completion: 74.6423%
+Completion: 79.6273%
+Completion: 84.6176%
+Completion: 89.6041%
+Completion: 94.4442%
+Completion: 97.5638%
+Failure!
+Duration: 720532364 mus
+
+
+=====================
+ Run 28/50:
+=====================
+Completion: 4.94429%
+Completion: 10.7831%
+Completion: 16.5539%
+Completion: 21.9872%
+Completion: 27.9283%
+Completion: 33.2922%
+Completion: 38.5501%
+Completion: 43.091%
+Completion: 48.763%
+Completion: 53.3921%
+Completion: 58.5695%
+Completion: 64.0445%
+Completion: 69.3939%
+Completion: 75.0102%
+Completion: 80.0705%
+Completion: 85.7413%
+Completion: 89.5683%
+Completion: 92.6893%
+Completion: 95.8114%
+Failure!
+Duration: 791789690 mus
+
+
+=====================
+ Run 29/50:
+=====================
+Completion: 4.91238%
+Completion: 11.1012%
+Completion: 17.1482%
+Completion: 22.1404%
+Completion: 27.1382%
+Completion: 32.1308%
+Completion: 37.1302%
+Completion: 42.1239%
+Completion: 47.1202%
+Completion: 52.1132%
+Completion: 57.1117%
+Completion: 62.109%
+Completion: 67.1019%
+Completion: 72.0994%
+Completion: 77.0937%
+Completion: 82.0902%
+Completion: 87.0834%
+Completion: 92.0827%
+Completion: 97.0774%
+Failure!
+Duration: 687752074 mus
+
+
+=====================
+ Run 30/50:
+=====================
+Completion: 4.9892%
+Completion: 9.97905%
+Completion: 14.9683%
+Completion: 19.9582%
+Completion: 24.9495%
+Completion: 29.9386%
+Completion: 34.9309%
+Completion: 39.9208%
+Completion: 44.9118%
+Completion: 49.9018%
+Completion: 54.8934%
+Completion: 59.8862%
+Completion: 64.8756%
+Completion: 69.8646%
+Completion: 74.8544%
+Completion: 79.845%
+Completion: 84.8353%
+Completion: 89.8257%
+Completion: 94.8144%
+Failure!
+Duration: 653526531 mus
+
+
+=====================
+ Run 31/50:
+=====================
+Completion: 4.49241%
+Completion: 9.53693%
+Completion: 14.5318%
+Completion: 19.5216%
+Completion: 24.5166%
+Completion: 29.5063%
+Completion: 34.5015%
+Completion: 39.4928%
+Completion: 44.488%
+Completion: 49.4794%
+Completion: 54.4741%
+Completion: 59.4672%
+Completion: 64.4604%
+Completion: 69.4578%
+Completion: 74.4479%
+Completion: 79.443%
+Completion: 84.4351%
+Completion: 89.433%
+Completion: 94.4233%
+Failure!
+Duration: 666680712 mus
+
+
+=====================
+ Run 32/50:
+=====================
+Completion: 5.6358%
+Completion: 11.0119%
+Completion: 16.1436%
+Completion: 21.133%
+Completion: 26.1227%
+Completion: 31.1139%
+Completion: 36.1023%
+Completion: 41.0923%
+Completion: 46.0831%
+Completion: 51.074%
+Completion: 56.0645%
+Completion: 61.0548%
+Completion: 66.0458%
+Completion: 71.0357%
+Completion: 76.0249%
+Completion: 81.0126%
+Completion: 86.0021%
+Completion: 90.9925%
+Completion: 95.9823%
+Failure!
+Duration: 674825586 mus
+
+
+=====================
+ Run 33/50:
+=====================
+Completion: 4.99596%
+Completion: 9.989%
+Completion: 14.9851%
+Completion: 19.9792%
+Completion: 24.9768%
+Completion: 29.9731%
+Completion: 34.9654%
+Completion: 39.9629%
+Completion: 44.954%
+Completion: 49.9524%
+Completion: 54.9444%
+Completion: 59.9439%
+Completion: 64.9372%
+Completion: 69.935%
+Completion: 74.9276%
+Completion: 79.9247%
+Completion: 84.9177%
+Completion: 89.9102%
+Completion: 94.9071%
+Failure!
+Duration: 653690170 mus
+
+
+=====================
+ Run 34/50:
+=====================
+Completion: 5.65162%
+Completion: 11.1425%
+Completion: 16.7904%
+Completion: 24.4343%
+Completion: 31.8686%
+Completion: 38.381%
+Completion: 42.7677%
+Completion: 47.1535%
+Completion: 53.2455%
+Completion: 58.5182%
+Completion: 63.1313%
+Completion: 69.8746%
+Completion: 74.2656%
+Completion: 78.6571%
+Completion: 83.048%
+Completion: 87.3745%
+Completion: 90.4922%
+Completion: 93.6093%
+Completion: 96.4605%
+Failure!
+Duration: 822158273 mus
+
+
+=====================
+ Run 35/50:
+=====================
+Completion: 4.38564%
+Completion: 8.7773%
+Completion: 14.5051%
+Completion: 20.0792%
+Completion: 24.8672%
+Completion: 30.3991%
+Completion: 35.0544%
+Completion: 39.4616%
+Completion: 44.8896%
+Completion: 50.8454%
+Completion: 56.1425%
+Completion: 61.8097%
+Completion: 67.3193%
+Completion: 72.649%
+Completion: 78.0516%
+Completion: 83.8045%
+Completion: 88.2113%
+Completion: 91.3396%
+Completion: 94.4702%
+Failure!
+Duration: 806940363 mus
+
+
+=====================
+ Run 36/50:
+=====================
+Completion: 5.22087%
+Completion: 11.0082%
+Completion: 16.6947%
+Completion: 22.5721%
+Completion: 28.4284%
+Completion: 34.1464%
+Completion: 39.8296%
+Completion: 45.5945%
+Completion: 51.438%
+Completion: 56.9539%
+Completion: 62.3956%
+Completion: 68.2782%
+Completion: 73.6958%
+Completion: 79.7236%
+Completion: 85.2796%
+Completion: 88.9689%
+Completion: 92.0985%
+Completion: 95.2281%
+Completion: 98.2128%
+Failure!
+Duration: 798816050 mus
+
+
+=====================
+ Run 37/50:
+=====================
+Completion: 5.64755%
+Completion: 11.0811%
+Completion: 16.7294%
+Completion: 22.2605%
+Completion: 27.9932%
+Completion: 33.3476%
+Completion: 38.0476%
+Completion: 43.3343%
+Completion: 48.9519%
+Completion: 54.9034%
+Completion: 61.4667%
+Completion: 67.5928%
+Completion: 73.3063%
+Completion: 78.2871%
+Completion: 84.2687%
+Completion: 88.7937%
+Completion: 91.9235%
+Completion: 95.0544%
+Completion: 97.7406%
+Failure!
+Duration: 797121597 mus
+
+
+=====================
+ Run 38/50:
+=====================
+Completion: 4.38346%
+Completion: 8.76815%
+Completion: 13.1544%
+Completion: 20.5601%
+Completion: 26.1065%
+Completion: 31.6145%
+Completion: 35.9993%
+Completion: 40.9184%
+Completion: 45.9345%
+Completion: 50.9456%
+Completion: 55.9497%
+Completion: 60.9576%
+Completion: 65.9632%
+Completion: 70.9767%
+Completion: 75.9869%
+Completion: 80.9941%
+Completion: 85.9982%
+Completion: 91.0054%
+Completion: 95.451%
+Failure!
+Duration: 743992572 mus
+
+
+=====================
+ Run 39/50:
+=====================
+Completion: 5.01381%
+Completion: 10.0246%
+Completion: 15.0311%
+Completion: 20.0436%
+Completion: 25.0534%
+Completion: 30.0715%
+Completion: 35.0881%
+Completion: 40.1025%
+Completion: 45.1138%
+Completion: 50.1279%
+Completion: 55.1381%
+Completion: 60.1525%
+Completion: 65.1609%
+Completion: 70.1763%
+Completion: 75.1959%
+Completion: 80.2118%
+Completion: 85.232%
+Completion: 90.2403%
+Completion: 95.259%
+Failure!
+Duration: 653721461 mus
+
+
+=====================
+ Run 40/50:
+=====================
+Completion: 5.34903%
+Completion: 10.338%
+Completion: 15.3257%
+Completion: 20.3163%
+Completion: 25.3043%
+Completion: 30.291%
+Completion: 35.2821%
+Completion: 40.2717%
+Completion: 45.26%
+Completion: 50.2487%
+Completion: 55.2381%
+Completion: 60.2298%
+Completion: 65.219%
+Completion: 70.2061%
+Completion: 75.1976%
+Completion: 80.1863%
+Completion: 85.175%
+Completion: 90.167%
+Completion: 95.1543%
+Failure!
+Duration: 655915608 mus
+
+
+=====================
+ Run 41/50:
+=====================
+Completion: 4.38479%
+Completion: 8.76996%
+Completion: 13.1562%
+Completion: 17.5394%
+Completion: 21.9223%
+Completion: 26.3047%
+Completion: 30.6872%
+Completion: 35.0687%
+Completion: 39.4516%
+Completion: 43.8318%
+Completion: 48.2162%
+Completion: 52.5981%
+Completion: 56.9814%
+Completion: 61.3624%
+Completion: 65.7444%
+Completion: 70.128%
+Completion: 74.5101%
+Completion: 78.8935%
+Completion: 83.2748%
+Failure!
+Duration: 797330520 mus
+
+
+=====================
+ Run 42/50:
+=====================
+Completion: 5.00663%
+Completion: 10.0026%
+Completion: 14.9944%
+Completion: 19.9866%
+Completion: 24.9812%
+Completion: 29.9771%
+Completion: 34.9682%
+Completion: 39.9605%
+Completion: 44.9511%
+Completion: 49.9454%
+Completion: 54.9368%
+Completion: 59.9309%
+Completion: 64.9234%
+Completion: 69.9159%
+Completion: 74.9143%
+Completion: 79.9069%
+Completion: 84.903%
+Completion: 89.8947%
+Completion: 94.8894%
+Failure!
+Duration: 654227319 mus
+
+
+=====================
+ Run 43/50:
+=====================
+Completion: 5.06888%
+Completion: 10.0575%
+Completion: 15.0478%
+Completion: 20.039%
+Completion: 25.0268%
+Completion: 30.0166%
+Completion: 35.004%
+Completion: 39.9934%
+Completion: 44.9765%
+Completion: 49.9664%
+Completion: 54.9547%
+Completion: 59.9461%
+Completion: 64.9352%
+Completion: 69.9293%
+Completion: 74.9204%
+Completion: 79.9086%
+Completion: 84.8983%
+Completion: 89.8869%
+Completion: 94.877%
+Failure!
+Duration: 654511672 mus
+
+
+=====================
+ Run 44/50:
+=====================
+Completion: 5.36143%
+Completion: 10.3545%
+Completion: 15.3451%
+Completion: 20.3348%
+Completion: 25.3258%
+Completion: 30.3169%
+Completion: 35.3077%
+Completion: 40.299%
+Completion: 45.2913%
+Completion: 50.2813%
+Completion: 55.2717%
+Completion: 60.2631%
+Completion: 65.2551%
+Completion: 70.247%
+Completion: 75.2397%
+Completion: 80.2299%
+Completion: 85.2219%
+Completion: 90.2159%
+Completion: 95.207%
+Failure!
+Duration: 658991867 mus
+
+
+=====================
+ Run 45/50:
+=====================
+Completion: 5.66737%
+Completion: 10.6572%
+Completion: 15.6445%
+Completion: 20.6272%
+Completion: 25.618%
+Completion: 30.6007%
+Completion: 35.5894%
+Completion: 40.5739%
+Completion: 45.5617%
+Completion: 50.5467%
+Completion: 55.5349%
+Completion: 60.5196%
+Completion: 65.5069%
+Completion: 70.4908%
+Completion: 75.48%
+Completion: 80.4669%
+Completion: 85.4508%
+Completion: 90.4402%
+Completion: 95.4253%
+Failure!
+Duration: 657094133 mus
+
+
+=====================
+ Run 46/50:
+=====================
+Completion: 5.02943%
+Completion: 10.9034%
+Completion: 15.8924%
+Completion: 20.8794%
+Completion: 25.8673%
+Completion: 30.8556%
+Completion: 35.8456%
+Completion: 40.833%
+Completion: 45.8217%
+Completion: 50.8108%
+Completion: 55.7997%
+Completion: 60.7866%
+Completion: 65.7754%
+Completion: 70.7645%
+Completion: 75.7516%
+Completion: 80.7414%
+Completion: 85.7301%
+Completion: 90.7185%
+Completion: 95.7072%
+Failure!
+Duration: 679801762 mus
+
+
+=====================
+ Run 47/50:
+=====================
+Completion: 5.94994%
+Completion: 11.2747%
+Completion: 16.6489%
+Completion: 21.6371%
+Completion: 26.6237%
+Completion: 31.6101%
+Completion: 36.5947%
+Completion: 41.5832%
+Completion: 46.5695%
+Completion: 51.5573%
+Completion: 56.5433%
+Completion: 61.5303%
+Completion: 66.5141%
+Completion: 71.5033%
+Completion: 76.4914%
+Completion: 81.4795%
+Completion: 86.4659%
+Completion: 91.4518%
+Completion: 96.4404%
+Failure!
+Duration: 679710128 mus
+
+
+=====================
+ Run 48/50:
+=====================
+Completion: 4.9846%
+Completion: 9.97237%
+Completion: 14.962%
+Completion: 19.9524%
+Completion: 24.9427%
+Completion: 29.9343%
+Completion: 34.9211%
+Completion: 39.9097%
+Completion: 44.8982%
+Completion: 49.8876%
+Completion: 54.8754%
+Completion: 59.8644%
+Completion: 64.8545%
+Completion: 69.8438%
+Completion: 74.836%
+Completion: 79.8236%
+Completion: 84.8139%
+Completion: 89.8024%
+Completion: 94.7907%
+Failure!
+Duration: 653500611 mus
+
+
+=====================
+ Run 49/50:
+=====================
+Completion: 4.37098%
+Completion: 9.07756%
+Completion: 14.4966%
+Completion: 21.0087%
+Completion: 25.8777%
+Completion: 30.2622%
+Completion: 35.251%
+Completion: 40.2361%
+Completion: 45.2233%
+Completion: 50.2075%
+Completion: 55.1957%
+Completion: 60.1804%
+Completion: 65.1695%
+Completion: 70.1486%
+Completion: 75.1377%
+Completion: 80.1208%
+Completion: 85.1085%
+Completion: 90.0914%
+Completion: 95.0755%
+Failure!
+Duration: 727176478 mus
+
+
+=====================
+ Run 50/50:
+=====================
+Completion: 4.3871%
+Completion: 10.2259%
+Completion: 16.1727%
+Completion: 21.389%
+Completion: 26.656%
+Completion: 32.4695%
+Completion: 37.7224%
+Completion: 43.1856%
+Completion: 48.4443%
+Completion: 53.8667%
+Completion: 59.2219%
+Completion: 64.8583%
+Completion: 70.5619%
+Completion: 75.8382%
+Completion: 81.6409%
+Completion: 87.219%
+Completion: 90.5247%
+Completion: 93.658%
+Completion: 96.7904%
+Failure!
+Duration: 792869319 mus
+
+
+=====================
+ Parameters:
+=====================
+N1 = 18446744072576861953
+N2 = 18446744072576861989
+N  = 1282985831890225701
+Nc = 1600000
+Na = 600
+Fc = 0.997
+kB = 3168.32
+Threads: 8
+
+=====================
+ Run 1/50:
+=====================
+Completion: 5.61729%
+Completion: 11.2155%
+Completion: 16.7392%
+Completion: 22.1612%
+Completion: 27.5703%
+Completion: 32.9541%
+Completion: 38.4137%
+Completion: 43.6568%
+Completion: 48.6575%
+Completion: 53.6575%
+Completion: 58.6578%
+Completion: 63.6584%
+Completion: 68.657%
+Completion: 73.6584%
+Completion: 78.6597%
+Completion: 83.6609%
+Completion: 88.6607%
+Completion: 93.6606%
+*** glibc detected *** ../../bin/semiprime: double free or corruption (out): 0x00007fa17c000aa0 ***
+======= Backtrace: =========
+/lib64/libc.so.6[0x34c4876166]
+/lib64/libc.so.6[0x34c4878c93]
+../../bin/semiprime[0x40bda4]
+/sl6/sw/gcc/4.8.2/rtf/lib64/libstdc++.so.6(+0xaffb0)[0x7fa19e40ffb0]
+/lib64/libpthread.so.0[0x34c54079d1]
+/lib64/libc.so.6(clone+0x6d)[0x34c48e8b6d]
+======= Memory map: ========
+00400000-0040f000 r-xp 00000000 00:13 1076135284                         /home/fkoehler/clusterpack/bin/semiprime
+0060f000-00610000 rw-p 0000f000 00:13 1076135284                         /home/fkoehler/clusterpack/bin/semiprime
+00831000-00852000 rw-p 00000000 00:00 0                                  [heap]
+34c4000000-34c4020000 r-xp 00000000 08:02 427289                         /lib64/ld-2.12.so
+34c421f000-34c4220000 r--p 0001f000 08:02 427289                         /lib64/ld-2.12.so
+34c4220000-34c4221000 rw-p 00020000 08:02 427289                         /lib64/ld-2.12.so
+34c4221000-34c4222000 rw-p 00000000 00:00 0 
+34c4800000-34c498b000 r-xp 00000000 08:02 427290                         /lib64/libc-2.12.so
+34c498b000-34c4b8a000 ---p 0018b000 08:02 427290                         /lib64/libc-2.12.so
+34c4b8a000-34c4b8e000 r--p 0018a000 08:02 427290                         /lib64/libc-2.12.so
+34c4b8e000-34c4b8f000 rw-p 0018e000 08:02 427290                         /lib64/libc-2.12.so
+34c4b8f000-34c4b94000 rw-p 00000000 00:00 0 
+34c4c00000-34c4c83000 r-xp 00000000 08:02 427314                         /lib64/libm-2.12.so
+34c4c83000-34c4e82000 ---p 00083000 08:02 427314                         /lib64/libm-2.12.so
+34c4e82000-34c4e83000 r--p 00082000 08:02 427314                         /lib64/libm-2.12.so
+34c4e83000-34c4e84000 rw-p 00083000 08:02 427314                         /lib64/libm-2.12.so
+34c5400000-34c5417000 r-xp 00000000 08:02 427291                         /lib64/libpthread-2.12.so
+34c5417000-34c5617000 ---p 00017000 08:02 427291                         /lib64/libpthread-2.12.so
+34c5617000-34c5618000 r--p 00017000 08:02 427291                         /lib64/libpthread-2.12.so
+34c5618000-34c5619000 rw-p 00018000 08:02 427291                         /lib64/libpthread-2.12.so
+34c5619000-34c561d000 rw-p 00000000 00:00 0 
+7fa178000000-7fa178021000 rw-p 00000000 00:00 0 
+7fa178021000-7fa17c000000 ---p 00000000 00:00 0 
+7fa17c000000-7fa17c021000 rw-p 00000000 00:00 0 
+7fa17c021000-7fa180000000 ---p 00000000 00:00 0 
+7fa180000000-7fa180021000 rw-p 00000000 00:00 0 
+7fa180021000-7fa184000000 ---p 00000000 00:00 0 
+7fa184000000-7fa184021000 rw-p 00000000 00:00 0 
+7fa184021000-7fa188000000 ---p 00000000 00:00 0 
+7fa188000000-7fa188021000 rw-p 00000000 00:00 0 
+7fa188021000-7fa18c000000 ---p 00000000 00:00 0 
+7fa18c000000-7fa18c021000 rw-p 00000000 00:00 0 
+7fa18c021000-7fa190000000 ---p 00000000 00:00 0 
+7fa190000000-7fa190021000 rw-p 00000000 00:00 0 
+7fa190021000-7fa194000000 ---p 00000000 00:00 0 
+7fa194dfb000-7fa194dfc000 ---p 00000000 00:00 0 
+7fa194dfc000-7fa1957fc000 rw-p 00000000 00:00 0 
+7fa1957fc000-7fa1957fd000 ---p 00000000 00:00 0 
+7fa1957fd000-7fa1961fd000 rw-p 00000000 00:00 0 
+7fa1961fd000-7fa1961fe000 ---p 00000000 00:00 0 
+7fa1961fe000-7fa196bfe000 rw-p 00000000 00:00 0 
+7fa196bfe000-7fa196bff000 ---p 00000000 00:00 0 
+7fa196bff000-7fa1975ff000 rw-p 00000000 00:00 0 
+7fa1975ff000-7fa197600000 ---p 00000000 00:00 0 
+7fa197600000-7fa198021000 rw-p 00000000 00:00 0 
+7fa198021000-7fa19c000000 ---p 00000000 00:00 0 
+7fa19c31b000-7fa19c31c000 ---p 00000000 00:00 0 
+7fa19c31c000-7fa19cd1c000 rw-p 00000000 00:00 0 
+7fa19cd1c000-7fa19cd1d000 ---p 00000000 00:00 0 
+7fa19cd1d000-7fa19d71d000 rw-p 00000000 00:00 0 
+7fa19d71d000-7fa19d71e000 ---p 00000000 00:00 0 
+7fa19d71e000-7fa19e123000 rw-p 00000000 00:00 0 
+7fa19e123000-7fa19e138000 r-xp 00000000 00:15 15606963                   /sl6/sw/gcc/4.8.2/rtf/lib64/libgcc_s.so.1
+7fa19e138000-7fa19e338000 ---p 00015000 00:15 15606963                   /sl6/sw/gcc/4.8.2/rtf/lib64/libgcc_s.so.1
+7fa19e338000-7fa19e339000 rw-p 00015000 00:15 15606963                   /sl6/sw/gcc/4.8.2/rtf/lib64/libgcc_s.so.1
+7fa19e339000-7fa19e33a000 rw-p 00000000 00:00 0 
+7fa19e35e000-7fa19e360000 rw-p 00000000 00:00 0 
+7fa19e360000-7fa19e444000 r-xp 00000000 00:15 15607028                   /sl6/sw/gcc/4.8.2/rtf/lib64/libstdc++.so.6.0.18
+7fa19e444000-7fa19e643000 ---p 000e4000 00:15 15607028                   /sl6/sw/gcc/4.8.2/rtf/lib64/libstdc++.so.6.0.18
+7fa19e643000-7fa19e64b000 r--p 000e3000 00:15 15607028                   /sl6/sw/gcc/4.8.2/rtf/lib64/libstdc++.so.6.0.18
+7fa19e64b000-7fa19e64d000 rw-p 000eb000 00:15 15607028                   /sl6/sw/gcc/4.8.2/rtf/lib64/libstdc++.so.6.0.18
+7fa19e64d000-7fa19e663000 rw-p 00000000 00:00 0 
+7fffcea3a000-7fffcea4f000 rw-p 00000000 00:00 0                          [stack]
+7fffcebff000-7fffcec00000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+--- END ---
+Fri May 30 02:08:00 CEST 2014
+
+fkoehler is leaving from node055 ...
+
