@@ -3,19 +3,22 @@
 \begin{frame}
   \frametitle{Grundidee}
   \begin{itemize}
+    \item Zerlegung $N=A\cdot B$ mit $B \leq A$
+    \pause{}
     \item $A$, $B$ und $N$ werden als binäre Zahlen dargestellt
-    \item $a$, $b$ und $n$ sind die Längen der Zahlen
-    \pause
+    \pause{}
+    \item $a$, $b$ und $n$ sind die Längen der Zahlen ($\lc\log_2 A\rc$ usw.)
+    \pause{}
     \item $a_1$ und $b_1$ sind die Zahlen der $1$en
       \begin{align*}
         2 \leq a \leq n \quad&\quad 1 \leq a_1 \leq a \\
         2 \leq b \leq a \quad&\quad	1 \leq b_1 \leq b
       \end{align*}
-    \pause
+    \pause{}
     \item Der Suchbereich kann eingeschränkt werden (ca. $16\%$)
       \begin{align*}
-        a_{\mathrm{min}}&=\begin{cases} 2 & \mathrm{falls}\;\; \lf\frac{n}{2}\rf=1 \\ \lf\frac{n}{2}\rf & \mathrm{sonst} \end{cases} \\
-        b_{\mathrm{min}}&=\begin{cases} 2 & \mathrm{falls}\;\; n-a=1 \\ n-a & \mathrm{sonst} \end{cases}
+        a_{\min}&=\begin{cases} 2 & \mathrm{falls}\;\; \lf\frac{n}{2}\rf=1 \\ \lf\frac{n}{2}\rf & \mathrm{sonst} \end{cases} \\
+        b_{\min}&=\begin{cases} 2 & \mathrm{falls}\;\; n-a=1 \\ n-a & \mathrm{sonst} \end{cases}
       \end{align*}
   \end{itemize}
 \end{frame}
@@ -27,7 +30,9 @@
     \pause{}
     \item Operationen zur Modifikation des Zustandes
     \pause{}
-    \item Algorithmus zur Akzeptanz oder Zurückweisung des neuen Zustandes
+    \item Algorithmus zur Akzeptanz oder Zurückweisung des neuen Zustandes (Metropolis)
+    \pause{}
+    \item Prüfung ob der Zustand eine Lösung ist
   \end{enumerate}
 \end{frame}
 
@@ -37,9 +42,15 @@
   \begin{equation*}
     E\left(A,B,N\right)=\sum\limits_{i=1}^N\begin{cases}f\left(i\right) & \mathrm{falls} {\left\{A\cdot B\right\}}_i={\left\{N\right\}}_i \\ 0 & \mathrm{sonst}\end{cases}
   \end{equation*}
-  $f\left(i\right)$ ist eine monoton steigende Funktion, z.B. $f\left(i\right)=i$ oder $f\left(i\right)=i^2$. \\
+  \pause{}
+  $f\left(i\right)$ ist eine monoton steigende Funktion. \\
   \Rightarrow{} Übereinstimmung von $A\cdot B$ mit $N$ erhöht die Energie \\
-  \Rightarrow{} Energie soll maximiert werden
+  \Rightarrow{} Energie maximieren
+  \pause{}
+  \begin{align*}
+    f\left(i\right)=i \quad&\Rightarrow\quad E_\mathrm{\max}\left(n\right)=\frac{n\left(n+1\right)}{2} \\
+    f\left(i\right)=i^2 \quad&\Rightarrow\quad E_\mathrm{\max}\left(n\right)=\frac{n\left(n+1\right)\left(2n+1\right)}{6}\text{~\cite{oeis}}
+  \end{align*}
 \end{frame}
 
 \begin{frame}
@@ -51,6 +62,7 @@
     \item\textbf{Slide:} Es wird eine zufällige Bitsequenz nach rechts geschoben
     \item\textbf{Shuffle:} Bits zufällig auswählen und permutieren
   \end{itemize}
+  Operationen haben Laufzeit $\mathcal{O}\left(n\right)$
 \end{frame}
 
 \begin{frame}
@@ -60,10 +72,33 @@
 
 \begin{frame}
   \frametitle{Annealing-Algorithmus}
+  Parameter:
+  \begin{itemize}
+    \item $N_a$: Anzahl der Abkühlungsschritte
+    \item $N_c$: Anzahl der Konfigurationen pro Abkühlungsschritt
+    \item $F_c$: Abkühlungsfaktor
+  \end{itemize}
+  \vspace{0.5cm}
   \input{pseudocode/anneal-beamer.tex}
 \end{frame}
 
 \begin{frame}
   \frametitle{Zerlegungsschritt}
   \input{pseudocode/factorize-beamer.tex}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+  \frametitle{Abschätzung der Laufzeit}
+  Abschätzung der Worst-Case-Laufzeit:
+  \begin{itemize}
+    \item Annealing-Algorithmus wird $\mathcal{O}\left(n^4\right)$-mal ausgeführt (Wertebereiche von $a$, $b$, $a_1$ und $b_1$ skalieren grob mit $\mathcal{O}\left(n\right)$)
+    \item dabei wird der Metropolis-Algorithmus $\mathcal{O}\left(N_a\cdot N_c\right)$-mal ausgeführt
+    \item dort jeweils eine der $4$ Operationen mit Laufzeit $\mathcal{O}\left(n\right)$
+  \end{itemize}
+  \Rightarrow{} Laufzeit eines Zerlegungsschrittes $\mathcal{O}\left(n^5\cdot N_a\cdot N_c\right)$
+  \pause{}
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{plot/runtime-sieve/plot.pdf}
+  \end{figure}
 \end{frame}

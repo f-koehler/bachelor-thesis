@@ -3,15 +3,20 @@
   \frametitle{Implementierung}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Erfolgsrate}
+\begin{frame}[allowframebreaks]
+  \frametitle{Abschätzung von $k_\mathrm{B}$}
+  \begin{itemize}
+    \item zwei Primzahlen $A=104723$ und $B=66889$ gewählt
+    \item Semiprimzahl $N=A\cdot B=7004816747$ mit $n=33$
+    \item verschiedene Werte $1^3\leq k_\mathrm{B}\leq 16^3$
+    \item für jeden Wert $4800$ Wiederhohlungen
+    \item $N_a=1000$, $N_c=80000$, $T_0=1$, $F_c=0.997$
+    \item Messung von Laufzeit und Erfolgsrate
+  \end{itemize}
   \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{plot/kbguess/success.pdf}
   \end{figure}
-\end{frame}
-\begin{frame}
-  \frametitle{Laufzeit}
   \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{plot/kbguess/time.pdf}
@@ -38,5 +43,13 @@
   \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{plot/factorization/time.pdf}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Parallelisierbarkeit}
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{plot/parallelization/plot.pdf}
   \end{figure}
 \end{frame}

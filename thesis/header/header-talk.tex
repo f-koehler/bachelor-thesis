@@ -42,9 +42,10 @@
   german=quotes
 ]{csquotes}
 \usepackage[
-		backend=biber,
-		sortlocale=de_DE.UTF-8,
-		maxnames=99
+  backend=biber,
+  sortlocale=de_DE.UTF-8,
+  maxnames=99,
+  sorting=none
 ]{biblatex}
 
 \usetheme{Dresden}
@@ -54,10 +55,10 @@
 %\usefonttheme{serif}
 \usefonttheme{professionalfonts}
 \setbeamertemplate{navigation symbols}{}
-%\setbeamertemplate{footline}{\hfill \hbox{\insertframenumber/\inserttotalframenumber \hspace{1em}\rule[-1em]{0pt}{0pt}}}
 %\useoutertheme[subsection=false]{miniframes}
+\setbeamertemplate{bibliography item}[text]
 
-\NewDocumentCommand\makebibliography{}{\printbibliography[heading=bibintoc]}
+\NewDocumentCommand\makebibliography{}{\printbibliography[heading=none]}
 
 \newcommand{\frameofframes}{/}
 \newcommand{\setframeofframes}[1]{\renewcommand{\frameofframes}{#1}}
@@ -77,7 +78,6 @@
     leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}
     {\usebeamerfont{title in head/foot}\insertshorttitle}
     \hfill%
-    %{\usebeamerfont{frame number}\usebeamercolor[fg]{frame number}\insertframenumber~\frameofframes~\inserttotalframenumber}
     {\usebeamerfont{frame number}\usebeamercolor[fg]{frame number}\insertframenumber~/~\inserttotalframenumber}
   \end{beamercolorbox}%
   \begin{beamercolorbox}[colsep=1.5pt]{lower separation line foot}
@@ -88,5 +88,7 @@
 % floor commands
 \def\lf{\left\lfloor}   
 \def\rf{\right\rfloor}
+\def\lc{\left\lceil}
+\def\rc{\right\rceil}
 
 \parindent0pt

@@ -10,14 +10,7 @@
       \State{Exit}\Comment{Faktoren $A, B$ wurden gefunden}
     \EndIf{}
     \State{$E^\prime=E\left(A^\prime,B^\prime,N\right)$}
-    \If{$E^\prime>E$}
-      \State{$A\gets A^\prime$, $B\gets B^\prime$, $E\gets E^\prime$}
-    \Else{}
-      \State{$p\gets\mathrm{randomFloat}\left(0.0, 1.0\right)$}
-      \If{$p<\exp\left(-\frac{E^\prime-E}{k_\mathrm{B} T}\right)$}
-        \State{$A\gets A^\prime$, $B\gets B^\prime$, $E\gets E^\prime$}
-      \EndIf{}
-    \EndIf{}
+    \State{Acceptance probability: $p=\begin{cases}1 & \mathrm{falls}\; E^\prime>E \\ \exp\left(\frac{E^\prime-E}{k_\mathrm{B}T}\right) & \mathrm{sonst}\end{cases}$}
   \EndProcedure{}
   \normalsize
 \end{algorithmic}
