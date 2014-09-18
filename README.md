@@ -3,7 +3,7 @@ Prime factorization is an interesting problem as it is not efficiently solvable 
 
 The thesis and the talk are written in German. You can find final versions in the [final](https://github.com/f-koehler/bachelor-thesis/tree/master/final) folder.
 
-I am not very happy with the code of the programs I wrote so that I started the [primefac](https://github.com/f-koehler/primefac)-project. Go check it out!
+I am not very happy with the code of the programs I wrote, so I started the [primefac](https://github.com/f-koehler/primefac)-project. Go check it out!
 
 ## Required programs (tested versions)
 * GNU make 4.0
