@@ -1,5 +1,6 @@
 \section{Simulated-Annealing-Methode}
 
+\subsection*{Grundidee}
 \begin{frame}
   \frametitle{Grundidee}
   \begin{itemize}
@@ -26,11 +27,15 @@
 \begin{frame}
   \frametitle{Vorgehen}
   \begin{enumerate}
-    \item Einführung einer Energiedefinition
+    \setlength{\itemsep}{0.3cm}
+
+    \item Initialisierung des Systems ($A$,$B$,$E$)
     \pause{}
     \item Operationen zur Modifikation des Zustandes
     \pause{}
-    \item Algorithmus zur Akzeptanz oder Zurückweisung des neuen Zustandes (Metropolis)
+    \item Algorithmus zur Akzeptanz oder Zurückweisung des neuen Zustandes (Metropolis) \\
+          \pause{}
+          \Rightarrow{} Einführung einer Energiedefinition
     \pause{}
     \item Prüfung ob der Zustand eine Lösung ist
   \end{enumerate}
@@ -80,6 +85,8 @@
   Operationen haben Laufzeit $\mathcal{O}\left(n\right)$
 \end{frame}
 
+
+\subsection*{Algorithmen}
 \begin{frame}
   \frametitle{Metropolis-Algorithmus}
   \input{pseudocode/metropolis-beamer.tex}
@@ -102,6 +109,7 @@
   \input{pseudocode/factorize-beamer.tex}
 \end{frame}
 
+\subsection*{Abschätzung der Laufzeit}
 \begin{frame}[allowframebreaks]
   \frametitle{Abschätzung der Laufzeit}
   Abschätzung der Worst-Case-Laufzeit:

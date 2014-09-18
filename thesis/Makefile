@@ -6,7 +6,7 @@ SECTIONS=$(wildcard sections/*.tex)
 SLIDES=$(wildcard slides/*.tex)
 PSEUDOCODE=$(wildcard pseudocode/*.tex)
 MATPLOTLIB=matplotlibrc header/matplotlib.tex
-PLOTS=plot/runtime-theo/runtime.pdf plot/runtime-theo/comparison.pdf plot/runtime-sieve/plot.pdf plot/kbguess/time.pdf plot/runtime/time.pdf plot/runtime2/time.pdf plot/factorization/time.pdf plot/parallelization/plot.pdf plot/dummy/dummy.pdf
+PLOTS=plot/runtime-theo/runtime.pdf plot/runtime-theo/comparison.pdf plot/runtime-sieve/plot.pdf plot/kbguess/time.pdf plot/runtime/time.pdf plot/runtime2/time.pdf plot/factorization/time.pdf plot/parallelization/plot.pdf
 FIGS=$(wildcard fig/*.tex)
 BIB=literature.bib
 
