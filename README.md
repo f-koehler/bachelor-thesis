@@ -8,7 +8,9 @@ I am not very happy with the code of the programs I wrote, so I started the [pri
 ## Required programs (tested versions)
 * GNU make 4.0
 * Cmake 3.0.0
-* TeXLive 2013
+* TeXLive 2014
+* Biber 1.9
+* Rubber 1.1
 * Python 3.4.1
 * GNU Compiler Collection 4.9.0
 
