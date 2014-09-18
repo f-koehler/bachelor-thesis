@@ -1,5 +1,17 @@
 \section{Untersuchung des Verfahrens}
 
+\begin{frame}
+  Untersuchungen
+  \begin{itemize}
+    \setlength{\itemsep}{0.3cm}
+
+    \item Abschätzung von $k_\mathrm{B}$
+    \item Einzelner Zerlegungsschritt
+    \item Komplette Faktorisierung
+    \item Parallelisierbarkeit
+  \end{itemize}
+\end{frame}
+
 \subsection*{\texorpdfstring{Abschätzung von $k_\mathrm{B}$}{Abschätzung von kB}}
 \begin{frame}
   \frametitle{Abschätzung von $k_\mathrm{B}$}
@@ -79,8 +91,12 @@
 \subsection*{Parallelisierbarkeit}
 \begin{frame}
   \frametitle{Parallelisierbarkeit}
+  \begin{itemize}
+    \item Verteile Tupel $\left(a,a_1,b,b_1\right)$ auf Threads
+    \item $N=783061$ $200$-mal für verschiede Threadzahl zerlegen
+  \end{itemize}
   \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{plot/parallelization/plot.pdf}
+    \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{plot/parallelization/plot.pdf}
   \end{figure}
 \end{frame}
